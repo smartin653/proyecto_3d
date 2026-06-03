@@ -10,6 +10,7 @@ import RaycasterManager from "../interaction/RaycasterManager.js";
 import AudioManager from "../audio/AudioManager.js";
 import MonitorManager from "../monitor/MonitorManager.js";
 import SpotifyPlayer from "../ui/SpotifyPlayer.js";
+import DebugManager from "./DebugManager.js";
 
 export default class Experience {
   constructor() {
@@ -46,6 +47,37 @@ export default class Experience {
       this.rendererManager.renderer.domElement,
     );
 
+    this.debugTarget = {
+      x: 0,
+      y: 1.3,
+      z: 0,
+    };
+
+    // this.debugManager = new DebugManager();
+    // const gui = this.debugManager.gui;
+    // gui.add(this.camera.position, "x", -20, 20, 0.1).name("Cam X");
+
+    // gui.add(this.camera.position, "y", -20, 20, 0.1).name("Cam Y");
+
+    // gui.add(this.camera.position, "z", -20, 20, 0.1).name("Cam Z");
+    // gui.add(this.debugTarget, "x", -20, 20, 0.1).name("Target X");
+
+    // gui.add(this.debugTarget, "y", -20, 20, 0.1).name("Target Y");
+
+    // gui.add(this.debugTarget, "z", -20, 20, 0.1).name("Target Z");
+    // gui
+    //   .add(this.camera, "fov", 10, 100, 1)
+    //   .name("FOV")
+    //   .onChange(() => {
+    //     this.camera.updateProjectionMatrix();
+    //   });
+    // gui
+    //   .add(this.camera, "fov", 10, 100, 1)
+    //   .name("FOV")
+    //   .onChange(() => {
+    //     this.camera.updateProjectionMatrix();
+    //   });
+
     this.modelLoader = new ModelLoader();
     this.audioManager = new AudioManager();
     this.spotifyPlayer = new SpotifyPlayer(this.audioManager);
@@ -73,7 +105,7 @@ export default class Experience {
 
       this.scene.add(gltf.scene);
       const screen = gltf.scene.getObjectByName("PantallaMonitor");
-      console.log("Material screen",screen.material);
+      console.log("Material screen", screen.material);
       this.monitorManager = new MonitorManager(screen);
       this.audioManager.onEnded = () => {
         this.monitorManager.setInactive();
@@ -134,6 +166,16 @@ export default class Experience {
     if (this.spotifyPlayer) {
       this.spotifyPlayer.update();
     }
+
+    this.controlsManager.controls.target.set(
+      this.debugTarget.x,
+
+      this.debugTarget.y,
+
+      this.debugTarget.z,
+    );
+
+    this.controlsManager.controls.update();
 
     this.rendererManager.render();
   }
