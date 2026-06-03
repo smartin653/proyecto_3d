@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Interactive Studio</title>
-
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./styles/main.css" />
   </head>
   <body>
@@ -17,36 +20,33 @@
       <strong id="track-title"> Ninguna pista </strong>
     </div>
     <div id="spotify-player">
-    <div class="spotify-container">
-       <div class="spotify-left">
-        <img id="spotify-cover" src="" alt="">
-        <div class="spotify-track-info">
+      <div class="spotify-container">
+        <div class="spotify-left">
+          <img id="spotify-cover" src="" alt="" />
+          <div class="spotify-track-info">
             <div class="spotify-track-title">Ansias De Amarte</div>
-            
+          </div>
         </div>
-    </div>
 
-    <div class="spotify-center">
-        <div class="spotify-controls">
+        <div class="spotify-center">
+          <div class="spotify-controls">
             <button>⏮</button>
             <button id="spotify-toggle">▶</button>
             <button>⏭</button>
-        </div>
+          </div>
 
-        <div class="spotify-progress-wrapper">
+          <div class="spotify-progress-wrapper">
             <span id="current-time">3:32</span>
 
             <div class="spotify-progress">
-                <div class="spotify-progress-fill"></div>
+              <div class="spotify-progress-fill"></div>
             </div>
 
             <span id="duration-time">3:38</span>
+          </div>
         </div>
+      </div>
     </div>
-    
-    </div>
-
-</div>
     <script type="module" src="./js/main.js"></script>
   </body>
 </html>

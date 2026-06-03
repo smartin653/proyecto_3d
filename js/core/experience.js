@@ -11,6 +11,7 @@ import AudioManager from "../audio/AudioManager.js";
 import MonitorManager from "../monitor/MonitorManager.js";
 import SpotifyPlayer from "../ui/SpotifyPlayer.js";
 import DebugManager from "./DebugManager.js";
+import IntroOverlay from "../ui/IntroOverlay.js";
 
 export default class Experience {
   constructor() {
@@ -91,6 +92,8 @@ export default class Experience {
       this.monitorManager,
       this.spotifyPlayer,
     );
+    this.introOverlay = new IntroOverlay();
+    this.introOverlay.onEnter(this.handleEnter.bind(this));
 
     this.loadAssets();
 
@@ -102,6 +105,7 @@ export default class Experience {
   async loadAssets() {
     try {
       const gltf = await this.modelLoader.load("../assets/models/Ed.glb");
+      this.introOverlay.enable();
 
       this.scene.add(gltf.scene);
       const screen = gltf.scene.getObjectByName("PantallaMonitor");
@@ -139,9 +143,14 @@ export default class Experience {
       });
 
       console.log(gltf.scene.scale);
+      this.introOverlay.enable();
     } catch (error) {
       console.error(error);
     }
+  }
+
+  handleEnter() {
+    this.introOverlay.hide();
   }
 
   setupEvents() {
