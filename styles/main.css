@@ -33,14 +33,22 @@ canvas{
 
     padding: 8px 12px;
 
-    background: rgba(0,0,0,.85);
+    background:#111;
 
-    color: white;
+    border:2px solid #ffae00;
 
-    font-size: 14px;
+    border-radius:6px;
 
-    border-radius: 6px;
+    color:#ffae00;
 
+    font-family:monospace;
+
+    text-transform:uppercase;
+
+    letter-spacing:2px;
+
+    box-shadow:
+        0 0 10px rgba(255,174,0,.3);
     pointer-events: none;
 
     opacity: 0;

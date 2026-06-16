@@ -4,7 +4,14 @@ import { THREE } from "../libs/three.js";
 import interactables from "../data/interactables.js";
 
 export default class RaycasterManager {
-  constructor(camera, scene, canvas, audioManager, monitorManager,spotifyPlayer) {
+  constructor(
+    camera,
+    scene,
+    canvas,
+    audioManager,
+    monitorManager,
+    spotifyPlayer,
+  ) {
     this.camera = camera;
     this.scene = scene;
     this.canvas = canvas;
@@ -32,9 +39,11 @@ export default class RaycasterManager {
     this.mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
 
     this.mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
-    this.tooltip.style.left = event.clientX + "px";
 
-    this.tooltip.style.top = event.clientY + "px";
+    // Posición tooltip (desplazada)
+    this.tooltip.style.left = event.clientX + 20 + "px";
+
+    this.tooltip.style.top = event.clientY - 40 + "px";
 
     this.raycaster.setFromCamera(this.mouse, this.camera);
 
@@ -55,6 +64,7 @@ export default class RaycasterManager {
     const hit = intersects.find((item) =>
       validSliders.includes(item.object.name),
     );
+
     const interactable = hit ? interactables[hit.object.name] : null;
 
     if (hit) {
@@ -65,12 +75,28 @@ export default class RaycasterManager {
       this.tooltip.style.opacity = 1;
 
       if (this.hoveredObject !== hit.object) {
+        console.log(hit.object.material);
+        console.log(hit.object.material.emissive);
+        // Apagar hover anterior
+        if (this.hoveredObject) {
+          this.hoveredObject.material.emissive.set(0x000000);
+          this.hoveredObject.material.emissiveIntensity = 0;
+        }
+
+        // Nuevo hover
         this.hoveredObject = hit.object;
+        this.hoveredObject.material.emissive.set(0xffffff);
+        this.hoveredObject.material.emissiveIntensity = 1;
       }
     } else {
       document.body.style.cursor = "default";
 
       this.tooltip.style.opacity = 0;
+
+      if (this.hoveredObject) {
+        this.hoveredObject.material.emissive.set(0x000000);
+        this.hoveredObject.material.emissiveIntensity = 0;
+      }
 
       this.hoveredObject = null;
     }
@@ -100,7 +126,7 @@ export default class RaycasterManager {
       console.log(interactable.title);
       this.audioManager.showTrack(interactable.title);
       this.audioManager.play(interactable.audio);
-      this.spotifyPlayer.show(interactable.title,interactable.cover);
+      this.spotifyPlayer.show(interactable.title, interactable.cover);
       this.monitorManager.setActive();
     }
   }

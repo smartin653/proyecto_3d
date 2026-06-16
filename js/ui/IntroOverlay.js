@@ -56,10 +56,8 @@ export default class IntroOverlay {
 
     <div class="intro-right">
 
-        <img
-            src="assets/images/studio-cover.png"
-            alt="Estudio Ed Maverick"
-        >
+        <video src="assets/video/Portada.mp4" autoplay></video>
+
 
     </div>
 

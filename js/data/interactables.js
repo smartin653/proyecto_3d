@@ -4,21 +4,21 @@ export default {
 
     Slider_Pista01: {
 
-        title: 'Pista 01',
+        title: 'No todo es parte de la vida',
 
         audio:
         './assets/audio/track01.mp3',
-        cover: "./assets/covers/coverED.jpg"
+        cover: "./assets/covers/cover_01.png"
 
     },
 
     Slider_Pista02: {
 
-        title: 'Pista 02',
+        title: 'Me inundo',
 
         audio:
         './assets/audio/track02.mp3',
-        cover: "./assets/covers/coverED.jpg"
+        cover: "./assets/covers/cover_02.png"
 
     },
 
