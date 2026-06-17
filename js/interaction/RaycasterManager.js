@@ -124,7 +124,7 @@ export default class RaycasterManager {
 
     if (interactable) {
       console.log(interactable.title);
-      this.audioManager.showTrack(interactable.title);
+      //this.audioManager.showTrack(interactable.title);
       this.audioManager.play(interactable.audio);
       this.spotifyPlayer.show(interactable.title, interactable.cover);
       this.monitorManager.setActive();

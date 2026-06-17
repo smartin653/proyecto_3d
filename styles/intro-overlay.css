@@ -1,252 +1,201 @@
-#intro-overlay{
-
-    position:fixed;
-
-    inset:0;
-
-    background:#000;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    z-index:99999;
-
-    transition:
-        opacity .6s ease;
-
+#intro-overlay {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+    transition: opacity .6s ease;
 }
 
-#intro-overlay.hidden{
-
-    opacity:0;
-
-    pointer-events:none;
-
+#intro-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
 }
-
 
 /* ==========================
    CONTENEDOR PRINCIPAL
 ========================== */
 
-.intro-content{
-
-    width:100%;
-    height:100vh;
-
-    display:grid;
-    grid-template-columns:45% 55%;
-
-    background:#12100f;
-
+.intro-content {
+    width: 100%;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 45% 55%;
+    background: #12100f;
 }
-
 
 /* ==========================
    PANEL IZQUIERDO
 ========================== */
 
-.intro-left{
-
-    display:flex;
-    flex-direction:column;
-
-    justify-content:center;
-
-    padding:80px;
-
-    color:#f4f0ea;
-
+.intro-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px;
+    color: #f4f0ea;
 }
-
 
 /* ETIQUETA SUPERIOR */
 
-.intro-label{
-
-    font-size:13px;
-    letter-spacing:3px;
-
-    color:#b89b7a;
-
-    margin-bottom:40px;
-
+.intro-label {
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: #b89b7a;
+    margin-bottom: 40px;
 }
-
 
 /* TITULO */
 
-.intro-left h1{
-
-    font-family:"Cormorant Garamond", serif;
-
-    font-size:4rem;
-
-    line-height:.9;
-
-    font-weight:400;
-
-    margin:0;
-
-    color:#f5f2ee;
-
+.intro-left h1 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 4rem;
+    line-height: 0.9;
+    font-weight: 400;
+    margin: 0;
+    color: #f5f2ee;
 }
-
 
 /* LINEA DECORATIVA */
 
-.intro-line{
-
-    width:60px;
-    height:1px;
-
-    background:#b89b7a;
-
-    margin:40px 0;
-
+.intro-line {
+    width: 60px;
+    height: 1px;
+    background: #b89b7a;
+    margin: 40px 0;
 }
-
 
 /* TEXTO */
 
-.intro-description{
-
-    font-size:22px;
-
-    line-height:1.8;
-
-    max-width:500px;
-
-    color:rgba(255,255,255,.75);
-
-    margin-bottom:50px;
-
+.intro-description {
+    font-size: 22px;
+    line-height: 1.8;
+    max-width: 500px;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 50px;
 }
-
 
 /* BOTON */
 
-#enter-btn{
-
-    width:280px;
-
-    height:64px;
-
-    border:none;
-
-    cursor:pointer;
-
-    background:#c9a67d;
-
-    color:#111;
-
-    font-size:15px;
-
-    letter-spacing:2px;
-
-    font-weight:600;
-
-    transition:.3s;
-
+#enter-btn {
+    width: 280px;
+    height: 64px;
+    border: none;
+    cursor: pointer;
+    background: #c9a67d;
+    color: #111;
+    font-size: 15px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    transition: .3s;
 }
 
-
-#enter-btn:hover:not(:disabled){
-
-    transform:translateY(-2px);
-
+#enter-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
 }
 
-
-#enter-btn:disabled{
-
-    opacity:.65;
-    cursor:not-allowed;
-
+#enter-btn:disabled {
+    opacity: .65;
+    cursor: not-allowed;
 }
-
 
 /* FOOTER */
 
-.intro-footer{
-
-    margin-top:40px;
-
-    font-size:14px;
-
-    letter-spacing:1px;
-
-    color:rgba(255,255,255,.45);
-
+.intro-footer {
+    margin-top: 40px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.45);
 }
-
 
 /* ==========================
    PANEL DERECHO
 ========================== */
 
-.intro-right{
-
-    position:relative;
-
-    overflow:hidden;
-
+.intro-right {
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
 }
 
-
-.intro-right video{
-
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
-
+.intro-right video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
-
 
 /* ==========================
    RESPONSIVE
 ========================== */
 
-@media(max-width:900px){
+@media (max-width: 900px) {
 
-    .intro-content{
-
-        grid-template-columns:1fr;
-
+    .intro-content {
+        grid-template-columns: 1fr;
+        min-height: 100vh;
+        height: auto;
     }
 
-    .intro-right{
-
-        display:none;
-
+    .intro-left {
+        padding: 40px 25px;
     }
 
-    .intro-left{
-
-        padding:40px;
-
+    .intro-left h1 {
+        font-size: 48px;
     }
 
-    .intro-left h1{
-
-        font-size:72px;
-
+    .intro-description {
+        font-size: 18px;
+        line-height: 1.6;
+        margin-bottom: 35px;
     }
 
-    .intro-description{
-
-        font-size:18px;
-
+    #enter-btn {
+        width: 100%;
     }
 
-    #enter-btn{
-
-        width:100%;
-
+    .intro-right {
+        display: block;
+        min-height: 300px;
+        height: 50vh;
     }
 
+    .intro-right video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .intro-left {
+        padding: 30px 20px;
+    }
+
+    .intro-left h1 {
+        font-size: 38px;
+    }
+
+    .intro-label {
+        font-size: 11px;
+        letter-spacing: 2px;
+        margin-bottom: 25px;
+    }
+
+    .intro-line {
+        margin: 25px 0;
+    }
+
+    .intro-description {
+        font-size: 16px;
+    }
+
+    .intro-right {
+        height: 40vh;
+        min-height: 250px;
+    }
 }
