@@ -1,20 +1,14 @@
 export default class IntroOverlay {
+  constructor() {
+    this.create();
+  }
 
-    constructor() {
+  create() {
+    this.element = document.createElement("div");
 
-        this.create();
+    this.element.id = "intro-overlay";
 
-    }
-
-    create() {
-
-        this.element =
-            document.createElement("div");
-
-        this.element.id =
-            "intro-overlay";
-
-        this.element.innerHTML = `
+    this.element.innerHTML = `
 
             <div class="intro-content">
 
@@ -56,7 +50,19 @@ export default class IntroOverlay {
 
     <div class="intro-right">
 
-        <video src="assets/video/Portada.mp4" autoplay></video>
+        <video
+    id="intro-video"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="auto"
+>
+    <source
+        src="assets/video/Portada.mp4"
+        type="video/mp4"
+    >
+</video>
 
 
     </div>
@@ -65,41 +71,23 @@ export default class IntroOverlay {
 
         `;
 
-        document.body.appendChild(
-            this.element
-        );
+    document.body.appendChild(this.element);
 
-        this.button =
-            document.getElementById(
-                "enter-btn"
-            );
+    this.button = document.getElementById("enter-btn");
+    this.video = document.getElementById("intro-video");
+  }
 
-    }
+  enable() {
+    this.button.disabled = false;
 
-    enable() {
+    this.button.textContent = "Entrar al estudio";
+  }
 
-        this.button.disabled = false;
+  onEnter(callback) {
+    this.button.addEventListener("click", callback);
+  }
 
-        this.button.textContent =
-            "Entrar al estudio";
-
-    }
-
-    onEnter(callback) {
-
-        this.button.addEventListener(
-            "click",
-            callback
-        );
-
-    }
-
-    hide() {
-
-        this.element.classList.add(
-            "hidden"
-        );
-
-    }
-
+  hide() {
+    this.element.classList.add("hidden");
+  }
 }
