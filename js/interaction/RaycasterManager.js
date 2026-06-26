@@ -9,17 +9,20 @@ export default class RaycasterManager {
     scene,
     canvas,
     audioManager,
-    monitorManager,
+    screenManager,
     spotifyPlayer,
+    cameraTransition,
   ) {
+    console.log("cameraTransition:", cameraTransition);
     this.camera = camera;
     this.scene = scene;
     this.canvas = canvas;
     this.hoveredObject = null;
     this.tooltip = document.getElementById("tooltip");
     this.audioManager = audioManager;
-    this.monitorManager = monitorManager;
+    this.screenManager = screenManager;
     this.spotifyPlayer = spotifyPlayer;
+    this.cameraTransition = cameraTransition;
 
     this.raycaster = new THREE.Raycaster();
 
@@ -52,18 +55,7 @@ export default class RaycasterManager {
       true,
     );
 
-    const validSliders = [
-      "Slider_Pista01",
-      "Slider_Pista02",
-      "Slider_Pista03",
-      "Slider_Pista04",
-      "Slider_Pista05",
-      "Slider_Pista06",
-    ];
-
-    const hit = intersects.find((item) =>
-      validSliders.includes(item.object.name),
-    );
+    const hit = intersects.find((item) => interactables[item.object.name]);
 
     const interactable = hit ? interactables[hit.object.name] : null;
 
@@ -127,7 +119,11 @@ export default class RaycasterManager {
       //this.audioManager.showTrack(interactable.title);
       this.audioManager.play(interactable.audio);
       this.spotifyPlayer.show(interactable.title, interactable.cover);
-      this.monitorManager.setActive();
+      this.screenManager.play(interactable.visuals);
+      this.cameraTransition.flyTo(
+        interactable.camera.position,
+        interactable.camera.target,
+      );
     }
   }
 }

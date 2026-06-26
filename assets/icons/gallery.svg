@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+
+    <circle
+        cx="64"
+        cy="64"
+        r="46"
+        fill="none"
+        stroke="white"
+        stroke-width="4"/>
+
+    <rect
+        x="42"
+        y="44"
+        width="44"
+        height="38"
+        rx="4"
+        fill="none"
+        stroke="white"
+        stroke-width="4"/>
+
+    <circle
+        cx="54"
+        cy="54"
+        r="4"
+        fill="white"/>
+
+    <path
+        d="M48 76
+           L60 62
+           L69 69
+           L82 54
+           L82 76
+           Z"
+        fill="white"/>
+
+</svg>

@@ -8,10 +8,16 @@ import ModelLoader from "../loaders/ModelLoader.js";
 import { THREE } from "../libs/three.js";
 import RaycasterManager from "../interaction/RaycasterManager.js";
 import AudioManager from "../audio/AudioManager.js";
-import MonitorManager from "../monitor/MonitorManager.js";
+import VideoScreen from "../monitor/VideoScreen.js";
 import SpotifyPlayer from "../ui/SpotifyPlayer.js";
 import DebugManager from "./DebugManager.js";
 import IntroOverlay from "../ui/IntroOverlay.js";
+import Beacon from "../ui/Beacon.js";
+import BeaconManager from "../ui/BeaconManager.js";
+import ScreenManager from "../monitor/ScreenManager.js";
+import CameraTransitionManager from "./CameraTransitionManager.js";
+import interactables from "../data/interactables.js";
+import HintManager from "../ui/HintManager.js";
 
 export default class Experience {
   constructor() {
@@ -54,8 +60,34 @@ export default class Experience {
       z: 0,
     };
 
+    this.cameraTransition = new CameraTransitionManager(
+      this.camera,
+      this.controlsManager.controls,
+    );
+    this.liveCamera = {
+      camX: 0,
+      camY: 0,
+      camZ: 0,
+
+      targetX: 0,
+      targetY: 0,
+      targetZ: 0,
+    };
     // this.debugManager = new DebugManager();
     // const gui = this.debugManager.gui;
+    // const liveFolder = gui.addFolder("Live Camera");
+
+    // liveFolder.add(this.liveCamera, "camX").listen();
+
+    // liveFolder.add(this.liveCamera, "camY").listen();
+
+    // liveFolder.add(this.liveCamera, "camZ").listen();
+
+    // liveFolder.add(this.liveCamera, "targetX").listen();
+
+    // liveFolder.add(this.liveCamera, "targetY").listen();
+
+    // liveFolder.add(this.liveCamera, "targetZ").listen();
     // gui.add(this.camera.position, "x", -20, 20, 0.1).name("Cam X");
 
     // gui.add(this.camera.position, "y", -20, 20, 0.1).name("Cam Y");
@@ -82,15 +114,19 @@ export default class Experience {
     this.modelLoader = new ModelLoader();
     this.audioManager = new AudioManager();
     this.spotifyPlayer = new SpotifyPlayer(this.audioManager);
-    console.log(this.monitorManager);
+    console.log(this.monitorScreen);
+    this.screenManager = new ScreenManager();
+    this.beaconManager = new BeaconManager(this.scene);
+    this.hintManager = new HintManager(this.scene);
 
     this.raycasterManager = new RaycasterManager(
       this.camera,
       this.scene,
       this.rendererManager.renderer.domElement,
       this.audioManager,
-      this.monitorManager,
+      this.screenManager,
       this.spotifyPlayer,
+      this.cameraTransition,
     );
     this.introOverlay = new IntroOverlay();
     this.introOverlay.onEnter(this.handleEnter.bind(this));
@@ -100,6 +136,22 @@ export default class Experience {
     this.setupEvents();
 
     this.animate();
+
+    window.testCamera = () => {
+      this.cameraTransition.flyTo(
+        {
+          x: 1,
+          y: 1.5,
+          z: 1,
+        },
+
+        {
+          x: 0,
+          y: 1,
+          z: 0,
+        },
+      );
+    };
   }
 
   async loadAssets() {
@@ -108,14 +160,19 @@ export default class Experience {
       this.introOverlay.enable();
 
       this.scene.add(gltf.scene);
-      const screen = gltf.scene.getObjectByName("PantallaMonitor");
+      gltf.scene.updateMatrixWorld(true);
+      const screen = gltf.scene.getObjectByName("PlanosTele");
+      const exteriorScreen = gltf.scene.getObjectByName("PlanosExterior");
       console.log("Material screen", screen.material);
-      this.monitorManager = new MonitorManager(screen);
+      this.monitorScreen = new VideoScreen(screen);
+      this.projectorScreen = new VideoScreen(exteriorScreen);
+      this.screenManager.add("monitor", this.monitorScreen);
+      this.screenManager.add("projector", this.projectorScreen);
+      this.raycasterManager.screenManager = this.screenManager;
       this.audioManager.onEnded = () => {
-        this.monitorManager.setInactive();
+        this.screenManager.stopAll();
         this.spotifyPlayer.hide();
       };
-      this.raycasterManager.monitorManager = this.monitorManager;
 
       console.log(screen);
       const box = new THREE.Box3().setFromObject(gltf.scene);
@@ -136,10 +193,38 @@ export default class Experience {
       //     console.log(child.name);
       //   }
       // });
+      // gltf.scene.traverse((child) => {
+      //   if (child.isMesh && child.name.startsWith("Slider_")) {
+      //     child.material = child.material.clone();
+
+      //     child.material.emissive.set(0xffffff);
+
+      //     child.material.emissiveIntensity = 0.15;
+      //   }
+      // });
+
+      this.interactables = [];
+
       gltf.scene.traverse((child) => {
-        if (child.isMesh && child.name.startsWith("Slider_")) {
-          child.material = child.material.clone();
-        }
+        if (!child.isMesh) return;
+
+        const interactable = interactables[child.name];
+
+        if (!interactable) return;
+
+        child.material = child.material.clone();
+
+        child.material.emissive.set(0xffffff);
+        console.log({
+          name: child.name,
+          type: child.type,
+          parent: child.parent?.name,
+          children: child.children.length,
+          position: child.position,
+        });
+
+        child.material.emissiveIntensity = 0.15;
+        this.beaconManager.create(interactable, child);
       });
 
       console.log(gltf.scene.scale);
@@ -166,26 +251,67 @@ export default class Experience {
   animate() {
     requestAnimationFrame(this.animate.bind(this));
 
-    this.controlsManager.update();
-
-    if (this.monitorManager) {
-      this.monitorManager.update(performance.now());
+    if (this.screenManager) {
+      this.screenManager.update(performance.now());
+      if (this.beaconManager) {
+        this.beaconManager.update(performance.now());
+      }
     }
 
     if (this.spotifyPlayer) {
       this.spotifyPlayer.update();
     }
 
-    this.controlsManager.controls.target.set(
-      this.debugTarget.x,
+    this.cameraTransition.update(0.016);
+    // debug
+    this.liveCamera.camX = this.camera.position.x;
 
-      this.debugTarget.y,
+    this.liveCamera.camY = this.camera.position.y;
 
-      this.debugTarget.z,
-    );
+    this.liveCamera.camZ = this.camera.position.z;
 
-    this.controlsManager.controls.update();
+    this.liveCamera.targetX = this.controlsManager.controls.target.x;
+
+    this.liveCamera.targetY = this.controlsManager.controls.target.y;
+
+    this.liveCamera.targetZ = this.controlsManager.controls.target.z;
+
+    this.controlsManager.update();
+    if (this.interactables) {
+      const pulse = (Math.sin(performance.now() * 0.002) + 1) / 2;
+
+      this.interactables.forEach((item) => {
+        item.material.emissiveIntensity = 0.15 + pulse * 0.25;
+      });
+    }
 
     this.rendererManager.render();
   }
+
+  // animate() {
+  //   requestAnimationFrame(this.animate.bind(this));
+
+  //   this.controlsManager.update();
+
+  //   if (this.screenManager) {
+  //     this.screenManager.update(performance.now());
+  //   }
+
+  //   if (this.spotifyPlayer) {
+  //     this.spotifyPlayer.update();
+  //   }
+
+  //   // this.controlsManager.controls.target.set(
+  //   //   this.debugTarget.x,
+
+  //   //   this.debugTarget.y,
+
+  //   //   this.debugTarget.z,
+  //   // );
+
+  //   this.controlsManager.controls.update();
+  //   this.cameraTransition.update(0.016);
+
+  //   this.rendererManager.render();
+  // }
 }

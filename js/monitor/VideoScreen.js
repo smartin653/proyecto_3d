@@ -1,7 +1,7 @@
 // js/monitor/MonitorManager.js
 import { THREE } from "../libs/three.js";
 
-export default class MonitorManager {
+export default class MonitorScreen {
   constructor(screen) {
     this.screen = screen;
     this.originalMaterial = screen.material;
@@ -9,7 +9,7 @@ export default class MonitorManager {
     this.originalColor = screen.material.color.clone();
     this.isActive = false;
     this.video = document.createElement("video");
-    this.video.src = "./assets/video/grabadora.mp4";
+    
     this.video.loop = true;
     this.video.muted = true;
     this.video.playsInline = true;
@@ -19,6 +19,19 @@ export default class MonitorManager {
       map: this.videoTexture,
     });
   }
+
+  setVideo(videoPath) {
+    if (this.video.src.includes(videoPath)) {
+        return;
+    }
+
+    this.video.pause();
+
+    this.video.src = videoPath;
+
+    this.video.load();
+
+}
 
   playVideo() {
     console.log("PLAY VIDEO");
@@ -35,13 +48,23 @@ export default class MonitorManager {
     this.video.currentTime = 0;
   }
 
-  setActive() {
+  setActive(videoPath) {
+
     this.isActive = true;
 
-    this.screen.material = this.videoMaterial;
+    this.setVideo(
+        videoPath
+    );
+
+    this.screen.material =
+        this.videoMaterial;
+
+    this.screen.material.needsUpdate =
+        true;
 
     this.playVideo();
-  }
+
+}
 
   setInactive() {
     this.isActive = false;

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+
+    <circle
+        cx="64"
+        cy="64"
+        r="46"
+        fill="none"
+        stroke="white"
+        stroke-width="4"
+        opacity="0.9"/>
+
+    <path
+        d="M58 38
+           V78
+           A7 7 0 1 1 52 71
+           V48
+           L82 42
+           V68
+           A7 7 0 1 1 76 61
+           V38
+           Z"
+        fill="white"/>
+
+</svg>
