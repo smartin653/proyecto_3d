@@ -169,49 +169,54 @@ export default class Experience {
     root.traverse((child) => {
       if (!child.isLight) return;
 
-      //----------------------------------
-      // Intensidad
-      //----------------------------------
-
-      child.intensity = 100;
-
-      //----------------------------------
-      // Sombras
-      //----------------------------------
-
       child.castShadow = true;
 
-      child.shadow.bias = 0;
+      switch (child.name) {
+        case "Spot001":
+          child.intensity = 100;
+          child.shadow.bias = -0.00309;
+          child.shadow.normalBias = 0;
+          child.shadow.radius = 5;
+          child.shadow.camera.near = 0.05;
+          child.shadow.camera.far = 10;
+          break;
 
-      child.shadow.normalBias = 0;
+        case "Spot002":
+          child.intensity = 160;
+          child.shadow.bias = -0.00047;
+          child.shadow.normalBias = 0;
+          child.shadow.radius = 5;
+          child.shadow.camera.near = 0.1;
+          child.shadow.camera.far = 10;
+          break;
 
-      child.shadow.radius = 5;
+        case "Spot003":
+          child.intensity = 160;
+          child.shadow.bias = -0.00152;
+          child.shadow.normalBias = 0;
+          child.shadow.radius = 5;
+          child.shadow.camera.near = 0.1;
+          child.shadow.camera.far = 10;
+          break;
 
-      //----------------------------------
-      // Shadow Camera
-      //----------------------------------
-
-      child.shadow.camera.near = 0.1;
-
-      child.shadow.camera.far = 10;
-
-      child.shadow.camera.updateProjectionMatrix();
-
-      //----------------------------------
-      // Shadow Map
-      //----------------------------------
+        case "Spot004":
+          child.intensity = 100;
+          child.shadow.bias = 0;
+          child.shadow.normalBias = 0;
+          child.shadow.radius = 5;
+          child.shadow.camera.near = 0.1;
+          child.shadow.camera.far = 10;
+          break;
+      }
 
       child.shadow.mapSize.set(2048, 2048);
-
-      //----------------------------------
-      // Blur Samples
-      //----------------------------------
 
       if ("blurSamples" in child.shadow) {
         child.shadow.blurSamples = 7;
       }
 
-      importedLights.push(child);
+      child.shadow.camera.updateProjectionMatrix();
+         importedLights.push(child);
     });
 
     this.environmentManager.setupImportedLightsDebug(
