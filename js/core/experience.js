@@ -74,7 +74,6 @@ export default class Experience {
       target: this.controlsManager.controls.target.clone(),
     };
 
-
     this.cameraTransition = new CameraTransitionManager(
       this.camera,
       this.controlsManager.controls,
@@ -170,32 +169,47 @@ export default class Experience {
     root.traverse((child) => {
       if (!child.isLight) return;
 
-      console.log("Propiedades iniciales", {
-        name: child.name,
-        intensity: child.intensity,
-        angle: child.angle,
-        penumbra: child.penumbra,
-        decay: child.decay,
-        distance: child.distance,
+      //----------------------------------
+      // Intensidad
+      //----------------------------------
 
-        bias: child.shadow.bias,
-        normalBias: child.shadow.normalBias,
-        radius: child.shadow.radius,
+      child.intensity = 100;
 
-        near: child.shadow.camera.near,
-        far: child.shadow.camera.far,
-
-        mapWidth: child.shadow.mapSize.width,
-        mapHeight: child.shadow.mapSize.height,
-      });
-
-      child.intensity *= 0.1;
+      //----------------------------------
+      // Sombras
+      //----------------------------------
 
       child.castShadow = true;
-      //   child.shadow.camera.near = 0.5;
-      //   child.shadow.camera.far = 15;
 
-      //   child.shadow.camera.updateProjectionMatrix();
+      child.shadow.bias = 0;
+
+      child.shadow.normalBias = 0;
+
+      child.shadow.radius = 5;
+
+      //----------------------------------
+      // Shadow Camera
+      //----------------------------------
+
+      child.shadow.camera.near = 0.1;
+
+      child.shadow.camera.far = 10;
+
+      child.shadow.camera.updateProjectionMatrix();
+
+      //----------------------------------
+      // Shadow Map
+      //----------------------------------
+
+      child.shadow.mapSize.set(2048, 2048);
+
+      //----------------------------------
+      // Blur Samples
+      //----------------------------------
+
+      if ("blurSamples" in child.shadow) {
+        child.shadow.blurSamples = 7;
+      }
 
       importedLights.push(child);
     });
@@ -306,8 +320,8 @@ export default class Experience {
     this.spotifyPlayer.hide();
 
     this.cameraTransition.flyTo(
-        this.homeCamera.position,
-        this.homeCamera.target
+      this.homeCamera.position,
+      this.homeCamera.target,
     );
   }
 }
