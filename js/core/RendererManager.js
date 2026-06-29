@@ -1,66 +1,56 @@
 // js/core/RendererManager.js
 
-import { THREE } from '../libs/three.js';
+import { THREE } from "../libs/three.js";
 
 export default class RendererManager {
+  constructor(container, scene, camera) {
+    this.container = container;
+    this.scene = scene;
+    this.camera = camera;
 
-    constructor(container, scene, camera) {
+    this.renderer = null;
 
-        this.container = container;
-        this.scene = scene;
-        this.camera = camera;
+    this.createRenderer();
+  }
 
-        this.renderer = null;
+  createRenderer() {
+    this.renderer = new THREE.WebGLRenderer({
+      antialias: true,
+    });
 
-        this.createRenderer();
+    this.renderer.outputColorSpace = THREE.SRGBColorSpace;
 
-    }
+    this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
 
-    createRenderer() {
+    this.renderer.toneMappingExposure = 0.1;
 
-        this.renderer = new THREE.WebGLRenderer({
-            antialias: true
-        });
+    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-        this.renderer.setPixelRatio(
-            Math.min(window.devicePixelRatio, 2)
-        );
+    this.renderer.setSize(
+      this.container.clientWidth,
+      this.container.clientHeight,
+    );
 
-        this.renderer.setSize(
-            this.container.clientWidth,
-            this.container.clientHeight
-        );
+    this.renderer.shadowMap.enabled = true;
+    this.renderer.shadowMap.type =
+    THREE.VSMShadowMap;
+    this.renderer.shadowMap.autoUpdate = true;
 
-        this.renderer.shadowMap.enabled = true;
+    this.container.appendChild(this.renderer.domElement);
 
-        this.container.appendChild(
-            this.renderer.domElement
-        );
+    console.log("Renderer created");
+  }
 
-        console.log('Renderer created');
+  render() {
+    this.renderer.render(this.scene, this.camera);
+  }
 
-    }
+  resize() {
+    this.renderer.setSize(
+      this.container.clientWidth,
+      this.container.clientHeight,
+    );
 
-    render() {
-
-        this.renderer.render(
-            this.scene,
-            this.camera
-        );
-
-    }
-
-    resize() {
-
-        this.renderer.setSize(
-            this.container.clientWidth,
-            this.container.clientHeight
-        );
-
-        this.renderer.setPixelRatio(
-            Math.min(window.devicePixelRatio, 2)
-        );
-
-    }
-
+    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  }
 }

@@ -5,18 +5,14 @@ export default class SpotifyPlayer {
     this.audioManager = audioManager;
 
     this.player = document.getElementById("spotify-player");
-
     this.title = document.querySelector(".spotify-track-title");
-
     this.button = document.getElementById("spotify-toggle");
-
     this.progressFill = document.querySelector(".spotify-progress-fill");
-
     this.currentTimeElement = document.getElementById("current-time");
-
     this.durationElement = document.getElementById("duration-time");
     this.cover = document.getElementById("spotify-cover");
-
+    this.closeButton = document.getElementById("spotify-close");
+    this.onClose = null;
     this.setupEvents();
   }
 
@@ -58,10 +54,16 @@ export default class SpotifyPlayer {
         this.button.textContent = "▶";
       }
     });
+
+    this.closeButton.addEventListener("click", () => {
+      if (this.onClose) {
+        this.onClose();
+      }
+    });
   }
 
   show(trackTitle, cover) {
-    this.player.classList.add("active")
+    this.player.classList.add("active");
 
     this.title.textContent = trackTitle;
     this.cover.src = cover;
@@ -70,6 +72,6 @@ export default class SpotifyPlayer {
   }
 
   hide() {
-    this.player.classList.remove("active")
+    this.player.classList.remove("active");
   }
 }

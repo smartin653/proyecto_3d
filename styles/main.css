@@ -131,6 +131,50 @@ canvas{
 
 }
 
+#spotify-close{
+
+    position:absolute;
+
+    top:12px;
+
+    right:14px;
+
+    width:28px;
+
+    height:28px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:transparent;
+
+    color:#b3b3b3;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    transition:all .2s ease;
+
+}
+
+#spotify-close:hover{
+
+    color:#fff;
+
+    background:rgba(255,255,255,.08);
+
+    transform:scale(1.05);
+
+}
+
 #spotify-player.active{
 
     opacity:1;

@@ -15,9 +15,11 @@ export default class MonitorScreen {
     this.video.playsInline = true;
     this.videoTexture = new THREE.VideoTexture(this.video);
     this.videoTexture.flipY = false;
+    this.videoTexture.colorSpace = THREE.SRGBColorSpace;
     this.videoMaterial = new THREE.MeshBasicMaterial({
       map: this.videoTexture,
     });
+    this.videoMaterial.toneMapped = false;
   }
 
   setVideo(videoPath) {

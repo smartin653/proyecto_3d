@@ -19,7 +19,7 @@ export default class CameraManager {
 
     // Posición temporal
     this.camera.position.set(10, 2, 0);
-    this.camera.lookAt(0, 1.3, -0.5);
+    this.camera.lookAt(0, 1.4, 0);
 
     console.log("Camera created");
   }

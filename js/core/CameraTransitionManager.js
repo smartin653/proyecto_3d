@@ -15,7 +15,7 @@ export default class CameraTransitionManager {
 
     this.progress = 0;
 
-    this.duration = 10;
+    this.duration = 5;
   }
 
   

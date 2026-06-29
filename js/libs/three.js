@@ -6,6 +6,8 @@ export { OrbitControls } from "https://cdn.jsdelivr.net/npm/three@0.179.1/exampl
 
 export { GLTFLoader } from "https://cdn.jsdelivr.net/npm/three@0.179.1/examples/jsm/loaders/GLTFLoader.js/+esm";
 
+export { RGBELoader } from "https://cdn.jsdelivr.net/npm/three@0.179.1/examples/jsm/loaders/RGBELoader.js/+esm";
+
 export { GUI } from "https://cdn.jsdelivr.net/npm/lil-gui@0.20/+esm";
 
 // export { GLTFLoader }
