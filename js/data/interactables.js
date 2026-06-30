@@ -8,7 +8,7 @@ export default {
     audio: "./assets/audio/track01.mp3",
     cover: "./assets/covers/cover_01.png",
     visuals: {
-      monitor: "./assets/video/grabadora.mp4",
+      monitor: "./assets/video/Ondas_Azules.mp4",
       projector: "./assets/video/Me_inundo.mov",
       paredfalsa: "./assets/video/Portada.mp4"
     },

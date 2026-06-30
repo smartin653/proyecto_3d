@@ -1,260 +1,147 @@
 import { THREE } from "../libs/three.js";
 
 export default class Beacon {
-
   constructor(type = "music") {
-
-    // Canvas
     this.canvas = document.createElement("canvas");
-    this.canvas.width = 156;
-    this.canvas.height = 156;
+    this.canvas.width = 256;
+    this.canvas.height = 256;
 
     this.ctx = this.canvas.getContext("2d");
 
-    // Textura
     this.texture = new THREE.CanvasTexture(this.canvas);
 
-    // Dibujar el beacon
     this.draw(type);
 
-    // Material
     const material = new THREE.SpriteMaterial({
-
       map: this.texture,
-
       transparent: true,
-
       depthTest: false,
+      depthWrite: false,
 
-      depthWrite: false
-
+      color: 0xffffff,
     });
 
-    // Sprite
+    material.toneMapped = false;
+
     this.sprite = new THREE.Sprite(material);
 
     this.basePosition = new THREE.Vector3();
 
     this.phase = Math.random() * Math.PI * 2;
 
-    this.sprite.scale.set(
-      0.15,
-      0.15,
-      1
-    );
-
+    this.sprite.scale.set(0.1, 0.1, 1);
   }
 
   draw(type) {
-
     const ctx = this.ctx;
 
     ctx.clearRect(0, 0, 256, 256);
 
+    const styles = {
+      music: {
+        color: "#ff9d00c5",
+        icon: "♪",
+      },
+
+      video: {
+        color: "#1E88E5",
+        icon: "▶",
+      },
+
+      info: {
+        color: "#43A047",
+        icon: "i",
+      },
+
+      gallery: {
+        color: "#FB8C00",
+        icon: "▣",
+      },
+
+      camera: {
+        color: "#8E24AA",
+        icon: "⌖",
+      },
+    };
+
+    const style = styles[type] || styles.music;
+
     //----------------------------------------------------
-    // Glow grande
+    // Glow exterior
     //----------------------------------------------------
 
-    const glow = ctx.createRadialGradient(
-
-      128,
-      128,
-      10,
-
-      128,
-      128,
-      90
-
-    );
-
-    glow.addColorStop(
-      0,
-      "rgba(30,215,96,.55)"
-    );
-
-    glow.addColorStop(
-      .35,
-      "rgba(30,215,96,.18)"
-    );
-
-    glow.addColorStop(
-      1,
-      "rgba(255,255,255,0)"
-    );
-
-    ctx.fillStyle = glow;
+    ctx.shadowColor = style.color;
+    ctx.shadowBlur = 0;
 
     ctx.beginPath();
 
-    ctx.arc(
-      128,
-      128,
-      90,
-      0,
-      Math.PI * 2
-    );
+    ctx.arc(128, 128, 72, 0, Math.PI * 2);
 
+    ctx.fillStyle = style.color;
     ctx.fill();
 
     //----------------------------------------------------
-    // Glow pequeño
+    // Borde blanco
     //----------------------------------------------------
 
-    const glow2 = ctx.createRadialGradient(
+    ctx.shadowBlur = 0;
 
-      128,
-      128,
-      2,
+    ctx.lineWidth = 6;
 
-      128,
-      128,
-      35
+    ctx.strokeStyle = "#A67C00";
 
-    );
-
-    glow2.addColorStop(
-      0,
-      "rgba(255,255,255,1)"
-    );
-
-    glow2.addColorStop(
-      .5,
-      "rgba(255,255,255,.35)"
-    );
-
-    glow2.addColorStop(
-      1,
-      "rgba(255,255,255,0)"
-    );
-
-    ctx.fillStyle = glow2;
-
-    ctx.beginPath();
-
-    ctx.arc(
-      128,
-      128,
-      35,
-      0,
-      Math.PI * 2
-    );
-
-    ctx.fill();
-
-    //----------------------------------------------------
-    // Punto central
-    //----------------------------------------------------
-
-    ctx.beginPath();
-
-    ctx.fillStyle = "#1ED760";
-
-    ctx.arc(
-      128,
-      128,
-      5,
-      0,
-      Math.PI * 2
-    );
-
-    ctx.fill();
+    ctx.stroke();
 
     //----------------------------------------------------
     // Icono
     //----------------------------------------------------
 
-    const icons = {
+    ctx.fillStyle = "#1A1A1A";
 
-      music: "♪",
-
-      video: "▶",
-
-      info: "i",
-
-      gallery: "▣",
-
-      camera: "⌖"
-
-    };
-
-    ctx.font = "bold 78px Arial";
+    ctx.font = "bold 82px Arial";
 
     ctx.textAlign = "center";
 
     ctx.textBaseline = "middle";
 
-    ctx.fillStyle = "#1ED760";
-
-    ctx.fillText(
-
-      icons[type] || "●",
-
-      128,
-
-      102
-
-    );
+    ctx.fillText(style.icon, 128, 132);
 
     this.texture.needsUpdate = true;
-
   }
 
   setPosition(position) {
-
     this.basePosition.copy(position);
 
     this.sprite.position.copy(position);
-
   }
 
   addHeight(offset) {
-
     this.basePosition.y += offset;
 
     this.sprite.position.y += offset;
-
   }
 
   update(time) {
-
-    const t =
-      time * 0.001 +
-      this.phase;
+    const t = time * 0.001 + this.phase;
 
     //--------------------------------------------------
-    // Movimiento
+    // Movimiento flotante
     //--------------------------------------------------
 
-    this.sprite.position.y =
-      this.basePosition.y +
-      Math.sin(t) * 0.02;
+    this.sprite.position.y = this.basePosition.y + Math.sin(t) * 0.025;
 
     //--------------------------------------------------
     // Escala
     //--------------------------------------------------
 
-    const scale =
-      0.15 +
-      Math.sin(t) * 0.012;
+    const scale = 0.1 + Math.sin(t) * 0.008;
 
-    this.sprite.scale.set(
-
-      scale,
-
-      scale,
-
-      1
-
-    );
+    this.sprite.scale.set(scale, scale, 1);
 
     //--------------------------------------------------
     // Opacidad
     //--------------------------------------------------
 
-    this.sprite.material.opacity =
-      0.75 +
-      Math.sin(t) * 0.2;
-
+    this.sprite.material.opacity = 0.9 + Math.sin(t) * 0.08;
   }
-
 }
