@@ -32,7 +32,7 @@ export default class Experience {
     }
     this.interactables = [];
     this.importedLights = [];
-    this.debug = true;
+    this.debug = false;
     this.init();
   }
 
