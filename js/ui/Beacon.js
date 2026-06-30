@@ -6,8 +6,8 @@ export default class Beacon {
 
     // Canvas
     this.canvas = document.createElement("canvas");
-    this.canvas.width = 256;
-    this.canvas.height = 256;
+    this.canvas.width = 156;
+    this.canvas.height = 156;
 
     this.ctx = this.canvas.getContext("2d");
 

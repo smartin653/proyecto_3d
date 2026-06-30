@@ -18,29 +18,16 @@ export default class CameraTransitionManager {
     this.duration = 5;
   }
 
-  
+  flyTo(position, target, duration = this.duration) {
+    this.duration = duration;
 
-  flyTo(position, target) {
-   
-    this.startPosition.copy(
-      this.camera.position
-    );
+    this.startPosition.copy(this.camera.position);
 
-    this.startTarget.copy(
-      this.controls.target
-    );
+    this.startTarget.copy(this.controls.target);
 
-    this.endPosition.set(
-      position.x,
-      position.y,
-      position.z
-    );
+    this.endPosition.set(position.x, position.y, position.z);
 
-    this.endTarget.set(
-      target.x,
-      target.y,
-      target.z
-    );
+    this.endTarget.set(target.x, target.y, target.z);
 
     this.progress = 0;
 
@@ -52,22 +39,11 @@ export default class CameraTransitionManager {
 
     this.progress += delta;
 
-    const t = Math.min(
-      this.progress / this.duration,
-      1
-    );
+    const t = Math.min(this.progress / this.duration, 1);
 
-    this.camera.position.lerpVectors(
-      this.startPosition,
-      this.endPosition,
-      t
-    );
+    this.camera.position.lerpVectors(this.startPosition, this.endPosition, t);
 
-    this.controls.target.lerpVectors(
-      this.startTarget,
-      this.endTarget,
-      t
-    );
+    this.controls.target.lerpVectors(this.startTarget, this.endTarget, t);
 
     this.controls.update();
 

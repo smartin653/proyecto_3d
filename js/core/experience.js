@@ -32,6 +32,7 @@ export default class Experience {
     }
     this.interactables = [];
     this.importedLights = [];
+    this.debug = true;
     this.init();
   }
 
@@ -42,7 +43,7 @@ export default class Experience {
     this.loadAssets();
 
     this.setupEvents();
-
+    this.lastTime = performance.now();
     this.animate();
   }
 
@@ -103,6 +104,7 @@ export default class Experience {
   }
 
   initializeDebug() {
+    if (!this.debug) return;
     this.liveCamera = {
       camX: 0,
       camY: 0,
@@ -216,13 +218,15 @@ export default class Experience {
       }
 
       child.shadow.camera.updateProjectionMatrix();
-         importedLights.push(child);
+      importedLights.push(child);
     });
 
-    this.environmentManager.setupImportedLightsDebug(
-      this.debugManager.gui,
-      importedLights,
-    );
+    if (this.debug) {
+      this.environmentManager.setupImportedLightsDebug(
+        this.debugManager.gui,
+        importedLights,
+      );
+    }
   }
 
   setupScene(root) {
@@ -259,6 +263,7 @@ export default class Experience {
   }
 
   updateDebug() {
+    if (!this.debug) return;
     this.liveCamera.camX = this.camera.position.x;
     this.liveCamera.camY = this.camera.position.y;
     this.liveCamera.camZ = this.camera.position.z;
@@ -278,12 +283,12 @@ export default class Experience {
     });
   }
 
-  update() {
+  update(delta) {
     const now = performance.now();
 
     this.controlsManager.update();
 
-    this.cameraTransition.update(0.016);
+    this.cameraTransition.update(delta);
 
     this.screenManager.update(now);
     this.beaconManager.update(now);
@@ -295,12 +300,17 @@ export default class Experience {
   }
 
   animate() {
-    requestAnimationFrame(this.animate.bind(this));
+  requestAnimationFrame(this.animate.bind(this));
 
-    this.update();
+  const now = performance.now();
+  const delta = (now - this.lastTime) / 1000;
 
-    this.rendererManager.render();
-  }
+  this.lastTime = now;
+
+  this.update(delta);
+
+  this.rendererManager.render();
+}
 
   setupEvents() {
     window.addEventListener("resize", this.onResize.bind(this));
@@ -324,9 +334,13 @@ export default class Experience {
 
     this.spotifyPlayer.hide();
 
+    console.log("HOME", this.homeCamera);
+    console.log("ACTUAL", this.camera.position);
+
     this.cameraTransition.flyTo(
-      this.homeCamera.position,
-      this.homeCamera.target,
-    );
+    this.homeCamera.position,
+    this.homeCamera.target,
+    1.6
+  );
   }
 }

@@ -18,8 +18,8 @@ export default class CameraManager {
     this.camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
 
     // Posición temporal
-    this.camera.position.set(10, 2, 0);
-    this.camera.lookAt(0, 1.4, 0);
+    this.camera.position.set(0.17,1.4,0.005);
+   
 
     console.log("Camera created");
   }
