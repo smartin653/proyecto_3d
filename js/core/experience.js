@@ -21,6 +21,9 @@ import CameraTransitionManager from "./CameraTransitionManager.js";
 import HintManager from "../ui/HintManager.js";
 import EnvironmentManager from "../environment/EnvironmentManager.js";
 import interactables from "../data/interactables.js";
+import ShareManager from "../ui/ShareManager.js";
+import Toast from "../ui/Toast.js";
+import PostProcessingManager from "../effects/PostProcessingManager.js";
 
 export default class Experience {
   constructor() {
@@ -60,6 +63,12 @@ export default class Experience {
       this.camera,
     );
 
+    this.postProcessing = new PostProcessingManager(
+      this.rendererManager.renderer,
+      this.scene,
+      this.camera,
+    );
+
     this.environmentManager = new EnvironmentManager(
       this.scene,
       this.rendererManager.renderer,
@@ -84,6 +93,15 @@ export default class Experience {
     this.audioManager = new AudioManager();
     this.spotifyPlayer = new SpotifyPlayer(this.audioManager);
     this.spotifyPlayer.onClose = this.closePlayer.bind(this);
+    this.shareManager = new ShareManager();
+    this.spotifyPlayer.onTrackChanged = (track) => {
+      this.shareManager.setCurrentTrack(track);
+    };
+    this.spotifyPlayer.onDownload = (track) => {
+      this.shareManager.download(track);
+    };
+    this.toast = new Toast();
+    this.shareManager.setToast(this.toast);
 
     this.screenManager = new ScreenManager();
     this.beaconManager = new BeaconManager(this.scene);
@@ -147,15 +165,15 @@ export default class Experience {
   setupScreens(root) {
     const monitor = root.getObjectByName("PlanosTele");
     const projector = root.getObjectByName("PlanosExterior");
-    const paredfalsa = root.getObjectByName("paredfalsa");
+    //const paredfalsa = root.getObjectByName("paredfalsa");
 
     this.monitorScreen = new VideoScreen(monitor);
     this.projectorScreen = new VideoScreen(projector);
-    this.paredfalsaScreen = new VideoScreen(paredfalsa);
+    //this.paredfalsaScreen = new VideoScreen(paredfalsa);
 
     this.screenManager.add("monitor", this.monitorScreen);
     this.screenManager.add("projector", this.projectorScreen);
-    this.screenManager.add("paredfalsa", this.paredfalsaScreen);
+    //this.screenManager.add("paredfalsa", this.paredfalsaScreen);
 
     this.raycasterManager.screenManager = this.screenManager;
 
@@ -300,17 +318,18 @@ export default class Experience {
   }
 
   animate() {
-  requestAnimationFrame(this.animate.bind(this));
+    requestAnimationFrame(this.animate.bind(this));
 
-  const now = performance.now();
-  const delta = (now - this.lastTime) / 1000;
+    const now = performance.now();
+    const delta = (now - this.lastTime) / 1000;
 
-  this.lastTime = now;
+    this.lastTime = now;
 
-  this.update(delta);
+    this.update(delta);
 
-  this.rendererManager.render();
-}
+    //this.rendererManager.render();
+    this.postProcessing.render();
+  }
 
   setupEvents() {
     window.addEventListener("resize", this.onResize.bind(this));
@@ -319,6 +338,7 @@ export default class Experience {
   onResize() {
     this.cameraManager.resize();
     this.rendererManager.resize();
+    this.postProcessing.resize(window.innerWidth, window.innerHeight);
   }
 
   handleEnter() {
@@ -338,9 +358,9 @@ export default class Experience {
     console.log("ACTUAL", this.camera.position);
 
     this.cameraTransition.flyTo(
-    this.homeCamera.position,
-    this.homeCamera.target,
-    1.6
-  );
+      this.homeCamera.position,
+      this.homeCamera.target,
+      1.6,
+    );
   }
 }

@@ -13,60 +13,67 @@
   </head>
   <body>
     <div id="scene-container"></div>
-    <div id="tooltip">▶ Escuchar pista</div>
+    <div id="tooltip">
+      <div class="tooltip-content">
+        <div class="tooltip-title">Escuchar pista</div>
+        <button id="tooltip-action" class="tooltip-button">Abrir</button>
+      </div>
+    </div>
     <div id="now-playing">
       <span>🎵 Reproduciendo</span>
 
       <strong id="track-title"> Ninguna pista </strong>
     </div>
     <div id="spotify-player">
+      <button id="spotify-close">✕</button>
 
-    <button id="spotify-close">✕</button>
-
-    <div class="spotify-container">
-
+      <div class="spotify-container">
         <div class="spotify-left">
+          <img id="spotify-cover" src="" alt="" />
 
-            <img id="spotify-cover" src="" alt="" />
-
-            <div class="spotify-track-info">
-                <div class="spotify-track-title">
-                    Ansias De Amarte
-                </div>
-            </div>
-
+          <div class="spotify-track-info">
+            <div class="spotify-track-title">Ansias De Amarte</div>
+          </div>
         </div>
-
-        <div class="spotify-center">
-
+        <div class="controls-actions">
+          <div class="spotify-center">
             <div class="spotify-controls">
+              <button>⏮</button>
 
-                <button>⏮</button>
+              <button id="spotify-toggle">▶</button>
 
-                <button id="spotify-toggle">▶</button>
-
-                <button>⏭</button>
-
+              <button>⏭</button>
             </div>
 
             <div class="spotify-progress-wrapper">
+              <span id="current-time">3:32</span>
 
-                <span id="current-time">3:32</span>
+              <div class="spotify-progress">
+                <div class="spotify-progress-fill"></div>
+              </div>
 
-                <div class="spotify-progress">
-                    <div class="spotify-progress-fill"></div>
-                </div>
-
-                <span id="duration-time">3:38</span>
-
+              <span id="duration-time">3:38</span>
             </div>
-
+          </div>
+          <div class="spotify-actions">
+            <button id="spotify-download" class="spotify-action">
+              <img src="./assets/icons/download.svg" alt="Descargar" class="download_icon" />
+            </button>
+            <div id="spotify-share-icons" class="spotify-share-icons"></div>
+          </div>
         </div>
-
+      </div>
     </div>
 
-</div>
+    <div id="share-panel">
+      <button data-share="facebook">Facebook</button>
+
+      <button data-share="whatsapp">WhatsApp</button>
+
+      <button data-share="x">X</button>
+
+      <button data-share="copy">Copiar enlace</button>
+    </div>
     <script type="module" src="./js/main.js"></script>
-    
   </body>
 </html>

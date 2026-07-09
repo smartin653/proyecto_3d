@@ -1,4 +1,11 @@
 @import "./intro-overlay.css";
+@font-face {
+    font-family: 'Pixel';
+    src: url('../assets/fonts/PixelOperatorHB.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
 
 
 *{
@@ -12,6 +19,7 @@ body{
     width:100%;
     height:100%;
     overflow:hidden;
+    font-family: 'Pixel', serif;
 }
 
 #scene-container{
@@ -24,7 +32,7 @@ canvas{
     display:block;
 }
 
-#tooltip{
+/* #tooltip{
 
     position: fixed;
 
@@ -61,6 +69,99 @@ canvas{
     transition: opacity .2s ease;
 
     z-index: 9999;
+
+} */
+
+#tooltip{
+
+    position: fixed;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    transform: translateY(10px);
+
+    transition:
+        opacity .25s ease,
+        transform .25s ease;
+
+    z-index: 9999;
+
+}
+
+#tooltip.visible{
+
+    opacity: 1;
+
+    transform: translateY(0);
+    pointer-events: auto;
+
+}
+
+.tooltip-content{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+    min-width:220px;
+
+    max-width:260px;
+
+    padding:16px;
+
+    background:rgb(15, 15, 15);
+
+    backdrop-filter:blur(10px);
+
+    border:1px solid rgba(255, 253, 253, 0.748);
+
+    box-shadow:
+
+        0 10px 30px rgba(0,0,0,.45);
+
+}
+
+.tooltip-title{
+
+    color:white;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    line-height:1.4;
+
+}
+
+.tooltip-button{
+
+    display:none;
+
+    border:none;
+
+    cursor:pointer;
+
+    padding:10px 14px;
+
+    background:#FFD600;
+
+    color:#111;
+
+    font-weight:700;
+
+    transition:.2s;
+
+}
+
+.tooltip-button:hover{
+
+    transform:translateY(-1px);
+
+    filter:brightness(1.05);
 
 }
 
@@ -435,4 +536,332 @@ canvas{
         min-width: 30px;
         font-size: 10px;
     }
+}
+
+.spotify-actions{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:14px;
+
+    margin-top:12px;
+
+}
+
+.spotify-action,
+.spotify-share-icons button{
+
+    width:38px;
+
+    height:38px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.08);
+
+    cursor:pointer;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    transition:.2s;
+
+}
+
+.spotify-action:hover,
+.spotify-share-icons button:hover{
+
+    background:#FFD600;
+
+    transform:scale(1.08);
+
+}
+
+.spotify-share-icons{
+
+    display:flex;
+
+    gap:10px;
+
+}
+
+.spotify-actions button{
+
+    background:rgba(255, 255, 255, 0.935);
+
+    color:white;
+
+    border:none;
+
+    border-radius:20px;
+
+    padding:8px 8px;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.spotify-actions button:hover{
+
+    background:#FFD600;
+
+    color:#111;
+
+}
+
+#share-panel{
+
+    position:absolute;
+
+    bottom:90px;
+
+    right:20px;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transform:translateY(10px);
+
+    transition:.25s;
+
+}
+
+#share-panel.active{
+
+    opacity:1;
+
+    visibility:visible;
+
+    transform:translateY(0);
+
+}
+
+.controls-actions{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+
+#share-panel{
+
+    position:fixed;
+
+    bottom:110px;
+
+    right:40px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+    padding:14px;
+
+    border-radius:14px;
+
+    background:rgba(15,15,15,.95);
+
+    backdrop-filter:blur(12px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:
+
+        0 12px 30px rgba(0,0,0,.45);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transform:translateY(10px);
+
+    transition:.25s;
+
+    z-index:99999;
+
+}
+
+#share-panel.active{
+
+    opacity:1;
+
+    visibility:visible;
+
+    transform:translateY(0);
+
+}
+
+#share-panel button{
+
+    background:none;
+
+    border:none;
+
+    color:white;
+
+    cursor:pointer;
+
+    text-align:left;
+
+    padding:10px;
+
+    border-radius:8px;
+
+    transition:.2s;
+
+}
+
+#share-panel button:hover{
+
+    background:#FFD600;
+
+    color:#111;
+
+}
+
+#share-panel button{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    width:100%;
+
+}
+
+#toast{
+
+    position:fixed;
+
+    right:30px;
+
+    bottom:30px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:14px 18px;
+
+    border-radius:14px;
+
+    background:rgba(20,20,20,.95);
+
+    color:white;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(12px);
+
+    box-shadow:
+
+        0 15px 35px rgba(0,0,0,.45);
+
+    transform:translateY(25px);
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.25s;
+
+    z-index:999999;
+
+}
+
+#toast.active{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+.toast-icon{
+
+    width:28px;
+
+    height:28px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#FFD600;
+
+    color:#ffffff;
+
+    font-weight:bold;
+
+}
+
+.share-icon{
+
+    width:10px;
+
+    height:10px;
+
+}
+
+.spotify-share-button{
+
+    width:34px;
+
+    height:34px;
+
+    border:none;
+
+    background:transparent;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.spotify-share-button:hover{
+
+    transform:translateY(-2px) scale(1.08);
+
+    background:rgba(255,255,255,.08);
+
+}
+
+#spotify-download{
+  width: 38px;
+  height: 38px;
+}
+
+#spotify-download img{
+    width: 100%;
+    height: 100%;
 }

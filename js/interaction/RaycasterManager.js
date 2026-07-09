@@ -2,6 +2,7 @@
 
 import { THREE } from "../libs/three.js";
 import interactables from "../data/interactables.js";
+import InteractionCard from "../ui/InteractionCard.js";
 
 export default class RaycasterManager {
   constructor(
@@ -18,7 +19,8 @@ export default class RaycasterManager {
     this.scene = scene;
     this.canvas = canvas;
     this.hoveredObject = null;
-    this.tooltip = document.getElementById("tooltip");
+    //this.tooltip = document.getElementById("tooltip");
+    this.interactionCard = new InteractionCard();
     this.audioManager = audioManager;
     this.screenManager = screenManager;
     this.spotifyPlayer = spotifyPlayer;
@@ -43,11 +45,6 @@ export default class RaycasterManager {
 
     this.mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
 
-    // Posición tooltip (desplazada)
-    this.tooltip.style.left = event.clientX + 20 + "px";
-
-    this.tooltip.style.top = event.clientY - 40 + "px";
-
     this.raycaster.setFromCamera(this.mouse, this.camera);
 
     const intersects = this.raycaster.intersectObjects(
@@ -59,39 +56,60 @@ export default class RaycasterManager {
 
     const interactable = hit ? interactables[hit.object.name] : null;
 
+    //--------------------------------------------------
+    // HAY INTERACTUABLE
+    //--------------------------------------------------
+
     if (hit) {
       document.body.style.cursor = "pointer";
 
-      this.tooltip.textContent = `▶ ${interactable.title}`;
+      // Solo mover la card si el usuario NO está sobre ella
+      if (!this.interactionCard.isLocked) {
+        this.interactionCard.move(event.clientX + 20, event.clientY - 40);
 
-      this.tooltip.style.opacity = 1;
+        this.interactionCard.lock();
+      }
+
+      this.interactionCard.show(interactable);
 
       if (this.hoveredObject !== hit.object) {
-        console.log(hit.object.material);
-        console.log(hit.object.material.emissive);
-        // Apagar hover anterior
         if (this.hoveredObject) {
           this.hoveredObject.material.emissive.set(0x000000);
+
           this.hoveredObject.material.emissiveIntensity = 0;
         }
 
-        // Nuevo hover
         this.hoveredObject = hit.object;
+
         this.hoveredObject.material.emissive.set(0xffffff);
+
         this.hoveredObject.material.emissiveIntensity = 1;
       }
-    } else {
-      document.body.style.cursor = "default";
 
-      this.tooltip.style.opacity = 0;
-
-      if (this.hoveredObject) {
-        this.hoveredObject.material.emissive.set(0x000000);
-        this.hoveredObject.material.emissiveIntensity = 0;
-      }
-
-      this.hoveredObject = null;
+      return;
     }
+
+    //--------------------------------------------------
+    // NO HAY INTERACTUABLE
+    //--------------------------------------------------
+
+    // Si el usuario está interactuando con la card,
+    // NO hacemos nada.
+    if (this.interactionCard.isHovered) {
+      return;
+    }
+
+    document.body.style.cursor = "default";
+
+    this.interactionCard.scheduleHide();
+
+    if (this.hoveredObject) {
+      this.hoveredObject.material.emissive.set(0x000000);
+
+      this.hoveredObject.material.emissiveIntensity = 0;
+    }
+
+    this.hoveredObject = null;
   }
 
   onClick(event) {
@@ -114,16 +132,46 @@ export default class RaycasterManager {
 
     const interactable = interactables[clickedObject.name];
 
-    if (interactable) {
-      console.log(interactable.title);
-      //this.audioManager.showTrack(interactable.title);
-      this.audioManager.play(interactable.audio);
-      this.spotifyPlayer.show(interactable.title, interactable.cover);
-      this.screenManager.play(interactable.visuals);
-      this.cameraTransition.flyTo(
-        interactable.camera.position,
-        interactable.camera.target,
-      );
+    // if (interactable) {
+    //   console.log(interactable.title);
+    //   //this.audioManager.showTrack(interactable.title);
+    //   this.audioManager.play(interactable.audio);
+    //   this.spotifyPlayer.show(interactable.title, interactable.cover);
+    //   this.screenManager.play(interactable.visuals);
+    //   this.cameraTransition.flyTo(
+    //     interactable.camera.position,
+    //     interactable.camera.target,
+    //   );
+    // }
+
+    if (!interactable) return;
+
+    switch (interactable.type) {
+      case "track":
+        this.audioManager.play(interactable.audio);
+
+        //this.spotifyPlayer.show(interactable.title, interactable.cover);
+        this.spotifyPlayer.show(interactable);
+        this.screenManager.play(interactable.visuals);
+
+        this.cameraTransition.flyTo(
+          interactable.camera.position,
+          interactable.camera.target,
+        );
+
+        break;
+
+      case "link":
+        // No hacemos nada aquí.
+        // El botón de la InteractionCard abrirá la URL.
+
+        break;
+
+      case "info":
+        // Tampoco hace nada.
+        // Solo muestra la tarjeta.
+
+        break;
     }
   }
 }

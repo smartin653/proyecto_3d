@@ -8,6 +8,14 @@ export { GLTFLoader } from "https://cdn.jsdelivr.net/npm/three@0.179.1/examples/
 
 export { RGBELoader } from "https://cdn.jsdelivr.net/npm/three@0.179.1/examples/jsm/loaders/RGBELoader.js/+esm";
 
+export { EffectComposer } from "https://cdn.jsdelivr.net/npm/three@0.179.1/examples/jsm/postprocessing/EffectComposer.js/+esm";
+
+export { RenderPass } from "https://cdn.jsdelivr.net/npm/three@0.179.1/examples/jsm/postprocessing/RenderPass.js/+esm";
+
+export { FilmPass } from "https://cdn.jsdelivr.net/npm/three@0.179.1/examples/jsm/postprocessing/FilmPass.js/+esm";
+
+export { OutputPass } from "https://cdn.jsdelivr.net/npm/three@0.179.1/examples/jsm/postprocessing/OutputPass.js/+esm";
+
 export { GUI } from "https://cdn.jsdelivr.net/npm/lil-gui@0.20/+esm";
 
 // export { GLTFLoader }
