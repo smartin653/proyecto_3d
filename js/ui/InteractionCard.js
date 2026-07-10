@@ -19,13 +19,13 @@ export default class InteractionCard {
     });
     this.isHovered = false;
     this.card.addEventListener("mouseenter", () => {
-      console.log("ENTER CARD");
+      //console.log("ENTER CARD");
       this.isHovered = true;
       this.cancelHide();
     });
 
     this.card.addEventListener("mouseleave", () => {
-      console.log("LEAVE CARD");
+      //console.log("LEAVE CARD");
       this.isHovered = false;
       this.scheduleHide();
     });

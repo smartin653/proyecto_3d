@@ -179,7 +179,7 @@ canvas{
 
     color:white;
 
-    border-radius:10px;
+    
 
     display:none;
 
@@ -227,7 +227,7 @@ canvas{
    background-color: rgba(0, 0, 0, 0.912);
    width: 80vw;
    padding: 1rem 2rem;
-   border-radius: 25px;
+   border: 2px solid white;
    z-index: 9999;
 
 }
@@ -561,8 +561,6 @@ canvas{
 
     border:none;
 
-    border-radius:50%;
-
     background:rgba(255,255,255,.08);
 
     cursor:pointer;
@@ -602,7 +600,7 @@ canvas{
 
     border:none;
 
-    border-radius:20px;
+    
 
     padding:8px 8px;
 
@@ -670,7 +668,7 @@ canvas{
 
     padding:14px;
 
-    border-radius:14px;
+    
 
     background:rgba(15,15,15,.95);
 
@@ -718,7 +716,7 @@ canvas{
 
     padding:10px;
 
-    border-radius:8px;
+    
 
     transition:.2s;
 
@@ -760,7 +758,7 @@ canvas{
 
     padding:14px 18px;
 
-    border-radius:14px;
+    
 
     background:rgba(20,20,20,.95);
 
@@ -800,7 +798,7 @@ canvas{
 
     height:28px;
 
-    border-radius:50%;
+    
 
     display:flex;
 
@@ -830,11 +828,9 @@ canvas{
 
     height:34px;
 
-    border:none;
+    border: 2px solid black;
 
     background:transparent;
-
-    border-radius:50%;
 
     display:flex;
 

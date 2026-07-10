@@ -63,6 +63,23 @@ export default class Experience {
       this.camera,
     );
 
+    const renderer = this.rendererManager.renderer;
+
+    console.log("=== Renderer Capabilities ===");
+
+    console.log({
+      isWebGL2: renderer.capabilities.isWebGL2,
+      maxTextures: renderer.capabilities.maxTextures,
+      maxTextureSize: renderer.capabilities.maxTextureSize,
+      maxCubemapSize: renderer.capabilities.maxCubemapSize,
+      maxSamples: renderer.capabilities.maxSamples,
+      precision: renderer.capabilities.precision,
+    });
+
+    console.log("=== Renderer Info ===");
+
+    console.log(renderer.info);
+
     this.postProcessing = new PostProcessingManager(
       this.rendererManager.renderer,
       this.scene,
@@ -73,6 +90,15 @@ export default class Experience {
       this.scene,
       this.rendererManager.renderer,
     );
+
+    this.environmentManager.initialize();
+    this.environmentManager.onChange((mode) => {
+      console.log("Environment changed:", mode);
+
+      this.updateGarden(mode);
+      this.updateCurtain(mode);
+      this.updateLights(mode);
+    });
 
     this.controlsManager = new ControlsManager(
       this.camera,
@@ -104,6 +130,7 @@ export default class Experience {
     this.shareManager.setToast(this.toast);
 
     this.screenManager = new ScreenManager();
+    this.screenManager.setEnvironment(this.environmentManager);
     this.beaconManager = new BeaconManager(this.scene);
     this.hintManager = new HintManager(this.scene);
 
@@ -150,7 +177,7 @@ export default class Experience {
   }
 
   async loadAssets() {
-    const gltf = await this.modelLoader.load("../assets/models/Ed.glb");
+    const gltf = await this.modelLoader.load("https://assets.esrutayerma.com/models/Ed.glb");
 
     this.scene.add(gltf.scene);
 
@@ -158,27 +185,150 @@ export default class Experience {
     this.setupLights(gltf.scene);
     this.setupScene(gltf.scene);
     this.setupInteractables(gltf.scene);
+    this.gardens = {
+      morning: gltf.scene.getObjectByName("Jardin_amanecer"),
+
+      afternoon: gltf.scene.getObjectByName("Jardin_Dia"),
+
+      night: gltf.scene.getObjectByName("Jardin_noche"),
+    };
+    this.curtains = {
+      morning: gltf.scene.getObjectByName("PlanoDia"),
+
+      afternoon: gltf.scene.getObjectByName("PlanoTarde"),
+
+      night: gltf.scene.getObjectByName("PlanoNoche"),
+    };
+
+    this.updateGarden(this.environmentManager.mode);
+    console.log("Current mode:", this.environmentManager.mode);
+    this.updateCurtain(this.environmentManager.mode);
+    this.updateLights(this.environmentManager.mode);
 
     this.introOverlay.enable();
   }
 
+  updateGarden(mode) {
+    Object.values(this.gardens).forEach((garden) => {
+      garden.visible = false;
+    });
+
+    const garden = this.gardens[mode];
+
+    if (!garden) {
+      console.warn(`Garden "${mode}" no encontrado`);
+
+      return;
+    }
+
+    garden.visible = true;
+  }
+
+  updateCurtain(mode) {
+
+    Object.values(this.curtains).forEach((curtain) => {
+        curtain.visible = false;
+    });
+
+    const curtain = this.curtains[mode];
+
+    if (!curtain) {
+        console.warn(`Curtain "${mode}" no encontrada`);
+        return;
+    }
+
+    curtain.visible = true;
+
+    console.log("----- Curtains -----");
+
+    Object.entries(this.curtains).forEach(([name, mesh]) => {
+        console.log(
+            name,
+            mesh.name,
+            mesh.visible
+        );
+    });
+
+}
+
+  updateLights(mode) {
+    const preset = this.environmentManager.getCurrentPreset();
+
+    if (!preset?.lights) {
+      console.warn("No lighting preset found.");
+
+      return;
+    }
+
+    Object.entries(preset.lights).forEach(([lightName, settings]) => {
+      const light = this.lights[lightName];
+
+      if (!light) {
+        console.warn(`Light "${lightName}" not found.`);
+
+        return;
+      }
+
+      //----------------------------------
+      // Intensity
+      //----------------------------------
+
+      if (settings.intensity !== undefined) {
+        light.intensity = settings.intensity;
+      }
+
+      //----------------------------------
+      // Visibility
+      //----------------------------------
+
+      if (settings.visible !== undefined) {
+        light.visible = settings.visible;
+      }
+
+      //----------------------------------
+      // Color
+      //----------------------------------
+
+      if (settings.color && light.color) {
+        light.color.set(settings.color);
+      }
+    });
+  }
+
   setupScreens(root) {
-    const monitor = root.getObjectByName("PlanosTele");
-    const projector = root.getObjectByName("PlanosExterior");
-    //const paredfalsa = root.getObjectByName("paredfalsa");
+    // root.traverse((child) => {
+    //   if (child.isMesh) {
+    //     console.log("MESH:", `"${child.name}"`);
+    //   }
+    // });
 
-    this.monitorScreen = new VideoScreen(monitor);
-    this.projectorScreen = new VideoScreen(projector);
-    //this.paredfalsaScreen = new VideoScreen(paredfalsa);
+    const screens = {
+      monitor: "PlanosTele",
 
-    this.screenManager.add("monitor", this.monitorScreen);
-    this.screenManager.add("projector", this.projectorScreen);
-    //this.screenManager.add("paredfalsa", this.paredfalsaScreen);
+      jardinAmanecer: "Jardin_amanecer",
+
+      jardinDia: "Jardin_Dia",
+
+      jardinNoche: "Jardin_noche",
+    };
+
+    Object.entries(screens).forEach(([id, objectName]) => {
+      const mesh = root.getObjectByName(objectName);
+
+      if (!mesh) {
+        console.warn(`Pantalla "${objectName}" no encontrada`);
+
+        return;
+      }
+
+      this.screenManager.add(id, new VideoScreen(mesh));
+    });
 
     this.raycasterManager.screenManager = this.screenManager;
 
     this.audioManager.onEnded = () => {
       this.screenManager.stopAll();
+
       this.spotifyPlayer.hide();
     };
   }
@@ -189,6 +339,11 @@ export default class Experience {
     root.traverse((child) => {
       if (!child.isLight) return;
 
+      if (!this.lights) {
+        this.lights = {};
+      }
+
+      this.lights[child.name] = child;
       child.castShadow = true;
 
       switch (child.name) {
@@ -245,6 +400,8 @@ export default class Experience {
         importedLights,
       );
     }
+
+    console.log("Lights:", this.lights);
   }
 
   setupScene(root) {

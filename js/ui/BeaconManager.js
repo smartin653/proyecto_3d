@@ -17,16 +17,16 @@ export default class BeaconManager {
 
     box.getCenter(position);
 
-    console.log(object.name, position);
+    //console.log(object.name, position);
 
-    console.log(object.name, position);
+    //console.log(object.name, position);
 
     beacon.setPosition(position);
 
     beacon.addHeight(0.1);
 
     this.scene.add(beacon.sprite);
-    console.log("Beacon:", beacon.sprite.position);
+    //console.log("Beacon:", beacon.sprite.position);
 
     this.beacons.push({
       beacon,
