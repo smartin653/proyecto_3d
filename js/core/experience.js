@@ -36,7 +36,7 @@ export default class Experience {
     }
     this.interactables = [];
     this.importedLights = [];
-    this.debug = false;
+    this.debug = true;
     this.init();
   }
 
@@ -180,7 +180,7 @@ export default class Experience {
 
   async loadAssets() {
     const gltf = await this.modelLoader.load(
-      "https://assets.esrutayerma.com/models/Ed.glb",
+      "https://assets.esrutayerma.com/models/Ed1.glb",
     );
 
     this.scene.add(gltf.scene);
