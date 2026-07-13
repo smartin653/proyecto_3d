@@ -24,6 +24,7 @@ import interactables from "../data/interactables.js";
 import ShareManager from "../ui/ShareManager.js";
 import Toast from "../ui/Toast.js";
 import PostProcessingManager from "../effects/PostProcessingManager.js";
+import OrientationOverlay from "../ui/OrientationOverlay.js";
 
 export default class Experience {
   constructor() {
@@ -145,6 +146,7 @@ export default class Experience {
     );
 
     this.introOverlay = new IntroOverlay();
+    this.orientationOverlay = new OrientationOverlay();
     this.introOverlay.onEnter(this.handleEnter.bind(this));
   }
 
@@ -177,7 +179,9 @@ export default class Experience {
   }
 
   async loadAssets() {
-    const gltf = await this.modelLoader.load("https://assets.esrutayerma.com/models/Ed.glb");
+    const gltf = await this.modelLoader.load(
+      "https://assets.esrutayerma.com/models/Ed.glb",
+    );
 
     this.scene.add(gltf.scene);
 
@@ -225,16 +229,15 @@ export default class Experience {
   }
 
   updateCurtain(mode) {
-
     Object.values(this.curtains).forEach((curtain) => {
-        curtain.visible = false;
+      curtain.visible = false;
     });
 
     const curtain = this.curtains[mode];
 
     if (!curtain) {
-        console.warn(`Curtain "${mode}" no encontrada`);
-        return;
+      console.warn(`Curtain "${mode}" no encontrada`);
+      return;
     }
 
     curtain.visible = true;
@@ -242,14 +245,9 @@ export default class Experience {
     console.log("----- Curtains -----");
 
     Object.entries(this.curtains).forEach(([name, mesh]) => {
-        console.log(
-            name,
-            mesh.name,
-            mesh.visible
-        );
+      console.log(name, mesh.name, mesh.visible);
     });
-
-}
+  }
 
   updateLights(mode) {
     const preset = this.environmentManager.getCurrentPreset();
@@ -500,6 +498,7 @@ export default class Experience {
 
   handleEnter() {
     this.introOverlay.hide();
+    this.orientationOverlay.show();
   }
 
   closePlayer() {
