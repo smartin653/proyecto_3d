@@ -39,25 +39,25 @@ export default {
       Spot001: {
         intensity: 80,
         visible: true,
-        color: "#FFFFFF",
+        color: "#ffffff",
       },
 
       Spot002: {
         intensity: 55,
         visible: true,
-        color: "#FFFFFF",
+        color: "#ffffff",
       },
 
       Spot003: {
         intensity: 125,
         visible: true,
-        color: "#FFFFFF",
+        color: "#ffffff",
       },
 
       Spot004: {
         intensity: 0,
         visible: true,
-        color: "#FFFFFF",
+        color: "#ffffff",
       },
     },
   },

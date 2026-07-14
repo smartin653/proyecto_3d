@@ -29,7 +29,7 @@ export default {
     download: "./assets/audio/track01.mp3",
     visuals: {
       monitor: "./assets/video/Ondas_Azules.mp4",
-      projector: "./assets/video/Me_inundo.mov",
+      projector: "https://assets.esrutayerma.com/videos/Video_Desierto.mp4",
       paredfalsa: "./assets/video/Portada.mp4",
     },
     camera: {

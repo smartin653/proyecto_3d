@@ -2,7 +2,6 @@ import {
   THREE,
   EffectComposer,
   RenderPass,
-  FilmPass,
   OutputPass,
   UnrealBloomPass,
 } from "../libs/three.js";
@@ -22,16 +21,15 @@ export default class PostProcessingManager {
       grain: 0.0,
       aberration: 0.0,
       toneMapping: "ACES",
-      gamma: 1.0,
       bloomEnabled: false,
       bloomStrength: 0.2,
       bloomRadius: 0.25,
       bloomThreshold: 0.85,
-      redShift: 0,
-      greenShift: 0,
-      blueShift: 0,
+      lightWarmth: false,
     };
     this.createComposer();
+    this.renderer.toneMapping =
+    THREE.ACESFilmicToneMapping;
   }
 
   createComposer() {
@@ -78,19 +76,7 @@ export default class PostProcessingManager {
 
   setupDebug(gui) {
     const folder = gui.addFolder("📷 Cinematic Look");
-    folder
-      .add(
-        this.settings,
-
-        "gamma",
-
-        0.5,
-
-        3,
-
-        0.01,
-      )
-      .name("Gamma");
+    
 
     folder
       .add(this.settings, "toneMapping", [
@@ -199,6 +185,8 @@ export default class PostProcessingManager {
         this.bloomPass.threshold = value;
       });
 
+      
+
     folder
       .add(
         this.settings,
@@ -237,24 +225,18 @@ export default class PostProcessingManager {
         this.cinematicPass.setContrast(value);
       });
 
-    folder
-      .add(
-        this.settings,
-
-        "grain",
-
-        0,
-
-        1,
-
-        0.001,
-      )
-
-      .name("Grain")
-
-      .onChange((value) => {
-        this.cinematicPass.setGrain(value);
-      });
+   folder
+  .add(
+    this.settings,
+    "grain",
+    0,
+    0.1,
+    0.001
+  )
+  .name("Grain")
+  .onChange((value) => {
+    this.cinematicPass.setGrain(value);
+  });
 
     folder
       .add(

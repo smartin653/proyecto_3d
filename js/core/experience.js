@@ -66,21 +66,6 @@ export default class Experience {
 
     const renderer = this.rendererManager.renderer;
 
-    console.log("=== Renderer Capabilities ===");
-
-    console.log({
-      isWebGL2: renderer.capabilities.isWebGL2,
-      maxTextures: renderer.capabilities.maxTextures,
-      maxTextureSize: renderer.capabilities.maxTextureSize,
-      maxCubemapSize: renderer.capabilities.maxCubemapSize,
-      maxSamples: renderer.capabilities.maxSamples,
-      precision: renderer.capabilities.precision,
-    });
-
-    console.log("=== Renderer Info ===");
-
-    console.log(renderer.info);
-
     this.postProcessing = new PostProcessingManager(
       this.rendererManager.renderer,
       this.scene,
@@ -182,7 +167,7 @@ export default class Experience {
   }
 
   async loadAssets() {
-    const gltf = await this.modelLoader.load("https://assets.esrutayerma.com/models/Ed1.glb");
+    const gltf = await this.modelLoader.load("https://assets.esrutayerma.com/models/EdMav_Studio_GLB_V13.glb");
 
     this.scene.add(gltf.scene);
     this.setupScreens(gltf.scene);

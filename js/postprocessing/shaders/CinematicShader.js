@@ -1,49 +1,42 @@
 export const CinematicShader = {
   uniforms: {
-
     tDiffuse: { value: null },
 
     warmth: { value: 0.0 },
 
-    contrast: { value: 1.0 },
-
+    aberration: { value: 0.0 },
     grain: { value: 0.0 },
-
-    aberration: { value: 0.0 }
-
-},
+  },
 
   vertexShader: `
 
-        varying vec2 vUv;
+    varying vec2 vUv;
 
-        void main() {
+    void main() {
 
-            vUv = uv;
+        vUv = uv;
 
-            gl_Position = projectionMatrix *
-                          modelViewMatrix *
-                          vec4(position,1.0);
+        gl_Position =
+            projectionMatrix *
+            modelViewMatrix *
+            vec4(position, 1.0);
 
-        }
+    }
 
-    `,
-fragmentShader: `
+  `,
 
-uniform sampler2D tDiffuse;
+  fragmentShader: `
 
-uniform float warmth;
-uniform float contrast;
-uniform float grain;
-uniform float aberration;
+    uniform sampler2D tDiffuse;
 
-varying vec2 vUv;
+    uniform float warmth;
+    uniform float aberration;
+    uniform float grain;
 
-//----------------------------------
-// Random
-//----------------------------------
+    varying vec2 vUv;
 
-float random(vec2 st){
+
+    float random(vec2 st){
 
     return fract(
         sin(
@@ -56,98 +49,77 @@ float random(vec2 st){
 
 }
 
-void main(){
+    void main() {
 
-    //----------------------------------
-    // Chromatic Aberration
-    //----------------------------------
+        //----------------------------------
+        // Base Color
+        //----------------------------------
 
-    vec2 offset = vec2(aberration,0.0);
-
-    float r = texture2D(
-        tDiffuse,
-        vUv + offset
-    ).r;
-
-    float g = texture2D(
-        tDiffuse,
-        vUv
-    ).g;
-
-    float b = texture2D(
-        tDiffuse,
-        vUv - offset
-    ).b;
-
-    vec4 color = vec4(
-        r,
-        g,
-        b,
-        1.0
-    );
-
-    //----------------------------------
-    // Luminance
-    //----------------------------------
-
-    float luminance = dot(
-        color.rgb,
-        vec3(0.299,0.587,0.114)
-    );
-
-    //----------------------------------
-    // Warmth
-    //----------------------------------
-
-    color.r += warmth * 0.18;
-    color.g += warmth * 0.03;
-    color.b -= warmth * 0.12;
-
-    //----------------------------------
-    // Contrast
-    //----------------------------------
-
-    color.rgb =
-        (color.rgb - 0.5)
-        * contrast
-        + 0.5;
-
-    //----------------------------------
-    // Grain
-    //----------------------------------
-
-    float noise =
-        random(gl_FragCoord.xy) - 0.5;
-
-    float grainMask =
-        1.0 -
-        smoothstep(
-            0.15,
-            0.85,
-            luminance
+        vec4 color = texture2D(
+            tDiffuse,
+            vUv
         );
 
-    color.r += noise * grain * grainMask * 1.0;
-    color.g += noise * grain * grainMask * 0.8;
-    color.b += noise * grain * grainMask * 0.6;
+        //----------------------------------
+        // Warmth
+        //----------------------------------
 
-    //----------------------------------
-    // Clamp
-    //----------------------------------
+        vec3 warmthTint = vec3(
 
-    color.rgb = clamp(
-        color.rgb,
-        0.0,
-        1.0
-    );
+            1.0 + warmth * 0.08,
 
-    //----------------------------------
-    // Output
-    //----------------------------------
+            1.0,
 
-    gl_FragColor = color;
+            1.0 - warmth * 0.08
 
-}
+        );
 
-`,
+        color.rgb *= warmthTint;
+
+        //----------------------------------
+        // Chromatic Aberration
+        //----------------------------------
+
+        if (aberration > 0.0) {
+
+            vec2 direction = normalize(
+                vUv - vec2(0.5)
+            );
+
+            vec2 offset =
+                direction * aberration;
+
+            color.r = texture2D(
+                tDiffuse,
+                vUv + offset
+            ).r;
+
+            color.b = texture2D(
+                tDiffuse,
+                vUv - offset
+            ).b;
+
+        }
+
+        //----------------------------------
+        // Output
+        //----------------------------------
+
+        //----------------------------------
+// Grain
+//----------------------------------
+
+float grainSize = 1.0;
+
+vec2 grainCoord = floor(gl_FragCoord.xy / grainSize);
+
+float noise = random(grainCoord) - 0.2;
+
+color.rgb += noise  * 0.5;
+
+        gl_FragColor = color;
+
+    }
+
+  `,
 };
