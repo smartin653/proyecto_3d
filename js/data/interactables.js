@@ -21,7 +21,7 @@ export default {
     audio: "./assets/audio/track01.mp3",
     cover: "./assets/covers/cover_01.png",
     sharing: {
-      url: "https://edmaverick.com/notodo",
+      url: "https://esrutayerma.com/",
 
       text: "Escucha 'No todo es parte de la vida'",
     },

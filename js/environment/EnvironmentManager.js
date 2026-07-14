@@ -29,11 +29,11 @@ export default class EnvironmentManager {
   detectMode() {
     const hour = new Date().getHours();
 
-    if (hour >= 6 && hour < 12) {
+    if (hour >= 6 && hour < 9) {
       return "morning";
     }
 
-    if (hour >= 12 && hour < 19) {
+    if (hour >= 9 && hour < 19) {
       return "afternoon";
     }
 

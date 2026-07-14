@@ -18,6 +18,10 @@ export { OutputPass } from "https://cdn.jsdelivr.net/npm/three@0.179.1/examples/
 
 export { GUI } from "https://cdn.jsdelivr.net/npm/lil-gui@0.20/+esm";
 
+export { UnrealBloomPass } from "https://cdn.jsdelivr.net/npm/three@0.179.1/examples/jsm/postprocessing/UnrealBloomPass.js/+esm";
+
+export { ShaderPass } from "https://cdn.jsdelivr.net/npm/three@0.179.1/examples/jsm/postprocessing/ShaderPass.js/+esm";
+
 // export { GLTFLoader }
 // from 'https://cdn.jsdelivr.net/npm/three@0.179.1/examples/jsm/loaders/GLTFLoader.js?module';
 

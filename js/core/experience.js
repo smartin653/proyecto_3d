@@ -36,7 +36,7 @@ export default class Experience {
     }
     this.interactables = [];
     this.importedLights = [];
-    this.debug = true;
+    this.debug = false;
     this.init();
   }
 
@@ -86,6 +86,8 @@ export default class Experience {
       this.scene,
       this.camera,
     );
+
+    this.postProcessing.enabled = false;
 
     this.environmentManager = new EnvironmentManager(
       this.scene,
@@ -166,6 +168,7 @@ export default class Experience {
     const gui = this.debugManager.gui;
 
     this.environmentManager.setupDebug(gui);
+     this.postProcessing.setupDebug(gui);
 
     const live = gui.addFolder("Live Camera");
 
@@ -179,12 +182,9 @@ export default class Experience {
   }
 
   async loadAssets() {
-    const gltf = await this.modelLoader.load(
-      "https://assets.esrutayerma.com/models/Ed1.glb",
-    );
+    const gltf = await this.modelLoader.load("https://assets.esrutayerma.com/models/Ed1.glb");
 
     this.scene.add(gltf.scene);
-
     this.setupScreens(gltf.scene);
     this.setupLights(gltf.scene);
     this.setupScene(gltf.scene);
@@ -197,12 +197,18 @@ export default class Experience {
       night: gltf.scene.getObjectByName("Jardin_noche"),
     };
     this.curtains = {
-      morning: gltf.scene.getObjectByName("PlanoDia"),
+      morning: gltf.scene.getObjectByName("Pmedia"),
 
-      afternoon: gltf.scene.getObjectByName("PlanoTarde"),
+      afternoon: gltf.scene.getObjectByName("Palta"),
 
-      night: gltf.scene.getObjectByName("PlanoNoche"),
+      night: gltf.scene.getObjectByName("Pbaja"),
     };
+
+    console.log("Curtains", this.curtains);
+
+    console.log("Morning:", this.curtains.morning);
+    console.log("Afternoon:", this.curtains.afternoon);
+    console.log("Night:", this.curtains.night);
 
     this.updateGarden(this.environmentManager.mode);
     console.log("Current mode:", this.environmentManager.mode);

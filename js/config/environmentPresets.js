@@ -5,25 +5,25 @@ export default {
     curtain: "CortinasDia_Dia",
     lights: {
       Spot001: {
-        intensity: 100,
+        intensity: 150,
         visible: true,
         color: "#FFF8EC",
       },
 
       Spot002: {
-        intensity: 160,
+        intensity: 40,
         visible: true,
         color: "#FFF8EC",
       },
 
       Spot003: {
-        intensity: 160,
+        intensity: 600,
         visible: true,
         color: "#FFF8EC",
       },
 
       Spot004: {
-        intensity: 100,
+        intensity: 0,
         visible: true,
         color: "#FFF8EC",
       },
@@ -37,25 +37,25 @@ export default {
 
     lights: {
       Spot001: {
-        intensity: 100,
+        intensity: 80,
         visible: true,
         color: "#FFFFFF",
       },
 
       Spot002: {
-        intensity: 160,
+        intensity: 55,
         visible: true,
         color: "#FFFFFF",
       },
 
       Spot003: {
-        intensity: 160,
+        intensity: 125,
         visible: true,
         color: "#FFFFFF",
       },
 
       Spot004: {
-        intensity: 100,
+        intensity: 0,
         visible: true,
         color: "#FFFFFF",
       },
@@ -70,25 +70,25 @@ export default {
     lights: {
 
     Spot001: {
-        intensity: 20,
+        intensity: 35,
         visible: true,
         color: "#FFD8A8"
     },
 
     Spot002: {
-        intensity: 320,
+        intensity: 80,
         visible: true,
         color: "#FFD8A8"
     },
 
     Spot003: {
-        intensity: 350,
+        intensity: 35,
         visible: true,
         color: "#FFD8A8"
     },
 
     Spot004: {
-        intensity: 30,
+        intensity: 80,
         visible: true,
         color: "#FFD8A8"
     }
