@@ -69,7 +69,7 @@ export default {
     cover: "./assets/covers/cover_02.png",
     visuals: {
       monitor: "./assets/video/grabadora.mp4",
-      projector: "./assets/video/grabadora.mp4",
+      projector: "https://assets.esrutayerma.com/videos/Me_inundo.mov",
     },
     camera: {
       position: {

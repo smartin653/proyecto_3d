@@ -9,7 +9,32 @@ export default class MonitorScreen {
     this.originalColor = screen.material.color.clone();
     this.isActive = false;
     this.video = document.createElement("video");
-    
+    this.video.crossOrigin = "anonymous";
+    this.video.addEventListener("loadstart", () => {
+      console.log("loadstart");
+    });
+
+    this.video.addEventListener("loadedmetadata", () => {
+      console.log("loadedmetadata");
+    });
+
+    this.video.addEventListener("loadeddata", () => {
+      console.log("loadeddata");
+    });
+
+    this.video.addEventListener("canplay", () => {
+      console.log("canplay");
+    });
+
+    this.video.addEventListener("playing", () => {
+      console.log("playing");
+    });
+
+    this.video.addEventListener("error", () => {
+      console.log("ERROR VIDEO");
+
+      console.log(this.video.error);
+    });
     this.video.loop = true;
     this.video.muted = true;
     this.video.playsInline = true;
@@ -24,16 +49,15 @@ export default class MonitorScreen {
 
   setVideo(videoPath) {
     if (this.video.src.includes(videoPath)) {
-        return;
+      return;
     }
 
     this.video.pause();
-
+    this.video.preload = "auto";
     this.video.src = videoPath;
 
     this.video.load();
-
-}
+  }
 
   playVideo() {
     console.log("PLAY VIDEO");
@@ -51,22 +75,16 @@ export default class MonitorScreen {
   }
 
   setActive(videoPath) {
-
     this.isActive = true;
 
-    this.setVideo(
-        videoPath
-    );
+    this.setVideo(videoPath);
 
-    this.screen.material =
-        this.videoMaterial;
+    this.screen.material = this.videoMaterial;
 
-    this.screen.material.needsUpdate =
-        true;
+    this.screen.material.needsUpdate = true;
 
     this.playVideo();
-
-}
+  }
 
   setInactive() {
     this.isActive = false;
