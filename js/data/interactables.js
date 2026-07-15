@@ -215,7 +215,7 @@ export default {
       },
     },
   },
-  Shop1: {
+  shop1: {
     type: "link",
     hint: "shop",
     beacon: {
@@ -235,7 +235,7 @@ export default {
     actionLabel: "Visitar tienda",
     url: "https://udiscover.mx/collections/ed-maverick/products/eduardo-2lp",
   },
-  Shop2: {
+  shop2: {
     type: "link",
     hint: "shop",
     beacon: {
@@ -257,7 +257,7 @@ export default {
     actionLabel: "Visitar galeria",
     url: "https://cincuentaytrescuarentaynueve.com/",
   },
-  Shop3: {
+  shop3: {
     type: "link",
     hint: "shop",
     beacon: {
@@ -277,7 +277,7 @@ export default {
     actionLabel: "Visita la tienda oficial",
     url: "https://udiscover.mx/collections/ed-maverick/products/la-nube-en-el-jardin-vinilo-doble-color-black",
   },
-  Shop4: {
+  shop4: {
     type: "link",
     hint: "shop",
     beacon: {
