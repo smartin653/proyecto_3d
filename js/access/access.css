@@ -1,0 +1,105 @@
+#access-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:#0b0b0b;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:999999;
+
+}
+
+#access-card{
+
+    width:420px;
+
+    padding:40px;
+
+    background:#181818;
+
+    border:1px solid #333;
+
+    border-radius:10px;
+
+    text-align:center;
+
+    color:white;
+
+    font-family:Arial,sans-serif;
+
+}
+
+#access-card h1{
+
+    margin-bottom:12px;
+
+    font-size:28px;
+
+}
+
+#access-card p{
+
+    color:#999;
+
+    margin-bottom:25px;
+
+}
+
+#access-input{
+
+    width:100%;
+
+    padding:12px;
+
+    background:#222;
+
+    color:white;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:5px;
+
+    margin-bottom:20px;
+
+    box-sizing:border-box;
+
+}
+
+#access-button{
+
+    width:100%;
+
+    padding:12px;
+
+    background:white;
+
+    color:black;
+
+    cursor:pointer;
+
+    border:none;
+
+    border-radius:5px;
+
+    font-weight:bold;
+
+}
+
+#access-error{
+
+    color:#ff4c4c;
+
+    margin-top:15px;
+
+    display:none;
+
+}

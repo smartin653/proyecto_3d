@@ -231,9 +231,9 @@ export default {
 
       emissive: 0.8,
     },
-    title: "Eduardo",
+    title: "La Nube en vivo",
     actionLabel: "Visitar tienda",
-    url: "https://udiscover.mx/collections/ed-maverick/products/eduardo-2lp",
+    url: "https://udiscover.mx/collections/ed-maverick/products/la-nube-en-el-jardin-en-vivo-desde-sala-nezahualcoyotl",
   },
   shop2: {
     type: "link",
@@ -245,7 +245,7 @@ export default {
 
       animation: "pulse",
       actionLabel: "Visitar galeria",
-      url: "https://cincuentaytrescuarentaynueve.com/",
+      url: "https://udiscover.mx/collections/ed-maverick/products/la-nube-en-el-jardin-vinilo-doble-color-black",
     },
 
     hover: {
@@ -253,7 +253,7 @@ export default {
 
       emissive: 0.8,
     },
-    title: "Pista 06",
+    title: "La nube",
     actionLabel: "Visitar galeria",
     url: "https://cincuentaytrescuarentaynueve.com/",
   },
@@ -273,9 +273,9 @@ export default {
 
       emissive: 0.8,
     },
-    title: "La nube",
+    title: "Eduardo",
     actionLabel: "Visita la tienda oficial",
-    url: "https://udiscover.mx/collections/ed-maverick/products/la-nube-en-el-jardin-vinilo-doble-color-black",
+    url: "https://udiscover.mx/collections/ed-maverick/products/eduardo-2lp",
   },
   shop4: {
     type: "link",
