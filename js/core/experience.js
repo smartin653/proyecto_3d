@@ -167,7 +167,7 @@ export default class Experience {
   }
 
   async loadAssets() {
-    const gltf = await this.modelLoader.load("https://assets.esrutayerma.com/models/EdMav_Studio_GLB_V13.glb");
+    const gltf = await this.modelLoader.load("https://assets.esrutayerma.com/models/EdMav_Studio_GLB_V14.glb");
 
     this.scene.add(gltf.scene);
     this.setupScreens(gltf.scene);
