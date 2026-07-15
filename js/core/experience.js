@@ -170,6 +170,12 @@ export default class Experience {
     const gltf = await this.modelLoader.load("https://assets.esrutayerma.com/models/EdMav_Studio_GLB_V14.glb");
 
     this.scene.add(gltf.scene);
+
+    console.log("===== TODOS LOS OBJETOS =====");
+
+gltf.scene.traverse((object) => {
+    console.log(object.name);
+});
     this.setupScreens(gltf.scene);
     this.setupLights(gltf.scene);
     this.setupScene(gltf.scene);
@@ -182,11 +188,11 @@ export default class Experience {
       night: gltf.scene.getObjectByName("Jardin_noche"),
     };
     this.curtains = {
-      morning: gltf.scene.getObjectByName("Pmedia"),
+      morning: gltf.scene.getObjectByName("p_MEDIA"),
 
-      afternoon: gltf.scene.getObjectByName("Palta"),
+      afternoon: gltf.scene.getObjectByName("P_ALTA"),
 
-      night: gltf.scene.getObjectByName("Pbaja"),
+      night: gltf.scene.getObjectByName("P_BAJA"),
     };
 
     console.log("Curtains", this.curtains);
