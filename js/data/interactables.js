@@ -19,7 +19,7 @@ export default {
     },
     title: "No todo es parte de la vida",
     audio: "./assets/audio/track01.mp3",
-    cover: "./assets/covers/cover_01.png",
+    cover: "./assets/covers/NTEPDLV_01.jpg",
     sharing: {
       url: "https://esrutayerma.com/",
 
@@ -66,7 +66,7 @@ export default {
     title: "Me inundo",
 
     audio: "./assets/audio/track02.mp3",
-    cover: "./assets/covers/cover_02.png",
+    cover: "./assets/covers/NTEPDLV_02.jpg",
     visuals: {
       monitor: "./assets/video/grabadora.mp4",
       projector: "https://assets.esrutayerma.com/videos/Me_inundo.mov",
@@ -105,7 +105,7 @@ export default {
     title: "Pista 03",
 
     audio: "./assets/audio/track03.mp3",
-    cover: "./assets/covers/coverED.jpg",
+    cover: "./assets/covers/NTEPDLV_03.jpg",
     visuals: {
       monitor: "./assets/video/grabadora.mp4",
       projector: "./assets/video/grabadora.mp4",
@@ -144,7 +144,7 @@ export default {
     title: "Pista 04",
 
     audio: "./assets/audio/track04.mp3",
-    cover: "./assets/covers/coverED.jpg",
+    cover: "./assets/covers/NTEPDLV_04.jpg",
     visuals: {
       monitor: "./assets/video/grabadora.mp4",
       projector: "./assets/video/grabadora.mp4",
@@ -170,7 +170,7 @@ export default {
     title: "Pista 05",
 
     audio: "./assets/audio/track05.mp3",
-    cover: "./assets/covers/coverED.jpg",
+    cover: "./assets/covers/NTEPDLV_05.jpg",
     visuals: {
       monitor: "./assets/video/grabadora.mp4",
       projector: "./assets/video/grabadora.mp4",
@@ -196,7 +196,7 @@ export default {
     title: "Pista 06",
 
     audio: "./assets/audio/track06.mp3",
-    cover: "./assets/covers/coverED.jpg",
+    cover: "./assets/covers/NTEPDLV_06.jpg",
     visuals: {
       monitor: "./assets/video/grabadora.mp4",
       projector: "./assets/video/grabadora.mp4",

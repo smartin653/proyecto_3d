@@ -154,10 +154,10 @@ export default class RaycasterManager {
         this.spotifyPlayer.show(interactable);
         this.screenManager.play(interactable.visuals);
 
-        this.cameraTransition.flyTo(
-          interactable.camera.position,
-          interactable.camera.target,
-        );
+        // this.cameraTransition.flyTo(
+        //   interactable.camera.position,
+        //   interactable.camera.target,
+        // );
 
         break;
 

@@ -51,10 +51,8 @@ export default class EnvironmentManager {
   }
 
   getCurrentPreset() {
-
     return this.presets[this.mode];
-
-}
+  }
 
   notify() {
     this.listeners.forEach((callback) => {
@@ -67,14 +65,10 @@ export default class EnvironmentManager {
   }
 
   initialize() {
-
     if (!this.autoMode) return;
 
-    this.setMode(
-        this.detectMode()
-    );
-
-}
+    this.setMode(this.detectMode());
+  }
 
   setPreset(name) {}
 
@@ -161,5 +155,23 @@ export default class EnvironmentManager {
       // Blur Samples (solo VSM)
       f.add(light.shadow, "blurSamples", 1, 25, 1);
     });
+  }
+
+  setLightColor(name, color) {
+    const light = this.importedLights.find((light) => light.name === name);
+    console.log(light.name, light.uuid);
+
+    if (!light) {
+      console.warn("Light not found:", name);
+
+      return;
+    }
+
+    
+    light.color.set(0xff0000);
+
+    light.intensity = 5000;
+
+    console.log(light);
   }
 }

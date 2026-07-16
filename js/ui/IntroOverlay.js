@@ -11,25 +11,21 @@ export default class IntroOverlay {
     this.element.innerHTML = `
 
            <div class="intro-content">
-      <div class="intro-content-main">
+      <div class="intro-left">
         <div class="intro-label">● ESTUDIO INTERACTIVO</div>
+
         <h1>
-          ED<br />
-          MAVERICK
+          SIN AGUA ES RUTA YERMA
         </h1>
-        <div class="intro-line"></div>
 
         <p class="intro-description">
-          Explora el estudio donde nacen las canciones. Descubre grabaciones,
-          recuerdos y sesiones inéditas.
+          Cosas pasan cuando hay sol, cosas pasan cuando sale la luna y así todos los días. Las 6 en el reloj marcan el cambio. <br>  <br>
+          Ocupa los audios disponibles día tras día y comparte tu música. No olvides registrar tus creaciones con #SAERY.
         </p>
 
-        <button id="enter-btn" disabled>CARGANDO...</button>
-
-        <div class="intro-footer">
-          🎧 Usa audífonos para una mejor experiencia
-        </div>
+        <button id="enter-btn" disabled>PREPARANDO TU EXPERIENCIA...</button>
       </div>
+
     </div>
 
         `;

@@ -25,6 +25,8 @@ import ShareManager from "../ui/ShareManager.js";
 import Toast from "../ui/Toast.js";
 import PostProcessingManager from "../effects/PostProcessingManager.js";
 import OrientationOverlay from "../ui/OrientationOverlay.js";
+import CinematicManager from "../managers/CinematicManager.js";
+import TutorialModal from "../ui/TutorialModal.js";
 
 export default class Experience {
   constructor() {
@@ -63,6 +65,7 @@ export default class Experience {
       this.scene,
       this.camera,
     );
+    this.tutorialModal = new TutorialModal();
 
     const renderer = this.rendererManager.renderer;
 
@@ -77,6 +80,11 @@ export default class Experience {
     this.environmentManager = new EnvironmentManager(
       this.scene,
       this.rendererManager.renderer,
+    );
+
+    this.cinematicManager = new CinematicManager(
+      this.postProcessing,
+      this.environmentManager,
     );
 
     this.environmentManager.initialize();
@@ -153,7 +161,7 @@ export default class Experience {
     const gui = this.debugManager.gui;
 
     this.environmentManager.setupDebug(gui);
-     this.postProcessing.setupDebug(gui);
+    this.postProcessing.setupDebug(gui);
 
     const live = gui.addFolder("Live Camera");
 
@@ -167,17 +175,20 @@ export default class Experience {
   }
 
   async loadAssets() {
-    const gltf = await this.modelLoader.load("https://assets.esrutayerma.com/models/EdMav_Studio_GLB_V14.glb");
+    const gltf = await this.modelLoader.load(
+      "https://assets.esrutayerma.com/models/EdMav_Studio_GLB_V14.glb",
+    );
 
     this.scene.add(gltf.scene);
 
-    console.log("===== TODOS LOS OBJETOS =====");
+    // console.log("===== TODOS LOS OBJETOS =====");
 
-gltf.scene.traverse((object) => {
-    console.log(object.name);
-});
+    // gltf.scene.traverse((object) => {
+    //   console.log(object.name);
+    // });
     this.setupScreens(gltf.scene);
     this.setupLights(gltf.scene);
+    this.cinematicManager.test();
     this.setupScene(gltf.scene);
     this.setupInteractables(gltf.scene);
     this.gardens = {
@@ -334,11 +345,14 @@ gltf.scene.traverse((object) => {
     root.traverse((child) => {
       if (!child.isLight) return;
 
+      console.log("💡", child.name, child.type, child.color.getHexString());
+
       if (!this.lights) {
         this.lights = {};
       }
 
       this.lights[child.name] = child;
+      console.log(child.name, child.uuid);
       child.castShadow = true;
 
       switch (child.name) {
@@ -386,6 +400,9 @@ gltf.scene.traverse((object) => {
       }
 
       child.shadow.camera.updateProjectionMatrix();
+      child.color.set(0xff0000);
+
+      child.intensity = 5000;
       importedLights.push(child);
     });
 
@@ -395,6 +412,9 @@ gltf.scene.traverse((object) => {
         importedLights,
       );
     }
+
+    this.environmentManager.setImportedLights(importedLights);
+    this.environmentManager.setLightColor("Spot001", 0xff0000);
 
     console.log("Lights:", this.lights);
   }
@@ -510,10 +530,10 @@ gltf.scene.traverse((object) => {
     console.log("HOME", this.homeCamera);
     console.log("ACTUAL", this.camera.position);
 
-    this.cameraTransition.flyTo(
-      this.homeCamera.position,
-      this.homeCamera.target,
-      1.6,
-    );
+    // this.cameraTransition.flyTo(
+    //   this.homeCamera.position,
+    //   this.homeCamera.target,
+    //   1.6,
+    // );
   }
 }
