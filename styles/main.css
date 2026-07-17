@@ -314,7 +314,6 @@ canvas{
 ========================== */
 
 .spotify-track-info{
-    width: 220px;
     flex-shrink: 0;
     overflow: hidden;
 }
@@ -346,12 +345,10 @@ canvas{
 
 .spotify-center{
     flex: 1;
-
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
     gap: 10px;
 }
 
@@ -591,6 +588,12 @@ canvas{
     gap:10px;
 
 }
+
+.spotify-action img{
+   width: 30px;
+   height: 30px;
+}
+
 
 .spotify-actions button{
 

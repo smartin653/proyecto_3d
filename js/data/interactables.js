@@ -17,18 +17,34 @@ export default {
 
       emissive: 0.8,
     },
-    title: "No todo es parte de la vida",
-    audio: "./assets/audio/track01.mp3",
-    cover: "./assets/covers/NTEPDLV_01.jpg",
+    title: {
+      day: "Track 1 - GUITARRA ACÚSTICA",
+      night: "Track 2 - guitarra acústica ",
+    },
+    cover: {
+      day: "./assets/covers/day/NTEPDLV_01.jpg",
+      night: "./assets/covers/night/NTEPDLV_01.jpg",
+    },
+    audio: {
+      day: "./assets/audio/day/1_GUITARRA_ACÚSTICA_(STEM).wav",
+      night: "./assets/audio/night/1. guitarra acústica (stem).wav",
+    },
     sharing: {
       url: "https://esrutayerma.com/",
 
       text: "Escucha 'No todo es parte de la vida'",
+      website: "https://esrutayerma.com",
+
+      facebook: "https://esrutayerma.com",
+
+      instagram: "https://esrutayerma.com",
+
+      tiktok: "https://esrutayerma.com",
     },
 
     download: "./assets/audio/track01.mp3",
     visuals: {
-      monitor: "./assets/video/Ondas_Azules.mp4",
+      monitor: "./assets/video/grabadora.mp4",
       projector: "https://assets.esrutayerma.com/videos/Video_Desierto.mp4",
       paredfalsa: "./assets/video/Portada.mp4",
     },
@@ -63,10 +79,18 @@ export default {
 
       emissive: 0.8,
     },
-    title: "Me inundo",
-
-    audio: "./assets/audio/track02.mp3",
-    cover: "./assets/covers/NTEPDLV_02.jpg",
+    title: {
+      day: "Track 1 - GUITARRA ELÉCTRICA",
+      night: "Track 2 - guitarra eléctrica",
+    },
+    cover: {
+      day: "./assets/covers/day/NTEPDLV_01.jpg",
+      night: "./assets/covers/night/NTEPDLV_01.jpg",
+    },
+    audio: {
+      day: "./assets/audio/day/2. GUITARRA ELÉCTRICA (STEM).wav",
+      night: "./assets/audio/night/2. guitarra eléctrica (stem) (1).wav",
+    },
     visuals: {
       monitor: "./assets/video/grabadora.mp4",
       projector: "https://assets.esrutayerma.com/videos/Me_inundo.mov",
@@ -102,10 +126,18 @@ export default {
 
       emissive: 0.8,
     },
-    title: "Pista 03",
-
-    audio: "./assets/audio/track03.mp3",
-    cover: "./assets/covers/NTEPDLV_03.jpg",
+    title: {
+      day: "Track 1 - BAJO ",
+      night: "Track 2 - bajo",
+    },
+    cover: {
+      day: "./assets/covers/day/NTEPDLV_01.jpg",
+      night: "./assets/covers/night/NTEPDLV_01.jpg",
+    },
+    audio: {
+      day: "./assets/audio/day/3. BAJO (STEM).wav",
+      night: "./assets/audio/night/3. bajo (stem) (1).wav",
+    },
     visuals: {
       monitor: "./assets/video/grabadora.mp4",
       projector: "./assets/video/grabadora.mp4",
@@ -141,10 +173,18 @@ export default {
 
       emissive: 0.8,
     },
-    title: "Pista 04",
-
-    audio: "./assets/audio/track04.mp3",
-    cover: "./assets/covers/NTEPDLV_04.jpg",
+    title: {
+      day: "Track 1 - BATERÍA",
+      night: "Track 2 - batería",
+    },
+    cover: {
+      day: "./assets/covers/day/NTEPDLV_01.jpg",
+      night: "./assets/covers/night/NTEPDLV_01.jpg",
+    },
+    audio: {
+      day: "./assets/audio/day/4. BATERÍA (STEM).wav",
+      night: "./assets/audio/night/4. batería (stem) (1).wav",
+    },
     visuals: {
       monitor: "./assets/video/grabadora.mp4",
       projector: "./assets/video/grabadora.mp4",
@@ -167,10 +207,18 @@ export default {
   Slider_Pista05: {
     type: "track",
     hint: "music",
-    title: "Pista 05",
-
-    audio: "./assets/audio/track05.mp3",
-    cover: "./assets/covers/NTEPDLV_05.jpg",
+    title: {
+      day: "Track 1 - CUERDAS",
+      night: "Track 2 - cuerdas",
+    },
+    cover: {
+      day: "./assets/covers/day/NTEPDLV_01.jpg",
+      night: "./assets/covers/night/NTEPDLV_01.jpg",
+    },
+    audio: {
+      day: "./assets/audio/day/5. CUERDAS (STEM).wav",
+      night: "./assets/audio/night/5. cuerdas (stem) (1).wav",
+    },
     visuals: {
       monitor: "./assets/video/grabadora.mp4",
       projector: "./assets/video/grabadora.mp4",
@@ -193,10 +241,18 @@ export default {
   Slider_Pista06: {
     type: "track",
     hint: "music",
-    title: "Pista 06",
-
-    audio: "./assets/audio/track06.mp3",
-    cover: "./assets/covers/NTEPDLV_06.jpg",
+    title: {
+      day: "Track 1 - TROMPETA",
+      night: "Track 2 - wurlitzer ",
+    },
+    cover: {
+      day: "./assets/covers/day/NTEPDLV_01.jpg",
+      night: "./assets/covers/night/NTEPDLV_01.jpg",
+    },
+    audio: {
+      day: "./assets/audio/day/6. TROMPETA (STEM).wav",
+      night: "./assets/audio/night/6. wurlitzer (stem).wav",
+    },
     visuals: {
       monitor: "./assets/video/grabadora.mp4",
       projector: "./assets/video/grabadora.mp4",

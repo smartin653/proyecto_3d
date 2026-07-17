@@ -13,6 +13,7 @@ export default class RaycasterManager {
     screenManager,
     spotifyPlayer,
     cameraTransition,
+    contentVersionManager,
   ) {
     console.log("cameraTransition:", cameraTransition);
     this.camera = camera;
@@ -25,6 +26,7 @@ export default class RaycasterManager {
     this.screenManager = screenManager;
     this.spotifyPlayer = spotifyPlayer;
     this.cameraTransition = cameraTransition;
+    this.contentVersionManager = contentVersionManager;
 
     this.raycaster = new THREE.Raycaster();
 
@@ -70,7 +72,10 @@ export default class RaycasterManager {
         this.interactionCard.lock();
       }
 
-      this.interactionCard.show(interactable);
+      const content = this.contentVersionManager.resolveTrack(interactable);
+
+      //this.interactionCard.show(interactable);
+      this.interactionCard.show(content);
 
       if (this.hoveredObject !== hit.object) {
         if (this.hoveredObject) {
@@ -84,6 +89,8 @@ export default class RaycasterManager {
         this.hoveredObject.material.emissive.set(0xffffff);
 
         this.hoveredObject.material.emissiveIntensity = 1;
+        // this.hoveredObject.rotation.z = THREE.MathUtils.degToRad(-10);
+        // this.hoveredObject.position.y += 0.03;
       }
 
       return;
@@ -108,7 +115,8 @@ export default class RaycasterManager {
 
       this.hoveredObject.material.emissiveIntensity = 0;
     }
-
+    // this.hoveredObject.rotation.x = 0;
+    // this.hoveredObject.position.y -= 0.03;
     this.hoveredObject = null;
   }
 
@@ -146,13 +154,21 @@ export default class RaycasterManager {
 
     if (!interactable) return;
 
+    const content = this.contentVersionManager.resolveTrack(interactable);
+
     switch (interactable.type) {
       case "track":
-        this.audioManager.play(interactable.audio);
+        this.audioManager.play(content.audio);
 
-        //this.spotifyPlayer.show(interactable.title, interactable.cover);
-        this.spotifyPlayer.show(interactable);
-        this.screenManager.play(interactable.visuals);
+        this.spotifyPlayer.show(content);
+
+        this.screenManager.play(content.visuals);
+
+        // this.audioManager.play(interactable.audio);
+
+        // //this.spotifyPlayer.show(interactable.title, interactable.cover);
+        // this.spotifyPlayer.show(interactable);
+        // this.screenManager.play(interactable.visuals);
 
         // this.cameraTransition.flyTo(
         //   interactable.camera.position,

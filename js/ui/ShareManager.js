@@ -2,38 +2,16 @@ export default class ShareManager {
   constructor() {
     this.platforms = [
       {
-        id: "facebook",
-        icon: "./assets/icons/facebook.svg",
-        label: "Facebook",
-        handler: this.shareFacebook.bind(this),
-      },
-
-      {
-        id: "whatsapp",
-        icon: "./assets/icons/whatsapp.svg",
-        label: "WhatsApp",
-        handler: this.shareWhatsApp.bind(this),
-      },
-
-      {
-        id: "x",
-        icon: "./assets/icons/x.svg",
-        label: "X",
-        handler: this.shareX.bind(this),
-      },
-
-      {
         id: "tiktok",
         icon: "./assets/icons/tiktok.svg",
         label: "TikTok",
         handler: this.shareTikTok.bind(this),
       },
-
       {
-        id: "copy",
-        icon: "./assets/icons/copy.svg",
-        label: "Copiar enlace",
-        handler: this.copyLink.bind(this),
+        id: "instagram",
+        icon: "./assets/icons/instagram.png",
+        label: "Instagram",
+        handler: this.shareInstagram.bind(this),
       },
     ];
 
@@ -78,37 +56,27 @@ export default class ShareManager {
 
   shareFacebook(track) {
     window.open(
-      `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(track.sharing.url)}`,
+      track.sharing.facebook,
 
       "_blank",
     );
   }
 
-  shareWhatsApp(track) {
+  shareInstagram(track) {
     window.open(
-      `https://wa.me/?text=${encodeURIComponent(
-        track.sharing.text + " " + track.sharing.url,
-      )}`,
+      track.sharing.instagram,
 
       "_blank",
     );
   }
 
-  shareX(track) {
-    window.open(
-      `https://twitter.com/intent/tweet?text=${encodeURIComponent(track.sharing.text)}&url=${encodeURIComponent(track.sharing.url)}`,
 
-      "_blank",
-    );
-  }
 
   shareTikTok(track) {
-    navigator.clipboard.writeText(track.sharing.url);
+    window.open(
+      track.sharing.tiktok,
 
-    this.toast.show(
-      "Enlace copiado",
-
-      "📋",
+      "_blank",
     );
   }
 
@@ -126,35 +94,25 @@ export default class ShareManager {
     this.toast = toast;
   }
 
-  download(track) {
+  // download(track) {
+  //   if (!track.download) {
+  //     this.toast?.show("No hay descarga disponible", "⚠️");
 
-    if (!track.download) {
+  //     return;
+  //   }
 
-        this.toast?.show(
-            "No hay descarga disponible",
-            "⚠️"
-        );
+  //   const link = document.createElement("a");
 
-        return;
+  //   link.href = track.download;
 
-    }
+  //   link.download = "";
 
-    const link = document.createElement("a");
+  //   document.body.appendChild(link);
 
-    link.href = track.download;
+  //   link.click();
 
-    link.download = "";
+  //   link.remove();
 
-    document.body.appendChild(link);
-
-    link.click();
-
-    link.remove();
-
-    this.toast?.show(
-        "Descarga iniciada",
-        "⬇"
-    );
-
-}
+  //   this.toast?.show("Descarga iniciada", "⬇");
+  // }
 }

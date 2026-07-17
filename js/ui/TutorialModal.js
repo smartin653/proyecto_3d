@@ -1,18 +1,23 @@
 export default class TutorialModal {
+  constructor() {
+    this.videoUrl = this.getVideo();
+    this.create();
 
-    constructor() {
+    this.bindEvents();
+  }
 
-        this.create();
-
-        this.bindEvents();
-
+  getVideo() {
+    if (window.innerWidth <= 768) {
+      return "https://assets.esrutayerma.com/videos/Instrucciones%20Mobile%20-Ed%20Maverik.mp4";
     }
 
-    create() {
+    return "https://assets.esrutayerma.com/videos/Instrucciones%20Escritorio_Sitio%20Ed%20Maverik.mp4";
+  }
 
-        this.container = document.createElement("div");
+  create() {
+    this.container = document.createElement("div");
 
-        this.container.innerHTML = `
+    this.container.innerHTML = `
 
             <button class="tutorial-button">
 
@@ -37,9 +42,9 @@ export default class TutorialModal {
                     >
 
                         <source
-                            src="https://assets.esrutayerma.com/videos/Instrucciones%20Escritorio_Sitio%20Ed%20Maverik.mp4"
-                            type="video/mp4"
-                        >
+    src="${this.videoUrl}"
+    type="video/mp4"
+>
 
                     </video>
 
@@ -49,70 +54,44 @@ export default class TutorialModal {
 
         `;
 
-        document.body.appendChild(
-            this.container
-        );
+    document.body.appendChild(this.container);
 
-        this.button = this.container.querySelector(
-            ".tutorial-button"
-        );
+    this.button = this.container.querySelector(".tutorial-button");
 
-        this.overlay = this.container.querySelector(
-            ".tutorial-overlay"
-        );
+    this.overlay = this.container.querySelector(".tutorial-overlay");
 
-        this.closeButton = this.container.querySelector(
-            ".tutorial-close"
-        );
+    this.closeButton = this.container.querySelector(".tutorial-close");
 
-        this.video = this.container.querySelector(
-            ".tutorial-video"
-        );
+    this.video = this.container.querySelector(".tutorial-video");
+  }
 
-    }
+  bindEvents() {
+    this.button.addEventListener(
+      "click",
 
-    bindEvents() {
+      () => this.show(),
+    );
 
-        this.button.addEventListener(
+    this.closeButton.addEventListener(
+      "click",
 
-            "click",
+      () => this.hide(),
+    );
+  }
 
-            () => this.show()
+  show() {
+    this.overlay.classList.add("active");
 
-        );
+    this.video.currentTime = 0;
 
-        this.closeButton.addEventListener(
+    this.video.play();
+  }
 
-            "click",
+  hide() {
+    this.overlay.classList.remove("active");
 
-            () => this.hide()
+    this.video.pause();
 
-        );
-
-    }
-
-    show() {
-
-        this.overlay.classList.add(
-            "active"
-        );
-
-        this.video.currentTime = 0;
-
-        this.video.play();
-
-    }
-
-    hide() {
-
-        this.overlay.classList.remove(
-            "active"
-        );
-
-        this.video.pause();
-
-        this.video.currentTime = 0;
-
-    }
-
+    this.video.currentTime = 0;
+  }
 }

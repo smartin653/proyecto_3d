@@ -7,7 +7,7 @@ export default class SpotifyPlayer {
     this.player = document.getElementById("spotify-player");
     this.title = document.querySelector(".spotify-track-title");
     this.button = document.getElementById("spotify-toggle");
-    this.downloadButton = document.getElementById("spotify-download");
+    //this.downloadButton = document.getElementById("spotify-download");
     this.currentTrack = null;
     this.onDownload = null;
     this.progressFill = document.querySelector(".spotify-progress-fill");
@@ -68,13 +68,13 @@ export default class SpotifyPlayer {
       }
     });
     
-    this.downloadButton.addEventListener("click", () => {
-      if (!this.currentTrack) return;
+    // this.downloadButton.addEventListener("click", () => {
+    //   if (!this.currentTrack) return;
 
-      if (this.onDownload) {
-        this.onDownload(this.currentTrack);
-      }
-    });
+    //   if (this.onDownload) {
+    //     this.onDownload(this.currentTrack);
+    //   }
+    // });
   }
 
   show(interactable) {

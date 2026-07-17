@@ -27,6 +27,7 @@ import PostProcessingManager from "../effects/PostProcessingManager.js";
 import OrientationOverlay from "../ui/OrientationOverlay.js";
 import CinematicManager from "../managers/CinematicManager.js";
 import TutorialModal from "../ui/TutorialModal.js";
+import ContentVersionManager from "./ContentVersionManager.js";
 
 export default class Experience {
   constructor() {
@@ -87,6 +88,9 @@ export default class Experience {
       this.environmentManager,
     );
 
+    this.contentVersionManager = new ContentVersionManager();
+    console.log(this.contentVersionManager.getMode());
+
     this.environmentManager.initialize();
     this.environmentManager.onChange((mode) => {
       console.log("Environment changed:", mode);
@@ -138,6 +142,7 @@ export default class Experience {
       this.screenManager,
       this.spotifyPlayer,
       this.cameraTransition,
+      this.contentVersionManager
     );
 
     this.introOverlay = new IntroOverlay();
@@ -176,16 +181,16 @@ export default class Experience {
 
   async loadAssets() {
     const gltf = await this.modelLoader.load(
-      "https://assets.esrutayerma.com/models/EdMav_Studio_GLB_V14.glb",
+      "https://assets.esrutayerma.com/models/EdMav_Studio_GLB_V16.glb",
     );
 
     this.scene.add(gltf.scene);
 
-    // console.log("===== TODOS LOS OBJETOS =====");
+    console.log("===== TODOS LOS OBJETOS =====");
 
-    // gltf.scene.traverse((object) => {
-    //   console.log(object.name);
-    // });
+    gltf.scene.traverse((object) => {
+      console.log(object.name);
+    });
     this.setupScreens(gltf.scene);
     this.setupLights(gltf.scene);
     this.cinematicManager.test();
@@ -194,7 +199,7 @@ export default class Experience {
     this.gardens = {
       morning: gltf.scene.getObjectByName("Jardin_amanecer"),
 
-      afternoon: gltf.scene.getObjectByName("Jardin_Dia"),
+      afternoon: gltf.scene.getObjectByName("Jardin_dia"),
 
       night: gltf.scene.getObjectByName("Jardin_noche"),
     };
