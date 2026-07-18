@@ -12,10 +12,27 @@ export default class InteractionCard {
     this.hideTimeout = null;
     this.onAction = null;
     this.isLocked = false;
+    // this.button.addEventListener("click", () => {
+    //   if (!this.currentInteractable) return;
+
+    //   window.open(this.currentInteractable.url, "_blank");
+    // });
     this.button.addEventListener("click", () => {
       if (!this.currentInteractable) return;
 
-      window.open(this.currentInteractable.url, "_blank");
+      switch (this.currentInteractable.type) {
+        case "link":
+          window.open(this.currentInteractable.url, "_blank");
+
+          break;
+
+        case "action":
+          if (this.onAction) {
+            this.onAction(this.currentInteractable);
+          }
+
+          break;
+      }
     });
     this.isHovered = false;
     this.card.addEventListener("mouseenter", () => {
@@ -36,7 +53,15 @@ export default class InteractionCard {
     this.currentInteractable = interactable;
     this.title.textContent = interactable.title;
 
-    if (interactable.type === "link") {
+    // if (interactable.type === "link") {
+    //   this.button.style.display = "block";
+
+    //   this.button.textContent = interactable.actionLabel;
+    // } else {
+    //   this.button.style.display = "none";
+    // }
+
+    if (interactable.type === "link" || interactable.type === "action") {
       this.button.style.display = "block";
 
       this.button.textContent = interactable.actionLabel;
@@ -48,12 +73,10 @@ export default class InteractionCard {
   }
 
   hide() {
-
     this.unlock();
 
     this.card.classList.remove("visible");
-
-}
+  }
 
   move(x, y) {
     this.card.style.left = `${x}px`;

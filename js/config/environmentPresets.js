@@ -27,6 +27,21 @@ export default {
         visible: true,
         color: "#FFF8EC",
       },
+      Spot005: {
+        intensity: 0,
+        visible: true,
+        color: "#FFF8EC",
+      },
+      Spot006: {
+        intensity: 0,
+        visible: true,
+        color: "#FFF8EC",
+      },
+      Spot007: {
+        intensity: 0,
+        visible: true,
+        color: "#FFF8EC",
+      },
     },
   },
 

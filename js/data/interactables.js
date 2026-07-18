@@ -48,6 +48,7 @@ export default {
       projector: "https://assets.esrutayerma.com/videos/Video_Desierto.mp4",
       paredfalsa: "./assets/video/Portada.mp4",
     },
+    youtube: "https://www.youtube.com/channel/UCCFO5GAOTY-haRtyGrBECoQ",
     camera: {
       position: {
         x: -1.9,
@@ -108,6 +109,7 @@ export default {
         z: 0,
       },
     },
+    youtube: "https://www.youtube.com/channel/UCCFO5GAOTY-haRtyGrBECoQ",
   },
 
   Slider_Pista03: {
@@ -155,6 +157,7 @@ export default {
         z: 0,
       },
     },
+    youtube: "https://www.youtube.com/channel/UCCFO5GAOTY-haRtyGrBECoQ",
   },
 
   Slider_Pista04: {
@@ -187,7 +190,7 @@ export default {
     },
     visuals: {
       monitor: "./assets/video/grabadora.mp4",
-      projector: "./assets/video/grabadora.mp4",
+      projector: "./assets/video/Video_Desierto.mp4",
     },
     camera: {
       position: {
@@ -202,6 +205,7 @@ export default {
         z: 0,
       },
     },
+    youtube: "https://www.youtube.com/channel/UCCFO5GAOTY-haRtyGrBECoQ",
   },
 
   Slider_Pista05: {
@@ -221,7 +225,7 @@ export default {
     },
     visuals: {
       monitor: "./assets/video/grabadora.mp4",
-      projector: "./assets/video/grabadora.mp4",
+      projector: "./assets/video/Video_Desierto.mp4",
     },
     camera: {
       position: {
@@ -255,7 +259,7 @@ export default {
     },
     visuals: {
       monitor: "./assets/video/grabadora.mp4",
-      projector: "./assets/video/grabadora.mp4",
+      projector: "./assets/video/Video_Desierto.mp4",
     },
     camera: {
       position: {
@@ -270,6 +274,7 @@ export default {
         z: 0,
       },
     },
+    youtube: "https://www.youtube.com/channel/UCCFO5GAOTY-haRtyGrBECoQ",
   },
   shop1: {
     type: "link",
@@ -290,6 +295,7 @@ export default {
     title: "La Nube en vivo",
     actionLabel: "Visitar tienda",
     url: "https://udiscover.mx/collections/ed-maverick/products/la-nube-en-el-jardin-en-vivo-desde-sala-nezahualcoyotl",
+    animation:"venta",
   },
   shop2: {
     type: "link",
@@ -375,4 +381,37 @@ export default {
     actionLabel: "Visitar galeria",
     url: "https://cincuentaytrescuarentaynueve.com/",
   },
+  cortina: {
+    type: "info",
+    showCard: false,
+    hover: {
+      outline: true,
+
+      emissive: 0.8,
+    },
+    animation:"ventana",
+  },
+  REC: {
+
+    type: "action",
+
+    action: "openOfficialVideo",
+
+    hint: "youtube",
+
+    title: "Video oficial",
+
+    description: "Se abrirá el video oficial de la canción que se está reproduciendo en una nueva pestaña.",
+
+    actionLabel: "Abrir YouTube",
+
+    hover: {
+
+        outline: true,
+
+        emissive: 0.8
+
+    }
+
+}
 };

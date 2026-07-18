@@ -12,8 +12,7 @@ export default class IntroOverlay {
 
            <div class="intro-content">
       <div class="intro-left">
-        <div class="intro-label">● ESTUDIO INTERACTIVO</div>
-
+        
         <h1>
           SIN AGUA ES RUTA YERMA
         </h1>

@@ -28,6 +28,12 @@ import OrientationOverlay from "../ui/OrientationOverlay.js";
 import CinematicManager from "../managers/CinematicManager.js";
 import TutorialModal from "../ui/TutorialModal.js";
 import ContentVersionManager from "./ContentVersionManager.js";
+import lightSettings from "../config/lightSettings.js";
+import { THREE } from "../libs/three.js";
+import AnimationManager from "../animation/AnimationManager.js";
+import InteractionResolver from "../interaction/InteractionResolver.js";
+import InteractionHelper from "../interaction/InteractionHelper.js";
+import InteractionCard from "../ui/InteractionCard.js";
 
 export default class Experience {
   constructor() {
@@ -41,6 +47,9 @@ export default class Experience {
     this.importedLights = [];
     this.debug = false;
     this.init();
+    this.mixer = null;
+    this.animations = [];
+    this.animationManager = null;
   }
 
   init() {
@@ -96,7 +105,7 @@ export default class Experience {
       console.log("Environment changed:", mode);
 
       this.updateGarden(mode);
-      this.updateCurtain(mode);
+      //this.updateCurtain(mode);
       this.updateLights(mode);
     });
 
@@ -117,6 +126,15 @@ export default class Experience {
 
     this.modelLoader = new ModelLoader();
     this.audioManager = new AudioManager();
+    this.interactionCard = new InteractionCard();
+    this.interactionCard.onAction = (interactable) => {
+      switch (interactable.action) {
+        case "openOfficialVideo":
+          this.audioManager.openOfficialVideo();
+
+          break;
+      }
+    };
     this.spotifyPlayer = new SpotifyPlayer(this.audioManager);
     this.spotifyPlayer.onClose = this.closePlayer.bind(this);
     this.shareManager = new ShareManager();
@@ -142,7 +160,9 @@ export default class Experience {
       this.screenManager,
       this.spotifyPlayer,
       this.cameraTransition,
-      this.contentVersionManager
+      this.contentVersionManager,
+      this.AnimationManager,
+      this.interactionCard,
     );
 
     this.introOverlay = new IntroOverlay();
@@ -181,15 +201,24 @@ export default class Experience {
 
   async loadAssets() {
     const gltf = await this.modelLoader.load(
-      "https://assets.esrutayerma.com/models/EdMav_Studio_GLB_V16.glb",
+      "https://assets.esrutayerma.com/models/EdMav_Studio_GLB_V18.glb",
     );
+
+    this.animationManager = new AnimationManager(gltf.scene, gltf.animations);
+
+    this.raycasterManager.setAnimationManager(this.animationManager);
+    console.log("Animaciones");
+    console.log(gltf.animations);
 
     this.scene.add(gltf.scene);
 
     console.log("===== TODOS LOS OBJETOS =====");
 
+    // gltf.scene.traverse((object) => {
+    //   console.log(object.name);
+    // });
     gltf.scene.traverse((object) => {
-      console.log(object.name);
+      console.log(object.name, object.type, object.parent?.name);
     });
     this.setupScreens(gltf.scene);
     this.setupLights(gltf.scene);
@@ -203,24 +232,40 @@ export default class Experience {
 
       night: gltf.scene.getObjectByName("Jardin_noche"),
     };
-    this.curtains = {
-      morning: gltf.scene.getObjectByName("p_MEDIA"),
+    // this.curtains = {
+    //   morning: gltf.scene.getObjectByName("p_MEDIA"),
 
-      afternoon: gltf.scene.getObjectByName("P_ALTA"),
+    //   afternoon: gltf.scene.getObjectByName("P_ALTA"),
 
-      night: gltf.scene.getObjectByName("P_BAJA"),
-    };
+    //   night: gltf.scene.getObjectByName("P_BAJA"),
+    // };
 
-    console.log("Curtains", this.curtains);
+    // console.log("Curtains", this.curtains);
 
-    console.log("Morning:", this.curtains.morning);
-    console.log("Afternoon:", this.curtains.afternoon);
-    console.log("Night:", this.curtains.night);
+    // console.log("Morning:", this.curtains.morning);
+    // console.log("Afternoon:", this.curtains.afternoon);
+    // console.log("Night:", this.curtains.night);
 
     this.updateGarden(this.environmentManager.mode);
     console.log("Current mode:", this.environmentManager.mode);
-    this.updateCurtain(this.environmentManager.mode);
+    //this.updateCurtain(this.environmentManager.mode);
     this.updateLights(this.environmentManager.mode);
+
+    //----------------------------------
+    // Test Animation
+    //----------------------------------
+
+    this.animations = gltf.animations;
+
+    this.mixer = new THREE.AnimationMixer(gltf.scene);
+
+    const clip = THREE.AnimationClip.findByName(this.animations, "venta");
+
+    const action = this.mixer.clipAction(clip);
+
+    action.reset();
+
+    action.play();
 
     this.introOverlay.enable();
   }
@@ -241,26 +286,26 @@ export default class Experience {
     garden.visible = true;
   }
 
-  updateCurtain(mode) {
-    Object.values(this.curtains).forEach((curtain) => {
-      curtain.visible = false;
-    });
+  // updateCurtain(mode) {
+  //   Object.values(this.curtains).forEach((curtain) => {
+  //     curtain.visible = false;
+  //   });
 
-    const curtain = this.curtains[mode];
+  //   const curtain = this.curtains[mode];
 
-    if (!curtain) {
-      console.warn(`Curtain "${mode}" no encontrada`);
-      return;
-    }
+  //   if (!curtain) {
+  //     console.warn(`Curtain "${mode}" no encontrada`);
+  //     return;
+  //   }
 
-    curtain.visible = true;
+  //   curtain.visible = true;
 
-    console.log("----- Curtains -----");
+  //   console.log("----- Curtains -----");
 
-    Object.entries(this.curtains).forEach(([name, mesh]) => {
-      console.log(name, mesh.name, mesh.visible);
-    });
-  }
+  //   Object.entries(this.curtains).forEach(([name, mesh]) => {
+  //     console.log(name, mesh.name, mesh.visible);
+  //   });
+  // }
 
   updateLights(mode) {
     const preset = this.environmentManager.getCurrentPreset();
@@ -318,7 +363,7 @@ export default class Experience {
 
       jardinAmanecer: "Jardin_amanecer",
 
-      jardinDia: "Jardin_Dia",
+      jardinDia: "Jardin_dia",
 
       jardinNoche: "Jardin_noche",
     };
@@ -360,42 +405,61 @@ export default class Experience {
       console.log(child.name, child.uuid);
       child.castShadow = true;
 
-      switch (child.name) {
-        case "Spot001":
-          child.intensity = 100;
-          child.shadow.bias = -0.00309;
-          child.shadow.normalBias = 0;
-          child.shadow.radius = 5;
-          child.shadow.camera.near = 0.05;
-          child.shadow.camera.far = 10;
-          break;
+      // switch (child.name) {
+      //   case "Spot001":
+      //     child.intensity = 100;
+      //     child.shadow.bias = -0.00309;
+      //     child.shadow.normalBias = 0;
+      //     child.shadow.radius = 5;
+      //     child.shadow.camera.near = 0.05;
+      //     child.shadow.camera.far = 10;
+      //     break;
 
-        case "Spot002":
-          child.intensity = 160;
-          child.shadow.bias = -0.00047;
-          child.shadow.normalBias = 0;
-          child.shadow.radius = 5;
-          child.shadow.camera.near = 0.1;
-          child.shadow.camera.far = 10;
-          break;
+      //   case "Spot002":
+      //     child.intensity = 160;
+      //     child.shadow.bias = -0.00047;
+      //     child.shadow.normalBias = 0;
+      //     child.shadow.radius = 5;
+      //     child.shadow.camera.near = 0.1;
+      //     child.shadow.camera.far = 10;
+      //     break;
 
-        case "Spot003":
-          child.intensity = 160;
-          child.shadow.bias = -0.00152;
-          child.shadow.normalBias = 0;
-          child.shadow.radius = 5;
-          child.shadow.camera.near = 0.1;
-          child.shadow.camera.far = 10;
-          break;
+      //   case "Spot003":
+      //     child.intensity = 160;
+      //     child.shadow.bias = -0.00152;
+      //     child.shadow.normalBias = 0;
+      //     child.shadow.radius = 5;
+      //     child.shadow.camera.near = 0.1;
+      //     child.shadow.camera.far = 10;
+      //     break;
 
-        case "Spot004":
-          child.intensity = 100;
-          child.shadow.bias = 0;
-          child.shadow.normalBias = 0;
-          child.shadow.radius = 5;
-          child.shadow.camera.near = 0.1;
-          child.shadow.camera.far = 10;
-          break;
+      //   case "Spot004":
+      //     child.intensity = 100;
+      //     child.shadow.bias = 0;
+      //     child.shadow.normalBias = 0;
+      //     child.shadow.radius = 5;
+      //     child.shadow.camera.near = 0.1;
+      //     child.shadow.camera.far = 10;
+      //     break;
+      // }
+
+      const settings = lightSettings[child.name];
+
+      if (settings) {
+        child.intensity = settings.intensity ?? child.intensity;
+
+        child.shadow.bias = settings.bias ?? child.shadow.bias;
+
+        child.shadow.normalBias =
+          settings.normalBias ?? child.shadow.normalBias;
+
+        child.shadow.radius = settings.radius ?? child.shadow.radius;
+
+        child.shadow.camera.near = settings.near ?? child.shadow.camera.near;
+
+        child.shadow.camera.far = settings.far ?? child.shadow.camera.far;
+
+        child.shadow.camera.updateProjectionMatrix();
       }
 
       child.shadow.mapSize.set(2048, 2048);
@@ -405,18 +469,18 @@ export default class Experience {
       }
 
       child.shadow.camera.updateProjectionMatrix();
-      child.color.set(0xff0000);
+      //child.color.set(0xff0000);
 
-      child.intensity = 5000;
+      //child.intensity = 5000;
       importedLights.push(child);
     });
 
-    if (this.debug) {
-      this.environmentManager.setupImportedLightsDebug(
-        this.debugManager.gui,
-        importedLights,
-      );
-    }
+    // if (this.debug) {
+    //   this.environmentManager.setupImportedLightsDebug(
+    //     this.debugManager.gui,
+    //     importedLights,
+    //   );
+    // }
 
     this.environmentManager.setImportedLights(importedLights);
     this.environmentManager.setLightColor("Spot001", 0xff0000);
@@ -439,21 +503,43 @@ export default class Experience {
 
   setupInteractables(root) {
     this.interactables = [];
+    const processed = new Set();
 
     root.traverse((child) => {
       if (!child.isMesh) return;
 
-      const data = interactables[child.name];
+      // const data =
+      //   interactables[child.name] || interactables[child.parent?.name];
 
-      if (!data) return;
+      // if (!data) return;
 
-      child.material = child.material.clone();
-      child.material.emissive.set(0xffffff);
-      child.material.emissiveIntensity = 0.15;
+      const result = InteractionResolver.resolve(child);
 
-      this.interactables.push(child);
+      if (!result) return;
 
-      this.beaconManager.create(data, child);
+      const { object, data } = result;
+      if (processed.has(object)) {
+        return;
+      }
+      processed.add(object);
+
+      // child.material = child.material.clone();
+
+      // child.material.emissive.set(0xffffff);
+
+      // child.material.emissiveIntensity = 0.15;
+
+      InteractionHelper.forEachMesh(object, (mesh) => {
+        mesh.material = mesh.material.clone();
+
+        mesh.material.emissive.set(0xffffff);
+
+        mesh.material.emissiveIntensity = 0.15;
+      });
+
+      this.interactables.push(object);
+
+      this.beaconManager.create(data, object);
     });
   }
 
@@ -473,8 +559,13 @@ export default class Experience {
 
     const pulse = (Math.sin(performance.now() * 0.002) + 1) / 2;
 
+    // this.interactables.forEach((item) => {
+    //   item.material.emissiveIntensity = 0.15 + pulse * 0.25;
+    // });
     this.interactables.forEach((item) => {
-      item.material.emissiveIntensity = 0.15 + pulse * 0.25;
+      InteractionHelper.forEachMesh(item, (mesh) => {
+        mesh.material.emissiveIntensity = 0.15 + pulse * 0.25;
+      });
     });
   }
 
@@ -492,6 +583,9 @@ export default class Experience {
 
     this.updateDebug();
     this.updateInteractables();
+    if (this.animationManager) {
+      this.animationManager.update(delta);
+    }
   }
 
   animate() {

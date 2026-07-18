@@ -95,7 +95,7 @@ export default class EnvironmentManager {
   setupImportedLightsDebug(gui, lights) {
     const folder = gui.addFolder("💡 Imported Lights");
 
-    lights.forEach((light) => {
+    this.importedLights.forEach((light) => {
       const f = folder.addFolder(light.name);
 
       //----------------------------------
