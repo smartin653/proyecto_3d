@@ -50,6 +50,7 @@ export default class Experience {
     this.mixer = null;
     this.animations = [];
     this.animationManager = null;
+    console.count("Experience creada");
   }
 
   init() {
@@ -207,48 +208,28 @@ export default class Experience {
     this.animationManager = new AnimationManager(gltf.scene, gltf.animations);
 
     this.raycasterManager.setAnimationManager(this.animationManager);
-    console.log("Animaciones");
-    console.log(gltf.animations);
 
     this.scene.add(gltf.scene);
 
-    console.log("===== TODOS LOS OBJETOS =====");
-
-    // gltf.scene.traverse((object) => {
-    //   console.log(object.name);
-    // });
-    gltf.scene.traverse((object) => {
-      console.log(object.name, object.type, object.parent?.name);
-    });
     this.setupScreens(gltf.scene);
+
+    // Configuración de todas las luces
     this.setupLights(gltf.scene);
+
     this.cinematicManager.test();
+
     this.setupScene(gltf.scene);
+
     this.setupInteractables(gltf.scene);
+
     this.gardens = {
       morning: gltf.scene.getObjectByName("Jardin_amanecer"),
-
       afternoon: gltf.scene.getObjectByName("Jardin_dia"),
-
       night: gltf.scene.getObjectByName("Jardin_noche"),
     };
-    // this.curtains = {
-    //   morning: gltf.scene.getObjectByName("p_MEDIA"),
-
-    //   afternoon: gltf.scene.getObjectByName("P_ALTA"),
-
-    //   night: gltf.scene.getObjectByName("P_BAJA"),
-    // };
-
-    // console.log("Curtains", this.curtains);
-
-    // console.log("Morning:", this.curtains.morning);
-    // console.log("Afternoon:", this.curtains.afternoon);
-    // console.log("Night:", this.curtains.night);
 
     this.updateGarden(this.environmentManager.mode);
-    console.log("Current mode:", this.environmentManager.mode);
-    //this.updateCurtain(this.environmentManager.mode);
+
     this.updateLights(this.environmentManager.mode);
 
     //----------------------------------
@@ -264,12 +245,10 @@ export default class Experience {
     const action = this.mixer.clipAction(clip);
 
     action.reset();
-
     action.play();
 
     this.introOverlay.enable();
   }
-
   updateGarden(mode) {
     Object.values(this.gardens).forEach((garden) => {
       garden.visible = false;
@@ -392,56 +371,17 @@ export default class Experience {
   setupLights(root) {
     const importedLights = [];
 
+    if (!this.lights) {
+      this.lights = {};
+    }
+
     root.traverse((child) => {
       if (!child.isLight) return;
 
-      console.log("💡", child.name, child.type, child.color.getHexString());
-
-      if (!this.lights) {
-        this.lights = {};
-      }
-
       this.lights[child.name] = child;
-      console.log(child.name, child.uuid);
-      child.castShadow = true;
 
-      // switch (child.name) {
-      //   case "Spot001":
-      //     child.intensity = 100;
-      //     child.shadow.bias = -0.00309;
-      //     child.shadow.normalBias = 0;
-      //     child.shadow.radius = 5;
-      //     child.shadow.camera.near = 0.05;
-      //     child.shadow.camera.far = 10;
-      //     break;
-
-      //   case "Spot002":
-      //     child.intensity = 160;
-      //     child.shadow.bias = -0.00047;
-      //     child.shadow.normalBias = 0;
-      //     child.shadow.radius = 5;
-      //     child.shadow.camera.near = 0.1;
-      //     child.shadow.camera.far = 10;
-      //     break;
-
-      //   case "Spot003":
-      //     child.intensity = 160;
-      //     child.shadow.bias = -0.00152;
-      //     child.shadow.normalBias = 0;
-      //     child.shadow.radius = 5;
-      //     child.shadow.camera.near = 0.1;
-      //     child.shadow.camera.far = 10;
-      //     break;
-
-      //   case "Spot004":
-      //     child.intensity = 100;
-      //     child.shadow.bias = 0;
-      //     child.shadow.normalBias = 0;
-      //     child.shadow.radius = 5;
-      //     child.shadow.camera.near = 0.1;
-      //     child.shadow.camera.far = 10;
-      //     break;
-      // }
+      // Por ahora mantenemos las sombras desactivadas
+      child.castShadow = false;
 
       const settings = lightSettings[child.name];
 
@@ -462,30 +402,11 @@ export default class Experience {
         child.shadow.camera.updateProjectionMatrix();
       }
 
-      child.shadow.mapSize.set(2048, 2048);
-
-      if ("blurSamples" in child.shadow) {
-        child.shadow.blurSamples = 7;
-      }
-
-      child.shadow.camera.updateProjectionMatrix();
-      //child.color.set(0xff0000);
-
-      //child.intensity = 5000;
       importedLights.push(child);
     });
 
-    // if (this.debug) {
-    //   this.environmentManager.setupImportedLightsDebug(
-    //     this.debugManager.gui,
-    //     importedLights,
-    //   );
-    // }
-
     this.environmentManager.setImportedLights(importedLights);
     this.environmentManager.setLightColor("Spot001", 0xff0000);
-
-    console.log("Lights:", this.lights);
   }
 
   setupScene(root) {
@@ -597,9 +518,11 @@ export default class Experience {
     this.lastTime = now;
 
     this.update(delta);
-
-    //this.rendererManager.render();
-    this.postProcessing.render();
+    const start = performance.now();
+    this.rendererManager.render();
+    //this.postProcessing.render();
+    const renderTime = performance.now() - start;
+    //if (!this.debugTime) this.debugTime = 0;
   }
 
   setupEvents() {
@@ -626,8 +549,8 @@ export default class Experience {
 
     this.spotifyPlayer.hide();
 
-    console.log("HOME", this.homeCamera);
-    console.log("ACTUAL", this.camera.position);
+    //console.log("HOME", this.homeCamera);
+    //console.log("ACTUAL", this.camera.position);
 
     // this.cameraTransition.flyTo(
     //   this.homeCamera.position,

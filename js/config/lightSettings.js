@@ -97,7 +97,7 @@ export default {
         intensity: 5
 
     },
-    Point: {
+    Point005: {
 
         intensity: 5
 

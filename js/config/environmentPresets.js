@@ -74,6 +74,21 @@ export default {
         visible: true,
         color: "#ffffff",
       },
+      Spot005: {
+        intensity: 0,
+        visible: true,
+        color: "#FFF8EC",
+      },
+      Spot006: {
+        intensity: 0,
+        visible: true,
+        color: "#FFF8EC",
+      },
+      Spot007: {
+        intensity: 0,
+        visible: true,
+        color: "#FFF8EC",
+      },
     },
   },
 
@@ -83,31 +98,44 @@ export default {
     curtain: "Cortinas_Noche",
 
     lights: {
-
-    Spot001: {
+      Spot001: {
         intensity: 35,
         visible: true,
-        color: "#FFD8A8"
-    },
+        color: "#FFD8A8",
+      },
 
-    Spot002: {
+      Spot002: {
         intensity: 80,
         visible: true,
-        color: "#FFD8A8"
-    },
+        color: "#FFD8A8",
+      },
 
-    Spot003: {
+      Spot003: {
         intensity: 35,
         visible: true,
-        color: "#FFD8A8"
-    },
+        color: "#FFD8A8",
+      },
 
-    Spot004: {
+      Spot004: {
         intensity: 80,
         visible: true,
-        color: "#FFD8A8"
-    }
-
-}
+        color: "#FFD8A8",
+      },
+      Spot005: {
+        intensity: 0,
+        visible: true,
+        color: "#FFF8EC",
+      },
+      Spot006: {
+        intensity: 0,
+        visible: true,
+        color: "#FFF8EC",
+      },
+      Spot007: {
+        intensity: 0,
+        visible: true,
+        color: "#FFF8EC",
+      },
+    },
   },
 };

@@ -14,6 +14,12 @@ export default class RendererManager {
   }
 
   createRenderer() {
+    console.log("Container:", this.container);
+
+    console.log(this.container.clientWidth, this.container.clientHeight);
+
+    console.log(document.readyState);
+
     this.renderer = new THREE.WebGLRenderer({
       antialias: true,
     });
@@ -24,7 +30,8 @@ export default class RendererManager {
 
     this.renderer.toneMappingExposure = 0.1;
 
-    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    //this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    this.renderer.setPixelRatio(1);
 
     this.renderer.setSize(
       this.container.clientWidth,
@@ -32,8 +39,7 @@ export default class RendererManager {
     );
 
     this.renderer.shadowMap.enabled = true;
-    this.renderer.shadowMap.type =
-    THREE.VSMShadowMap;
+    this.renderer.shadowMap.type = THREE.VSMShadowMap;
     this.renderer.shadowMap.autoUpdate = true;
 
     this.container.appendChild(this.renderer.domElement);

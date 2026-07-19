@@ -6,6 +6,7 @@ window.addEventListener("DOMContentLoaded", () => {
     const access = new AccessManager();
 
     access.onSuccess(() => {
+        console.log("SUCCESS");
 
         new Experience();
 

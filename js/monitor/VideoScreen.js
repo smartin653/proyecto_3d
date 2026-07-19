@@ -67,12 +67,16 @@ export default class MonitorScreen {
   }
 
   stopVideo() {
+
     this.isActive = false;
 
     this.video.pause();
 
-    this.video.currentTime = 0;
-  }
+    this.video.removeAttribute("src");
+
+    this.video.load();
+
+}
 
   setActive(videoPath) {
     this.isActive = true;
