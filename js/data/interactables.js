@@ -142,7 +142,7 @@ export default {
     },
     visuals: {
       monitor: "./assets/video/grabadora.mp4",
-      projector: "./assets/video/grabadora.mp4",
+      projector: "./assets/video/Me_inundo.mov",
     },
     camera: {
       position: {
@@ -190,7 +190,7 @@ export default {
     },
     visuals: {
       monitor: "./assets/video/grabadora.mp4",
-      projector: "./assets/video/Video_Desierto.mp4",
+      projector: "./assets/video/Me_inundo.mov",
     },
     camera: {
       position: {
@@ -225,7 +225,7 @@ export default {
     },
     visuals: {
       monitor: "./assets/video/grabadora.mp4",
-      projector: "./assets/video/Video_Desierto.mp4",
+      projector: "./assets/video/Me_inundo.mov",
     },
     camera: {
       position: {
@@ -259,7 +259,7 @@ export default {
     },
     visuals: {
       monitor: "./assets/video/grabadora.mp4",
-      projector: "./assets/video/Video_Desierto.mp4",
+      projector: "./assets/video/Me_inundo.mov",
     },
     camera: {
       position: {
@@ -295,7 +295,7 @@ export default {
     title: "La Nube en vivo",
     actionLabel: "Visitar tienda",
     url: "https://udiscover.mx/collections/ed-maverick/products/la-nube-en-el-jardin-en-vivo-desde-sala-nezahualcoyotl",
-    animation:"venta",
+    animation: "venta",
   },
   shop2: {
     type: "link",
@@ -389,10 +389,9 @@ export default {
 
       emissive: 0.8,
     },
-    animation:"ventana",
+    animation: "ventana",
   },
   REC: {
-
     type: "action",
 
     action: "openOfficialVideo",
@@ -401,17 +400,36 @@ export default {
 
     title: "Video oficial",
 
-    description: "Se abrirá el video oficial de la canción que se está reproduciendo en una nueva pestaña.",
+    description:
+      "Se abrirá el video oficial de la canción que se está reproduciendo en una nueva pestaña.",
 
     actionLabel: "Abrir YouTube",
 
     hover: {
+      outline: true,
 
-        outline: true,
+      emissive: 0.8,
+    },
+  },
+  ASSET002: {
+    type: "trigger",
 
-        emissive: 0.8
+    action: "toggleMood",
 
-    }
+    mood: "cinematic",
 
-}
+    hint: "youtube",
+
+    title: "Modo cinematográfico",
+
+    description: "Activa una experiencia visual.",
+
+    actionLabel: "Haz clic para activar el modo cinematográfico.",
+
+    hover: {
+      outline: true,
+
+      emissive: 0.8,
+    },
+  },
 };

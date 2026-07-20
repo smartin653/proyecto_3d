@@ -34,6 +34,8 @@ import AnimationManager from "../animation/AnimationManager.js";
 import InteractionResolver from "../interaction/InteractionResolver.js";
 import InteractionHelper from "../interaction/InteractionHelper.js";
 import InteractionCard from "../ui/InteractionCard.js";
+import EffectsManager from "./EffectsManager.js";
+import InteractionManager from "../interaction/InteractionManager.js";
 
 export default class Experience {
   constructor() {
@@ -73,6 +75,11 @@ export default class Experience {
 
     this.rendererManager = new RendererManager(
       this.container,
+      this.scene,
+      this.camera,
+    );
+    this.effectsManager = new EffectsManager(
+      this.rendererManager,
       this.scene,
       this.camera,
     );
@@ -153,6 +160,7 @@ export default class Experience {
     this.beaconManager = new BeaconManager(this.scene);
     this.hintManager = new HintManager(this.scene);
 
+
     this.raycasterManager = new RaycasterManager(
       this.camera,
       this.scene,
@@ -164,6 +172,8 @@ export default class Experience {
       this.contentVersionManager,
       this.AnimationManager,
       this.interactionCard,
+      this.handleInteraction.bind(this),
+      this.handleMoodRequested.bind(this)
     );
 
     this.introOverlay = new IntroOverlay();
@@ -247,6 +257,7 @@ export default class Experience {
     action.reset();
     action.play();
 
+    //this.effectsManager.enterCinematic();
     this.introOverlay.enable();
   }
   updateGarden(mode) {
@@ -507,6 +518,7 @@ export default class Experience {
     if (this.animationManager) {
       this.animationManager.update(delta);
     }
+    this.effectsManager.update(delta);
   }
 
   animate() {
@@ -519,8 +531,9 @@ export default class Experience {
 
     this.update(delta);
     const start = performance.now();
-    this.rendererManager.render();
+    //this.rendererManager.render();
     //this.postProcessing.render();
+    this.effectsManager.render();
     const renderTime = performance.now() - start;
     //if (!this.debugTime) this.debugTime = 0;
   }
@@ -533,12 +546,71 @@ export default class Experience {
     this.cameraManager.resize();
     this.rendererManager.resize();
     this.postProcessing.resize(window.innerWidth, window.innerHeight);
+    this.effectsManager.resize();
   }
 
   handleEnter() {
     this.introOverlay.hide();
     this.orientationOverlay.show();
   }
+
+  handleMoodRequested(mood) {
+
+    this.effectsManager.toggleMood(mood);
+
+}
+
+  handleInteraction(interactable) {
+     const content = this.contentVersionManager.resolveTrack(interactable);
+   switch (interactable.type) {
+      case "track":
+        this.audioManager.play(content);
+
+        this.spotifyPlayer.show(content);
+
+        this.screenManager.play(content.visuals);
+
+        // this.audioManager.play(interactable.audio);
+
+        // //this.spotifyPlayer.show(interactable.title, interactable.cover);
+        // this.spotifyPlayer.show(interactable);
+        // this.screenManager.play(interactable.visuals);
+
+        // this.cameraTransition.flyTo(
+        //   interactable.camera.position,
+        //   interactable.camera.target,
+        // );
+
+        break;
+
+      case "link":
+        // No hacemos nada aquí.
+        // El botón de la InteractionCard abrirá la URL.
+
+        break;
+      case "action":
+        break;
+
+        break;
+
+      case "info":
+        // Tampoco hace nada.
+        // Solo muestra la tarjeta.
+
+        break;
+      case "trigger":
+        switch (interactable.action) {
+          case "toggleMood":
+            this.effectsManager.toggleMood(interactable.mood);
+
+            break;
+        }
+
+        break;
+    }
+}
+
+
 
   closePlayer() {
     this.audioManager.audio.pause();

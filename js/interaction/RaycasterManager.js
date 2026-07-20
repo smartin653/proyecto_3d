@@ -17,6 +17,8 @@ export default class RaycasterManager {
     contentVersionManager,
     animationManager,
     interactionCard,
+    interactionHandler,
+    handleMoodRequested
   ) {
     console.log("cameraTransition:", cameraTransition);
     this.camera = camera;
@@ -31,6 +33,8 @@ export default class RaycasterManager {
     this.cameraTransition = cameraTransition;
     this.contentVersionManager = contentVersionManager;
     this.animationManager = animationManager;
+    this.interactionHandler = interactionHandler;
+    this.handleMoodRequested = handleMoodRequested
 
     this.raycaster = new THREE.Raycaster();
 
@@ -263,46 +267,7 @@ export default class RaycasterManager {
     // }
 
     if (!interactable) return;
-
-    const content = this.contentVersionManager.resolveTrack(interactable);
-
-    switch (interactable.type) {
-      case "track":
-        this.audioManager.play(content);
-
-        this.spotifyPlayer.show(content);
-
-        this.screenManager.play(content.visuals);
-
-        // this.audioManager.play(interactable.audio);
-
-        // //this.spotifyPlayer.show(interactable.title, interactable.cover);
-        // this.spotifyPlayer.show(interactable);
-        // this.screenManager.play(interactable.visuals);
-
-        // this.cameraTransition.flyTo(
-        //   interactable.camera.position,
-        //   interactable.camera.target,
-        // );
-
-        break;
-
-      case "link":
-        // No hacemos nada aquí.
-        // El botón de la InteractionCard abrirá la URL.
-
-        break;
-      case "action":
-      break;
-
-        break;
-
-      case "info":
-        // Tampoco hace nada.
-        // Solo muestra la tarjeta.
-
-        break;
-    }
+    this.interactionHandler(interactable);
   }
 
   setAnimationManager(animationManager) {
