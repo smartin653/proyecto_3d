@@ -18,8 +18,8 @@ export default {
       emissive: 0.8,
     },
     title: {
-      day: "Track 1 - GUITARRA ACÚSTICA",
-      night: "Track 2 - guitarra acústica ",
+      day: "NO TODO ES PARTE DE LA VIDA: Track 1 - GUITARRA ACÚSTICA",
+      night: "Me inundo: Track 2 - guitarra acústica ",
     },
     cover: {
       day: "./assets/covers/day/NTEPDLV_01.jpg",
@@ -30,16 +30,25 @@ export default {
       night: "./assets/audio/night/1. guitarra acústica (stem).wav",
     },
     sharing: {
-      url: "https://esrutayerma.com/",
+      day: {
+        url: "https://esrutayerma.com/",
+        text: "Escucha 'No todo es parte de la vida'",
+        website: "https://esrutayerma.com",
 
-      text: "Escucha 'No todo es parte de la vida'",
-      website: "https://esrutayerma.com",
+        facebook: "https://facebook.com/track-dia",
+        instagram: "https://instagram.com/track-dia",
+        tiktok: "https://www.tiktok.com/music/-7662460776100644881",
+      },
 
-      facebook: "https://esrutayerma.com",
+      night: {
+        url: "https://esrutayerma.com/",
+        text: "Escucha 'No todo es parte de la vida'",
+        website: "https://esrutayerma.com",
 
-      instagram: "https://esrutayerma.com",
-
-      tiktok: "https://esrutayerma.com",
+        facebook: "https://facebook.com/track-noche",
+        instagram: "https://instagram.com/track-noche",
+        tiktok: "https://www.tiktok.com/music/-7664762692532602897",
+      },
     },
 
     download: "./assets/audio/track01.mp3",
@@ -81,8 +90,8 @@ export default {
       emissive: 0.8,
     },
     title: {
-      day: "Track 1 - GUITARRA ELÉCTRICA",
-      night: "Track 2 - guitarra eléctrica",
+      day: "NO TODO ES PARTE DE LA VIDA: Track 1 - GUITARRA ELÉCTRICA",
+      night: "Me inundo: Track 2 - guitarra eléctrica",
     },
     cover: {
       day: "./assets/covers/day/NTEPDLV_01.jpg",
@@ -95,6 +104,27 @@ export default {
     visuals: {
       monitor: "./assets/video/grabadora.mp4",
       projector: "https://assets.esrutayerma.com/videos/Me_inundo.mov",
+    },
+    sharing: {
+      day: {
+        url: "https://esrutayerma.com/",
+        text: "Escucha 'No todo es parte de la vida'",
+        website: "https://esrutayerma.com",
+
+        facebook: "https://facebook.com/track-dia",
+        instagram: "https://instagram.com/track-dia",
+        tiktok: "https://www.tiktok.com/music/-7662460956590917649",
+      },
+
+      night: {
+        url: "https://esrutayerma.com/",
+        text: "Escucha 'No todo es parte de la vida'",
+        website: "https://esrutayerma.com",
+
+        facebook: "https://facebook.com/track-noche",
+        instagram: "https://instagram.com/track-noche",
+        tiktok: "https://www.tiktok.com/music/-7664768185333975056",
+      },
     },
     camera: {
       position: {
@@ -129,8 +159,8 @@ export default {
       emissive: 0.8,
     },
     title: {
-      day: "Track 1 - BAJO ",
-      night: "Track 2 - bajo",
+      day: "NO TODO ES PARTE DE LA VIDA: Track 1 - BAJO ",
+      night: "Me inundo: Track 2 - bajo",
     },
     cover: {
       day: "./assets/covers/day/NTEPDLV_01.jpg",
@@ -143,6 +173,27 @@ export default {
     visuals: {
       monitor: "./assets/video/grabadora.mp4",
       projector: "./assets/video/Me_inundo.mov",
+    },
+    sharing: {
+      day: {
+        url: "https://esrutayerma.com/",
+        text: "Escucha 'No todo es parte de la vida'",
+        website: "https://esrutayerma.com",
+
+        facebook: "https://facebook.com/track-dia",
+        instagram: "https://instagram.com/track-dia",
+        tiktok: "https://www.tiktok.com/music/-7662460889815549969",
+      },
+
+      night: {
+        url: "https://esrutayerma.com/",
+        text: "Escucha 'No todo es parte de la vida'",
+        website: "https://esrutayerma.com",
+
+        facebook: "https://facebook.com/track-noche",
+        instagram: "https://instagram.com/track-noche",
+        tiktok: "https://www.tiktok.com/music/-7664768065549518865",
+      },
     },
     camera: {
       position: {
@@ -177,8 +228,8 @@ export default {
       emissive: 0.8,
     },
     title: {
-      day: "Track 1 - BATERÍA",
-      night: "Track 2 - batería",
+      day: "NO TODO ES PARTE DE LA VIDA: Track 1 - BATERÍA",
+      night: "Me inundo: Track 2 - batería",
     },
     cover: {
       day: "./assets/covers/day/NTEPDLV_01.jpg",
@@ -191,6 +242,27 @@ export default {
     visuals: {
       monitor: "./assets/video/grabadora.mp4",
       projector: "./assets/video/Me_inundo.mov",
+    },
+    sharing: {
+      day: {
+        url: "https://esrutayerma.com/",
+        text: "Escucha 'No todo es parte de la vida'",
+        website: "https://esrutayerma.com",
+
+        facebook: "https://facebook.com/track-dia",
+        instagram: "https://instagram.com/track-dia",
+        tiktok: "https://www.tiktok.com/music/-7662466234554730497",
+      },
+
+      night: {
+        url: "https://esrutayerma.com/",
+        text: "Escucha 'No todo es parte de la vida'",
+        website: "https://esrutayerma.com",
+
+        facebook: "https://facebook.com/track-noche",
+        instagram: "https://instagram.com/track-noche",
+        tiktok: " https://www.tiktok.com/music/-7664772830000760849",
+      },
     },
     camera: {
       position: {
@@ -212,8 +284,8 @@ export default {
     type: "track",
     hint: "music",
     title: {
-      day: "Track 1 - CUERDAS",
-      night: "Track 2 - cuerdas",
+      day: "NO TODO ES PARTE DE LA VIDA: Track 1 - CUERDAS",
+      night: "Me inundo: Track 2 - cuerdas",
     },
     cover: {
       day: "./assets/covers/day/NTEPDLV_01.jpg",
@@ -226,6 +298,27 @@ export default {
     visuals: {
       monitor: "./assets/video/grabadora.mp4",
       projector: "./assets/video/Me_inundo.mov",
+    },
+    sharing: {
+      day: {
+        url: "https://esrutayerma.com/",
+        text: "Escucha 'No todo es parte de la vida'",
+        website: "https://esrutayerma.com",
+
+        facebook: "https://facebook.com/track-dia",
+        instagram: "https://instagram.com/track-dia",
+        tiktok: "https://www.tiktok.com/music/-7662459729222240272",
+      },
+
+      night: {
+        url: "https://esrutayerma.com/",
+        text: "Escucha 'No todo es parte de la vida'",
+        website: "https://esrutayerma.com",
+
+        facebook: "https://facebook.com/track-noche",
+        instagram: "https://instagram.com/track-noche",
+        tiktok: "https://www.tiktok.com/music/-7664777765024073745",
+      },
     },
     camera: {
       position: {
@@ -246,8 +339,8 @@ export default {
     type: "track",
     hint: "music",
     title: {
-      day: "Track 1 - TROMPETA",
-      night: "Track 2 - wurlitzer ",
+      day: "NO TODO ES PARTE DE LA VIDA: Track 1 - TROMPETA",
+      night: "Me inundo: Track 2 - wurlitzer ",
     },
     cover: {
       day: "./assets/covers/day/NTEPDLV_01.jpg",
@@ -260,6 +353,27 @@ export default {
     visuals: {
       monitor: "./assets/video/grabadora.mp4",
       projector: "./assets/video/Me_inundo.mov",
+    },
+    sharing: {
+      day: {
+        url: "https://esrutayerma.com/",
+        text: "Escucha 'No todo es parte de la vida'",
+        website: "https://esrutayerma.com",
+
+        facebook: "https://facebook.com/track-dia",
+        instagram: "https://instagram.com/track-dia",
+        tiktok: "https://www.tiktok.com/music/-7664792556329699345",
+      },
+
+      night: {
+        url: "https://esrutayerma.com/",
+        text: "Escucha 'No todo es parte de la vida'",
+        website: "https://esrutayerma.com",
+
+        facebook: "https://facebook.com/track-noche",
+        instagram: "https://instagram.com/track-noche",
+        tiktok: "https://www.tiktok.com/music/-7662460922510870545",
+      },
     },
     camera: {
       position: {

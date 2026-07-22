@@ -51,6 +51,7 @@ resolveTrack(interactable) {
         cover: this.resolve(interactable.cover),
 
         audio: this.resolve(interactable.audio),
+        sharing: this.resolve(interactable.sharing),
 
         visuals: interactable.visuals
             ? {

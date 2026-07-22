@@ -8,10 +8,10 @@ export default class TutorialModal {
 
   getVideo() {
     if (window.innerWidth <= 768) {
-      return "https://assets.esrutayerma.com/videos/Instrucciones%20Mobile%20-Ed%20Maverik.mp4";
+      return "https://assets.esrutayerma.com/videos/260721_Instrucciones%20Vertical.mp4";
     }
 
-    return "https://assets.esrutayerma.com/videos/Instrucciones%20Escritorio_Sitio%20Ed%20Maverik.mp4";
+    return "https://assets.esrutayerma.com/videos/260721_Instrucciones%20Escritorio.mp4";
   }
 
   create() {
