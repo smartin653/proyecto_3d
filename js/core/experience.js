@@ -161,7 +161,6 @@ export default class Experience {
     this.beaconManager = new BeaconManager(this.scene);
     this.hintManager = new HintManager(this.scene);
 
-
     this.raycasterManager = new RaycasterManager(
       this.camera,
       this.scene,
@@ -174,12 +173,12 @@ export default class Experience {
       this.AnimationManager,
       this.interactionCard,
       this.handleInteraction.bind(this),
-      this.handleMoodRequested.bind(this)
+      this.handleMoodRequested.bind(this),
     );
 
-    this.introOverlay = new IntroOverlay();
-    this.orientationOverlay = new OrientationOverlay();
-    this.introOverlay.onEnter(this.handleEnter.bind(this));
+    //this.introOverlay = new IntroOverlay();
+    //this.orientationOverlay = new OrientationOverlay();
+    //this.introOverlay.onEnter(this.handleEnter.bind(this));
   }
 
   initializeDebug() {
@@ -259,7 +258,12 @@ export default class Experience {
     action.play();
 
     //this.effectsManager.enterCinematic();
-    this.introOverlay.enable();
+    //this.introOverlay.enable();
+    this.assetsLoaded = true;
+
+    if (this.introOverlay) {
+      this.introOverlay.enable();
+    }
   }
   updateGarden(mode) {
     Object.values(this.gardens).forEach((garden) => {
@@ -523,9 +527,7 @@ export default class Experience {
   }
 
   animate() {
-     this.animationFrame = requestAnimationFrame(
-        this.animate.bind(this)
-    );
+    this.animationFrame = requestAnimationFrame(this.animate.bind(this));
 
     const now = performance.now();
     const delta = (now - this.lastTime) / 1000;
@@ -542,10 +544,8 @@ export default class Experience {
   }
 
   setupEvents() {
-
     window.addEventListener("resize", this.onResizeHandler);
-
-}
+  }
 
   onResize() {
     this.cameraManager.resize();
@@ -560,14 +560,12 @@ export default class Experience {
   }
 
   handleMoodRequested(mood) {
-
     this.effectsManager.toggleMood(mood);
-
-}
+  }
 
   handleInteraction(interactable) {
-     const content = this.contentVersionManager.resolveTrack(interactable);
-   switch (interactable.type) {
+    const content = this.contentVersionManager.resolveTrack(interactable);
+    switch (interactable.type) {
       case "track":
         this.audioManager.play(content);
 
@@ -613,9 +611,7 @@ export default class Experience {
 
         break;
     }
-}
-
-
+  }
 
   closePlayer() {
     this.audioManager.audio.pause();
@@ -637,26 +633,39 @@ export default class Experience {
   }
 
   destroy() {
-
     cancelAnimationFrame(this.animationFrame);
 
     window.removeEventListener("resize", this.onResizeHandler);
 
     console.log("Experience destroyed");
+  }
 
-}
-
-
-show() {
-
+  show() {
     this.container.style.display = "";
 
+    this.showIntro();
 }
 
-hide() {
-
+  hide() {
     this.container.style.display = "none";
+  }
+
+  showIntro() {
+
+    if (this.introOverlay) {
+        return;
+    }
+
+    this.introOverlay = new IntroOverlay();
+    this.orientationOverlay = new OrientationOverlay();
+
+    this.introOverlay.onEnter(
+        this.handleEnter.bind(this)
+    );
+
+    if (this.assetsLoaded) {
+        this.introOverlay.enable();
+    }
 
 }
-
 }

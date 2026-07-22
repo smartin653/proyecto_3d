@@ -31,7 +31,7 @@ export default class App {
     const access = new AccessManager();
 
     access.onSuccess(() => {
-      this.showWebsite();
+     // this.showWebsite();
 
       this.layout = new Layout();
       this.layout.mount(this.website);
