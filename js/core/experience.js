@@ -48,6 +48,7 @@ export default class Experience {
     this.interactables = [];
     this.importedLights = [];
     this.debug = false;
+    this.onResizeHandler = this.onResize.bind(this);
     this.init();
     this.mixer = null;
     this.animations = [];
@@ -212,7 +213,7 @@ export default class Experience {
 
   async loadAssets() {
     const gltf = await this.modelLoader.load(
-      "https://assets.esrutayerma.com/models/EdMav_Studio_GLB_V18.glb",
+      "https://assets.esrutayerma.com/models/EdMav_Studio_GLB_V19.glb",
     );
 
     this.animationManager = new AnimationManager(gltf.scene, gltf.animations);
@@ -522,7 +523,9 @@ export default class Experience {
   }
 
   animate() {
-    requestAnimationFrame(this.animate.bind(this));
+     this.animationFrame = requestAnimationFrame(
+        this.animate.bind(this)
+    );
 
     const now = performance.now();
     const delta = (now - this.lastTime) / 1000;
@@ -539,8 +542,10 @@ export default class Experience {
   }
 
   setupEvents() {
-    window.addEventListener("resize", this.onResize.bind(this));
-  }
+
+    window.addEventListener("resize", this.onResizeHandler);
+
+}
 
   onResize() {
     this.cameraManager.resize();
@@ -630,4 +635,28 @@ export default class Experience {
     //   1.6,
     // );
   }
+
+  destroy() {
+
+    cancelAnimationFrame(this.animationFrame);
+
+    window.removeEventListener("resize", this.onResizeHandler);
+
+    console.log("Experience destroyed");
+
+}
+
+
+show() {
+
+    this.container.style.display = "";
+
+}
+
+hide() {
+
+    this.container.style.display = "none";
+
+}
+
 }

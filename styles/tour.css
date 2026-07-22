@@ -1,0 +1,280 @@
+.tour-page{
+
+    max-width:900px;
+
+    margin:0 auto;
+
+    padding:6rem 2rem;
+    background-color: #000;
+    color: #f8f1f1;
+
+}
+
+.tour-title{
+
+    font-size:clamp(3rem,7vw,6rem);
+
+    font-weight:900;
+
+    text-transform:uppercase;
+
+    letter-spacing:.25em;
+
+    text-align:center;
+
+    margin-bottom:4rem;
+
+}
+
+.tour-poster{
+
+    display:block;
+
+    width:100%;
+
+    max-width:520px;
+
+    margin:0 auto 5rem;
+
+    border-radius:12px;
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.45);
+
+}
+
+.tour-dates{
+
+    max-width:650px;
+
+    margin:0 auto;
+
+}
+
+.tour-date{
+
+    display:grid;
+    grid-template-columns: 1fr auto auto;
+    align-items:center;
+    padding:1.5rem 0;
+   
+    border-bottom:1px solid rgba(255,255,255,.15);
+    gap: 2rem;
+
+}
+
+.tour-city{
+
+    font-size:1.35rem;
+
+    font-weight:700;
+
+    text-transform:uppercase;
+
+    letter-spacing:.08em;
+
+    margin:0;
+
+}
+
+.tour-day{
+
+    margin:0;
+
+    font-size:1rem;
+
+    opacity:.75;
+
+    letter-spacing:.05em;
+
+}
+
+.tour-ticket{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+   align-self:center;
+
+    padding:.75rem 1.75rem;
+
+    border:1px solid #fff;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    text-transform:uppercase;
+
+    letter-spacing:.15em;
+
+    font-size:.8rem;
+
+    transition:.3s;
+
+}
+
+.tour-ticket:hover{
+
+    background:#fff;
+
+    color:#000;
+
+}
+
+/* ======================================================
+   TABLETS
+====================================================== */
+
+@media (max-width: 992px){
+
+    .tour-page{
+
+        padding:5rem 1.5rem;
+
+    }
+
+    .tour-title{
+
+        margin-bottom:3rem;
+
+        letter-spacing:.15em;
+
+    }
+
+    .tour-date{
+
+        gap:1rem;
+
+    }
+
+    .tour-city{
+
+        font-size:1.15rem;
+
+    }
+
+    .tour-day{
+
+        font-size:.95rem;
+
+    }
+
+    .tour-ticket{
+
+        margin-top:0;
+
+        padding:.7rem 1.4rem;
+
+        font-size:.75rem;
+
+    }
+
+}
+
+
+/* ======================================================
+   MOBILE
+====================================================== */
+
+@media (max-width:768px){
+
+    .tour-page{
+
+        padding:4rem 1.25rem;
+
+    }
+
+    .tour-title{
+
+        font-size:clamp(2.2rem,10vw,3.5rem);
+
+        letter-spacing:.08em;
+
+        margin-bottom:2.5rem;
+
+    }
+
+    .tour-poster{
+
+        margin-bottom:3rem;
+
+    }
+
+    .tour-date{
+
+        grid-template-columns:1fr;
+
+        gap:.8rem;
+
+    }
+
+    .tour-city{
+
+        font-size:1.15rem;
+
+    }
+
+    .tour-day{
+
+        font-size:.95rem;
+
+    }
+
+    .tour-ticket{
+
+        width:100%;
+
+        margin-top:.5rem;
+
+        justify-content:center;
+
+    }
+
+}
+
+
+/* ======================================================
+   SMALL PHONES
+====================================================== */
+
+@media (max-width:480px){
+
+    .tour-page{
+
+        padding:3rem 1rem;
+
+    }
+
+    .tour-title{
+
+        font-size:2rem;
+
+        letter-spacing:.05em;
+
+    }
+
+    .tour-city{
+
+        font-size:1rem;
+
+    }
+
+    .tour-day{
+
+        font-size:.9rem;
+
+    }
+
+    .tour-ticket{
+
+        font-size:.75rem;
+
+        padding:.85rem 1rem;
+
+    }
+
+}

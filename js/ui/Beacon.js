@@ -33,69 +33,76 @@ export default class Beacon {
   }
 
   draw(type) {
-    const ctx = this.ctx;
+  const ctx = this.ctx;
 
-    ctx.clearRect(0, 0, 256, 256);
+  ctx.clearRect(0, 0, 256, 256);
 
-    const styles = {
-      music: {
-        color: "#ff9d00c5",
-        icon: "♪",
-      },
+  const styles = {
+    music: {
+      color: "#ff9d00c5",
+      image: "./assets/icons/arrow.svg",
+    },
 
-      video: {
-        color: "#1E88E5",
-        icon: "▶",
-      },
+    video: {
+      color: "#1E88E5",
+      icon: "▶",
+    },
 
-      info: {
-        color: "#43A047",
-        icon: "i",
-      },
+    info: {
+      color: "#43A047",
+      icon: "i",
+    },
 
-      gallery: {
-        color: "#FB8C00",
-        icon: "▣",
-      },
+    gallery: {
+      color: "#FB8C00",
+      icon: "▣",
+    },
 
-      camera: {
-        color: "#8E24AA",
-        icon: "⌖",
-      },
+    camera: {
+      color: "#8E24AA",
+      icon: "⌖",
+    },
+  };
+
+  const style = styles[type] || styles.music;
+
+  //----------------------------------------------------
+  // Glow exterior
+  //----------------------------------------------------
+
+  ctx.shadowColor = style.color;
+  ctx.shadowBlur = 0;
+
+  ctx.beginPath();
+  ctx.arc(128, 128, 72, 0, Math.PI * 2);
+
+  ctx.fillStyle = style.color;
+  ctx.fill();
+
+  //----------------------------------------------------
+  // Borde
+  //----------------------------------------------------
+
+  ctx.shadowBlur = 0;
+  ctx.lineWidth = 6;
+  ctx.strokeStyle = "#A67C00";
+  ctx.stroke();
+
+  //----------------------------------------------------
+  // Icono
+  //----------------------------------------------------
+
+  if (style.image) {
+    const image = new Image();
+
+    image.onload = () => {
+      ctx.drawImage(image, 80, 80, 96, 96);
+
+      this.texture.needsUpdate = true;
     };
 
-    const style = styles[type] || styles.music;
-
-    //----------------------------------------------------
-    // Glow exterior
-    //----------------------------------------------------
-
-    ctx.shadowColor = style.color;
-    ctx.shadowBlur = 0;
-
-    ctx.beginPath();
-
-    ctx.arc(128, 128, 72, 0, Math.PI * 2);
-
-    ctx.fillStyle = style.color;
-    ctx.fill();
-
-    //----------------------------------------------------
-    // Borde blanco
-    //----------------------------------------------------
-
-    ctx.shadowBlur = 0;
-
-    ctx.lineWidth = 6;
-
-    ctx.strokeStyle = "#A67C00";
-
-    ctx.stroke();
-
-    //----------------------------------------------------
-    // Icono
-    //----------------------------------------------------
-
+    image.src = style.image;
+  } else {
     ctx.fillStyle = "#1A1A1A";
 
     ctx.font = "bold 82px Arial";
@@ -108,7 +115,7 @@ export default class Beacon {
 
     this.texture.needsUpdate = true;
   }
-
+}
   setPosition(position) {
     this.basePosition.copy(position);
 

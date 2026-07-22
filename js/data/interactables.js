@@ -318,6 +318,7 @@ export default {
     title: "La nube",
     actionLabel: "Visitar galeria",
     url: "https://cincuentaytrescuarentaynueve.com/",
+    animation: "venta.001",
   },
   shop3: {
     type: "link",
@@ -338,6 +339,7 @@ export default {
     title: "Eduardo",
     actionLabel: "Visita la tienda oficial",
     url: "https://udiscover.mx/collections/ed-maverick/products/eduardo-2lp",
+    animation: "venta.002",
   },
   shop4: {
     type: "link",
@@ -355,32 +357,33 @@ export default {
 
       emissive: 0.8,
     },
-    title: "La nube en vivo",
+    title: "La Nube libro",
     actionLabel: "Visitar tienda",
-    url: "https://udiscover.mx/collections/ed-maverick/products/la-nube-en-el-jardin-en-vivo-desde-sala-nezahualcoyotl",
+    url: "https://udiscover.mx/collections/ed-maverick/products/ed-maverick-la-nube-en-el-jardin-en-vivo",
+    animation: "venta.003",
   },
-  Poster: {
-    type: "link",
-    hint: "shop",
-    beacon: {
-      color: "#FFD600",
+  // Poster: {
+  //   type: "link",
+  //   hint: "shop",
+  //   beacon: {
+  //     color: "#FFD600",
 
-      size: 0.1,
+  //     size: 0.1,
 
-      animation: "pulse",
-      actionLabel: "Visitar galeria",
-      url: "https://cincuentaytrescuarentaynueve.com/",
-    },
+  //     animation: "pulse",
+  //     actionLabel: "Visitar galeria",
+  //     url: "https://cincuentaytrescuarentaynueve.com/",
+  //   },
 
-    hover: {
-      outline: true,
+  //   hover: {
+  //     outline: true,
 
-      emissive: 0.8,
-    },
-    title: "Pista 06",
-    actionLabel: "Visitar galeria",
-    url: "https://cincuentaytrescuarentaynueve.com/",
-  },
+  //     emissive: 0.8,
+  //   },
+  //   title: "Pista 06",
+  //   actionLabel: "Visitar galeria",
+  //   url: "https://cincuentaytrescuarentaynueve.com/",
+  // },
   cortina: {
     type: "info",
     showCard: false,

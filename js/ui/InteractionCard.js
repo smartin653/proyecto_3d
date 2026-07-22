@@ -91,7 +91,7 @@ export default class InteractionCard {
       if (!this.isHovered) {
         this.hide();
       }
-    }, 120);
+    }, 90);
   }
 
   cancelHide() {

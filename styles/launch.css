@@ -1,0 +1,238 @@
+#launch-overlay{
+
+    position: fixed;
+    inset: 0;
+
+    background: #000;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 999999;
+
+    color: aliceblue;
+
+    padding: 30px;
+
+    box-sizing: border-box;
+
+}
+
+.launch-container{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 30px;
+
+    width: 100%;
+    max-width: 1200px;
+
+    text-align: center;
+
+}
+
+.launch-poster{
+
+    width: 520px;
+    aspect-ratio: 1 / 1;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    border-radius: 12px;
+
+}
+
+.launch-title{
+
+    color: white;
+
+    letter-spacing: 4px;
+
+    font-size: 1.9rem;
+
+    line-height: 1.6;
+
+}
+
+.launch-countdown{
+
+    display: flex;
+    gap: 25px;
+
+    color: white;
+
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+
+.count-item{
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    min-width:90px;
+
+}
+
+.count-item span{
+
+    font-size: 1.5rem;
+
+    font-weight: 700;
+
+    color: white;
+
+    line-height: 1;
+
+}
+
+.count-item small{
+
+    color: #888;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    margin-top: 10px;
+
+}
+
+.launch-buttons{
+
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    justify-content:center;
+
+}
+
+.launch-buttons button{
+
+    padding: 14px 30px;
+
+    border: none;
+
+    cursor: pointer;
+
+    min-width: 180px;
+
+}
+
+@media (max-width: 768px){
+
+    .launch-container{
+        padding-top: 100px;
+
+        gap:24px;
+
+    }
+
+    .launch-poster{
+
+        width:260px;
+
+    }
+
+    .count-item{
+
+        min-width:70px;
+
+    }
+
+    .count-item span{
+
+        font-size:3rem;
+
+    }
+
+    .launch-title{
+
+        font-size:.9rem;
+
+        letter-spacing:2px;
+
+    }
+
+}
+
+@media (max-width: 480px){
+
+    #launch-overlay{
+
+        padding:20px;
+
+    }
+
+    .launch-container{
+
+        gap:20px;
+
+    }
+
+    .launch-poster{
+
+        width:200px;
+
+    }
+
+    .launch-countdown{
+
+        gap:12px;
+
+    }
+
+    .count-item{
+
+        min-width:60px;
+
+    }
+
+    .count-item span{
+
+        font-size:2.2rem;
+
+    }
+
+    .count-item small{
+
+        font-size:.65rem;
+
+        letter-spacing:1px;
+
+    }
+
+    .launch-title{
+
+        font-size:.8rem;
+
+        letter-spacing:1px;
+
+    }
+
+    .launch-buttons{
+
+        width:100%;
+
+        flex-direction:column;
+
+        align-items:center;
+
+    }
+
+    .launch-buttons button{
+
+        width:100%;
+        max-width:280px;
+
+    }
+
+}
