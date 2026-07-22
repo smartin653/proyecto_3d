@@ -36,6 +36,7 @@ import InteractionHelper from "../interaction/InteractionHelper.js";
 import InteractionCard from "../ui/InteractionCard.js";
 import EffectsManager from "./EffectsManager.js";
 import InteractionManager from "../interaction/InteractionManager.js";
+import ReleaseManager from "./ReleaseManager.js";
 
 export default class Experience {
   constructor() {
@@ -108,7 +109,29 @@ export default class Experience {
 
     this.contentVersionManager = new ContentVersionManager();
     console.log(this.contentVersionManager.getMode());
+    this.releaseManager = new ReleaseManager();
+    this.releaseManager
+    .load("https://assets.esrutayerma.com/config/releases.json")
+    .then(() => {
 
+        console.log(
+            this.releaseManager.getConfig(
+                "tracks",
+                "Slider_Pista01"
+            )
+        );
+
+         console.log(
+    this.releaseManager.isVisible(
+        "tracks",
+        "Slider_Pista01"
+    )
+);
+
+
+    });
+
+   
     this.environmentManager.initialize();
     this.environmentManager.onChange((mode) => {
       console.log("Environment changed:", mode);
@@ -212,7 +235,7 @@ export default class Experience {
 
   async loadAssets() {
     const gltf = await this.modelLoader.load(
-      "https://assets.esrutayerma.com/models/EdMav_Studio_GLB_V19.glb",
+      "https://assets.esrutayerma.com/models/EdMav_Studio_GLB_V21.glb",
     );
 
     this.animationManager = new AnimationManager(gltf.scene, gltf.animations);
@@ -279,6 +302,12 @@ export default class Experience {
     }
 
     garden.visible = true;
+
+    console.log("=== Estado de los jardines ===");
+
+    Object.entries(this.gardens).forEach(([name, garden]) => {
+      console.log(`${name}: ${garden.visible}`);
+    });
   }
 
   // updateCurtain(mode) {
@@ -644,28 +673,24 @@ export default class Experience {
     this.container.style.display = "";
 
     this.showIntro();
-}
+  }
 
   hide() {
     this.container.style.display = "none";
   }
 
   showIntro() {
-
     if (this.introOverlay) {
-        return;
+      return;
     }
 
     this.introOverlay = new IntroOverlay();
     this.orientationOverlay = new OrientationOverlay();
 
-    this.introOverlay.onEnter(
-        this.handleEnter.bind(this)
-    );
+    this.introOverlay.onEnter(this.handleEnter.bind(this));
 
     if (this.assetsLoaded) {
-        this.introOverlay.enable();
+      this.introOverlay.enable();
     }
-
-}
+  }
 }

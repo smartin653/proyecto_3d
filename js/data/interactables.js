@@ -54,8 +54,8 @@ export default {
     download: "./assets/audio/track01.mp3",
     visuals: {
       monitor: "./assets/video/grabadora.mp4",
-      projector: "https://assets.esrutayerma.com/videos/Video_Desierto.mp4",
-      paredfalsa: "./assets/video/Portada.mp4",
+      projector: "https://assets.esrutayerma.com/videos/desierto02_1.mp4",
+      Jardin_dia: "https://assets.esrutayerma.com/videos/desierto02_1.mp4",
     },
     youtube: "https://www.youtube.com/channel/UCCFO5GAOTY-haRtyGrBECoQ",
     camera: {
@@ -506,7 +506,7 @@ export default {
 
       emissive: 0.8,
     },
-    animation: "ventana",
+    animation: "ventana.001",
   },
   REC: {
     type: "action",
@@ -528,7 +528,7 @@ export default {
       emissive: 0.8,
     },
   },
-  ASSET002: {
+  EFECTO: {
     type: "trigger",
 
     action: "toggleMood",

@@ -1,0 +1,21 @@
+{
+  "tracks": {
+
+    "Slider_Pista01": {
+
+      "enabled": true,
+
+      "visibleFrom": "2026-07-22T19:00:00-06:00",
+
+      "visibleUntil": "2026-07-23T19:00:00-06:00",
+
+      "interactiveFrom": "2026-07-22T19:00:00-06:00",
+
+      "interactiveUntil": "2026-07-23T19:00:00-06:00",
+
+      "message": "Disponible el 22 de julio"
+
+    }
+
+  }
+}
