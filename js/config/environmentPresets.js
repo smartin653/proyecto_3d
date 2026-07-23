@@ -38,7 +38,7 @@ export default {
         color: "#FFF8EC",
       },
       Spot007: {
-        intensity: 35,
+        intensity: 0,
         visible: true,
         color: "#FFF8EC",
       },
@@ -80,12 +80,12 @@ export default {
         color: "#FFF8EC",
       },
       Spot006: {
-        intensity: 3,
+        intensity: 35,
         visible: true,
         color: "#FFF8EC",
       },
       Spot007: {
-        intensity: 35,
+        intensity: 0,
         visible: true,
         color: "#FFF8EC",
       },
@@ -127,7 +127,7 @@ export default {
         color: "#FFF8EC",
       },
       Spot006: {
-        intensity: 35,
+        intensity: 5,
         visible: true,
         color: "#FFF8EC",
       },

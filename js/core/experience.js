@@ -235,7 +235,7 @@ export default class Experience {
 
   async loadAssets() {
     const gltf = await this.modelLoader.load(
-      "https://assets.esrutayerma.com/videos/Ed_dia_1.glb",
+      "https://assets.esrutayerma.com/models/DIa_001.glb",
     );
 
     this.animationManager = new AnimationManager(gltf.scene, gltf.animations);
