@@ -137,7 +137,7 @@ export default class Experience {
       console.log("Environment changed:", mode);
 
       this.updateGarden(mode);
-      //this.updateCurtain(mode);
+      this.updateCurtain(mode);
       this.updateLights(mode);
     });
 
@@ -235,7 +235,7 @@ export default class Experience {
 
   async loadAssets() {
     const gltf = await this.modelLoader.load(
-      "https://assets.esrutayerma.com/models/EdMav_Studio_GLB_V22.glb",
+      "https://assets.esrutayerma.com/videos/Ed_dia_1.glb",
     );
 
     this.animationManager = new AnimationManager(gltf.scene, gltf.animations);
@@ -261,8 +261,14 @@ export default class Experience {
       night: gltf.scene.getObjectByName("Jardin_noche"),
     };
 
-    this.updateGarden(this.environmentManager.mode);
+    this.curtains = {
+    morning: gltf.scene.getObjectByName("PlanoAmanecer"),
+    afternoon: gltf.scene.getObjectByName("PlanoDia"),
+    night: gltf.scene.getObjectByName("PlanoNoche"),
+};
 
+    this.updateGarden(this.environmentManager.mode);
+    this.updateCurtain(this.environmentManager.mode);
     this.updateLights(this.environmentManager.mode);
 
     //----------------------------------
@@ -310,26 +316,46 @@ export default class Experience {
     });
   }
 
-  // updateCurtain(mode) {
-  //   Object.values(this.curtains).forEach((curtain) => {
-  //     curtain.visible = false;
-  //   });
+  updateCurtain(mode) {
+    console.log("Updatecurtains")
+    //----------------------------------
+    // Ocultar todas las cortinas
+    //----------------------------------
 
-  //   const curtain = this.curtains[mode];
+    Object.values(this.curtains).forEach((curtain) => {
+        if (curtain) {
+            curtain.visible = false;
+        }
+    });
 
-  //   if (!curtain) {
-  //     console.warn(`Curtain "${mode}" no encontrada`);
-  //     return;
-  //   }
+    //----------------------------------
+    // Obtener la cortina del modo actual
+    //----------------------------------
 
-  //   curtain.visible = true;
+    const curtain = this.curtains[mode];
 
-  //   console.log("----- Curtains -----");
+    if (!curtain) {
+        console.warn(`Curtain "${mode}" no encontrada.`);
+        return;
+    }
 
-  //   Object.entries(this.curtains).forEach(([name, mesh]) => {
-  //     console.log(name, mesh.name, mesh.visible);
-  //   });
-  // }
+    //----------------------------------
+    // Mostrar únicamente la cortina activa
+    //----------------------------------
+
+    curtain.visible = true;
+
+    //----------------------------------
+    // Debug
+    //----------------------------------
+
+    console.log("=== Estado de las cortinas ===");
+
+    Object.entries(this.curtains).forEach(([name, curtain]) => {
+        console.log(`${name}: ${curtain.visible}`);
+    });
+
+}
 
   updateLights(mode) {
     const preset = this.environmentManager.getCurrentPreset();

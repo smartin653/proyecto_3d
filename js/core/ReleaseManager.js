@@ -40,7 +40,13 @@ export default class ReleaseManager {
 
 isVisible(type, name) {
 
-    return this.getConfig(type, name) !== null;
+    const config = this.getConfig(type, name);
+
+    if (!config) {
+        return false;
+    }
+
+    return config.enabled;
 
 }
 

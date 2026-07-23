@@ -1,73 +1,55 @@
-export default class ContentVersionManager{
+export default class ContentVersionManager {
+  constructor() {}
 
-    constructor(){
+  getMode() {
+    const hour = new Date().getHours();
 
+    if (hour >= 6 && hour < 18) {
+      return "day";
     }
 
-    getMode(){
+    return "night";
+  }
 
-        const hour = new Date().getHours();
-
-        if(hour >= 6 && hour < 18){
-
-            return "day";
-
-        }
-
-        return "night";
-
-    }
-
-    resolve(value){
-
+  resolve(value) {
     //----------------------------------
     // Valor simple
     //----------------------------------
 
-    if(typeof value !== "object" || value === null){
-
-        return value;
-
+    if (typeof value !== "object" || value === null) {
+      return value;
     }
 
     //----------------------------------
     // Valor day/night
     //----------------------------------
 
-    return value[
-        this.getMode()
-    ];
+    return value[this.getMode()];
+  }
 
-}
+  resolveTrack(interactable) {
+    const visuals = {};
 
-resolveTrack(interactable) {
+    if (interactable.visuals) {
+      Object.entries(interactable.visuals).forEach(([key, value]) => {
+        visuals[key] = this.resolve(value);
+      });
+    }
 
     return {
+      ...interactable,
 
-        ...interactable,
+      title: this.resolve(interactable.title),
 
-        title: this.resolve(interactable.title),
+      cover: this.resolve(interactable.cover),
 
-        cover: this.resolve(interactable.cover),
+      audio: this.resolve(interactable.audio),
 
-        audio: this.resolve(interactable.audio),
-        sharing: this.resolve(interactable.sharing),
+      sharing: this.resolve(interactable.sharing),
 
-        visuals: interactable.visuals
-            ? {
-                ...interactable.visuals,
+      youtube: this.resolve(interactable.youtube),
 
-                monitor: this.resolve(interactable.visuals.monitor),
-
-                projector: this.resolve(interactable.visuals.projector),
-
-                paredfalsa: this.resolve(interactable.visuals.paredfalsa)
-
-              }
-            : undefined
-
+      visuals,
     };
-
-}
-
+  }
 }

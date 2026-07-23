@@ -2,7 +2,7 @@ export default {
   morning: {
     garden: "jardinAmanecer",
 
-    curtain: "CortinasDia_Dia",
+    curtain: "PlanoDia",
     lights: {
       Spot001: {
         intensity: 150,
@@ -28,17 +28,17 @@ export default {
         color: "#FFF8EC",
       },
       Spot005: {
-        intensity: 0,
+        intensity: 35,
         visible: true,
         color: "#FFF8EC",
       },
       Spot006: {
-        intensity: 0,
+        intensity: 35,
         visible: true,
         color: "#FFF8EC",
       },
       Spot007: {
-        intensity: 0,
+        intensity: 35,
         visible: true,
         color: "#FFF8EC",
       },
@@ -48,7 +48,7 @@ export default {
   afternoon: {
     garden: "jardinDia",
 
-    curtain: "Cortinas_Atardecer",
+    curtain: "PlanoNoche",
 
     lights: {
       Spot001: {
@@ -75,17 +75,17 @@ export default {
         color: "#ffffff",
       },
       Spot005: {
-        intensity: 0,
+        intensity: 35,
         visible: true,
         color: "#FFF8EC",
       },
       Spot006: {
-        intensity: 0,
+        intensity: 3,
         visible: true,
         color: "#FFF8EC",
       },
       Spot007: {
-        intensity: 0,
+        intensity: 35,
         visible: true,
         color: "#FFF8EC",
       },
@@ -95,7 +95,7 @@ export default {
   night: {
     garden: "jardinNoche",
 
-    curtain: "Cortinas_Noche",
+    curtain: "PlanoTarde",
 
     lights: {
       Spot001: {
@@ -122,17 +122,17 @@ export default {
         color: "#FFD8A8",
       },
       Spot005: {
-        intensity: 0,
+        intensity: 35,
         visible: true,
         color: "#FFF8EC",
       },
       Spot006: {
-        intensity: 0,
+        intensity: 35,
         visible: true,
         color: "#FFF8EC",
       },
       Spot007: {
-        intensity: 0,
+        intensity: 35,
         visible: true,
         color: "#FFF8EC",
       },

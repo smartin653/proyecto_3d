@@ -7,12 +7,12 @@ export default class ShareManager {
         label: "TikTok",
         handler: this.shareTikTok.bind(this),
       },
-      {
-        id: "instagram",
-        icon: "./assets/icons/instagram.png",
-        label: "Instagram",
-        handler: this.shareInstagram.bind(this),
-      },
+      // {
+      //   id: "instagram",
+      //   icon: "./assets/icons/instagram.png",
+      //   label: "Instagram",
+      //   handler: this.shareInstagram.bind(this),
+      // },
     ];
 
     this.currentTrack = null;

@@ -52,6 +52,7 @@ export default class InteractionCard {
     this.cancelHide();
     this.currentInteractable = interactable;
     this.title.textContent = interactable.title;
+    //console.log("INTERACTION CARD SHOW", interactable.title);
 
     // if (interactable.type === "link") {
     //   this.button.style.display = "block";

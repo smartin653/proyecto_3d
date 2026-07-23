@@ -22,7 +22,7 @@ export default class IntroOverlay {
           Ocupa los audios disponibles día tras día y comparte tu música. No olvides registrar tus creaciones con #SAERY.
         </p>
 
-        <button id="enter-btn" disabled>PREPARANDO TU EXPERIENCIA...</button>
+        <button id="enter-btn" disabled>CARGANDO...</button>
       </div>
 
     </div>

@@ -25,6 +25,7 @@ export default class RaycasterManager {
     this.scene = scene;
     this.canvas = canvas;
     this.hoveredObject = null;
+    this.hoveredInteractable = null;
     //this.tooltip = document.getElementById("tooltip");
     this.interactionCard = interactionCard;
     this.audioManager = audioManager;
@@ -85,15 +86,19 @@ export default class RaycasterManager {
     this.interactionCard.scheduleHide();
 
     if (this.hoveredObject) {
-      this.hoveredObject.material.emissive.set(0x000000);
 
-      this.hoveredObject.material.emissiveIntensity = 0;
+    this.hoveredObject.material.emissive.set(0x000000);
 
-      this.animationManager.stop();
+    this.hoveredObject.material.emissiveIntensity = 0;
+
+    if (this.hoveredInteractable?.animationOptions?.stopOnLeave !== false) {
+        this.animationManager.stop();
     }
 
+}
+
     this.hoveredObject = null;
-    console.log("POINTER MOVE", event.pointerType);
+    this.hoveredInteractable = null;
   }
 
   getInteractableAt(event) {
@@ -133,7 +138,7 @@ export default class RaycasterManager {
 
   highlightInteractable(hit, interactable, event) {
     document.body.style.cursor = "pointer";
-    console.log("HIGHLIGHT", interactable.title);
+    //console.log("HIGHLIGHT", interactable.title);
     // Solo mover la card si el usuario NO está sobre ella
     if (!this.interactionCard.isLocked) {
       this.interactionCard.move(event.clientX + 20, event.clientY - 40);
@@ -156,7 +161,7 @@ export default class RaycasterManager {
       }
 
       this.hoveredObject = hit.object;
-
+      this.hoveredInteractable = interactable;
       this.hoveredObject.material.emissive.set(0xffffff);
 
       this.hoveredObject.material.emissiveIntensity = 1;
@@ -173,7 +178,7 @@ export default class RaycasterManager {
     }
 
     this.interactionHandler(interaction.interactable);
-    console.log("POINTER DOWN", event.pointerType);
+    //console.log("POINTER DOWN", event.pointerType);
   }
 
   setAnimationManager(animationManager) {

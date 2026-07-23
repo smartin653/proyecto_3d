@@ -22,8 +22,8 @@ export default {
       night: "Me inundo: Track 2 - guitarra acústica ",
     },
     cover: {
-      day: "./assets/covers/day/NTEPDLV_01.jpg",
-      night: "./assets/covers/night/NTEPDLV_01.jpg",
+      day: "./assets/covers/day/EdMaverick_NTEPDLV_1.jpg",
+      night: "./assets/covers/night/EdMaverick_MeInundo_1.jpg",
     },
     audio: {
       day: "./assets/audio/day/1_GUITARRA_ACÚSTICA_(STEM).wav",
@@ -53,11 +53,20 @@ export default {
 
     download: "./assets/audio/track01.mp3",
     visuals: {
-      monitor: "./assets/video/grabadora.mp4",
-      projector: "https://assets.esrutayerma.com/videos/desierto02_1.mp4",
-      Jardin_dia: "https://assets.esrutayerma.com/videos/desierto02_1.mp4",
+      monitor: {
+        day: "./assets/video/day/grabadora.mp4",
+        night: "./assets/video/day/grabadora.mp4",
+      },
+
+      projector: {
+        day: "https://assets.esrutayerma.com/videos/desierto_toma1.mp4",
+        night: "https://assets.esrutayerma.com/videos/Me_inundo.mov",
+      },
     },
-    youtube: "https://www.youtube.com/channel/UCCFO5GAOTY-haRtyGrBECoQ",
+    youtube: {
+      day: "https://www.tiktok.com/music/-7662460776100644881",
+      night: "https://www.tiktok.com/music/-7664762692532602897",
+    },
     camera: {
       position: {
         x: -1.9,
@@ -94,16 +103,23 @@ export default {
       night: "Me inundo: Track 2 - guitarra eléctrica",
     },
     cover: {
-      day: "./assets/covers/day/NTEPDLV_01.jpg",
-      night: "./assets/covers/night/NTEPDLV_01.jpg",
+      day: "./assets/covers/day/EdMaverick_NTEPDLV_2.jpg",
+      night: "./assets/covers/night/EdMaverick_MeInundo_2.jpg",
     },
     audio: {
       day: "./assets/audio/day/2. GUITARRA ELÉCTRICA (STEM).wav",
       night: "./assets/audio/night/2. guitarra eléctrica (stem) (1).wav",
     },
     visuals: {
-      monitor: "./assets/video/grabadora.mp4",
-      projector: "https://assets.esrutayerma.com/videos/Me_inundo.mov",
+      monitor: {
+        day: "./assets/video/day/grabadora.mp4",
+        night: "./assets/video/night/grabadora.mp4",
+      },
+
+      projector: {
+        day: "https://assets.../day.mp4",
+        night: "https://assets.../night.mp4",
+      },
     },
     sharing: {
       day: {
@@ -139,7 +155,10 @@ export default {
         z: 0,
       },
     },
-    youtube: "https://www.youtube.com/channel/UCCFO5GAOTY-haRtyGrBECoQ",
+    youtube: {
+      day: "https://www.tiktok.com/music/-7662460956590917649",
+      night: "https://www.tiktok.com/music/-7664768185333975056",
+    },
   },
 
   Slider_Pista03: {
@@ -163,16 +182,23 @@ export default {
       night: "Me inundo: Track 2 - bajo",
     },
     cover: {
-      day: "./assets/covers/day/NTEPDLV_01.jpg",
-      night: "./assets/covers/night/NTEPDLV_01.jpg",
+      day: "./assets/covers/day/EdMaverick_NTEPDLV_3.jpg",
+      night: "./assets/covers/night/EdMaverick_MeInundo_3.jpg",
     },
     audio: {
       day: "./assets/audio/day/3. BAJO (STEM).wav",
       night: "./assets/audio/night/3. bajo (stem) (1).wav",
     },
     visuals: {
-      monitor: "./assets/video/grabadora.mp4",
-      projector: "./assets/video/Me_inundo.mov",
+      monitor: {
+        day: "./assets/video/day/grabadora.mp4",
+        night: "./assets/video/night/grabadora.mp4",
+      },
+
+      projector: {
+        day: "https://assets.../day.mp4",
+        night: "https://assets.../night.mp4",
+      },
     },
     sharing: {
       day: {
@@ -208,7 +234,10 @@ export default {
         z: 0,
       },
     },
-    youtube: "https://www.youtube.com/channel/UCCFO5GAOTY-haRtyGrBECoQ",
+    youtube: {
+      day: "https://www.tiktok.com/music/-7662460889815549969",
+      night: "https://www.tiktok.com/music/-7664768065549518865",
+    },
   },
 
   Slider_Pista04: {
@@ -232,16 +261,23 @@ export default {
       night: "Me inundo: Track 2 - batería",
     },
     cover: {
-      day: "./assets/covers/day/NTEPDLV_01.jpg",
-      night: "./assets/covers/night/NTEPDLV_01.jpg",
+      day: "./assets/covers/day/EdMaverick_NTEPDLV_4.jpg",
+      night: "./assets/covers/night/EdMaverick_MeInundo_4.jpg",
     },
     audio: {
       day: "./assets/audio/day/4. BATERÍA (STEM).wav",
       night: "./assets/audio/night/4. batería (stem) (1).wav",
     },
     visuals: {
-      monitor: "./assets/video/grabadora.mp4",
-      projector: "./assets/video/Me_inundo.mov",
+      monitor: {
+        day: "./assets/video/day/grabadora.mp4",
+        night: "./assets/video/night/grabadora.mp4",
+      },
+
+      projector: {
+        day: "https://assets.../day.mp4",
+        night: "https://assets.../night.mp4",
+      },
     },
     sharing: {
       day: {
@@ -261,7 +297,7 @@ export default {
 
         facebook: "https://facebook.com/track-noche",
         instagram: "https://instagram.com/track-noche",
-        tiktok: " https://www.tiktok.com/music/-7664772830000760849",
+        tiktok: "https://www.tiktok.com/music/-7664772830000760849",
       },
     },
     camera: {
@@ -277,7 +313,10 @@ export default {
         z: 0,
       },
     },
-    youtube: "https://www.youtube.com/channel/UCCFO5GAOTY-haRtyGrBECoQ",
+    youtube: {
+      day: "https://www.tiktok.com/music/-7662466234554730497",
+      night: "https://www.tiktok.com/music/-7664772830000760849",
+    },
   },
 
   Slider_Pista05: {
@@ -288,16 +327,23 @@ export default {
       night: "Me inundo: Track 2 - cuerdas",
     },
     cover: {
-      day: "./assets/covers/day/NTEPDLV_01.jpg",
-      night: "./assets/covers/night/NTEPDLV_01.jpg",
+      day: "./assets/covers/day/EdMaverick_NTEPDLV_5.jpg",
+      night: "./assets/covers/night/EdMaverick_MeInundo_5.jpg",
     },
     audio: {
       day: "./assets/audio/day/5. CUERDAS (STEM).wav",
       night: "./assets/audio/night/5. cuerdas (stem) (1).wav",
     },
     visuals: {
-      monitor: "./assets/video/grabadora.mp4",
-      projector: "./assets/video/Me_inundo.mov",
+      monitor: {
+        day: "./assets/video/day/grabadora.mp4",
+        night: "./assets/video/night/grabadora.mp4",
+      },
+
+      projector: {
+        day: "https://assets.../day.mp4",
+        night: "https://assets.../night.mp4",
+      },
     },
     sharing: {
       day: {
@@ -333,6 +379,10 @@ export default {
         z: 0,
       },
     },
+    youtube: {
+      day: "https://www.tiktok.com/music/-7662459729222240272",
+      night: "https://www.tiktok.com/music/-7664777765024073745",
+    },
   },
 
   Slider_Pista06: {
@@ -343,16 +393,23 @@ export default {
       night: "Me inundo: Track 2 - wurlitzer ",
     },
     cover: {
-      day: "./assets/covers/day/NTEPDLV_01.jpg",
-      night: "./assets/covers/night/NTEPDLV_01.jpg",
+      day: "./assets/covers/day/EdMaverick_NTEPDLV_6.jpg",
+      night: "./assets/covers/night/EdMaverick_MeInundo_1.jpg",
     },
     audio: {
       day: "./assets/audio/day/6. TROMPETA (STEM).wav",
       night: "./assets/audio/night/6. wurlitzer (stem).wav",
     },
     visuals: {
-      monitor: "./assets/video/grabadora.mp4",
-      projector: "./assets/video/Me_inundo.mov",
+      monitor: {
+        day: "./assets/video/day/grabadora.mp4",
+        night: "./assets/video/night/grabadora.mp4",
+      },
+
+      projector: {
+        day: "https://assets.../day.mp4",
+        night: "https://assets.../night.mp4",
+      },
     },
     sharing: {
       day: {
@@ -388,7 +445,10 @@ export default {
         z: 0,
       },
     },
-    youtube: "https://www.youtube.com/channel/UCCFO5GAOTY-haRtyGrBECoQ",
+    youtube: {
+      day: "https://www.tiktok.com/music/-7664792556329699345",
+      night: "https://www.tiktok.com/music/-7662460922510870545",
+    },
   },
   shop1: {
     type: "link",
@@ -506,7 +566,49 @@ export default {
 
       emissive: 0.8,
     },
+    animationOptions: {
+      stopOnLeave: false,
+    },
     animation: "ventana.001",
+    animationTrigger: "click",
+  },
+  nota1: {
+    type: "info",
+    showCard: false,
+    hover: {
+      outline: true,
+
+      emissive: 0.8,
+    },
+    animation: "Nota Dia",
+  },
+  nota2: {
+    type: "info",
+    showCard: false,
+    hover: {
+      outline: true,
+
+      emissive: 0.8,
+    },
+    animation: "Nota Noche",
+  },
+  Cube: {
+    type: "info",
+    title: "Puedo dormir un rato",
+    hover: {
+      outline: true,
+
+      emissive: 0.8,
+    },
+  },
+  ASSET002: {
+    type: "info",
+    title: "huellas en la arena se forman en la espera",
+    hover: {
+      outline: true,
+
+      emissive: 0.8,
+    },
   },
   REC: {
     type: "action",
@@ -515,12 +617,12 @@ export default {
 
     hint: "youtube",
 
-    title: "Video oficial",
+    title: "Usa este audio",
 
     description:
       "Se abrirá el video oficial de la canción que se está reproduciendo en una nueva pestaña.",
 
-    actionLabel: "Abrir YouTube",
+    actionLabel: "Abrir tiktok",
 
     hover: {
       outline: true,
@@ -530,14 +632,14 @@ export default {
   },
   EFECTO: {
     type: "trigger",
-
+    showCard: false,
     action: "toggleMood",
 
     mood: "cinematic",
 
     hint: "youtube",
 
-    title: "Modo cinematográfico",
+    //title: "Modo cinematográfico",
 
     description: "Activa una experiencia visual.",
 
@@ -573,5 +675,4 @@ export default {
     url: "https://cincuentaytrescuarentaynueve.com/",
     animation: "libreta",
   },
-
 };
