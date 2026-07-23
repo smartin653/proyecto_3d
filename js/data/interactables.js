@@ -549,4 +549,29 @@ export default {
       emissive: 0.8,
     },
   },
+  cuaderno: {
+    type: "link",
+    showCard: false,
+    hint: "shop",
+    beacon: {
+      color: "#FFD600",
+
+      size: 0.1,
+
+      animation: "pulse",
+      actionLabel: "Visitar galeria",
+      url: "https://udiscover.mx/collections/ed-maverick/products/la-nube-en-el-jardin-vinilo-doble-color-black",
+    },
+
+    hover: {
+      outline: true,
+
+      emissive: 0.8,
+    },
+    title: "La nube",
+    actionLabel: "Visitar galeria",
+    url: "https://cincuentaytrescuarentaynueve.com/",
+    animation: "libreta",
+  },
+
 };

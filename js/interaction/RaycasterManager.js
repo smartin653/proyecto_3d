@@ -18,7 +18,7 @@ export default class RaycasterManager {
     animationManager,
     interactionCard,
     interactionHandler,
-    handleMoodRequested
+    handleMoodRequested,
   ) {
     console.log("cameraTransition:", cameraTransition);
     this.camera = camera;
@@ -34,7 +34,7 @@ export default class RaycasterManager {
     this.contentVersionManager = contentVersionManager;
     this.animationManager = animationManager;
     this.interactionHandler = interactionHandler;
-    this.handleMoodRequested = handleMoodRequested
+    this.handleMoodRequested = handleMoodRequested;
 
     this.raycaster = new THREE.Raycaster();
 
@@ -43,169 +43,29 @@ export default class RaycasterManager {
     this.setupEvents();
   }
 
-  setupEvents() {
-    this.canvas.addEventListener("click", this.onClick.bind(this));
-    this.canvas.addEventListener("mousemove", this.onMouseMove.bind(this));
-  }
-
-  // onMouseMove(event) {
-  //   const rect = this.canvas.getBoundingClientRect();
-
-  //   this.mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
-
-  //   this.mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
-
-  //   this.raycaster.setFromCamera(this.mouse, this.camera);
-
-  //   const intersects = this.raycaster.intersectObjects(
-  //     this.scene.children,
-  //     true,
-  //   );
-
-  //   let result = null;
-
-  //   const hit = intersects.find((item) => {
-  //     result = InteractionResolver.resolve(item.object);
-
-  //     return result;
-  //   });
-
-  //   const interactable = result?.data;
-
-  //   //--------------------------------------------------
-  //   // HAY INTERACTUABLE
-  //   //--------------------------------------------------
-
-  //   if (hit) {
-  //     console.log("OBJETO:", hit.object.name);
-  //     console.log("PADRE:", hit.object.parent.name);
-  //     console.log(hit.object.parent);
-  //     document.body.style.cursor = "pointer";
-
-  //     const result = InteractionResolver.resolve(hit.object);
-
-  //     const interactable = result.data;
-
-  //     if (interactable.showCard !== false) {
-  //       const content = this.contentVersionManager.resolveTrack(interactable);
-
-  //       this.interactionCard.show(content);
-  //     }
-
-  //     // Solo mover la card si el usuario NO está sobre ella
-  //     if (!this.interactionCard.isLocked) {
-  //       this.interactionCard.move(event.clientX + 20, event.clientY - 40);
-
-  //       this.interactionCard.lock();
-  //     }
-
-  //     const content = this.contentVersionManager.resolveTrack(interactable);
-
-  //     //this.interactionCard.show(interactable);
-  //     //this.interactionCard.show(content);
-
-  //     if (this.hoveredObject !== hit.object) {
-  //       if (this.hoveredObject) {
-  //         this.hoveredObject.material.emissive.set(0x000000);
-
-  //         this.hoveredObject.material.emissiveIntensity = 0;
-  //       }
-
-  //       this.hoveredObject = hit.object;
-
-  //       this.hoveredObject.material.emissive.set(0xffffff);
-
-  //       this.hoveredObject.material.emissiveIntensity = 1;
-  //       this.animationManager.play(interactable);
-  //       // this.hoveredObject.rotation.z = THREE.MathUtils.degToRad(-10);
-  //       // this.hoveredObject.position.y += 0.03;
-  //     }
-
-  //     return;
-  //   }
-
-  //   //--------------------------------------------------
-  //   // NO HAY INTERACTUABLE
-  //   //--------------------------------------------------
-
-  //   // Si el usuario está interactuando con la card,
-  //   // NO hacemos nada.
-  //   if (this.interactionCard.isHovered) {
-  //     return;
-  //   }
-
-  //   document.body.style.cursor = "default";
-
-  //   this.interactionCard.scheduleHide();
-
-  //   if (this.hoveredObject) {
-  //     this.hoveredObject.material.emissive.set(0x000000);
-
-  //     this.hoveredObject.material.emissiveIntensity = 0;
-  //     this.animationManager.stop();
-  //   }
-  //   // this.hoveredObject.rotation.x = 0;
-  //   // this.hoveredObject.position.y -= 0.03;
-  //   this.hoveredObject = null;
+  // setupEvents() {
+  //   this.canvas.addEventListener("click", this.onClick.bind(this));
+  //   this.canvas.addEventListener("mousemove", this.onMouseMove.bind(this));
   // }
 
-  onMouseMove(event) {
-    const rect = this.canvas.getBoundingClientRect();
+  setupEvents() {
+    this.canvas.addEventListener("pointerdown", this.onPointerDown.bind(this));
+    this.canvas.addEventListener("pointermove", this.onPointerMove.bind(this));
+  }
 
-    this.mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
-    this.mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
-
-    this.raycaster.setFromCamera(this.mouse, this.camera);
-
-    const intersects = this.raycaster.intersectObjects(
-      this.scene.children,
-      true,
-    );
-
-    let result = null;
-
-    const hit = intersects.find((item) => {
-      result = InteractionResolver.resolve(item.object);
-
-      return result;
-    });
+  onPointerMove(event) {
+    const interaction = this.getInteractableAt(event);
 
     //--------------------------------------------------
     // HAY INTERACTUABLE
     //--------------------------------------------------
 
-    if (hit) {
-      document.body.style.cursor = "pointer";
-
-      const interactable = result.data;
-
-      // Solo mover la card si el usuario NO está sobre ella
-      if (!this.interactionCard.isLocked) {
-        this.interactionCard.move(event.clientX + 20, event.clientY - 40);
-
-        this.interactionCard.lock();
-      }
-
-      // Mostrar card solo si aplica
-      if (interactable.showCard !== false) {
-        const content = this.contentVersionManager.resolveTrack(interactable);
-
-        this.interactionCard.show(content);
-      }
-
-      if (this.hoveredObject !== hit.object) {
-        if (this.hoveredObject) {
-          this.hoveredObject.material.emissive.set(0x000000);
-          this.hoveredObject.material.emissiveIntensity = 0;
-        }
-
-        this.hoveredObject = hit.object;
-
-        this.hoveredObject.material.emissive.set(0xffffff);
-        this.hoveredObject.material.emissiveIntensity = 1;
-
-        this.animationManager.play(interactable);
-      }
+    if (interaction) {
+      this.highlightInteractable(
+        interaction.hit,
+        interaction.interactable,
+        event,
+      );
 
       return;
     }
@@ -226,19 +86,20 @@ export default class RaycasterManager {
 
     if (this.hoveredObject) {
       this.hoveredObject.material.emissive.set(0x000000);
+
       this.hoveredObject.material.emissiveIntensity = 0;
 
       this.animationManager.stop();
     }
 
     this.hoveredObject = null;
+    console.log("POINTER MOVE", event.pointerType);
   }
 
-  onClick(event) {
+  getInteractableAt(event) {
     const rect = this.canvas.getBoundingClientRect();
 
     this.mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
-
     this.mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
 
     this.raycaster.setFromCamera(this.mouse, this.camera);
@@ -248,26 +109,71 @@ export default class RaycasterManager {
       true,
     );
 
-    if (!intersects.length) return;
+    if (!intersects.length) {
+      return null;
+    }
 
-    const clickedObject = intersects[0].object;
+    let result = null;
 
-    const interactable = interactables[clickedObject.name];
+    const hit = intersects.find((item) => {
+      result = InteractionResolver.resolve(item.object);
 
-    // if (interactable) {
-    //   console.log(interactable.title);
-    //   //this.audioManager.showTrack(interactable.title);
-    //   this.audioManager.play(interactable.audio);
-    //   this.spotifyPlayer.show(interactable.title, interactable.cover);
-    //   this.screenManager.play(interactable.visuals);
-    //   this.cameraTransition.flyTo(
-    //     interactable.camera.position,
-    //     interactable.camera.target,
-    //   );
-    // }
+      return result;
+    });
 
-    if (!interactable) return;
-    this.interactionHandler(interactable);
+    if (!hit) {
+      return null;
+    }
+
+    return {
+      hit,
+      interactable: result.data,
+    };
+  }
+
+  highlightInteractable(hit, interactable, event) {
+    document.body.style.cursor = "pointer";
+    console.log("HIGHLIGHT", interactable.title);
+    // Solo mover la card si el usuario NO está sobre ella
+    if (!this.interactionCard.isLocked) {
+      this.interactionCard.move(event.clientX + 20, event.clientY - 40);
+
+      this.interactionCard.lock();
+    }
+
+    // Mostrar card solo si aplica
+    if (interactable.showCard !== false) {
+      const content = this.contentVersionManager.resolveTrack(interactable);
+
+      this.interactionCard.show(content);
+    }
+
+    if (this.hoveredObject !== hit.object) {
+      if (this.hoveredObject) {
+        this.hoveredObject.material.emissive.set(0x000000);
+
+        this.hoveredObject.material.emissiveIntensity = 0;
+      }
+
+      this.hoveredObject = hit.object;
+
+      this.hoveredObject.material.emissive.set(0xffffff);
+
+      this.hoveredObject.material.emissiveIntensity = 1;
+
+      this.animationManager.play(interactable);
+    }
+  }
+
+  onPointerDown(event) {
+    const interaction = this.getInteractableAt(event);
+
+    if (!interaction) {
+      return;
+    }
+
+    this.interactionHandler(interaction.interactable);
+    console.log("POINTER DOWN", event.pointerType);
   }
 
   setAnimationManager(animationManager) {
