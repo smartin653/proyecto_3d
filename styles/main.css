@@ -58,6 +58,7 @@ body{
 
 canvas{
     display:block;
+    -webkit-tap-highlight-color: transparent; 
 }
 
 /* #tooltip{
