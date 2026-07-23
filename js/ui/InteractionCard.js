@@ -46,6 +46,9 @@ export default class InteractionCard {
       this.isHovered = false;
       this.scheduleHide();
     });
+
+    this.isTouchDevice =
+    navigator.maxTouchPoints > 0;
   }
 
   show(interactable) {
@@ -62,6 +65,8 @@ export default class InteractionCard {
     //   this.button.style.display = "none";
     // }
 
+   
+
     if (interactable.type === "link" || interactable.type === "action") {
       this.button.style.display = "block";
 
@@ -69,7 +74,8 @@ export default class InteractionCard {
     } else {
       this.button.style.display = "none";
     }
-
+    
+    
     this.card.classList.add("visible");
   }
 
@@ -79,11 +85,22 @@ export default class InteractionCard {
     this.card.classList.remove("visible");
   }
 
-  move(x, y) {
-    this.card.style.left = `${x}px`;
+  // move(x, y) {
+  //   this.card.style.left = `${x}px`;
 
+  //   this.card.style.top = `${y}px`;
+  // }
+
+  move(x, y) {
+
+    if (this.isTouchDevice) {
+        return;
+    }
+
+    this.card.style.left = `${x}px`;
     this.card.style.top = `${y}px`;
-  }
+
+}
 
   scheduleHide() {
     clearTimeout(this.hideTimeout);

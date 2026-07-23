@@ -59,6 +59,7 @@ body{
 canvas{
     display:block;
     -webkit-tap-highlight-color: transparent; 
+    touch-action: none;
 }
 
 /* #tooltip{
@@ -191,6 +192,22 @@ canvas{
     transform:translateY(-1px);
 
     filter:brightness(1.05);
+
+}
+
+#tooltip.mobile{
+
+    left: 50% !important;
+    top: auto !important;
+    bottom: 120px;
+
+    transform: translate(-50%, 10px);
+
+}
+
+#tooltip.mobile.visible{
+
+    transform: translate(-50%, 0);
 
 }
 
