@@ -36,6 +36,7 @@ export default class RaycasterManager {
     this.animationManager = animationManager;
     this.interactionHandler = interactionHandler;
     this.handleMoodRequested = handleMoodRequested;
+    this.isTouchDevice = navigator.maxTouchPoints > 0;
 
     this.raycaster = new THREE.Raycaster();
 
@@ -57,6 +58,9 @@ export default class RaycasterManager {
   onPointerMove(event) {
     const interaction = this.getInteractableAt(event);
 
+    if (this.isTouchDevice) {
+      return;
+    }
     //--------------------------------------------------
     // HAY INTERACTUABLE
     //--------------------------------------------------
@@ -86,16 +90,14 @@ export default class RaycasterManager {
     this.interactionCard.scheduleHide();
 
     if (this.hoveredObject) {
+      this.hoveredObject.material.emissive.set(0x000000);
 
-    this.hoveredObject.material.emissive.set(0x000000);
+      this.hoveredObject.material.emissiveIntensity = 0;
 
-    this.hoveredObject.material.emissiveIntensity = 0;
-
-    if (this.hoveredInteractable?.animationOptions?.stopOnLeave !== false) {
+      if (this.hoveredInteractable?.animationOptions?.stopOnLeave !== false) {
         this.animationManager.stop();
+      }
     }
-
-}
 
     this.hoveredObject = null;
     this.hoveredInteractable = null;
@@ -177,8 +179,15 @@ export default class RaycasterManager {
       return;
     }
 
+    if (this.isTouchDevice) {
+      this.highlightInteractable(
+        interaction.hit,
+        interaction.interactable,
+        event,
+      );
+    }
+
     this.interactionHandler(interaction.interactable);
-    //console.log("POINTER DOWN", event.pointerType);
   }
 
   setAnimationManager(animationManager) {
