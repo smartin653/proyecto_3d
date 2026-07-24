@@ -59,12 +59,12 @@ export default {
       },
 
       projector: {
-        day: "https://assets.esrutayerma.com/videos/desierto_toma1.mp4",
-        night: "https://assets.esrutayerma.com/models/Me%20inundo-ventana-largo.mp4",
+        day: "https://assets.esrutayerma.com/videos/no-hay.mp4",
+        night: "https://assets.esrutayerma.com/videos/me-inundo%20(1).mp4",
       },
       curtains: {
-        day: "https://assets.esrutayerma.com/videos/desierto_toma1.mp4",
-        night: "https://assets.esrutayerma.com/models/Me%20inundo-ventana-cuad.mp4",
+        day: "https://assets.esrutayerma.com/videos/no-hay-cuad.mp4",
+        night: "https://assets.esrutayerma.com/videos/me-inundo-cuad.mp4",
       },
     },
     youtube: {

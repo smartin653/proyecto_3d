@@ -6,7 +6,6 @@ export default class LaunchOverlay {
     this.config = LaunchConfig;
     this.create();
     this.cacheElements();
-    this.setupPoster();
     this.setupButtons();
     this.startCountdown();
   }
@@ -49,8 +48,6 @@ export default class LaunchOverlay {
             </div>
 
         </div>
-
-        <div class="launch-poster"></div>
 
         <div class="launch-buttons"></div>
 
@@ -112,7 +109,7 @@ export default class LaunchOverlay {
   }
 
   cacheElements() {
-    this.poster = this.element.querySelector(".launch-poster");
+    
     this.daysElement = this.element.querySelector("#count-days");
 
     this.hoursElement = this.element.querySelector("#count-hours");
@@ -127,9 +124,7 @@ export default class LaunchOverlay {
     return String(value).padStart(2, "0");
   }
 
-  setupPoster() {
-    this.poster.style.backgroundImage = `url(${this.config.poster})`;
-  }
+ 
 
   setupButtons() {
     this.config.buttons.forEach((button) => {

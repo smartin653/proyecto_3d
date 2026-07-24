@@ -1,6 +1,5 @@
 import LaunchConfig from "./launch/LaunchConfig.js";
 import LaunchOverlay from "./launch/LaunchOverlay.js";
-import AccessManager from "./access/AccessManager.js";
 import Layout from "./layout/Layout.js";
 import Router from "./router/Router.js";
 import Experience from "./core/experience.js";
@@ -28,36 +27,30 @@ export default class App {
   }
 
   startApplication() {
-    const access = new AccessManager();
+  this.layout = new Layout();
+  this.layout.mount(this.website);
 
-    access.onSuccess(() => {
-     // this.showWebsite();
+  this.router = new Router(this.layout);
 
-      this.layout = new Layout();
-      this.layout.mount(this.website);
+  this.router.onPageChange = (page) => {
+    this.applyConfig(page.constructor.config);
+  };
 
-      this.router = new Router(this.layout);
+  this.layout.header.onNavigate = (route) => {
+    this.navigate(route);
+  };
 
-      this.router.onPageChange = (page) => {
-        this.applyConfig(page.constructor.config);
-      };
+  this.layout.header.onMenuClick = () => {
+    this.layout.mobileMenu.toggle();
+  };
 
-      this.layout.header.onNavigate = (route) => {
-        this.navigate(route);
-      };
+  this.layout.mobileMenu.onNavigate = (route) => {
+    this.navigate(route);
+    this.layout.mobileMenu.close();
+  };
 
-      this.layout.header.onMenuClick = () => {
-        this.layout.mobileMenu.toggle();
-      };
-
-      this.layout.mobileMenu.onNavigate = (route) => {
-        this.navigate(route);
-        this.layout.mobileMenu.close();
-      };
-
-      this.router.start();
-    });
-  }
+  this.router.start();
+}
 
   applyConfig(config) {
     this.layout.updateLayout(config);
