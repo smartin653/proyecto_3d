@@ -2,7 +2,7 @@ export default {
 
     enabled: true,
 
-    releaseDate: "2026-07-24T00:35:00",
+    releaseDate: "2026-07-24T06:00:00",
 
     title: "Bienvenido al HEUBD estudio",
 
