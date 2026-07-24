@@ -282,68 +282,61 @@ export default class Experience {
   //   }
   // }
 
-async loadAssets() {
-  try {
-    const gltf = await this.modelLoader.load(
-      "https://assets.esrutayerma.com/models/No%20Todo%20Es%20Parte%20De%20La%20Vida.glb",
-    );
+  async loadAssets() {
+    try {
+      const gltf = await this.modelLoader.load(
+        "https://assets.esrutayerma.com/models/No%20Todo%20Es%20Parte%20De%20La%20Vida.glb",
+      );
 
-    this.animationManager = new AnimationManager(
-      gltf.scene,
-      gltf.animations,
-    );
+      this.animationManager = new AnimationManager(gltf.scene, gltf.animations);
 
-    this.raycasterManager.setAnimationManager(this.animationManager);
+      this.raycasterManager.setAnimationManager(this.animationManager);
 
-    this.scene.add(gltf.scene);
+      this.scene.add(gltf.scene);
 
-    this.setupScreens(gltf.scene);
-    this.setupLights(gltf.scene);
-    this.cinematicManager.test();
-    this.setupScene(gltf.scene);
-    this.setupInteractables(gltf.scene);
+      this.setupScreens(gltf.scene);
+      this.setupLights(gltf.scene);
+      this.cinematicManager.test();
+      this.setupScene(gltf.scene);
+      this.setupInteractables(gltf.scene);
 
-    this.gardens = {
-      morning: gltf.scene.getObjectByName("Jardin_amanecer"),
-      afternoon: gltf.scene.getObjectByName("Jardin_dia"),
-      night: gltf.scene.getObjectByName("Jardin_noche"),
-    };
+      this.gardens = {
+        morning: gltf.scene.getObjectByName("Jardin_amanecer"),
+        afternoon: gltf.scene.getObjectByName("Jardin_dia"),
+        night: gltf.scene.getObjectByName("Jardin_noche"),
+      };
 
-    this.curtains = {
-      morning: gltf.scene.getObjectByName("PlanoAmanecer"),
-      afternoon: gltf.scene.getObjectByName("PlanoDia"),
-      night: gltf.scene.getObjectByName("PlanoNoche"),
-    };
+      this.curtains = {
+        morning: gltf.scene.getObjectByName("PlanoAmanecer"),
+        afternoon: gltf.scene.getObjectByName("PlanoDia"),
+        night: gltf.scene.getObjectByName("PlanoNoche"),
+      };
 
-    this.updateGarden(this.environmentManager.mode);
-    this.updateCurtain(this.environmentManager.mode);
-    this.updateLights(this.environmentManager.mode);
+      this.updateGarden(this.environmentManager.mode);
+      this.updateCurtain(this.environmentManager.mode);
+      this.updateLights(this.environmentManager.mode);
 
-    this.animations = gltf.animations;
+      this.animations = gltf.animations;
 
-    this.mixer = new THREE.AnimationMixer(gltf.scene);
+      this.mixer = new THREE.AnimationMixer(gltf.scene);
 
-    const clip = THREE.AnimationClip.findByName(
-      this.animations,
-      "venta",
-    );
+      const clip = THREE.AnimationClip.findByName(this.animations, "venta");
 
-    const action = this.mixer.clipAction(clip);
+      const action = this.mixer.clipAction(clip);
 
-    action.reset();
-    action.play();
+      action.reset();
+      action.play();
 
-    this.assetsLoaded = true;
+      this.assetsLoaded = true;
 
-    if (this.introOverlay) {
-      this.introOverlay.enable();
+      if (this.introOverlay) {
+        this.introOverlay.enable();
+      }
+    } catch (error) {
+      console.error("Error cargando el modelo:", error);
     }
-
-  } catch (error) {
-    console.error("Error cargando el modelo:", error);
   }
-}
-  
+
   updateGarden(mode) {
     Object.values(this.gardens).forEach((garden) => {
       garden.visible = false;
@@ -452,10 +445,10 @@ async loadAssets() {
   }
 
   setTrackInteractablesVisible(visible) {
-  this.trackInteractables.forEach((object) => {
-    object.visible = visible;
-  });
-}
+    this.trackInteractables.forEach((object) => {
+      object.visible = visible;
+    });
+  }
 
   setupScreens(root) {
     // root.traverse((child) => {
@@ -474,12 +467,17 @@ async loadAssets() {
       jardinNoche: "Jardin_noche",
       PlanoAmanecer: "PlanoAmanecer",
       PlanoDia: "PlanoDia",
-      PlanoNoche: "PlanoNoche"
-      
+      PlanoNoche: "PlanoNoche",
     };
 
     Object.entries(screens).forEach(([id, objectName]) => {
       const mesh = root.getObjectByName(objectName);
+      // console.log("objetname",
+      //   objectName,
+      //   mesh.geometry.attributes.position.count,
+      //   mesh.geometry.attributes.uv.count,
+      //   mesh.material,
+      // );
 
       if (!mesh) {
         console.warn(`Pantalla "${objectName}" no encontrada`);
@@ -490,7 +488,7 @@ async loadAssets() {
       this.screenManager.add(id, new VideoScreen(mesh));
     });
 
-    console.log("pantallas",this.screenManager.screens);
+    console.log("pantallas", this.screenManager.screens);
 
     this.raycasterManager.screenManager = this.screenManager;
 
@@ -684,38 +682,38 @@ async loadAssets() {
   }
 
   handleInteraction(interactable) {
-  const content = this.contentVersionManager.resolveTrack(interactable);
+    const content = this.contentVersionManager.resolveTrack(interactable);
 
-  switch (interactable.type) {
-    case "track":
-      this.audioManager.play(content);
+    switch (interactable.type) {
+      case "track":
+        this.audioManager.play(content);
 
-      this.setTrackInteractablesVisible(true);
+        this.setTrackInteractablesVisible(true);
 
-      this.spotifyPlayer.show(content);
+        this.spotifyPlayer.show(content);
 
-      this.screenManager.play(content.visuals);
+        this.screenManager.play(content.visuals);
 
-      break;
+        break;
 
-    case "link":
-      break;
+      case "link":
+        break;
 
-    case "action":
-      break;
+      case "action":
+        break;
 
-    case "info":
-      break;
+      case "info":
+        break;
 
-    case "trigger":
-      switch (interactable.action) {
-        case "toggleMood":
-          this.effectsManager.toggleMood(interactable.mood);
-          break;
-      }
-      break;
+      case "trigger":
+        switch (interactable.action) {
+          case "toggleMood":
+            this.effectsManager.toggleMood(interactable.mood);
+            break;
+        }
+        break;
+    }
   }
-}
 
   closePlayer() {
     this.audioManager.audio.pause();
