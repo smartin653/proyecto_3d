@@ -26,7 +26,7 @@ export default {
       night: "./assets/covers/night/EdMaverick_MeInundo_1.jpg",
     },
     audio: {
-      day: "./assets/audio/day/1_GUITARRA_ACÚSTICA_(STEM).wav",
+      day: "./assets/audio/day/1_GUITARRA_ACÚSTICA__DIA.mp3",
       night: "./assets/audio/night/1. guitarra acústica (stem).wav",
     },
     sharing: {
