@@ -114,9 +114,9 @@ export default class Experience {
     this.releaseManager
       .load("https://assets.esrutayerma.com/config/releases.json")
       .then(() => {
-        console.log(this.releaseManager.getConfig("tracks", "Slider_Pista01"));
+        //console.log(this.releaseManager.getConfig("tracks", "Slider_Pista01"));
 
-        console.log(this.releaseManager.isVisible("tracks", "Slider_Pista01"));
+        //console.log(this.releaseManager.isVisible("tracks", "Slider_Pista01"));
       });
 
     this.environmentManager.initialize();
@@ -285,7 +285,7 @@ export default class Experience {
   async loadAssets() {
     try {
       const gltf = await this.modelLoader.load(
-        "https://assets.esrutayerma.com/models/No%20Todo%20Es%20Parte%20De%20La%20Vida.glb",
+        "https://assets.esrutayerma.com/models/Me_Inundo_1.glb",
       );
 
       this.animationManager = new AnimationManager(gltf.scene, gltf.animations);
@@ -352,16 +352,16 @@ export default class Experience {
 
     garden.visible = true;
 
-    console.log("=== Estado de los jardines ===");
+    // console.log("=== Estado de los jardines ===");
 
-    Object.entries(this.gardens).forEach(([name, garden]) => {
-      console.log(`${name}: ${garden.visible}`);
-    });
+    // Object.entries(this.gardens).forEach(([name, garden]) => {
+    //   console.log(`${name}: ${garden.visible}`);
+    // });
   }
 
   updateCurtain(mode) {
-    console.log("Updatecurtains");
-    console.log("Modo recibido:", mode);
+    //console.log("Updatecurtains");
+    //console.log("Modo recibido:", mode);
     //----------------------------------
     // Ocultar todas las cortinas
     //----------------------------------
@@ -393,11 +393,11 @@ export default class Experience {
     // Debug
     //----------------------------------
 
-    console.log("=== Estado de las cortinas ===");
+    // console.log("=== Estado de las cortinas ===");
 
-    Object.entries(this.curtains).forEach(([name, curtain]) => {
-      console.log(`${name}: ${curtain.visible}`);
-    });
+    // Object.entries(this.curtains).forEach(([name, curtain]) => {
+    //   console.log(`${name}: ${curtain.visible}`);
+    // });
   }
 
   updateLights(mode) {
@@ -488,7 +488,7 @@ export default class Experience {
       this.screenManager.add(id, new VideoScreen(mesh));
     });
 
-    console.log("pantallas", this.screenManager.screens);
+    //console.log("pantallas", this.screenManager.screens);
 
     this.raycasterManager.screenManager = this.screenManager;
 

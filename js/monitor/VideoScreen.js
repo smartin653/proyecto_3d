@@ -23,7 +23,7 @@ export default class MonitorScreen {
     this.video.playsInline = true;
     this.video.preload = "auto";
 
-    console.log("Nueva VideoTexture:", screen.name);
+    //console.log("Nueva VideoTexture:", screen.name);
 
     //----------------------------------
     // Eventos de depuración
@@ -92,7 +92,7 @@ export default class MonitorScreen {
     this.video.src = videoPath;
 
     this.video.load();
-    console.log(this.screen.name, "SRC:", videoPath);
+    //console.log(this.screen.name, "SRC:", videoPath);
   }
 
   // playVideo() {
@@ -179,7 +179,7 @@ export default class MonitorScreen {
     if (!this.isActive) return;
 
     if (!this.logged && this.video.readyState >= this.video.HAVE_CURRENT_DATA) {
-      console.log("Update",this.screen.name, this.video.currentSrc);
+      //console.log("Update",this.screen.name, this.video.currentSrc);
 
       this.logged = true;
     }

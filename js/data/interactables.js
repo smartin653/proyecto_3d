@@ -27,7 +27,7 @@ export default {
     },
     audio: {
       day: "./assets/audio/day/1_GUITARRA_ACÚSTICA__DIA.mp3",
-      night: "./assets/audio/night/1. guitarra acústica (stem).wav",
+      night: "https://assets.esrutayerma.com/audios/day/1.-guitarra-ac%C3%BAstica-_stem_.mp3",
     },
     sharing: {
       day: {
@@ -60,11 +60,11 @@ export default {
 
       projector: {
         day: "https://assets.esrutayerma.com/videos/Desierto%20Toma1_Comprimido.mp4",
-        night: "https://assets.esrutayerma.com/videos/me-inundo%20(1).mp4",
+        night: "https://assets.esrutayerma.com/videos/Me%20Inundo%20Comprimido%20260724%20V3.mp4",
       },
       curtains: {
         day: "https://assets.esrutayerma.com/videos/Desierto%20Toma1_Comprimido.mp4",
-        night: "https://assets.esrutayerma.com/videos/me-inundo-cuad.mp4",
+        night: "https://assets.esrutayerma.com/videos/Me%20Inundo%20Comprimido%20260724%20V3.mp4",
       },
     },
     youtube: {

@@ -20,7 +20,7 @@ export default class RaycasterManager {
     interactionHandler,
     handleMoodRequested,
   ) {
-    console.log("cameraTransition:", cameraTransition);
+    //console.log("cameraTransition:", cameraTransition);
     this.camera = camera;
     this.scene = scene;
     this.canvas = canvas;

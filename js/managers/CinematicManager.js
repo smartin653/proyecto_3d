@@ -6,9 +6,9 @@ export default class CinematicManager {
 
         this.environment = environment;
 
-        console.log(this.postProcessing);
+        //console.log(this.postProcessing);
 
-        console.log(this.environment);
+        //console.log(this.environment);
 
         
 

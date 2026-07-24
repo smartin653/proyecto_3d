@@ -20,8 +20,8 @@ export default class ReleaseManager {
 
             this.config = await response.json();
 
-            console.log("ReleaseManager");
-            console.log(this.config);
+           // console.log("ReleaseManager");
+            //console.log(this.config);
 
         }
         catch (error) {

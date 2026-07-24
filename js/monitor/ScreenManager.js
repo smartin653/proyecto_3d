@@ -75,7 +75,7 @@ export default class ScreenManager {
     if (name === "curtains") {
 
       if (!this.currentPreset) return;
-      console.log("Preset:", this.currentPreset);
+      //console.log("Preset:", this.currentPreset);
 
       const curtainName = this.currentPreset.curtain;
 
