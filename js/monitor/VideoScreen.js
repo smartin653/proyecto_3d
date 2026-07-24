@@ -10,25 +10,25 @@ export default class MonitorScreen {
     this.isActive = false;
     this.video = document.createElement("video");
     this.video.crossOrigin = "anonymous";
-    this.video.addEventListener("loadstart", () => {
-      console.log("loadstart");
-    });
+    // this.video.addEventListener("loadstart", () => {
+    //   //console.log("loadstart");
+    // });
 
-    this.video.addEventListener("loadedmetadata", () => {
-      console.log("loadedmetadata");
-    });
+    // this.video.addEventListener("loadedmetadata", () => {
+    //   //console.log("loadedmetadata");
+    // });
 
-    this.video.addEventListener("loadeddata", () => {
-      console.log("loadeddata");
-    });
+    // this.video.addEventListener("loadeddata", () => {
+    //   //console.log("loadeddata");
+    // });
 
-    this.video.addEventListener("canplay", () => {
-      console.log("canplay");
-    });
+    // this.video.addEventListener("canplay", () => {
+    //   console.log("canplay");
+    // });
 
-    this.video.addEventListener("playing", () => {
-      console.log("playing");
-    });
+    // this.video.addEventListener("playing", () => {
+    //   console.log("playing");
+    // });
 
     this.video.addEventListener("error", () => {
       console.log("ERROR VIDEO");
@@ -82,7 +82,7 @@ export default class MonitorScreen {
     this.isActive = true;
 
     this.setVideo(videoPath);
-    console.log("videoscreen",this.screen.name);
+    //console.log("videoscreen",this.screen.name);
     this.screen.material = this.videoMaterial;
 
     this.screen.material.needsUpdate = true;

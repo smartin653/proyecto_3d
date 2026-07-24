@@ -45,7 +45,7 @@ export default class EnvironmentManager {
 
     this.mode = mode;
 
-    console.log("🌤 Environment:", this.mode);
+    //console.log("🌤 Environment:", this.mode);
 
     this.notify();
   }
@@ -159,7 +159,7 @@ export default class EnvironmentManager {
 
   setLightColor(name, color) {
     const light = this.importedLights.find((light) => light.name === name);
-    console.log(light.name, light.uuid);
+    //console.log(light.name, light.uuid);
 
     if (!light) {
       console.warn("Light not found:", name);
@@ -172,6 +172,6 @@ export default class EnvironmentManager {
 
     light.intensity = 5000;
 
-    console.log(light);
+    //console.log(light);
   }
 }

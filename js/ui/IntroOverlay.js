@@ -38,7 +38,7 @@ export default class IntroOverlay {
   enable() {
     this.button.disabled = false;
 
-    this.button.textContent = "Entrar al estudio";
+    this.button.textContent = "Entrar al HEUBD estudio";
   }
 
   onEnter(callback) {
