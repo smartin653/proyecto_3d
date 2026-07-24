@@ -59,11 +59,11 @@ export default {
       },
 
       projector: {
-        day: "./assets/video/day/desierto_toma1_v2.mp4",
+        day: "https://assets.esrutayerma.com/videos/Desierto%20Toma1_Comprimido.mp4",
         night: "https://assets.esrutayerma.com/videos/me-inundo%20(1).mp4",
       },
       curtains: {
-        day: "./assets/video/day/desierto_toma1_v2.mp4",
+        day: "https://assets.esrutayerma.com/videos/Desierto%20Toma1_Comprimido.mp4",
         night: "https://assets.esrutayerma.com/videos/me-inundo-cuad.mp4",
       },
     },
