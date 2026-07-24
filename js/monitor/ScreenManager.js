@@ -23,53 +23,77 @@ export default class ScreenManager {
 
   play(visuals) {
 
-    Object.entries(visuals).forEach(([name, videoPath]) => {
+  Object.entries(visuals).forEach(([name, videoPath]) => {
 
-        if (!videoPath) return;
+    if (!videoPath) return;
 
-        //----------------------------------------
-        // Pantallas normales
-        //----------------------------------------
+    //----------------------------------------
+    // Pantallas normales
+    //----------------------------------------
 
-        if (name !== "projector") {
+    if (name !== "projector" && name !== "curtains") {
 
-            const screen = this.screens[name];
+      const screen = this.screens[name];
 
-            if (screen) {
+      if (screen) {
+        screen.setActive(videoPath);
+      }
 
-                screen.setActive(videoPath);
+      return;
+    }
 
-            }
+    //----------------------------------------
+    // Jardín dinámico
+    //----------------------------------------
 
-            return;
+    if (name === "projector") {
 
-        }
+      if (!this.currentPreset) return;
 
-        //----------------------------------------
-        // Jardín dinámico
-        //----------------------------------------
+      const gardenName = this.currentPreset.garden;
 
-        if (!this.currentPreset) return;
+      const garden = this.screens[gardenName];
 
-        const gardenName =
-            this.currentPreset.garden;
+      if (!garden) {
 
-        const garden =
-            this.screens[gardenName];
+        console.warn(
+          `Pantalla ${gardenName} no encontrada`
+        );
 
-        if (!garden) {
+        return;
+      }
 
-            console.warn(
-                `Pantalla ${gardenName} no encontrada`
-            );
+      garden.setActive(videoPath);
 
-            return;
+      return;
+    }
 
-        }
+    //----------------------------------------
+    // Cortinas dinámicas
+    //----------------------------------------
 
-        garden.setActive(videoPath);
+    if (name === "curtains") {
 
-    });
+      if (!this.currentPreset) return;
+      console.log("Preset:", this.currentPreset);
+
+      const curtainName = this.currentPreset.curtain;
+
+      const curtain = this.screens[curtainName];
+
+      if (!curtain) {
+
+        console.warn(
+          `Pantalla ${curtainName} no encontrada`
+        );
+
+        return;
+      }
+      console.log("Curtains:", videoPath);
+      curtain.setActive(videoPath);
+    }
+
+  });
 
 }
 

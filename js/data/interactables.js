@@ -62,6 +62,10 @@ export default {
         day: "https://assets.esrutayerma.com/videos/desierto_toma1.mp4",
         night: "https://assets.esrutayerma.com/videos/Me_inundo.mov",
       },
+      curtains: {
+        day: "https://assets.esrutayerma.com/videos/desierto_toma1.mp4",
+        night: "https://assets.esrutayerma.com/videos/Me_inundo.mov",
+      },
     },
     youtube: {
       day: "https://www.tiktok.com/music/-7662460776100644881",
@@ -117,8 +121,12 @@ export default {
       },
 
       projector: {
-        day: "https://assets.../day.mp4",
-        night: "https://assets.../night.mp4",
+        day: "https://assets.esrutayerma.com/videos/desierto_toma1.mp4",
+        night: "https://assets.esrutayerma.com/videos/Me_inundo.mov",
+      },
+      curtains: {
+        day: "https://assets.esrutayerma.com/videos/desierto_toma1.mp4",
+        night: "https://assets.esrutayerma.com/videos/Me_inundo.mov",
       },
     },
     sharing: {
@@ -196,8 +204,12 @@ export default {
       },
 
       projector: {
-        day: "https://assets.../day.mp4",
-        night: "https://assets.../night.mp4",
+        day: "https://assets.esrutayerma.com/videos/desierto_toma1.mp4",
+        night: "https://assets.esrutayerma.com/videos/Me_inundo.mov",
+      },
+      curtains: {
+        day: "https://assets.esrutayerma.com/videos/desierto_toma1.mp4",
+        night: "https://assets.esrutayerma.com/videos/Me_inundo.mov",
       },
     },
     sharing: {
@@ -275,8 +287,12 @@ export default {
       },
 
       projector: {
-        day: "https://assets.../day.mp4",
-        night: "https://assets.../night.mp4",
+        day: "https://assets.esrutayerma.com/videos/desierto_toma1.mp4",
+        night: "https://assets.esrutayerma.com/videos/Me_inundo.mov",
+      },
+      curtains: {
+        day: "https://assets.esrutayerma.com/videos/desierto_toma1.mp4",
+        night: "https://assets.esrutayerma.com/videos/Me_inundo.mov",
       },
     },
     sharing: {
@@ -341,8 +357,12 @@ export default {
       },
 
       projector: {
-        day: "https://assets.../day.mp4",
-        night: "https://assets.../night.mp4",
+        day: "https://assets.esrutayerma.com/videos/desierto_toma1.mp4",
+        night: "https://assets.esrutayerma.com/videos/Me_inundo.mov",
+      },
+      curtains: {
+        day: "https://assets.esrutayerma.com/videos/desierto_toma1.mp4",
+        night: "https://assets.esrutayerma.com/videos/Me_inundo.mov",
       },
     },
     sharing: {
@@ -407,8 +427,12 @@ export default {
       },
 
       projector: {
-        day: "https://assets.../day.mp4",
-        night: "https://assets.../night.mp4",
+        day: "https://assets.esrutayerma.com/videos/desierto_toma1.mp4",
+        night: "https://assets.esrutayerma.com/videos/Me_inundo.mov",
+      },
+      curtains: {
+        day: "https://assets.esrutayerma.com/videos/desierto_toma1.mp4",
+        night: "https://assets.esrutayerma.com/videos/Me_inundo.mov",
       },
     },
     sharing: {
@@ -558,20 +582,20 @@ export default {
   //   actionLabel: "Visitar galeria",
   //   url: "https://cincuentaytrescuarentaynueve.com/",
   // },
-  cortina: {
-    type: "info",
-    showCard: false,
-    hover: {
-      outline: true,
+  // cortina: {
+  //   type: "info",
+  //   showCard: false,
+  //   hover: {
+  //     outline: true,
 
-      emissive: 0.8,
-    },
-    animationOptions: {
-      stopOnLeave: false,
-    },
-    animation: "ventana.001",
-    animationTrigger: "click",
-  },
+  //     emissive: 0.8,
+  //   },
+  //   animationOptions: {
+  //     stopOnLeave: false,
+  //   },
+  //   animation: "ventana.001",
+  //   animationTrigger: "click",
+  // },
   nota1: {
     type: "info",
     showCard: false,
@@ -629,6 +653,7 @@ export default {
 
       emissive: 0.8,
     },
+    requiresTrack: true,
   },
   EFECTO: {
     type: "trigger",
@@ -674,5 +699,13 @@ export default {
     actionLabel: "Visitar galeria",
     url: "https://cincuentaytrescuarentaynueve.com/",
     animation: "libreta",
+  },
+  Activador_persiana: {
+    showCard: false,
+    animation: "ventana.001",
+
+    animationTrigger: "click",
+
+    animationMode: "toggle",
   },
 };

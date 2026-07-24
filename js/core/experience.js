@@ -47,6 +47,7 @@ export default class Experience {
       return;
     }
     this.interactables = [];
+    this.trackInteractables = [];
     this.importedLights = [];
     this.debug = false;
     this.onResizeHandler = this.onResize.bind(this);
@@ -111,27 +112,13 @@ export default class Experience {
     console.log(this.contentVersionManager.getMode());
     this.releaseManager = new ReleaseManager();
     this.releaseManager
-    .load("https://assets.esrutayerma.com/config/releases.json")
-    .then(() => {
+      .load("https://assets.esrutayerma.com/config/releases.json")
+      .then(() => {
+        console.log(this.releaseManager.getConfig("tracks", "Slider_Pista01"));
 
-        console.log(
-            this.releaseManager.getConfig(
-                "tracks",
-                "Slider_Pista01"
-            )
-        );
+        console.log(this.releaseManager.isVisible("tracks", "Slider_Pista01"));
+      });
 
-         console.log(
-    this.releaseManager.isVisible(
-        "tracks",
-        "Slider_Pista01"
-    )
-);
-
-
-    });
-
-   
     this.environmentManager.initialize();
     this.environmentManager.onChange((mode) => {
       console.log("Environment changed:", mode);
@@ -233,26 +220,87 @@ export default class Experience {
     live.add(this.liveCamera, "targetZ").listen();
   }
 
-  async loadAssets() {
+  // async loadAssets() {
+  //   const gltf = await this.modelLoader.load(
+  //     "https://assets.esrutayerma.com/models/Dia_1.002glb.glb",
+  //   );
+  //   console.log("1 - Modelo cargado");
+  //   this.animationManager = new AnimationManager(gltf.scene, gltf.animations);
+  //   console.log("2 - AnimationManager");
+  //   this.raycasterManager.setAnimationManager(this.animationManager);
+  //   console.log("3 - Raycaster");
+  //   this.scene.add(gltf.scene);
+  //   console.log("4 - Scene");
+  //   this.setupScreens(gltf.scene);
+  //   console.log("5 - Screens");
+  //   // Configuración de todas las luces
+  //   this.setupLights(gltf.scene);
+  //   console.log("6 - Lights");
+  //   this.cinematicManager.test();
+  //   console.log("7 - Scene setup")
+  //   this.setupScene(gltf.scene);
+
+  //   this.setupInteractables(gltf.scene);
+  //   console.log("8 - Interactables");
+  //   this.gardens = {
+  //     morning: gltf.scene.getObjectByName("Jardin_amanecer"),
+  //     afternoon: gltf.scene.getObjectByName("Jardin_dia"),
+  //     night: gltf.scene.getObjectByName("Jardin_noche"),
+  //   };
+
+  //   this.curtains = {
+  //     morning: gltf.scene.getObjectByName("PlanoAmanecer"),
+  //     afternoon: gltf.scene.getObjectByName("PlanoDia"),
+  //     night: gltf.scene.getObjectByName("PlanoNoche"),
+  //   };
+
+  //   this.updateGarden(this.environmentManager.mode);
+  //   this.updateCurtain(this.environmentManager.mode);
+  //   this.updateLights(this.environmentManager.mode);
+
+  //   //----------------------------------
+  //   // Test Animation
+  //   //----------------------------------
+
+  //   this.animations = gltf.animations;
+
+  //   this.mixer = new THREE.AnimationMixer(gltf.scene);
+
+  //   const clip = THREE.AnimationClip.findByName(this.animations, "venta");
+
+  //   const action = this.mixer.clipAction(clip);
+
+  //   action.reset();
+  //   action.play();
+
+  //   //this.effectsManager.enterCinematic();
+  //   //this.introOverlay.enable();
+  //   this.assetsLoaded = true;
+
+  //   if (this.introOverlay) {
+  //     this.introOverlay.enable();
+  //   }
+  // }
+
+async loadAssets() {
+  try {
     const gltf = await this.modelLoader.load(
-      "https://assets.esrutayerma.com/models/DIa_001.glb",
+      "https://assets.esrutayerma.com/models/Dia_1.002glb.glb",
     );
 
-    this.animationManager = new AnimationManager(gltf.scene, gltf.animations);
+    this.animationManager = new AnimationManager(
+      gltf.scene,
+      gltf.animations,
+    );
 
     this.raycasterManager.setAnimationManager(this.animationManager);
 
     this.scene.add(gltf.scene);
 
     this.setupScreens(gltf.scene);
-
-    // Configuración de todas las luces
     this.setupLights(gltf.scene);
-
     this.cinematicManager.test();
-
     this.setupScene(gltf.scene);
-
     this.setupInteractables(gltf.scene);
 
     this.gardens = {
@@ -262,38 +310,40 @@ export default class Experience {
     };
 
     this.curtains = {
-    morning: gltf.scene.getObjectByName("PlanoAmanecer"),
-    afternoon: gltf.scene.getObjectByName("PlanoDia"),
-    night: gltf.scene.getObjectByName("PlanoNoche"),
-};
+      morning: gltf.scene.getObjectByName("PlanoAmanecer"),
+      afternoon: gltf.scene.getObjectByName("PlanoDia"),
+      night: gltf.scene.getObjectByName("PlanoNoche"),
+    };
 
     this.updateGarden(this.environmentManager.mode);
     this.updateCurtain(this.environmentManager.mode);
     this.updateLights(this.environmentManager.mode);
 
-    //----------------------------------
-    // Test Animation
-    //----------------------------------
-
     this.animations = gltf.animations;
 
     this.mixer = new THREE.AnimationMixer(gltf.scene);
 
-    const clip = THREE.AnimationClip.findByName(this.animations, "venta");
+    const clip = THREE.AnimationClip.findByName(
+      this.animations,
+      "venta",
+    );
 
     const action = this.mixer.clipAction(clip);
 
     action.reset();
     action.play();
 
-    //this.effectsManager.enterCinematic();
-    //this.introOverlay.enable();
     this.assetsLoaded = true;
 
     if (this.introOverlay) {
       this.introOverlay.enable();
     }
+
+  } catch (error) {
+    console.error("Error cargando el modelo:", error);
   }
+}
+  
   updateGarden(mode) {
     Object.values(this.gardens).forEach((garden) => {
       garden.visible = false;
@@ -317,15 +367,16 @@ export default class Experience {
   }
 
   updateCurtain(mode) {
-    console.log("Updatecurtains")
+    console.log("Updatecurtains");
+    console.log("Modo recibido:", mode);
     //----------------------------------
     // Ocultar todas las cortinas
     //----------------------------------
 
     Object.values(this.curtains).forEach((curtain) => {
-        if (curtain) {
-            curtain.visible = false;
-        }
+      if (curtain) {
+        curtain.visible = false;
+      }
     });
 
     //----------------------------------
@@ -335,8 +386,8 @@ export default class Experience {
     const curtain = this.curtains[mode];
 
     if (!curtain) {
-        console.warn(`Curtain "${mode}" no encontrada.`);
-        return;
+      console.warn(`Curtain "${mode}" no encontrada.`);
+      return;
     }
 
     //----------------------------------
@@ -352,10 +403,9 @@ export default class Experience {
     console.log("=== Estado de las cortinas ===");
 
     Object.entries(this.curtains).forEach(([name, curtain]) => {
-        console.log(`${name}: ${curtain.visible}`);
+      console.log(`${name}: ${curtain.visible}`);
     });
-
-}
+  }
 
   updateLights(mode) {
     const preset = this.environmentManager.getCurrentPreset();
@@ -401,6 +451,12 @@ export default class Experience {
     });
   }
 
+  setTrackInteractablesVisible(visible) {
+  this.trackInteractables.forEach((object) => {
+    object.visible = visible;
+  });
+}
+
   setupScreens(root) {
     // root.traverse((child) => {
     //   if (child.isMesh) {
@@ -416,6 +472,10 @@ export default class Experience {
       jardinDia: "Jardin_dia",
 
       jardinNoche: "Jardin_noche",
+      PlanoAmanecer: "PlanoAmanecer",
+      PlanoDia: "PlanoDia",
+      PlanoNoche: "PlanoNoche"
+      
     };
 
     Object.entries(screens).forEach(([id, objectName]) => {
@@ -430,11 +490,13 @@ export default class Experience {
       this.screenManager.add(id, new VideoScreen(mesh));
     });
 
+    console.log("pantallas",this.screenManager.screens);
+
     this.raycasterManager.screenManager = this.screenManager;
 
     this.audioManager.onEnded = () => {
       this.screenManager.stopAll();
-
+      this.setTrackInteractablesVisible(false);
       this.spotifyPlayer.hide();
     };
   }
@@ -530,7 +592,10 @@ export default class Experience {
       });
 
       this.interactables.push(object);
-
+      if (data.requiresTrack) {
+        object.visible = false;
+        this.trackInteractables.push(object);
+      }
       this.beaconManager.create(data, object);
     });
   }
@@ -619,54 +684,38 @@ export default class Experience {
   }
 
   handleInteraction(interactable) {
-    const content = this.contentVersionManager.resolveTrack(interactable);
-    switch (interactable.type) {
-      case "track":
-        this.audioManager.play(content);
+  const content = this.contentVersionManager.resolveTrack(interactable);
 
-        this.spotifyPlayer.show(content);
+  switch (interactable.type) {
+    case "track":
+      this.audioManager.play(content);
 
-        this.screenManager.play(content.visuals);
+      this.setTrackInteractablesVisible(true);
 
-        // this.audioManager.play(interactable.audio);
+      this.spotifyPlayer.show(content);
 
-        // //this.spotifyPlayer.show(interactable.title, interactable.cover);
-        // this.spotifyPlayer.show(interactable);
-        // this.screenManager.play(interactable.visuals);
+      this.screenManager.play(content.visuals);
 
-        // this.cameraTransition.flyTo(
-        //   interactable.camera.position,
-        //   interactable.camera.target,
-        // );
+      break;
 
-        break;
+    case "link":
+      break;
 
-      case "link":
-        // No hacemos nada aquí.
-        // El botón de la InteractionCard abrirá la URL.
+    case "action":
+      break;
 
-        break;
-      case "action":
-        break;
+    case "info":
+      break;
 
-        break;
-
-      case "info":
-        // Tampoco hace nada.
-        // Solo muestra la tarjeta.
-
-        break;
-      case "trigger":
-        switch (interactable.action) {
-          case "toggleMood":
-            this.effectsManager.toggleMood(interactable.mood);
-
-            break;
-        }
-
-        break;
-    }
+    case "trigger":
+      switch (interactable.action) {
+        case "toggleMood":
+          this.effectsManager.toggleMood(interactable.mood);
+          break;
+      }
+      break;
   }
+}
 
   closePlayer() {
     this.audioManager.audio.pause();
@@ -676,6 +725,7 @@ export default class Experience {
     this.screenManager.stopAll();
 
     this.spotifyPlayer.hide();
+    this.setTrackInteractablesVisible(false);
 
     //console.log("HOME", this.homeCamera);
     //console.log("ACTUAL", this.camera.position);

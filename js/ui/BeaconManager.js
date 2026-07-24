@@ -38,8 +38,12 @@ export default class BeaconManager {
   }
 
   update(time) {
-    this.beacons.forEach(({ beacon }) => {
-      beacon.update(time);
+    this.beacons.forEach(({ beacon, object }) => {
+      beacon.sprite.visible = object.visible;
+
+      if (object.visible) {
+        beacon.update(time);
+      }
     });
   }
 }

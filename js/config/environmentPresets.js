@@ -2,7 +2,7 @@ export default {
   morning: {
     garden: "jardinAmanecer",
 
-    curtain: "PlanoDia",
+    curtain: "PlanoAmanecer",
     lights: {
       Spot001: {
         intensity: 150,
@@ -48,7 +48,7 @@ export default {
   afternoon: {
     garden: "jardinDia",
 
-    curtain: "PlanoNoche",
+    curtain: "PlanoDia",
 
     lights: {
       Spot001: {
@@ -95,7 +95,7 @@ export default {
   night: {
     garden: "jardinNoche",
 
-    curtain: "PlanoTarde",
+    curtain: "PlanoNoche",
 
     lights: {
       Spot001: {

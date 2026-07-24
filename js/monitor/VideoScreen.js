@@ -60,7 +60,7 @@ export default class MonitorScreen {
   }
 
   playVideo() {
-    console.log("PLAY VIDEO");
+    //console.log("PLAY VIDEO");
     this.video.currentTime = 0;
 
     this.video.play();
@@ -82,7 +82,7 @@ export default class MonitorScreen {
     this.isActive = true;
 
     this.setVideo(videoPath);
-
+    console.log("videoscreen",this.screen.name);
     this.screen.material = this.videoMaterial;
 
     this.screen.material.needsUpdate = true;

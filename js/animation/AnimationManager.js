@@ -7,6 +7,9 @@ export default class AnimationManager {
     this.animations = animations;
     this.currentAction = null;
     this.currentClip = null;
+    this.animationStates = new Map();
+    this.animationActions = new Map();
+    
   }
 
   play(interactable) {
@@ -19,7 +22,7 @@ export default class AnimationManager {
     const clip = THREE.AnimationClip.findByName(this.animations, animationName);
 
     if (!clip) {
-      console.warn("Animation not found:", name);
+      console.warn("Animation not found:", animationName);
 
       return;
     }
@@ -31,14 +34,64 @@ export default class AnimationManager {
     this.stopCurrentAction();
 
     const action = this.mixer.clipAction(clip);
+
     this.currentAction = action;
     this.currentClip = clip;
+
     action.setLoop(THREE.LoopOnce);
     action.clampWhenFinished = true;
 
     action.reset();
     action.fadeIn(0.5);
     action.play();
+  }
+
+  toggle(interactable) {
+    const animationName = interactable.animation;
+
+    if (!animationName) {
+      return;
+    }
+
+    const clip = THREE.AnimationClip.findByName(this.animations, animationName);
+
+    if (!clip) {
+      console.warn("Animation not found:", animationName);
+      return;
+    }
+
+    
+
+    let action = this.animationActions.get(animationName);
+
+    if (!action) {
+      action = this.mixer.clipAction(clip);
+
+      action.setLoop(THREE.LoopOnce);
+      action.clampWhenFinished = true;
+
+      this.animationActions.set(animationName, action);
+    }
+
+    const isOpen = this.animationStates.get(animationName) ?? false;
+
+    //action.reset();
+    //action.fadeIn(0.3);
+
+    if (isOpen) {
+      action.time = clip.duration;
+      action.timeScale = -0.8;
+    } else {
+      action.time = 0;
+      action.timeScale = 1;
+    }
+
+    action.enabled = true;
+    action.paused = false;
+    
+    action.play();
+
+    this.animationStates.set(animationName, !isOpen);
   }
 
   stopCurrentAction() {

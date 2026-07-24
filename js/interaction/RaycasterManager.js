@@ -103,40 +103,49 @@ export default class RaycasterManager {
     this.hoveredInteractable = null;
   }
 
-  getInteractableAt(event) {
-    const rect = this.canvas.getBoundingClientRect();
+ getInteractableAt(event) {
+  const rect = this.canvas.getBoundingClientRect();
 
-    this.mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
-    this.mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+  this.mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+  this.mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
 
-    this.raycaster.setFromCamera(this.mouse, this.camera);
+  this.raycaster.setFromCamera(this.mouse, this.camera);
 
-    const intersects = this.raycaster.intersectObjects(
-      this.scene.children,
-      true,
-    );
+  const intersects = this.raycaster.intersectObjects(
+    this.scene.children,
+    true,
+  );
 
-    if (!intersects.length) {
-      return null;
-    }
-
-    let result = null;
-
-    const hit = intersects.find((item) => {
-      result = InteractionResolver.resolve(item.object);
-
-      return result;
-    });
-
-    if (!hit) {
-      return null;
-    }
-
-    return {
-      hit,
-      interactable: result.data,
-    };
+  if (!intersects.length) {
+    return null;
   }
+
+  let result = null;
+
+  const hit = intersects.find((item) => {
+    result = InteractionResolver.resolve(item.object);
+
+    if (!result) {
+      return false;
+    }
+
+    // Ignorar interactuables ocultos
+    if (!result.object.visible) {
+      return false;
+    }
+
+    return true;
+  });
+
+  if (!hit) {
+    return null;
+  }
+
+  return {
+    hit,
+    interactable: result.data,
+  };
+}
 
   highlightInteractable(hit, interactable, event) {
     document.body.style.cursor = "pointer";
@@ -168,7 +177,9 @@ export default class RaycasterManager {
 
       this.hoveredObject.material.emissiveIntensity = 1;
 
-      this.animationManager.play(interactable);
+      if (interactable.animationTrigger !== "click") {
+        this.animationManager.play(interactable);
+      }
     }
   }
 
@@ -185,6 +196,14 @@ export default class RaycasterManager {
         interaction.interactable,
         event,
       );
+    }
+
+    if (interaction.interactable.animationTrigger === "click") {
+      if (interaction.interactable.animationMode === "toggle") {
+        this.animationManager.toggle(interaction.interactable);
+      } else {
+        this.animationManager.play(interaction.interactable);
+      }
     }
 
     this.interactionHandler(interaction.interactable);
