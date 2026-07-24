@@ -1,8 +1,8 @@
 export default {
 
-    title: "WORLD TOUR 2027",
+    title: "",
 
-    poster: "./assets/images/tour/poster.webp",
+    poster: "",
 
     dates: [
 
