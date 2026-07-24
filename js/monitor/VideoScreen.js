@@ -60,7 +60,7 @@ export default class MonitorScreen {
   }
 
   playVideo() {
-    //console.log("PLAY VIDEO");
+    console.log("PLAY VIDEO");
     this.video.currentTime = 0;
 
     this.video.play();

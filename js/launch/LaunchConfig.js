@@ -1,6 +1,6 @@
 export default {
 
-    enabled: true,
+    enabled: false,
 
     releaseDate: "2026-07-24T06:00:00",
 
