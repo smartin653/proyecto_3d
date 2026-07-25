@@ -27,7 +27,8 @@ export default {
     },
     audio: {
       day: "./assets/audio/day/1_GUITARRA_ACÚSTICA__DIA.mp3",
-      night: "https://assets.esrutayerma.com/audios/day/1.-guitarra-ac%C3%BAstica-_stem_.mp3",
+      night:
+        "https://assets.esrutayerma.com/audios/day/1.-guitarra-ac%C3%BAstica-_stem_.mp3",
     },
     sharing: {
       day: {
@@ -60,11 +61,13 @@ export default {
 
       projector: {
         day: "https://assets.esrutayerma.com/videos/Desierto%20Toma1_Comprimido.mp4",
-        night: "https://assets.esrutayerma.com/videos/Me-Inundo%20260724%20V2_comprimido.mp4",
+        night:
+          "https://assets.esrutayerma.com/videos/Me-Inundo%20260724%20V2_comprimido.mp4",
       },
       curtains: {
         day: "https://assets.esrutayerma.com/videos/Desierto%20Toma1_Comprimido.mp4",
-        night: "https://assets.esrutayerma.com/videos/Me-Inundo-Cuad%20260724V2_comprimido.mp4",
+        night:
+          "https://assets.esrutayerma.com/videos/Me-Inundo-Cuad%20260724V2_comprimido.mp4",
       },
     },
     youtube: {
@@ -83,6 +86,90 @@ export default {
         y: 1.3,
         z: 0,
       },
+    },
+  },
+  Slider_Pista02: {
+    type: "track",
+    hint: "music",
+    beacon: {
+      color: "#FFD600",
+
+      size: 0.1,
+
+      animation: "pulse",
+    },
+
+    hover: {
+      outline: true,
+
+      emissive: 0.8,
+    },
+    title: {
+      day: "NO TODO ES PARTE DE LA VIDA: Track 1 - GUITARRA ELÉCTRICA",
+      night: "Me inundo: Track 2 - guitarra eléctrica",
+    },
+    cover: {
+      day: "https://assets.esrutayerma.com/covers/day/EdMaverick_NTEPDLV_2.jpg",
+      night: "https://assets.esrutayerma.com/covers/day/EdMaverick_NTEPDLV_2.jpg",
+    },
+    audio: {
+      day: "https://assets.esrutayerma.com/audios/day/2.-GUITARRA-EL%C3%89CTRICA-_STEM_.mp3",
+      night: "https://assets.esrutayerma.com/audios/day/2.-GUITARRA-EL%C3%89CTRICA-_STEM_.mp3",
+    },
+    visuals: {
+      monitor: {
+        day: "./assets/video/day/grabadora.mp4",
+        night: "./assets/video/day/grabadora.mp4",
+      },
+
+      projector: {
+        day: "https://assets.esrutayerma.com/videos/Desierto%20Toma1_Comprimido.mp4",
+        night:
+          "https://assets.esrutayerma.com/videos/Me-Inundo%20260724%20V2_comprimido.mp4",
+      },
+      curtains: {
+        day: "https://assets.esrutayerma.com/videos/Desierto%20Toma1_Comprimido.mp4",
+        night:
+          "https://assets.esrutayerma.com/videos/Me-Inundo-Cuad%20260724V2_comprimido.mp4",
+      },
+    },
+    sharing: {
+      day: {
+        url: "https://esrutayerma.com/",
+        text: "Escucha 'No todo es parte de la vida'",
+        website: "https://esrutayerma.com",
+
+        facebook: "https://facebook.com/track-dia",
+        instagram: "https://instagram.com/track-dia",
+        tiktok: "https://www.tiktok.com/music/-7662460956590917649",
+      },
+
+      night: {
+        url: "https://esrutayerma.com/",
+        text: "Escucha 'No todo es parte de la vida'",
+        website: "https://esrutayerma.com",
+
+        facebook: "https://facebook.com/track-noche",
+        instagram: "https://instagram.com/track-noche",
+        tiktok: "https://www.tiktok.com/music/-7664768185333975056",
+      },
+    },
+    camera: {
+      position: {
+        x: -1.9,
+        y: 1.3,
+        z: 0.9,
+      },
+
+      target: {
+        x: 0,
+        y: 1.3,
+        z: 0,
+      },
+    },
+    youtube: {
+      day: "https://www.tiktok.com/music/-7662460956590917649",
+      night: "https://www.tiktok.com/music/-7664768185333975056",
     },
   },
 
@@ -172,42 +259,6 @@ export default {
     url: "https://udiscover.mx/collections/ed-maverick/products/ed-maverick-la-nube-en-el-jardin-en-vivo",
     animation: "venta.003",
   },
-  // Poster: {
-  //   type: "link",
-  //   hint: "shop",
-  //   beacon: {
-  //     color: "#FFD600",
-
-  //     size: 0.1,
-
-  //     animation: "pulse",
-  //     actionLabel: "Visitar galeria",
-  //     url: "https://cincuentaytrescuarentaynueve.com/",
-  //   },
-
-  //   hover: {
-  //     outline: true,
-
-  //     emissive: 0.8,
-  //   },
-  //   title: "Pista 06",
-  //   actionLabel: "Visitar galeria",
-  //   url: "https://cincuentaytrescuarentaynueve.com/",
-  // },
-  // cortina: {
-  //   type: "info",
-  //   showCard: false,
-  //   hover: {
-  //     outline: true,
-
-  //     emissive: 0.8,
-  //   },
-  //   animationOptions: {
-  //     stopOnLeave: false,
-  //   },
-  //   animation: "ventana.001",
-  //   animationTrigger: "click",
-  // },
   nota1: {
     type: "info",
     showCard: false,
@@ -216,7 +267,7 @@ export default {
 
       emissive: 0.8,
     },
-    animation: "Nota Dia",
+    animation: "Nota Dia.001",
   },
   nota2: {
     type: "info",
@@ -240,6 +291,15 @@ export default {
   ASSET002: {
     type: "info",
     title: "huellas en la arena se forman en la espera",
+    hover: {
+      outline: true,
+
+      emissive: 0.8,
+    },
+  },
+  botas_sabado_dia: {
+    type: "info",
+    title: "o estar pensando en lo que sería",
     hover: {
       outline: true,
 
