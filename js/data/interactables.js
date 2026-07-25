@@ -110,11 +110,11 @@ export default {
     },
     cover: {
       day: "https://assets.esrutayerma.com/covers/day/EdMaverick_NTEPDLV_2.jpg",
-      night: "https://assets.esrutayerma.com/covers/day/EdMaverick_NTEPDLV_2.jpg",
+      night: "https://assets.esrutayerma.com/covers/nigth/EdMaverick_MeInundo_2.jpg",
     },
     audio: {
       day: "https://assets.esrutayerma.com/audios/day/2.-GUITARRA-EL%C3%89CTRICA-_STEM_.mp3",
-      night: "https://assets.esrutayerma.com/audios/day/2.-GUITARRA-EL%C3%89CTRICA-_STEM_.mp3",
+      night: "https://assets.esrutayerma.com/audios/nigth/2.-guitarra-el%C3%A9ctrica-_stem_-_1_.mp3",
     },
     visuals: {
       monitor: {
@@ -300,6 +300,15 @@ export default {
   botas_sabado_dia: {
     type: "info",
     title: "o estar pensando en lo que sería",
+    hover: {
+      outline: true,
+
+      emissive: 0.8,
+    },
+  },
+  microondas_sabado_noche: {
+    type: "info",
+    title: "y se parece tanto aquí a una playa en el jardín",
     hover: {
       outline: true,
 
