@@ -194,11 +194,11 @@ export default {
     },
     cover: {
       day: "https://assets.esrutayerma.com/covers/day/EdMaverick_NTEPDLV_3.jpg",
-      night: "https://assets.esrutayerma.com/covers/day/EdMaverick_NTEPDLV_3.jpg",
+      night: "https://assets.esrutayerma.com/covers/nigth/EdMaverick_MeInundo_3.jpg",
     },
     audio: {
       day: "https://assets.esrutayerma.com/audios/day/3.-BAJO-_STEM_.mp3",
-      night: "https://assets.esrutayerma.com/audios/day/3.-BAJO-_STEM_.mp3",
+      night: "https://assets.esrutayerma.com/audios/nigth/3.-bajo-_stem_-_1_.mp3",
     },
     visuals: {
       monitor: {
@@ -402,6 +402,15 @@ export default {
   herradura_domingo_dia: {
     type: "info",
     title: "Se va a secar el pasto si no riego el jardín todos los días",
+    hover: {
+      outline: true,
+
+      emissive: 0.8,
+    },
+  },
+   vela_domingo_noche: {
+    type: "info",
+    title: "cosas de tu cama flotan en el agua",
     hover: {
       outline: true,
 
