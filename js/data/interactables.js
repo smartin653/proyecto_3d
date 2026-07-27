@@ -305,12 +305,12 @@ export default {
     cover: {
       day: "https://assets.esrutayerma.com/covers/day/EdMaverick_NTEPDLV_4.jpg",
       night:
-        "https://assets.esrutayerma.com/covers/day/EdMaverick_NTEPDLV_4.jpg",
+        "https://assets.esrutayerma.com/covers/nigth/EdMaverick_MeInundo_4.jpg",
     },
     audio: {
       day: "https://assets.esrutayerma.com/audios/day/4.-BATER%C3%8DA-_STEM_.mp3",
       night:
-        "https://assets.esrutayerma.com/audios/day/4.-BATER%C3%8DA-_STEM_.mp3",
+        "https://assets.esrutayerma.com/audios/nigth/4.-bater%C3%ADa-_stem_-_1_.mp3",
     },
     visuals: {
       monitor: {
@@ -510,7 +510,7 @@ export default {
   },
   Libreta: {
     type: "info",
-    title: "NO TODO ES PARTE DE LA VIDA",
+    title: "me inundo - 30 jul - 6pm",
     hover: {
       outline: true,
 
