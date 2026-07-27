@@ -110,11 +110,13 @@ export default {
     },
     cover: {
       day: "https://assets.esrutayerma.com/covers/day/EdMaverick_NTEPDLV_2.jpg",
-      night: "https://assets.esrutayerma.com/covers/nigth/EdMaverick_MeInundo_2.jpg",
+      night:
+        "https://assets.esrutayerma.com/covers/nigth/EdMaverick_MeInundo_2.jpg",
     },
     audio: {
       day: "https://assets.esrutayerma.com/audios/day/2.-GUITARRA-EL%C3%89CTRICA-_STEM_.mp3",
-      night: "https://assets.esrutayerma.com/audios/nigth/2.-guitarra-el%C3%A9ctrica-_stem_-_1_.mp3",
+      night:
+        "https://assets.esrutayerma.com/audios/nigth/2.-guitarra-el%C3%A9ctrica-_stem_-_1_.mp3",
     },
     visuals: {
       monitor: {
@@ -172,7 +174,7 @@ export default {
       night: "https://www.tiktok.com/music/-7664768185333975056",
     },
   },
-   Slider_Pista03: {
+  Slider_Pista03: {
     type: "track",
     hint: "music",
     beacon: {
@@ -194,11 +196,13 @@ export default {
     },
     cover: {
       day: "https://assets.esrutayerma.com/covers/day/EdMaverick_NTEPDLV_3.jpg",
-      night: "https://assets.esrutayerma.com/covers/nigth/EdMaverick_MeInundo_3.jpg",
+      night:
+        "https://assets.esrutayerma.com/covers/nigth/EdMaverick_MeInundo_3.jpg",
     },
     audio: {
       day: "https://assets.esrutayerma.com/audios/day/3.-BAJO-_STEM_.mp3",
-      night: "https://assets.esrutayerma.com/audios/nigth/3.-bajo-_stem_-_1_.mp3",
+      night:
+        "https://assets.esrutayerma.com/audios/nigth/3.-bajo-_stem_-_1_.mp3",
     },
     visuals: {
       monitor: {
@@ -277,6 +281,92 @@ export default {
     actionLabel: "visita tienda oficial",
     url: "https://udiscover.mx/collections/ed-maverick/products/la-nube-en-el-jardin-en-vivo-desde-sala-nezahualcoyotl",
     animation: "venta",
+  },
+  Slider_Pista04: {
+    type: "track",
+    hint: "music",
+    beacon: {
+      color: "#FFD600",
+
+      size: 0.1,
+
+      animation: "pulse",
+    },
+
+    hover: {
+      outline: true,
+
+      emissive: 0.8,
+    },
+    title: {
+      day: "NO TODO ES PARTE DE LA VIDA: Track 1 - BATERÍA",
+      night: "Me inundo: Track 2 - batería",
+    },
+    cover: {
+      day: "https://assets.esrutayerma.com/covers/day/EdMaverick_NTEPDLV_4.jpg",
+      night:
+        "https://assets.esrutayerma.com/covers/day/EdMaverick_NTEPDLV_4.jpg",
+    },
+    audio: {
+      day: "https://assets.esrutayerma.com/audios/day/4.-BATER%C3%8DA-_STEM_.mp3",
+      night:
+        "https://assets.esrutayerma.com/audios/day/4.-BATER%C3%8DA-_STEM_.mp3",
+    },
+    visuals: {
+      monitor: {
+        day: "./assets/video/day/grabadora.mp4",
+        night: "./assets/video/day/grabadora.mp4",
+      },
+
+      projector: {
+        day: "https://assets.esrutayerma.com/videos/Desierto%20Toma1_Comprimido.mp4",
+        night:
+          "https://assets.esrutayerma.com/videos/Me-Inundo%20260724%20V2_comprimido.mp4",
+      },
+      curtains: {
+        day: "https://assets.esrutayerma.com/videos/Desierto%20Toma1_Comprimido.mp4",
+        night:
+          "https://assets.esrutayerma.com/videos/Me-Inundo-Cuad%20260724V2_comprimido.mp4",
+      },
+    },
+    sharing: {
+      day: {
+        url: "https://esrutayerma.com/",
+        text: "Escucha 'No todo es parte de la vida'",
+        website: "https://esrutayerma.com",
+
+        facebook: "https://facebook.com/track-dia",
+        instagram: "https://instagram.com/track-dia",
+        tiktok: "https://www.tiktok.com/music/-7662466234554730497",
+      },
+
+      night: {
+        url: "https://esrutayerma.com/",
+        text: "Escucha 'No todo es parte de la vida'",
+        website: "https://esrutayerma.com",
+
+        facebook: "https://facebook.com/track-noche",
+        instagram: "https://instagram.com/track-noche",
+        tiktok: "https://www.tiktok.com/music/-7664772830000760849",
+      },
+    },
+    camera: {
+      position: {
+        x: -1.9,
+        y: 1.3,
+        z: 0.9,
+      },
+
+      target: {
+        x: 0,
+        y: 1.3,
+        z: 0,
+      },
+    },
+    youtube: {
+      day: "https://www.tiktok.com/music/-7662466234554730497",
+      night: "https://www.tiktok.com/music/-7664772830000760849",
+    },
   },
   shop2: {
     type: "link",
@@ -407,8 +497,9 @@ export default {
 
       emissive: 0.8,
     },
+    animation: "herradura_move",
   },
-   vela_domingo_noche: {
+  vela_domingo_noche: {
     type: "info",
     title: "cosas de tu cama flotan en el agua",
     hover: {
@@ -416,6 +507,16 @@ export default {
 
       emissive: 0.8,
     },
+  },
+  Libreta: {
+    type: "info",
+    title: "NO TODO ES PARTE DE LA VIDA",
+    hover: {
+      outline: true,
+
+      emissive: 0.8,
+    },
+    animation: "libreta_move",
   },
   REC: {
     type: "action",

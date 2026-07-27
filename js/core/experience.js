@@ -220,72 +220,11 @@ export default class Experience {
     live.add(this.liveCamera, "targetZ").listen();
   }
 
-  // async loadAssets() {
-  //   const gltf = await this.modelLoader.load(
-  //     "https://assets.esrutayerma.com/models/Dia_1.002glb.glb",
-  //   );
-  //   console.log("1 - Modelo cargado");
-  //   this.animationManager = new AnimationManager(gltf.scene, gltf.animations);
-  //   console.log("2 - AnimationManager");
-  //   this.raycasterManager.setAnimationManager(this.animationManager);
-  //   console.log("3 - Raycaster");
-  //   this.scene.add(gltf.scene);
-  //   console.log("4 - Scene");
-  //   this.setupScreens(gltf.scene);
-  //   console.log("5 - Screens");
-  //   // Configuración de todas las luces
-  //   this.setupLights(gltf.scene);
-  //   console.log("6 - Lights");
-  //   this.cinematicManager.test();
-  //   console.log("7 - Scene setup")
-  //   this.setupScene(gltf.scene);
-
-  //   this.setupInteractables(gltf.scene);
-  //   console.log("8 - Interactables");
-  //   this.gardens = {
-  //     morning: gltf.scene.getObjectByName("Jardin_amanecer"),
-  //     afternoon: gltf.scene.getObjectByName("Jardin_dia"),
-  //     night: gltf.scene.getObjectByName("Jardin_noche"),
-  //   };
-
-  //   this.curtains = {
-  //     morning: gltf.scene.getObjectByName("PlanoAmanecer"),
-  //     afternoon: gltf.scene.getObjectByName("PlanoDia"),
-  //     night: gltf.scene.getObjectByName("PlanoNoche"),
-  //   };
-
-  //   this.updateGarden(this.environmentManager.mode);
-  //   this.updateCurtain(this.environmentManager.mode);
-  //   this.updateLights(this.environmentManager.mode);
-
-  //   //----------------------------------
-  //   // Test Animation
-  //   //----------------------------------
-
-  //   this.animations = gltf.animations;
-
-  //   this.mixer = new THREE.AnimationMixer(gltf.scene);
-
-  //   const clip = THREE.AnimationClip.findByName(this.animations, "venta");
-
-  //   const action = this.mixer.clipAction(clip);
-
-  //   action.reset();
-  //   action.play();
-
-  //   //this.effectsManager.enterCinematic();
-  //   //this.introOverlay.enable();
-  //   this.assetsLoaded = true;
-
-  //   if (this.introOverlay) {
-  //     this.introOverlay.enable();
-  //   }
-  // }
 
   async loadAssets() {
     try {
       const gltf = await this.modelLoader.load(
-        "https://assets.esrutayerma.com/models/domingo/Me%20Inundo_3glb%20(1).glb",
+        "https://assets.esrutayerma.com/models/lunes/No%20Todo%20Es%20Parte%20De%20La%20Vida_4glb.glb",
       );
 
       this.animationManager = new AnimationManager(gltf.scene, gltf.animations);
