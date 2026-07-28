@@ -581,7 +581,9 @@ export default {
   },
   Libreta: {
     type: "info",
-    title: "me inundo - 30 jul - 6pm",
+    showCard: false,
+    
+    
     hover: {
       outline: true,
 
