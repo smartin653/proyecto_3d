@@ -368,6 +368,77 @@ export default {
       night: "https://www.tiktok.com/music/-7664772830000760849",
     },
   },
+  Slider_Pista05: {
+    type: "track",
+    hint: "music",
+    title: {
+      day: "NO TODO ES PARTE DE LA VIDA: Track 1 - CUERDAS",
+      night: "Me inundo: Track 2 - cuerdas",
+    },
+    cover: {
+      day: "https://assets.esrutayerma.com/covers/day/EdMaverick_NTEPDLV_5.jpg",
+      night: "https://assets.esrutayerma.com/covers/day/EdMaverick_NTEPDLV_5.jpg",
+    },
+    audio: {
+      day: "https://assets.esrutayerma.com/audios/day/5.-CUERDAS-_STEM_.mp3",
+      night: "https://assets.esrutayerma.com/audios/day/5.-CUERDAS-_STEM_.mp3",
+    },
+     visuals: {
+      monitor: {
+        day: "./assets/video/day/grabadora.mp4",
+        night: "./assets/video/day/grabadora.mp4",
+      },
+
+      projector: {
+        day: "https://assets.esrutayerma.com/videos/Desierto%20Toma1_Comprimido.mp4",
+        night:
+          "https://assets.esrutayerma.com/videos/Me-Inundo%20260724%20V2_comprimido.mp4",
+      },
+      curtains: {
+        day: "https://assets.esrutayerma.com/videos/Desierto%20Toma1_Comprimido.mp4",
+        night:
+          "https://assets.esrutayerma.com/videos/Me-Inundo-Cuad%20260724V2_comprimido.mp4",
+      },
+    },
+    sharing: {
+      day: {
+        url: "https://esrutayerma.com/",
+        text: "Escucha 'No todo es parte de la vida'",
+        website: "https://esrutayerma.com",
+
+        facebook: "https://facebook.com/track-dia",
+        instagram: "https://instagram.com/track-dia",
+        tiktok: "https://www.tiktok.com/music/-7662459729222240272",
+      },
+
+      night: {
+        url: "https://esrutayerma.com/",
+        text: "Escucha 'No todo es parte de la vida'",
+        website: "https://esrutayerma.com",
+
+        facebook: "https://facebook.com/track-noche",
+        instagram: "https://instagram.com/track-noche",
+        tiktok: "https://www.tiktok.com/music/-7664777765024073745",
+      },
+    },
+    camera: {
+      position: {
+        x: -1.9,
+        y: 1.3,
+        z: 0.9,
+      },
+
+      target: {
+        x: 0,
+        y: 1.3,
+        z: 0,
+      },
+    },
+    youtube: {
+      day: "https://www.tiktok.com/music/-7662459729222240272",
+      night: "https://www.tiktok.com/music/-7664777765024073745",
+    },
+  },
   shop2: {
     type: "link",
     hint: "shop",
@@ -517,6 +588,16 @@ export default {
       emissive: 0.8,
     },
     animation: "libreta_move",
+  },
+    sombrero_lunes_dia: {
+    type: "info",
+    title: "Mirar para el pasado ver lo aprendido y ver que pasaría",
+    hover: {
+      outline: true,
+
+      emissive: 0.8,
+    },
+    
   },
   REC: {
     type: "action",
