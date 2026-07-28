@@ -377,11 +377,11 @@ export default {
     },
     cover: {
       day: "https://assets.esrutayerma.com/covers/day/EdMaverick_NTEPDLV_5.jpg",
-      night: "https://assets.esrutayerma.com/covers/day/EdMaverick_NTEPDLV_5.jpg",
+      night: "https://assets.esrutayerma.com/covers/nigth/EdMaverick_MeInundo_5.jpg",
     },
     audio: {
       day: "https://assets.esrutayerma.com/audios/day/5.-CUERDAS-_STEM_.mp3",
-      night: "https://assets.esrutayerma.com/audios/day/5.-CUERDAS-_STEM_.mp3",
+      night: "https://assets.esrutayerma.com/audios/nigth/5.-cuerdas-_stem_-_1_.mp3",
     },
      visuals: {
       monitor: {
@@ -594,6 +594,16 @@ export default {
     sombrero_lunes_dia: {
     type: "info",
     title: "Mirar para el pasado ver lo aprendido y ver que pasaría",
+    hover: {
+      outline: true,
+
+      emissive: 0.8,
+    },
+    
+  },
+   tostadora_lunes_noche: {
+    type: "info",
+    title: "y vuelves a mirarme fijamente",
     hover: {
       outline: true,
 
