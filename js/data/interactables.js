@@ -448,11 +448,11 @@ export default {
     },
     cover: {
       day: "https://assets.esrutayerma.com/covers/day/EdMaverick_NTEPDLV_6.jpg",
-      night: "https://assets.esrutayerma.com/covers/day/EdMaverick_NTEPDLV_6.jpg",
+      night: "https://assets.esrutayerma.com/covers/nigth/EdMaverick_MeInundo_6.jpg",
     },
     audio: {
       day: "https://assets.esrutayerma.com/audios/day/6.-TROMPETA-_STEM_.mp3",
-      night: "https://assets.esrutayerma.com/audios/day/6.-TROMPETA-_STEM_.mp3",
+      night: "https://assets.esrutayerma.com/audios/nigth/6.-wurlitzer-_stem_.mp3",
     },
    visuals: {
       monitor: {
@@ -674,7 +674,7 @@ export default {
   },
    tostadora_lunes_noche: {
     type: "info",
-    title: "y vuelves a mirarme fijamente",
+    title: "y vuelves a acercarte lentamente",
     hover: {
       outline: true,
 
@@ -685,6 +685,16 @@ export default {
   cuerda_miercoles_dia: {
     type: "info",
     title: "Ver el campo a su lado, nunca creí que un día volvería.",
+    hover: {
+      outline: true,
+
+      emissive: 0.8,
+    },
+    
+  },
+   planta_miercoles_noche: {
+    type: "info",
+    title: "y vuelves a mirarme fijamente",
     hover: {
       outline: true,
 
