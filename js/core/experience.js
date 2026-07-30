@@ -224,7 +224,7 @@ export default class Experience {
   async loadAssets() {
     try {
       const gltf = await this.modelLoader.load(
-        "https://assets.esrutayerma.com/models/miercoles/Me%20Inundo_5.glb",
+        "https://assets.esrutayerma.com/models/jueves/No%20Todo%20Es%20Parte%20De%20La%20Vida_6.glb",
       );
 
       this.animationManager = new AnimationManager(gltf.scene, gltf.animations);
@@ -389,54 +389,79 @@ export default class Experience {
     });
   }
 
+  // setupScreens(root) {
+  //   // root.traverse((child) => {
+  //   //   if (child.isMesh) {
+  //   //     console.log("MESH:", `"${child.name}"`);
+  //   //   }
+  //   // });
+
+  //   const screens = {
+  //     monitor: "PlanosTele",
+
+  //     jardinAmanecer: "Jardin_amanecer",
+
+  //     jardinDia: "Jardin_dia",
+
+  //     jardinNoche: "Jardin_noche",
+  //     PlanoAmanecer: "PlanoAmanecer",
+  //     PlanoDia: "PlanoDia",
+  //     PlanoNoche: "PlanoNoche",
+  //   };
+
+  //   Object.entries(screens).forEach(([id, objectName]) => {
+  //     const mesh = root.getObjectByName(objectName);
+  //     // console.log("objetname",
+  //     //   objectName,
+  //     //   mesh.geometry.attributes.position.count,
+  //     //   mesh.geometry.attributes.uv.count,
+  //     //   mesh.material,
+  //     // );
+
+  //     if (!mesh) {
+  //       console.warn(`Pantalla "${objectName}" no encontrada`);
+
+  //       return;
+  //     }
+
+  //     this.screenManager.add(id, new VideoScreen(mesh));
+  //   });
+
+  //   //console.log("pantallas", this.screenManager.screens);
+
+  //   this.raycasterManager.screenManager = this.screenManager;
+
+  //   this.audioManager.onEnded = () => {
+  //     this.screenManager.stopAll();
+  //     this.setTrackInteractablesVisible(false);
+  //     this.spotifyPlayer.hide();
+  //   };
+  // }
+
   setupScreens(root) {
-    // root.traverse((child) => {
-    //   if (child.isMesh) {
-    //     console.log("MESH:", `"${child.name}"`);
-    //   }
-    // });
+  const screens = {
+    monitor: "PlanosTele",
+  };
 
-    const screens = {
-      monitor: "PlanosTele",
+  Object.entries(screens).forEach(([id, objectName]) => {
+    const mesh = root.getObjectByName(objectName);
 
-      jardinAmanecer: "Jardin_amanecer",
+    if (!mesh) {
+      console.warn(`Pantalla "${objectName}" no encontrada`);
+      return;
+    }
 
-      jardinDia: "Jardin_dia",
+    this.screenManager.add(id, new VideoScreen(mesh));
+  });
 
-      jardinNoche: "Jardin_noche",
-      PlanoAmanecer: "PlanoAmanecer",
-      PlanoDia: "PlanoDia",
-      PlanoNoche: "PlanoNoche",
-    };
+  this.raycasterManager.screenManager = this.screenManager;
 
-    Object.entries(screens).forEach(([id, objectName]) => {
-      const mesh = root.getObjectByName(objectName);
-      // console.log("objetname",
-      //   objectName,
-      //   mesh.geometry.attributes.position.count,
-      //   mesh.geometry.attributes.uv.count,
-      //   mesh.material,
-      // );
-
-      if (!mesh) {
-        console.warn(`Pantalla "${objectName}" no encontrada`);
-
-        return;
-      }
-
-      this.screenManager.add(id, new VideoScreen(mesh));
-    });
-
-    //console.log("pantallas", this.screenManager.screens);
-
-    this.raycasterManager.screenManager = this.screenManager;
-
-    this.audioManager.onEnded = () => {
-      this.screenManager.stopAll();
-      this.setTrackInteractablesVisible(false);
-      this.spotifyPlayer.hide();
-    };
-  }
+  this.audioManager.onEnded = () => {
+    this.screenManager.stopAll();
+    this.setTrackInteractablesVisible(false);
+    this.spotifyPlayer.hide();
+  };
+}
 
   setupLights(root) {
     const importedLights = [];

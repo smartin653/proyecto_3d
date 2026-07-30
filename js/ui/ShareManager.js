@@ -1,31 +1,56 @@
 export default class ShareManager {
   constructor() {
-    this.platforms = [
-      {
-        id: "tiktok",
-        icon: "./assets/icons/tiktok.svg",
-        label: "TikTok",
-        handler: this.shareTikTok.bind(this),
-      },
-      // {
-      //   id: "instagram",
-      //   icon: "./assets/icons/instagram.png",
-      //   label: "Instagram",
-      //   handler: this.shareInstagram.bind(this),
-      // },
-    ];
-
     this.currentTrack = null;
 
     this.toast = null;
 
-    this.create();
+    this.container = document.getElementById(
+      "spotify-share-icons",
+    );
+
+    this.renderPlatforms();
   }
 
-  create() {
-    this.container = document.getElementById("spotify-share-icons");
+  renderPlatforms() {
+    if (!this.container) return;
 
-    this.platforms.forEach((platform) => {
+    this.container.innerHTML = "";
+
+    if (!this.currentTrack?.sharing) return;
+
+    const platforms = [];
+
+    //----------------------------------
+    // Página de plataformas musicales
+    //----------------------------------
+
+    if (this.currentTrack.sharing.music) {
+      platforms.push({
+        id: "music",
+        icon: "./assets/icons/tocar.png",
+        label: "Escuchar en plataformas",
+        handler: this.openMusicLinks.bind(this),
+      });
+    }
+
+    //----------------------------------
+    // TikTok
+    //----------------------------------
+
+    if (this.currentTrack.sharing.tiktok) {
+      platforms.push({
+        id: "tiktok",
+        icon: "./assets/icons/tiktok.svg",
+        label: "TikTok",
+        handler: this.shareTikTok.bind(this),
+      });
+    }
+
+    //----------------------------------
+    // Crear botones
+    //----------------------------------
+
+    platforms.forEach((platform) => {
       const button = document.createElement("button");
 
       button.className = "spotify-share-button";
@@ -33,12 +58,12 @@ export default class ShareManager {
       button.title = platform.label;
 
       button.innerHTML = `
-            <img
-                class="share-icon"
-                src="${platform.icon}"
-                alt="${platform.label}"
-            >
-        `;
+        <img
+          class="share-icon"
+          src="${platform.icon}"
+          alt="${platform.label}"
+        >
+      `;
 
       button.addEventListener("click", () => {
         if (!this.currentTrack) return;
@@ -52,67 +77,52 @@ export default class ShareManager {
 
   setCurrentTrack(track) {
     this.currentTrack = track;
+
+    this.renderPlatforms();
   }
 
-  shareFacebook(track) {
-    window.open(
-      track.sharing.facebook,
+  //----------------------------------
+  // Plataformas musicales
+  //----------------------------------
 
+  openMusicLinks(track) {
+    window.open(
+      track.sharing.music,
       "_blank",
     );
   }
 
-  shareInstagram(track) {
-    window.open(
-      track.sharing.instagram,
-
-      "_blank",
-    );
-  }
-
-
+  //----------------------------------
+  // TikTok
+  //----------------------------------
 
   shareTikTok(track) {
     window.open(
       track.sharing.tiktok,
-
       "_blank",
     );
   }
 
+  //----------------------------------
+  // Copiar enlace
+  //----------------------------------
+
   copyLink(track) {
-    navigator.clipboard.writeText(track.sharing.url);
+    navigator.clipboard.writeText(
+      track.sharing.url,
+    );
 
     this.toast?.show(
       "Enlace copiado",
-
       "📋",
     );
   }
 
+  //----------------------------------
+  // Toast
+  //----------------------------------
+
   setToast(toast) {
     this.toast = toast;
   }
-
-  // download(track) {
-  //   if (!track.download) {
-  //     this.toast?.show("No hay descarga disponible", "⚠️");
-
-  //     return;
-  //   }
-
-  //   const link = document.createElement("a");
-
-  //   link.href = track.download;
-
-  //   link.download = "";
-
-  //   document.body.appendChild(link);
-
-  //   link.click();
-
-  //   link.remove();
-
-  //   this.toast?.show("Descarga iniciada", "⬇");
-  // }
 }

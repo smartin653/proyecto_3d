@@ -55,8 +55,8 @@ export default {
     download: "./assets/audio/track01.mp3",
     visuals: {
       monitor: {
-        day: "./assets/video/day/grabadora.mp4",
-        night: "./assets/video/day/grabadora.mp4",
+        day: "https://assets.esrutayerma.com/videos/video_oficiales/NO%20TODO%20ES%20PARTE%20DE%20LA%20VIDA_1.mp4",
+        night: "https://assets.esrutayerma.com/videos/video_oficiales/NO%20TODO%20ES%20PARTE%20DE%20LA%20VIDA_1.mp4",
       },
 
       projector: {
@@ -71,8 +71,8 @@ export default {
       },
     },
     youtube: {
-      day: "https://www.tiktok.com/music/-7662460776100644881",
-      night: "https://www.tiktok.com/music/-7664762692532602897",
+      day: "https://youtu.be/1rssala9TT4",
+      night: "https://youtu.be/1rssala9TT4",
     },
     camera: {
       position: {
@@ -119,9 +119,9 @@ export default {
         "https://assets.esrutayerma.com/audios/nigth/2.-guitarra-el%C3%A9ctrica-_stem_-_1_.mp3",
     },
     visuals: {
-      monitor: {
-        day: "./assets/video/day/grabadora.mp4",
-        night: "./assets/video/day/grabadora.mp4",
+     monitor: {
+        day: "https://assets.esrutayerma.com/videos/video_oficiales/NO%20TODO%20ES%20PARTE%20DE%20LA%20VIDA_1.mp4",
+        night: "https://assets.esrutayerma.com/videos/video_oficiales/NO%20TODO%20ES%20PARTE%20DE%20LA%20VIDA_1.mp4",
       },
 
       projector: {
@@ -170,8 +170,8 @@ export default {
       },
     },
     youtube: {
-      day: "https://www.tiktok.com/music/-7662460956590917649",
-      night: "https://www.tiktok.com/music/-7664768185333975056",
+      day: "https://youtu.be/1rssala9TT4",
+      night: "https://youtu.be/1rssala9TT4",
     },
   },
   Slider_Pista03: {
@@ -205,9 +205,9 @@ export default {
         "https://assets.esrutayerma.com/audios/nigth/3.-bajo-_stem_-_1_.mp3",
     },
     visuals: {
-      monitor: {
-        day: "./assets/video/day/grabadora.mp4",
-        night: "./assets/video/day/grabadora.mp4",
+     monitor: {
+        day: "https://assets.esrutayerma.com/videos/video_oficiales/NO%20TODO%20ES%20PARTE%20DE%20LA%20VIDA_1.mp4",
+        night: "https://assets.esrutayerma.com/videos/video_oficiales/NO%20TODO%20ES%20PARTE%20DE%20LA%20VIDA_1.mp4",
       },
 
       projector: {
@@ -256,8 +256,8 @@ export default {
       },
     },
     youtube: {
-      day: "https://www.tiktok.com/music/-7662460889815549969",
-      night: "https://www.tiktok.com/music/-7664768065549518865",
+      day: "https://youtu.be/1rssala9TT4",
+      night: "https://youtu.be/1rssala9TT4",
     },
   },
 
@@ -314,8 +314,8 @@ export default {
     },
     visuals: {
       monitor: {
-        day: "./assets/video/day/grabadora.mp4",
-        night: "./assets/video/day/grabadora.mp4",
+        day: "https://assets.esrutayerma.com/videos/video_oficiales/NO%20TODO%20ES%20PARTE%20DE%20LA%20VIDA_1.mp4",
+        night: "https://assets.esrutayerma.com/videos/video_oficiales/NO%20TODO%20ES%20PARTE%20DE%20LA%20VIDA_1.mp4",
       },
 
       projector: {
@@ -364,8 +364,8 @@ export default {
       },
     },
     youtube: {
-      day: "https://www.tiktok.com/music/-7662466234554730497",
-      night: "https://www.tiktok.com/music/-7664772830000760849",
+      day: "https://youtu.be/1rssala9TT4",
+      night: "https://youtu.be/1rssala9TT4",
     },
   },
   Slider_Pista05: {
@@ -385,8 +385,8 @@ export default {
     },
      visuals: {
       monitor: {
-        day: "./assets/video/day/grabadora.mp4",
-        night: "./assets/video/day/grabadora.mp4",
+        day: "https://assets.esrutayerma.com/videos/video_oficiales/NO%20TODO%20ES%20PARTE%20DE%20LA%20VIDA_1.mp4",
+        night: "https://assets.esrutayerma.com/videos/video_oficiales/NO%20TODO%20ES%20PARTE%20DE%20LA%20VIDA_1.mp4",
       },
 
       projector: {
@@ -435,8 +435,8 @@ export default {
       },
     },
     youtube: {
-      day: "https://www.tiktok.com/music/-7662459729222240272",
-      night: "https://www.tiktok.com/music/-7664777765024073745",
+      day: "https://youtu.be/1rssala9TT4",
+      night: "https://youtu.be/1rssala9TT4",
     },
   },
   Slider_Pista06: {
@@ -455,9 +455,9 @@ export default {
       night: "https://assets.esrutayerma.com/audios/nigth/6.-wurlitzer-_stem_.mp3",
     },
    visuals: {
-      monitor: {
-        day: "./assets/video/day/grabadora.mp4",
-        night: "./assets/video/day/grabadora.mp4",
+     monitor: {
+        day: "https://assets.esrutayerma.com/videos/video_oficiales/NO%20TODO%20ES%20PARTE%20DE%20LA%20VIDA_1.mp4",
+        night: "https://assets.esrutayerma.com/videos/video_oficiales/NO%20TODO%20ES%20PARTE%20DE%20LA%20VIDA_1.mp4",
       },
 
       projector: {
@@ -506,8 +506,79 @@ export default {
       },
     },
     youtube: {
-      day: "https://www.tiktok.com/music/-7664792556329699345",
-      night: "https://www.tiktok.com/music/-7662460922510870545",
+      day: "https://youtu.be/1rssala9TT4",
+      night: "https://youtu.be/1rssala9TT4",
+    },
+  },
+   Slider_Pista12: {
+    type: "track",
+    hint: "music",
+    title: {
+      day: "ESCUCHAR AHORA: NO TODO ES PARTE DE LA VIDA",
+      night: "Escuchar ahora: Me inundo",
+    },
+    cover: {
+      day: "https://assets.esrutayerma.com/covers/covers_oficiales/EdMaverick_NoTodoEsParteDeLaVida_PORTADA.jpg",
+      night: "https://assets.esrutayerma.com/covers/covers_oficiales/EdMaverick_NoTodoEsParteDeLaVida_PORTADA.jpg",
+    },
+    audio: {
+      day: "https://assets.esrutayerma.com/audios/audios_oficiales/NTEPDLV.mp3",
+      night: "https://assets.esrutayerma.com/audios/audios_oficiales/NTEPDLV.mp3",
+    },
+   visuals: {
+      monitor: {
+        day: "https://assets.esrutayerma.com/videos/video_oficiales/NO%20TODO%20ES%20PARTE%20DE%20LA%20VIDA_1.mp4",
+        night: "https://assets.esrutayerma.com/videos/video_oficiales/NO%20TODO%20ES%20PARTE%20DE%20LA%20VIDA_1.mp4",
+      },
+
+      projector: {
+        day: "https://assets.esrutayerma.com/videos/Desierto%20Toma1_Comprimido.mp4",
+        night:
+          "https://assets.esrutayerma.com/videos/Me-Inundo%20260724%20V2_comprimido.mp4",
+      },
+      curtains: {
+        day: "https://assets.esrutayerma.com/videos/Desierto%20Toma1_Comprimido.mp4",
+        night:
+          "https://assets.esrutayerma.com/videos/Me-Inundo-Cuad%20260724V2_comprimido.mp4",
+      },
+    },
+    sharing: {
+      day: {
+        url: "https://esrutayerma.com/",
+        text: "Escucha 'No todo es parte de la vida'",
+        website: "https://esrutayerma.com",
+
+        facebook: "https://facebook.com/track-dia",
+        instagram: "https://instagram.com/track-dia",
+        music: "https://edmaverick.lnk.to/NTEPDLV"
+      },
+
+      night: {
+        url: "https://esrutayerma.com/",
+        text: "Escucha 'No todo es parte de la vida'",
+        website: "https://esrutayerma.com",
+
+        facebook: "https://facebook.com/track-noche",
+        instagram: "https://instagram.com/track-noche",
+        music: "https://edmaverick.lnk.to/NTEPDLV"
+      },
+    },
+    camera: {
+      position: {
+        x: -1.9,
+        y: 1.3,
+        z: 0.9,
+      },
+
+      target: {
+        x: 0,
+        y: 1.3,
+        z: 0,
+      },
+    },
+    youtube: {
+      day: "https://youtu.be/1rssala9TT4",
+      night: "https://youtu.be/1rssala9TT4",
     },
   },
   shop2: {
@@ -709,12 +780,12 @@ export default {
 
     hint: "youtube",
 
-    title: "Usa este audio",
+    title: "Video oficial",
 
     description:
       "Se abrirá el video oficial de la canción que se está reproduciendo en una nueva pestaña.",
 
-    actionLabel: "Abrir tiktok",
+    actionLabel: "Ver video oficial",
 
     hover: {
       outline: true,
