@@ -107,12 +107,17 @@ export default class MonitorScreen {
   //   console.log("videoHeight", this.video.videoHeight);
   // }
 
-  playVideo() {
-    console.log("PLAY VIDEO");
+ playVideo() {
+  console.log("PLAY VIDEO");
 
-    this.video.currentTime = 0;
-    this.video.play().catch(console.error);
-  }
+  this.video.currentTime = 0;
+
+  this.video.play().catch(console.error);
+
+  this.screen.material = this.videoMaterial;
+
+  this.screen.material.needsUpdate = true;
+}
 
   stopVideo() {
     this.isActive = false;
@@ -132,23 +137,40 @@ export default class MonitorScreen {
   //   console.log("Inactiva", this.screen.name);
   // }
 
-  setActive(videoPath) {
-    this.isActive = true;
+ setActive(videoPath) {
+  this.isActive = true;
 
-    this.setVideo(videoPath);
+  const sameVideo = this.video.src.includes(videoPath);
 
-    this.screen.material = this.videoMaterial;
-    this.screen.material.needsUpdate = true;
+  this.screen.material = this.videoMaterial;
+  this.screen.material.needsUpdate = true;
 
-    this.video.addEventListener(
-      "loadeddata",
-      () => {
-        console.log(this.screen.name, "VIDEO LISTO");
-        this.playVideo();
-      },
-      { once: true },
-    );
+  //----------------------------------
+  // Si es el mismo video, simplemente reproducir
+  //----------------------------------
+
+  if (sameVideo) {
+    this.playVideo();
+
+    return;
   }
+
+  //----------------------------------
+  // Si es otro video, cargarlo
+  //----------------------------------
+
+  this.setVideo(videoPath);
+
+  this.video.addEventListener(
+    "loadeddata",
+    () => {
+      console.log(this.screen.name, "VIDEO LISTO");
+
+      this.playVideo();
+    },
+    { once: true }
+  );
+}
 
   setInactive() {
     this.isActive = false;

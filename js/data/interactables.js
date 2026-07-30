@@ -519,16 +519,16 @@ export default {
     },
     cover: {
       day: "https://assets.esrutayerma.com/covers/covers_oficiales/EdMaverick_NoTodoEsParteDeLaVida_PORTADA.jpg",
-      night: "https://assets.esrutayerma.com/covers/covers_oficiales/EdMaverick_NoTodoEsParteDeLaVida_PORTADA.jpg",
+      night: "https://assets.esrutayerma.com/covers/covers_oficiales/EdMaverick_MeInundo_PORTADA.jpg",
     },
     audio: {
       day: "https://assets.esrutayerma.com/audios/audios_oficiales/NTEPDLV.mp3",
-      night: "https://assets.esrutayerma.com/audios/audios_oficiales/NTEPDLV.mp3",
+      night: "https://assets.esrutayerma.com/audios/audios_oficiales/me%20inundo.mp3",
     },
    visuals: {
       monitor: {
         day: "https://assets.esrutayerma.com/videos/video_oficiales/NO%20TODO%20ES%20PARTE%20DE%20LA%20VIDA_1.mp4",
-        night: "https://assets.esrutayerma.com/videos/video_oficiales/NO%20TODO%20ES%20PARTE%20DE%20LA%20VIDA_1.mp4",
+        night: "https://assets.esrutayerma.com/videos/video_oficiales/me%20inundo_2.mp4",
       },
 
       projector: {
@@ -560,7 +560,7 @@ export default {
 
         facebook: "https://facebook.com/track-noche",
         instagram: "https://instagram.com/track-noche",
-        music: "https://edmaverick.lnk.to/NTEPDLV"
+        music: "https://edmaverick.lnk.to/meinundo"
       },
     },
     camera: {
@@ -578,7 +578,7 @@ export default {
     },
     youtube: {
       day: "https://youtu.be/1rssala9TT4",
-      night: "https://youtu.be/1rssala9TT4",
+      night: "https://youtu.be/OMZi5t57rNc",
     },
   },
   shop2: {

@@ -115,7 +115,6 @@ export default class Experience {
       .load("https://assets.esrutayerma.com/config/releases.json")
       .then(() => {
         //console.log(this.releaseManager.getConfig("tracks", "Slider_Pista01"));
-
         //console.log(this.releaseManager.isVisible("tracks", "Slider_Pista01"));
       });
 
@@ -220,12 +219,19 @@ export default class Experience {
     live.add(this.liveCamera, "targetZ").listen();
   }
 
-
   async loadAssets() {
     try {
-      const gltf = await this.modelLoader.load(
-        "https://assets.esrutayerma.com/models/jueves/No%20Todo%20Es%20Parte%20De%20La%20Vida_6.glb",
-      );
+      // const gltf = await this.modelLoader.load(
+      //   "https://assets.esrutayerma.com/models/jueves/No%20Todo%20Es%20Parte%20De%20La%20Vida_6.glb",
+      // );
+
+      const modelUrl = this.contentVersionManager.getSceneModel();
+
+      console.log("🌞🌙 Modo:", this.contentVersionManager.getMode());
+
+      console.log("📦 Modelo cargado:", modelUrl);
+
+      const gltf = await this.modelLoader.load(modelUrl);
 
       this.animationManager = new AnimationManager(gltf.scene, gltf.animations);
 
@@ -439,37 +445,37 @@ export default class Experience {
   // }
 
   setupScreens(root) {
-  const screens = {
-    monitor: "PlanosTele",
-  };
+    const screens = {
+      monitor: "PlanosTele",
+    };
 
-  Object.entries(screens).forEach(([id, objectName]) => {
-    const mesh = root.getObjectByName(objectName);
+    Object.entries(screens).forEach(([id, objectName]) => {
+      const mesh = root.getObjectByName(objectName);
 
-    if (!mesh) {
-      console.warn(`Pantalla "${objectName}" no encontrada`);
-      return;
-    }
+      if (!mesh) {
+        console.warn(`Pantalla "${objectName}" no encontrada`);
+        return;
+      }
 
-    this.screenManager.add(id, new VideoScreen(mesh));
-  });
+      this.screenManager.add(id, new VideoScreen(mesh));
+    });
 
-  this.raycasterManager.screenManager = this.screenManager;
-  this.playIdleMonitor();
-
-  this.audioManager.onEnded = () => {
-    this.screenManager.stopAll();
+    this.raycasterManager.screenManager = this.screenManager;
     this.playIdleMonitor();
-    this.setTrackInteractablesVisible(false);
-    this.spotifyPlayer.hide();
-  };
-}
 
-playIdleMonitor() {
-  this.screenManager.play({
-    monitor: this.contentVersionManager.getIdleVideo(),
-  });
-}
+    this.audioManager.onEnded = () => {
+      this.screenManager.stopAll();
+      this.playIdleMonitor();
+      this.setTrackInteractablesVisible(false);
+      this.spotifyPlayer.hide();
+    };
+  }
+
+  playIdleMonitor() {
+    this.screenManager.play({
+      monitor: this.contentVersionManager.getIdleVideo(),
+    });
+  }
 
   setupLights(root) {
     const importedLights = [];

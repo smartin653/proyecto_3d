@@ -14,7 +14,7 @@ export default class ContentVersionManager {
   getIdleVideo() {
   return this.resolve({
     day: "https://assets.esrutayerma.com/videos/video_oficiales/NO%20TODO%20ES%20PARTE%20DE%20LA%20VIDA_1.mp4",
-    night: "https://assets.esrutayerma.com/videos/video_oficiales/NO%20TODO%20ES%20PARTE%20DE%20LA%20VIDA_1.mp4",
+    night: "https://assets.esrutayerma.com/videos/video_oficiales/me%20inundo_2.mp4",
   });
 }
 
@@ -59,4 +59,11 @@ export default class ContentVersionManager {
       visuals,
     };
   }
+
+  getSceneModel() {
+  return this.resolve({
+    day: "https://assets.esrutayerma.com/models/jueves/No%20Todo%20Es%20Parte%20De%20La%20Vida_6.glb",
+    night: "https://assets.esrutayerma.com/models/jueves/Me%20Inundo_6glb.glb",
+  });
+}
 }
