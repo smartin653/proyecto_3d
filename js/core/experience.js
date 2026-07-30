@@ -455,12 +455,20 @@ export default class Experience {
   });
 
   this.raycasterManager.screenManager = this.screenManager;
+  this.playIdleMonitor();
 
   this.audioManager.onEnded = () => {
     this.screenManager.stopAll();
+    this.playIdleMonitor();
     this.setTrackInteractablesVisible(false);
     this.spotifyPlayer.hide();
   };
+}
+
+playIdleMonitor() {
+  this.screenManager.play({
+    monitor: this.contentVersionManager.getIdleVideo(),
+  });
 }
 
   setupLights(root) {
@@ -685,6 +693,7 @@ export default class Experience {
     this.audioManager.audio.currentTime = 0;
 
     this.screenManager.stopAll();
+    this.playIdleMonitor();
 
     this.spotifyPlayer.hide();
     this.setTrackInteractablesVisible(false);

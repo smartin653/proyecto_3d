@@ -11,6 +11,13 @@ export default class ContentVersionManager {
     return "night";
   }
 
+  getIdleVideo() {
+  return this.resolve({
+    day: "https://assets.esrutayerma.com/videos/video_oficiales/NO%20TODO%20ES%20PARTE%20DE%20LA%20VIDA_1.mp4",
+    night: "https://assets.esrutayerma.com/videos/video_oficiales/NO%20TODO%20ES%20PARTE%20DE%20LA%20VIDA_1.mp4",
+  });
+}
+
   resolve(value) {
     //----------------------------------
     // Valor simple
