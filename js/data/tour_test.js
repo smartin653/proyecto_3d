@@ -7,7 +7,7 @@ export default {
   dates: [
 
     {
-      date: "Sat 09/09/2024",
+      date: "Sat 12/09/2026",
       city: "Bogotá",
       country: "Colombia",
       venue: "Festival Cordillera",
@@ -16,7 +16,7 @@ export default {
     },
 
     {
-      date: "Sat 09/09/2024",
+      date: "Tue 15/09/2026",
       city: "Medellín",
       country: "Colombia",
       venue: "Teatro Metropolitano de Medellín",
@@ -25,7 +25,7 @@ export default {
     },
 
     {
-      date: "Sat 09/09/2024",
+      date: "Wed 04/11/2026",
       city: "Berlin",
       country: "Germany",
       venue: "Metropol",
@@ -34,7 +34,7 @@ export default {
     },
 
     {
-      date: "Sat 09/09/2024",
+      date: "Fri 06/11/2026",
       city: "Paris",
       country: "France",
       venue: "Alhambra",
@@ -43,7 +43,7 @@ export default {
     },
 
     {
-      date: "Sat 09/09/2024",
+      date: "Tue 10/11/2026",
       city: "Milan",
       country: "Italy",
       venue: "Santeria Toscana 31",
@@ -52,7 +52,7 @@ export default {
     },
 
     {
-      date: "Sat 09/09/2024",
+      date: "Fri 13/11/2026",
       city: "London",
       country: "UK",
       venue: "Islington Assembly Hall",
@@ -61,7 +61,7 @@ export default {
     },
 
     {
-      date: "Sat 09/09/2024",
+      date: "Sun 15/11/2026",
       city: "Madrid",
       country: "Spain",
       venue: "Sala La Riviera",
@@ -70,7 +70,7 @@ export default {
     },
 
     {
-      date: "Sat 09/09/2024",
+      date: "Tue 17/11/2026",
       city: "Barcelona",
       country: "Spain",
       venue: "Sala Razzmatazz",
@@ -79,7 +79,7 @@ export default {
     },
 
     {
-      date: "Sat 09/09/2024",
+      date: "Sat 05/12/2026",
       city: "Hermosillo",
       country: "México",
       venue: "Festival Humano",

@@ -2,24 +2,30 @@ import Page from "./Page.js";
 import tour from "../data/tour.js";
 
 export default class TourPage extends Page {
-     static config = {
+  static config = {
     experience: false,
     header: false,
-    footer: false
-}
+    footer: false,
+  };
   create() {
     super.create();
 
     this.element.classList.add("tour-page");
 
+    //---------------------------------
     // Título
+    //---------------------------------
+
     const title = document.createElement("h1");
 
     title.className = "tour-title";
 
     title.textContent = tour.title;
 
+    //---------------------------------
     // Poster
+    //---------------------------------
+
     const poster = document.createElement("img");
 
     poster.className = "tour-poster";
@@ -28,7 +34,10 @@ export default class TourPage extends Page {
 
     poster.alt = tour.title;
 
+    //---------------------------------
     // Contenedor de fechas
+    //---------------------------------
+
     const dates = document.createElement("section");
 
     dates.className = "tour-dates";
@@ -38,17 +47,63 @@ export default class TourPage extends Page {
 
       card.className = "tour-date";
 
+      //---------------------------------
+      // Ciudad
+      //---------------------------------
+
       const city = document.createElement("h2");
 
       city.className = "tour-city";
 
       city.textContent = show.city;
 
+      //---------------------------------
+      // País
+      //---------------------------------
+
+      const country = document.createElement("p");
+
+      country.className = "tour-country";
+
+      country.textContent = show.country;
+
+      //---------------------------------
+      // Venue
+      //---------------------------------
+
+      const venue = document.createElement("p");
+
+      venue.className = "tour-venue";
+
+      venue.textContent = show.venue;
+
+      //---------------------------------
+      // Fecha
+      //---------------------------------
+
       const date = document.createElement("p");
 
       date.className = "tour-day";
 
       date.textContent = show.date;
+
+      //---------------------------------
+      // Preventa
+      //---------------------------------
+
+      const presale = document.createElement("p");
+
+      presale.className = "tour-presale";
+
+      presale.textContent =
+        show.presale === "YA EN VENTA GENERAL"
+          ? show.presale
+          : "PRE-SALE AVAILABLE";
+
+      //---------------------------------
+      // Botón
+      //---------------------------------
+
       const button = document.createElement("a");
 
       button.className = "tour-ticket";
@@ -61,13 +116,23 @@ export default class TourPage extends Page {
 
       button.textContent = "GET TICKETS";
 
-      card.appendChild(city);
+      //---------------------------------
+      // Ensamblar tarjeta
+      //---------------------------------
 
+      card.appendChild(city);
+      card.appendChild(country);
+      card.appendChild(venue);
       card.appendChild(date);
+      card.appendChild(presale);
+      card.appendChild(button);
 
       dates.appendChild(card);
-      card.appendChild(button);
     });
+
+    //---------------------------------
+    // Agregar al DOM
+    //---------------------------------
 
     this.element.appendChild(title);
 

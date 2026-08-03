@@ -51,15 +51,19 @@
 
 }
 
-.tour-date{
+.tour-date {
 
-    display:grid;
-    grid-template-columns: 1fr auto auto;
-    align-items:center;
-    padding:1.5rem 0;
-   
-    border-bottom:1px solid rgba(255,255,255,.15);
+    display: grid;
+
+    grid-template-columns: 1fr auto;
+
+    align-items: center;
+
     gap: 2rem;
+
+    padding: 2rem 0;
+
+    border-bottom: 1px solid rgba(255,255,255,.15);
 
 }
 
@@ -77,43 +81,43 @@
 
 }
 
-.tour-day{
+.tour-day {
 
-    margin:0;
+    margin-top: .5rem;
 
-    font-size:1rem;
+    font-size: .95rem;
 
-    opacity:.75;
+    opacity: .75;
 
-    letter-spacing:.05em;
+    letter-spacing: .05em;
 
 }
 
-.tour-ticket{
+.tour-ticket {
 
-    display:inline-flex;
+    display: inline-flex;
 
-    align-items:center;
+    align-items: center;
 
-    justify-content:center;
+    justify-content: center;
 
-   align-self:center;
+    min-width: 170px;
 
-    padding:.75rem 1.75rem;
+    padding: .85rem 1.75rem;
 
-    border:1px solid #fff;
+    border: 1px solid #fff;
 
-    color:#fff;
+    color: #fff;
 
-    text-decoration:none;
+    text-decoration: none;
 
-    text-transform:uppercase;
+    text-transform: uppercase;
 
-    letter-spacing:.15em;
+    letter-spacing: .15em;
 
-    font-size:.8rem;
+    font-size: .8rem;
 
-    transition:.3s;
+    transition: .3s;
 
 }
 
@@ -204,13 +208,15 @@
 
     }
 
-    .tour-date{
+   .tour-date {
 
-        grid-template-columns:1fr;
+    grid-template-columns: 1fr;
 
-        gap:.8rem;
+    gap: 1rem;
 
-    }
+    text-align: center;
+
+}
 
     .tour-city{
 
@@ -233,6 +239,21 @@
         justify-content:center;
 
     }
+
+    .tour-country,
+.tour-venue,
+.tour-day,
+.tour-presale {
+
+    text-align: center;
+
+}
+
+.tour-ticket {
+
+    width: 100%;
+
+}
 
 }
 
@@ -276,5 +297,47 @@
         padding:.85rem 1rem;
 
     }
+
+}
+
+.tour-country {
+
+    margin: .35rem 0;
+
+    font-size: .9rem;
+
+    opacity: .65;
+
+    text-transform: uppercase;
+
+    letter-spacing: .08em;
+
+}
+
+.tour-venue {
+
+    margin: .35rem 0;
+
+    font-size: 1rem;
+
+    font-weight: 500;
+
+    opacity: .9;
+
+}
+
+.tour-presale {
+
+    margin-top: .75rem;
+
+    font-size: .8rem;
+
+    font-weight: 600;
+
+    text-transform: uppercase;
+
+    letter-spacing: .12em;
+
+    opacity: .8;
 
 }
