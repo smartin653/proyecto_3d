@@ -117,7 +117,7 @@ export default class TourPage extends Page {
       card.appendChild(country);
       card.appendChild(venue);
       card.appendChild(date);
-      card.appendChild(presale);
+    
       card.appendChild(button);
 
       dates.appendChild(card);
