@@ -88,19 +88,6 @@ export default class TourPage extends Page {
       date.textContent = show.date;
 
       //---------------------------------
-      // Preventa
-      //---------------------------------
-
-      const presale = document.createElement("p");
-
-      presale.className = "tour-presale";
-
-      presale.textContent =
-        show.presale === "YA EN VENTA GENERAL"
-          ? show.presale
-          : "PRE-SALE AVAILABLE";
-
-      //---------------------------------
       // Botón
       //---------------------------------
 
@@ -108,13 +95,19 @@ export default class TourPage extends Page {
 
       button.className = "tour-ticket";
 
-      button.href = show.tickets;
+      button.textContent = show.titleBtn;
 
-      button.target = "_blank";
+      if (show.tickets) {
+        button.href = show.tickets;
 
-      button.rel = "noopener noreferrer";
+        button.target = "_blank";
 
-      button.textContent = "GET TICKETS";
+        button.rel = "noopener noreferrer";
+      } else {
+        button.classList.add("tour-ticket-disabled");
+
+        button.removeAttribute("href");
+      }
 
       //---------------------------------
       // Ensamblar tarjeta

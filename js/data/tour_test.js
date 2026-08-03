@@ -11,7 +11,7 @@ export default {
       city: "Bogotá",
       country: "Colombia",
       venue: "Festival Cordillera",
-      presale: "YA EN VENTA GENERAL",
+      presale: "Boletos",
       tickets: "https://www.cordillerafestival.com/entradas"
     },
 
@@ -20,7 +20,7 @@ export default {
       city: "Medellín",
       country: "Colombia",
       venue: "Teatro Metropolitano de Medellín",
-      presale: "YA EN VENTA GENERAL",
+      presale: "Boletos",
       tickets: "https://tuboleta.com/es/eventos/ed-maverick-0"
     },
 
@@ -29,7 +29,7 @@ export default {
       city: "Berlin",
       country: "Germany",
       venue: "Metropol",
-      presale: "https://www.eventim.de/event/4176844/?affiliate=VUC",
+      presale: "Preventa inicia 5 de agosto 10:00 am",
       tickets: "https://www.eventim.de/artist/ed-maverick/ed-maverick-4176844/"
     },
 
@@ -38,7 +38,7 @@ export default {
       city: "Paris",
       country: "France",
       venue: "Alhambra",
-      presale: "https://www.ticketmaster.fr/fr/manifestation/ed-maverick-billet/idmanif/669644/codtypadh/FCM/numadh/01/codeconf/FTMS01",
+      presale: "Preventa inicia 5 de agosto 10:00 am",
       tickets: "https://www.livenation.fr/ed-maverick-tickets-adp1600864"
     },
 
@@ -47,7 +47,7 @@ export default {
       city: "Milan",
       country: "Italy",
       venue: "Santeria Toscana 31",
-      presale: "https://www.ticketone.it/artist/ed-maverick/?affiliate=PI2",
+      presale: "Preventa inicia 5 de agosto 10:00 am",
       tickets: "https://www.ticketone.it/artist/ed-maverick/?affiliate=VIC"
     },
 
@@ -83,7 +83,7 @@ export default {
       city: "Hermosillo",
       country: "México",
       venue: "Festival Humano",
-      presale: "YA EN VENTA GENERAL",
+      presale: "Boletos",
       tickets: "https://www.passline.com/eventos/festival-humano-26"
     }
 
