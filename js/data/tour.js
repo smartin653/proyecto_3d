@@ -10,8 +10,8 @@ export default {
       city: "Zaragoza",
       country: "Spain",
       venue: "Festival Vive Latino",
-      titleBtn: "Preventa inicia 5 de agosto 10:00 a.m.",
-      tickets: ""
+      titleBtn: "Boletos",
+      tickets: "https://vivelatino.es/comprar-entradas/"
     },
 
     {
