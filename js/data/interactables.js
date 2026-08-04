@@ -645,6 +645,29 @@ export default {
     actionLabel: "visita tienda oficial",
     url: "https://udiscover.mx/collections/ed-maverick/products/ed-maverick-la-nube-en-el-jardin-en-vivo",
     animation: "venta.003",
+    
+  },
+  porter: {
+    type: "link",
+    hint: "shop",
+    beacon: {
+      color: "#FFD600",
+
+      size: 0.1,
+
+      animation: "pulse",
+    },
+
+    hover: {
+      outline: true,
+
+      emissive: 0.8,
+    },
+    title: "Tour 2026",
+    actionLabel: "Conoce las fechas",
+    url: "https://esrutayerma.com/tour",
+    animation: "poster_move",
+    
   },
   nota1: {
     type: "info",

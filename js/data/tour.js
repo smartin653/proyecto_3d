@@ -2,7 +2,7 @@ export default {
 
   title: "",
 
-  poster: "https://assets.esrutayerma.com/posters/Flyer%20general.jpeg",
+  poster: "",
 
   dates: [
 
