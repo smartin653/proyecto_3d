@@ -79,7 +79,7 @@ export default {
     },
 
     {
-      date: "Sat 09/09/2024",
+      date: "Sat 05/12/2026",
       city: "Hermosillo",
       country: "México",
       venue: "Festival Humano",
