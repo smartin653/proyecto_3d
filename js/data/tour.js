@@ -5,6 +5,14 @@ export default {
   poster: "https://assets.esrutayerma.com/posters/Flyer%20general.jpeg",
 
   dates: [
+    {
+      date: "Fri - 04/09/2026",
+      city: "Zaragoza",
+      country: "Spain",
+      venue: "Festival Vive Latino",
+      titleBtn: "Boletos",
+      tickets: ""
+    },
 
     {
       date: "Sat 12/09/2026",
