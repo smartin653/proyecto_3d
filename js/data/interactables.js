@@ -663,8 +663,8 @@ export default {
 
       emissive: 0.8,
     },
-    title: "Tour 2026",
-    actionLabel: "Conoce las fechas",
+    title: "SAERY tour",
+    actionLabel: "Boletos",
     url: "https://esrutayerma.com/tour",
     animation: "poster_move",
     

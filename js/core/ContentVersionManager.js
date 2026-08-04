@@ -62,8 +62,8 @@ export default class ContentVersionManager {
 
   getSceneModel() {
   return this.resolve({
-    day: "https://assets.esrutayerma.com/models/oficiales/No%20Todo%20Es%20Parte%20De%20La%20Vida_7.glb",
-    night: "https://assets.esrutayerma.com/models/oficiales/Me%20Inundo_7%7Dglb.glb",
+    day: "https://assets.esrutayerma.com/models/posters/No%20Todo%20Es%20Parte%20De%20La%20Vida_8.glb",
+    night: "https://assets.esrutayerma.com/models/posters/Me%20Inundo_8%7Dglb.glb",
   });
 }
 }
