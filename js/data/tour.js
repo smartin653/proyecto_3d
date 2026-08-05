@@ -38,7 +38,7 @@ export default {
       country: "Germany",
       venue: "Metropol",
       titleBtn: "Entra a la preventa",
-      tickets: "https://www.eventim.de/event/4176844/?affiliate=VUC"
+      tickets: "https://www.eventim.de/eventseries/4176844/?affiliate=VUC."
     },
 
     {
