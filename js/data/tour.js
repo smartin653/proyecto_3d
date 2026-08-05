@@ -37,8 +37,8 @@ export default {
       city: "Berlin",
       country: "Germany",
       venue: "Metropol",
-      titleBtn: "Preventa inicia 5 de agosto 10:00 a.m.",
-      tickets: ""
+      titleBtn: "Entra a la preventa",
+      tickets: "https://www.eventim.de/event/4176844/?affiliate=VUC"
     },
 
     {
@@ -46,8 +46,8 @@ export default {
       city: "Paris",
       country: "France",
       venue: "Alhambra",
-      titleBtn: "Preventa inicia 5 de agosto 10:00 a.m.",
-      tickets: ""
+      titleBtn: "Entra a la preventa",
+      tickets: "https://www.ticketmaster.fr/fr/manifestation/ed-maverick-billet/idmanif/669644/codtypadh/FCM/numadh/01/codeconf/FTMS01"
     },
 
     {
@@ -55,8 +55,8 @@ export default {
       city: "Milan",
       country: "Italy",
       venue: "Santeria Toscana 31",
-      titleBtn: "Preventa inicia 5 de agosto 10:00 a.m.",
-      tickets: ""
+      titleBtn: "Entra a la preventa",
+      tickets: "https://www.ticketone.it/artist/ed-maverick/?affiliate=PI2"
     },
 
     {
@@ -64,8 +64,8 @@ export default {
       city: "London",
       country: "UK",
       venue: "Islington Assembly Hall",
-      titleBtn: "Preventa inicia 5 de agosto 10:00 a.m.",
-      tickets: ""
+      titleBtn: "Entra a la preventa",
+      tickets: "https://link.dice.fm/Yc921156491f?code=SAERY"
     },
 
     {
@@ -73,8 +73,8 @@ export default {
       city: "Madrid",
       country: "Spain",
       venue: "Sala La Riviera",
-      titleBtn: "Preventa inicia 5 de agosto 10:00 a.m.",
-      tickets: ""
+      titleBtn: "Entra a la preventa",
+      tickets: "https://tickets.oneboxtds.com/unitedlive/select/2904473?hl=es-ES"
     },
 
     {
@@ -82,8 +82,8 @@ export default {
       city: "Barcelona",
       country: "Spain",
       venue: "Sala Razzmatazz",
-      titleBtn: "Preventa inicia 5 de agosto 10:00 a.m.",
-      tickets: ""
+      titleBtn: "Entra a la preventa",
+      tickets: "https://tickets.oneboxtds.com/unitedlive/select/2904460?hl=es-ES"
     },
 
     {
