@@ -37,8 +37,8 @@ export default {
       city: "Berlin",
       country: "Germany",
       venue: "Metropol",
-      titleBtn: "Entra a la preventa",
-      tickets: "https://www.eventim.de/eventseries/4176844/?affiliate=VUC."
+      titleBtn: "Boletos",
+      tickets: "https://www.eventim.de/artist/ed-maverick/ed-maverick-4176844/"
     },
 
     {
@@ -46,8 +46,8 @@ export default {
       city: "Paris",
       country: "France",
       venue: "Alhambra",
-      titleBtn: "Entra a la preventa",
-      tickets: "https://www.ticketmaster.fr/fr/manifestation/ed-maverick-billet/idmanif/669644/codtypadh/FCM/numadh/01/codeconf/FTMS01"
+      titleBtn: "Boletos",
+      tickets: "https://www.livenation.fr/ed-maverick-tickets-adp1600864"
     },
 
     {
@@ -55,8 +55,8 @@ export default {
       city: "Milan",
       country: "Italy",
       venue: "Santeria Toscana 31",
-      titleBtn: "Entra a la preventa",
-      tickets: "https://www.ticketone.it/artist/ed-maverick/?affiliate=PI2"
+      titleBtn: "Boletos",
+      tickets: "https://www.ticketone.it/artist/ed-maverick/?affiliate=VIC"
     },
 
     {
@@ -64,8 +64,8 @@ export default {
       city: "London",
       country: "UK",
       venue: "Islington Assembly Hall",
-      titleBtn: "Entra a la preventa",
-      tickets: "https://link.dice.fm/Yc921156491f?code=SAERY"
+      titleBtn: "Boletos",
+      tickets: "https://link.dice.fm/D565c09cac4a"
     },
 
     {
@@ -73,7 +73,7 @@ export default {
       city: "Madrid",
       country: "Spain",
       venue: "Sala La Riviera",
-      titleBtn: "Entra a la preventa",
+      titleBtn: "Boletos",
       tickets: "https://tickets.oneboxtds.com/unitedlive/select/2904473?hl=es-ES"
     },
 
@@ -82,7 +82,7 @@ export default {
       city: "Barcelona",
       country: "Spain",
       venue: "Sala Razzmatazz",
-      titleBtn: "Entra a la preventa",
+      titleBtn: "Boletos",
       tickets: "https://tickets.oneboxtds.com/unitedlive/select/2904460?hl=es-ES"
     },
 
