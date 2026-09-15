@@ -2,7 +2,7 @@ import LaunchConfig from "./launch/LaunchConfig.js";
 import LaunchOverlay from "./launch/LaunchOverlay.js";
 import Layout from "./layout/Layout.js";
 import Router from "./router/Router.js";
-import Experience from "./core/experience.js";
+import Experience from "./core/Experience.js";
 
 export default class App {
   constructor() {
