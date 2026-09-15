@@ -45,6 +45,29 @@ export default class IntroOverlay {
     this.button.addEventListener("click", callback);
   }
 
+  showLoadError() {
+    if (this.loadErrorShown) {
+      return;
+    }
+
+    this.loadErrorShown = true;
+
+    const message = document.createElement("p");
+    message.className = "intro-description";
+    message.textContent =
+      "No pudimos cargar el estudio. Revisa tu conexión e inténtalo de nuevo.";
+
+    const retryButton = document.createElement("button");
+    retryButton.id = "enter-btn";
+    retryButton.textContent = "Reintentar";
+
+    retryButton.addEventListener("click", () => {
+      window.location.reload();
+    });
+
+    this.button.replaceWith(message, retryButton);
+  }
+
   hide() {
     this.element.classList.add("hidden");
   }

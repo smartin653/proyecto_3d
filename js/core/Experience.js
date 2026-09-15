@@ -50,6 +50,7 @@ export default class Experience {
     this.trackInteractables = [];
     this.importedLights = [];
     this.debug = false;
+    this.assetsLoadFailed = false;
     this.onResizeHandler = this.onResize.bind(this);
     this.init();
     this.mixer = null;
@@ -279,6 +280,12 @@ export default class Experience {
       }
     } catch (error) {
       console.error("Error cargando el modelo:", error);
+
+      this.assetsLoadFailed = true;
+
+      if (this.introOverlay) {
+        this.introOverlay.showLoadError();
+      }
     }
   }
 
@@ -742,7 +749,9 @@ export default class Experience {
 
     this.introOverlay.onEnter(this.handleEnter.bind(this));
 
-    if (this.assetsLoaded) {
+    if (this.assetsLoadFailed) {
+      this.introOverlay.showLoadError();
+    } else if (this.assetsLoaded) {
       this.introOverlay.enable();
     }
   }
