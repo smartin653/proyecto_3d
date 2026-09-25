@@ -159,6 +159,8 @@ canvas{
 
     color:white;
 
+    white-space:pre-line;
+
     font-size:15px;
 
     font-weight:600;

@@ -5,33 +5,7 @@ export default {
   poster: "https://assets.esrutayerma.com/posters/Flyer%20general.jpeg",
 
   dates: [
-    {
-      date: "Fri - 04/09/2026",
-      city: "Zaragoza",
-      country: "Spain",
-      venue: "Festival Vive Latino",
-      titleBtn: "Boletos",
-      tickets: "https://vivelatino.es/comprar-entradas/"
-    },
-
-    {
-      date: "Sat 12/09/2026",
-      city: "Bogotá",
-      country: "Colombia",
-      venue: "Festival Cordillera",
-      titleBtn: "Boletos",
-      tickets: "https://www.cordillerafestival.com/entradas"
-    },
-
-    {
-      date: "Tue 15/09/2026",
-      city: "Medellín",
-      country: "Colombia",
-      venue: "Teatro Metropolitano de Medellín",
-      titleBtn: "Boletos",
-      tickets: "https://tuboleta.com/es/eventos/ed-maverick-0"
-    },
-
+    
     {
       date: "Wed 04/11/2026",
       city: "Berlin",

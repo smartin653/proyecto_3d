@@ -452,9 +452,21 @@ export default class Experience {
   // }
 
   setupScreens(root) {
+    // const screens = {
+    //   monitor: "PlanosTele",
+    // };
+
     const screens = {
-      monitor: "PlanosTele",
-    };
+    monitor: "PlanosTele",
+
+    jardinAmanecer: "Jardin_amanecer",
+    jardinDia: "Jardin_dia",
+    jardinNoche: "Jardin_noche",
+
+    PlanoAmanecer: "PlanoAmanecer",
+    PlanoDia: "PlanoDia",
+    PlanoNoche: "PlanoNoche",
+  };
 
     Object.entries(screens).forEach(([id, objectName]) => {
       const mesh = root.getObjectByName(objectName);
@@ -468,11 +480,11 @@ export default class Experience {
     });
 
     this.raycasterManager.screenManager = this.screenManager;
-    this.playIdleMonitor();
+    // this.playIdleMonitor();
 
     this.audioManager.onEnded = () => {
       this.screenManager.stopAll();
-      this.playIdleMonitor();
+      // this.playIdleMonitor();
       this.setTrackInteractablesVisible(false);
       this.spotifyPlayer.hide();
     };
@@ -706,7 +718,7 @@ export default class Experience {
     this.audioManager.audio.currentTime = 0;
 
     this.screenManager.stopAll();
-    this.playIdleMonitor();
+    // this.playIdleMonitor();
 
     this.spotifyPlayer.hide();
     this.setTrackInteractablesVisible(false);

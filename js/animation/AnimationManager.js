@@ -7,43 +7,64 @@ export default class AnimationManager {
     this.animations = animations;
     this.currentAction = null;
     this.currentClip = null;
+    this.currentActions = [];
+    this.currentClips = [];
     this.animationStates = new Map();
     this.animationActions = new Map();
     
   }
 
   play(interactable) {
-    const animationName = interactable.animation;
+    const animationNames = Array.isArray(interactable.animations)
+      ? interactable.animations
+      : [interactable.animation];
 
-    if (!animationName) {
+    const clips = animationNames
+      .filter(Boolean)
+      .map((animationName) => {
+        const clip = THREE.AnimationClip.findByName(
+          this.animations,
+          animationName,
+        );
+
+        if (!clip) {
+          console.warn("Animation not found:", animationName);
+        }
+
+        return clip;
+      })
+      .filter(Boolean);
+
+    if (!clips.length) {
       return;
     }
 
-    const clip = THREE.AnimationClip.findByName(this.animations, animationName);
-
-    if (!clip) {
-      console.warn("Animation not found:", animationName);
-
-      return;
-    }
-
-    if (this.currentClip === clip) {
+    if (
+      this.currentClips.length === clips.length &&
+      this.currentClips.every((clip, index) => clip === clips[index])
+    ) {
       return;
     }
 
     this.stopCurrentAction();
 
-    const action = this.mixer.clipAction(clip);
+    const actions = clips.map((clip) => {
+      const action = this.mixer.clipAction(clip);
 
-    this.currentAction = action;
-    this.currentClip = clip;
+      action.setLoop(THREE.LoopOnce);
+      action.clampWhenFinished = true;
 
-    action.setLoop(THREE.LoopOnce);
-    action.clampWhenFinished = true;
+      action.reset();
+      action.fadeIn(0.5);
+      action.play();
 
-    action.reset();
-    action.fadeIn(0.5);
-    action.play();
+      return action;
+    });
+
+    this.currentActions = actions;
+    this.currentClips = clips;
+    this.currentAction = actions[0];
+    this.currentClip = clips[0];
   }
 
   toggle(interactable) {
@@ -95,12 +116,18 @@ export default class AnimationManager {
   }
 
   stopCurrentAction() {
-    if (!this.currentAction) {
+    if (!this.currentActions.length && !this.currentAction) {
       return;
     }
 
-    this.currentAction.fadeOut(0.5);
+    const actions = this.currentActions.length
+      ? this.currentActions
+      : [this.currentAction];
 
+    actions.forEach((action) => action.fadeOut(0.5));
+
+    this.currentActions = [];
+    this.currentClips = [];
     this.currentAction = null;
 
     this.currentClip = null;
