@@ -338,6 +338,16 @@ export default {
     animation: "alas1"
     
   },
+  NotaDia: {
+    type: "info",
+    showCard: false,
+    hover: {
+      outline: true,
+
+      emissive: 0.8,
+    },
+    animation: "Nota_Dia",
+  },
    
   PERRO1: {
     type: "trigger",
