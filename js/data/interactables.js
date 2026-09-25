@@ -19,16 +19,16 @@ export default {
     },
     title: {
       day: "Track 1: GUITARRA ELÉCTRICA",
-      night: "Track 1: GUITARRA ELÉCTRICA",
+      night: "track 1: guitarra + voz",
     },
     cover: {
       day: "https://assets.esrutayerma.com/covers/segundo_lanzamiento/day/EdMaverick_Escombro_01%20(1).jpg",
-      night: "https://assets.esrutayerma.com/covers/segundo_lanzamiento/day/EdMaverick_Escombro_01%20(1).jpg",
+      night: "../assets/covers/EdMaverick_TendriaQueHablarDeLuz.jpg",
     },
     audio: {
       day: "https://assets.esrutayerma.com/audios/segundo_lanzamiento/day/ESCOMBRO-_GUITARRA-EL%C3%89CTRICA_.mp3",
       night:
-        "https://assets.esrutayerma.com/audios/segundo_lanzamiento/day/ESCOMBRO-_GUITARRA-EL%C3%89CTRICA_.mp3",
+        "../assets/audio/night/tqhdl.mp3",
     },
     sharing: {
       day: {
@@ -48,7 +48,7 @@ export default {
 
         facebook: "",
         instagram: "",
-        tiktok: "",
+        tiktok: "https://www.tiktok.com/music/-7686697246201415697",
       },
     },
 
@@ -62,17 +62,17 @@ export default {
       projector: {
         day: "https://assets.esrutayerma.com/videos/segundo_lanzamiento/day/videos_segundo_lanzamiento_day_1.mp4",
         night:
-          "https://assets.esrutayerma.com/videos/segundo_lanzamiento/day/videos_segundo_lanzamiento_day_1.mp4",
+          "https://assets.esrutayerma.com/videos/segundo_lanzamiento/night/Ed_ninios_frente.mp4",
       },
       curtains: {
         day: "https://assets.esrutayerma.com/videos/segundo_lanzamiento/day/videos_segundo_lanzamiento_day_1.mp4",
         night:
-          "https://assets.esrutayerma.com/videos/segundo_lanzamiento/day/videos_segundo_lanzamiento_day_1.mp4",
+          "https://assets.esrutayerma.com/videos/segundo_lanzamiento/night/Ed_ninios_lateral.mp4",
       },
     },
     youtube: {
       day: "https://www.tiktok.com/music/-7686686825079375889",
-      night: "#",
+      night: "https://www.tiktok.com/music/-7686697246201415697",
     },
     camera: {
       position: {
@@ -348,6 +348,16 @@ export default {
     },
     animation: "Nota_Dia",
   },
+  NotaNoche: {
+    type: "info",
+    showCard: false,
+    hover: {
+      outline: true,
+
+      emissive: 0.8,
+    },
+    animation: "Nota_Noche",
+  },
    
   PERRO1: {
     type: "trigger",
@@ -359,6 +369,38 @@ export default {
     },
     animations: ["cabeza2", "pata2"],
   },
+  // noche
+  sl_metronomo: {
+    type: "info",
+    title: "En medio de este canto que te doy ",
+    hover: {
+      outline: true,
+
+      emissive: 0.8,
+    },
+    animation: "alas1"
+    
+  },
+  sl_metronomo: {
+    type: "info",
+    title: "En medio de este canto que te doy ",
+    hover: {
+      outline: true,
+
+      emissive: 0.8,
+    },
+    animation: "PlaneAction.001"
+    
+  },
+  PERRO_1: {
+  type: "trigger",
+  showCard: false,
+  hover: {
+    outline: true,
+    emissive: 0.8,
+  },
+  animations: ["pataAction", "colaAction"],
+},
   
   carta: {
     type: "link",
