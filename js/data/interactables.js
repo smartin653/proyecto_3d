@@ -376,7 +376,7 @@ export default {
     description:
       "Se abrirá el video oficial de la canción que se está reproduciendo en una nueva pestaña.",
 
-    actionLabel: "Ver video oficial",
+    actionLabel: "Reproduce el audio en tiktok",
 
     hover: {
       outline: true,
