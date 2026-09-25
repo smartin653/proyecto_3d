@@ -371,7 +371,7 @@ export default {
 
     hint: "youtube",
 
-    title: "Video oficial",
+    title: "Tiktok",
 
     description:
       "Se abrirá el video oficial de la canción que se está reproduciendo en una nueva pestaña.",
