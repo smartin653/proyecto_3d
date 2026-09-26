@@ -88,6 +88,92 @@ export default {
       },
     },
   },
+  Slider_Pista02: {
+    type: "track",
+    hint: "music",
+    beacon: {
+      color: "#FFD600",
+
+      size: 0.1,
+
+      animation: "pulse",
+    },
+
+    hover: {
+      outline: true,
+
+      emissive: 0.8,
+    },
+    title: {
+      day: "Track 2: CUERDAS MAIN",
+      night: "",
+    },
+    cover: {
+      day: "https://assets.esrutayerma.com/covers/segundo_lanzamiento/day/EdMaverick_Escombro_02.jpg",
+      night:
+        "",
+    },
+    audio: {
+      day: "https://assets.esrutayerma.com/audios/segundo_lanzamiento/day/ESCOMBRO-_CUERDAS-MAIN_.mp3",
+      night:
+        "",
+    },
+    visuals: {
+      monitor: {
+        day: "../assets/video/day/grabadora_saery.mp4",
+        night: "../assets/video/day/grabadora_saery.mp4",
+      },
+
+      projector: {
+        day: "https://assets.esrutayerma.com/videos/segundo_lanzamiento/day/videos_segundo_lanzamiento_day_1.mp4",
+        night:
+          "https://assets.esrutayerma.com/videos/segundo_lanzamiento/night/Ed_ninios_frente.mp4",
+      },
+      curtains: {
+        day: "https://assets.esrutayerma.com/videos/segundo_lanzamiento/day/videos_segundo_lanzamiento_day_1.mp4",
+        night:
+          "https://assets.esrutayerma.com/videos/segundo_lanzamiento/night/Ed_ninios_lateral.mp4",
+      },
+    },
+    sharing: {
+      day: {
+        url: "https://esrutayerma.com/",
+        text: "Escucha Escombro",
+        website: "https://esrutayerma.com",
+
+        facebook: "https://facebook.com/track-dia",
+        instagram: "https://instagram.com/track-dia",
+        tiktok: " https://www.tiktok.com/music/-7686682475310172177",
+      },
+
+      night: {
+        url: "https://esrutayerma.com/",
+        text: "Escucha 'No todo es parte de la vida'",
+        website: "https://esrutayerma.com",
+
+        facebook: "",
+        instagram: "",
+        tiktok: "",
+      },
+    },
+    camera: {
+      position: {
+        x: -1.9,
+        y: 1.3,
+        z: 0.9,
+      },
+
+      target: {
+        x: 0,
+        y: 1.3,
+        z: 0,
+      },
+    },
+    youtube: {
+      day: "https://www.tiktok.com/music/-7686682475310172177",
+      night: "https://youtu.be/1rssala9TT4",
+    },
+  },
 
   shop1: {
     type: "link",
@@ -338,6 +424,16 @@ export default {
     animation: "alas1"
     
   },
+  sl_mosco2: {
+    type: "info",
+    title: "Si no puedo avanzar ¿de qué sirve soñar?",
+    hover: {
+      outline: true,
+
+      emissive: 0.8,
+    },
+    animation: "alas2"
+  },
   NotaDia: {
     type: "info",
     showCard: false,
@@ -359,7 +455,7 @@ export default {
     animation: "Nota_Noche",
   },
    
-  PERRO1: {
+  PERRO_2: {
     type: "trigger",
     showCard: false,
     hover: {
@@ -367,7 +463,7 @@ export default {
 
       emissive: 0.8,
     },
-    animations: ["cabeza2", "pata2"],
+    animations: [""],
   },
   // noche
   sl_metronomo: {
