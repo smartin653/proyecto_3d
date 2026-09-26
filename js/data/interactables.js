@@ -88,7 +88,7 @@ export default {
       },
     },
   },
-  Slider_Pista02: {
+  Slider_Pista: {
     type: "track",
     hint: "music",
     beacon: {
@@ -497,6 +497,16 @@ export default {
   },
   animations: ["pataAction", "colaAction"],
 },
+sl_dibujo: {
+    type: "info",
+    title: "Dedico el corazón con todo lo que soy ",
+    hover: {
+      outline: true,
+
+      emissive: 0.8,
+    },
+    animation: "sl_dibujoAction"
+  },
   
   carta: {
     type: "link",
