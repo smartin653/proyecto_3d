@@ -88,178 +88,178 @@ export default {
       },
     },
   },
-  Slider_Pista02: {
-    type: "track",
-    hint: "music",
-    beacon: {
-      color: "#FFD600",
+  // Slider_Pista02: {
+  //   type: "track",
+  //   hint: "music",
+  //   beacon: {
+  //     color: "#FFD600",
 
-      size: 0.1,
+  //     size: 0.1,
 
-      animation: "pulse",
-    },
+  //     animation: "pulse",
+  //   },
 
-    hover: {
-      outline: true,
+  //   hover: {
+  //     outline: true,
 
-      emissive: 0.8,
-    },
-    title: {
-      day: "Track 2: CUERDAS MAIN",
-      night: "",
-    },
-    cover: {
-      day: "https://assets.esrutayerma.com/covers/segundo_lanzamiento/day/EdMaverick_Escombro_02.jpg",
-      night:
-        "",
-    },
-    audio: {
-      day: "https://assets.esrutayerma.com/audios/segundo_lanzamiento/day/ESCOMBRO-_CUERDAS-MAIN_.mp3",
-      night:
-        "",
-    },
-    visuals: {
-      monitor: {
-        day: "../assets/video/day/grabadora_saery.mp4",
-        night: "../assets/video/day/grabadora_saery.mp4",
-      },
+  //     emissive: 0.8,
+  //   },
+  //   title: {
+  //     day: "Track 2: CUERDAS MAIN",
+  //     night: "",
+  //   },
+  //   cover: {
+  //     day: "https://assets.esrutayerma.com/covers/segundo_lanzamiento/day/EdMaverick_Escombro_02.jpg",
+  //     night:
+  //       "",
+  //   },
+  //   audio: {
+  //     day: "https://assets.esrutayerma.com/audios/segundo_lanzamiento/day/ESCOMBRO-_CUERDAS-MAIN_.mp3",
+  //     night:
+  //       "",
+  //   },
+  //   visuals: {
+  //     monitor: {
+  //       day: "../assets/video/day/grabadora_saery.mp4",
+  //       night: "../assets/video/day/grabadora_saery.mp4",
+  //     },
 
-      projector: {
-        day: "https://assets.esrutayerma.com/videos/segundo_lanzamiento/day/videos_segundo_lanzamiento_day_1.mp4",
-        night:
-          "https://assets.esrutayerma.com/videos/segundo_lanzamiento/night/Ed_ninios_frente.mp4",
-      },
-      curtains: {
-        day: "https://assets.esrutayerma.com/videos/segundo_lanzamiento/day/videos_segundo_lanzamiento_day_1.mp4",
-        night:
-          "https://assets.esrutayerma.com/videos/segundo_lanzamiento/night/Ed_ninios_lateral.mp4",
-      },
-    },
-    sharing: {
-      day: {
-        url: "https://esrutayerma.com/",
-        text: "Escucha Escombro",
-        website: "https://esrutayerma.com",
+  //     projector: {
+  //       day: "https://assets.esrutayerma.com/videos/segundo_lanzamiento/day/videos_segundo_lanzamiento_day_1.mp4",
+  //       night:
+  //         "https://assets.esrutayerma.com/videos/segundo_lanzamiento/night/Ed_ninios_frente.mp4",
+  //     },
+  //     curtains: {
+  //       day: "https://assets.esrutayerma.com/videos/segundo_lanzamiento/day/videos_segundo_lanzamiento_day_1.mp4",
+  //       night:
+  //         "https://assets.esrutayerma.com/videos/segundo_lanzamiento/night/Ed_ninios_lateral.mp4",
+  //     },
+  //   },
+  //   sharing: {
+  //     day: {
+  //       url: "https://esrutayerma.com/",
+  //       text: "Escucha Escombro",
+  //       website: "https://esrutayerma.com",
 
-        facebook: "https://facebook.com/track-dia",
-        instagram: "https://instagram.com/track-dia",
-        tiktok: " https://www.tiktok.com/music/-7686682475310172177",
-      },
+  //       facebook: "https://facebook.com/track-dia",
+  //       instagram: "https://instagram.com/track-dia",
+  //       tiktok: " https://www.tiktok.com/music/-7686682475310172177",
+  //     },
 
-      night: {
-        url: "https://esrutayerma.com/",
-        text: "Escucha 'No todo es parte de la vida'",
-        website: "https://esrutayerma.com",
+  //     night: {
+  //       url: "https://esrutayerma.com/",
+  //       text: "Escucha 'No todo es parte de la vida'",
+  //       website: "https://esrutayerma.com",
 
-        facebook: "",
-        instagram: "",
-        tiktok: "",
-      },
-    },
-    camera: {
-      position: {
-        x: -1.9,
-        y: 1.3,
-        z: 0.9,
-      },
+  //       facebook: "",
+  //       instagram: "",
+  //       tiktok: "",
+  //     },
+  //   },
+  //   camera: {
+  //     position: {
+  //       x: -1.9,
+  //       y: 1.3,
+  //       z: 0.9,
+  //     },
 
-      target: {
-        x: 0,
-        y: 1.3,
-        z: 0,
-      },
-    },
-    youtube: {
-      day: "https://www.tiktok.com/music/-7686682475310172177",
-      night: "https://youtu.be/1rssala9TT4",
-    },
-  },
-  Slider_Pista03: {
-    type: "track",
-    hint: "music",
-    beacon: {
-      color: "#FFD600",
+  //     target: {
+  //       x: 0,
+  //       y: 1.3,
+  //       z: 0,
+  //     },
+  //   },
+  //   youtube: {
+  //     day: "https://www.tiktok.com/music/-7686682475310172177",
+  //     night: "https://youtu.be/1rssala9TT4",
+  //   },
+  // },
+  // Slider_Pista03: {
+  //   type: "track",
+  //   hint: "music",
+  //   beacon: {
+  //     color: "#FFD600",
 
-      size: 0.1,
+  //     size: 0.1,
 
-      animation: "pulse",
-    },
+  //     animation: "pulse",
+  //   },
 
-    hover: {
-      outline: true,
+  //   hover: {
+  //     outline: true,
 
-      emissive: 0.8,
-    },
-    title: {
-      day: "Track 3: GUITARRA ACÚSTICA ",
-      night: "#",
-    },
-    cover: {
-      day: "https://assets.esrutayerma.com/covers/segundo_lanzamiento/day/EdMaverick_Escombro_03.jpg",
-      night:
-        "https://assets.esrutayerma.com/covers/nigth/EdMaverick_MeInundo_3.jpg",
-    },
-    audio: {
-      day: "https://assets.esrutayerma.com/audios/segundo_lanzamiento/day/ESCOMBRO-_GUITARRA-AC%C3%9ASTICA_.mp3",
-      night:
-        "https://assets.esrutayerma.com/audios/nigth/3.-bajo-_stem_-_1_.mp3",
-    },
-    visuals: {
-      monitor: {
-        day: "../assets/video/day/grabadora_saery.mp4",
-        night: "../assets/video/day/grabadora_saery.mp4",
-      },
+  //     emissive: 0.8,
+  //   },
+  //   title: {
+  //     day: "Track 3: GUITARRA ACÚSTICA ",
+  //     night: "#",
+  //   },
+  //   cover: {
+  //     day: "https://assets.esrutayerma.com/covers/segundo_lanzamiento/day/EdMaverick_Escombro_03.jpg",
+  //     night:
+  //       "https://assets.esrutayerma.com/covers/nigth/EdMaverick_MeInundo_3.jpg",
+  //   },
+  //   audio: {
+  //     day: "https://assets.esrutayerma.com/audios/segundo_lanzamiento/day/ESCOMBRO-_GUITARRA-AC%C3%9ASTICA_.mp3",
+  //     night:
+  //       "https://assets.esrutayerma.com/audios/nigth/3.-bajo-_stem_-_1_.mp3",
+  //   },
+  //   visuals: {
+  //     monitor: {
+  //       day: "../assets/video/day/grabadora_saery.mp4",
+  //       night: "../assets/video/day/grabadora_saery.mp4",
+  //     },
 
-      projector: {
-        day: "https://assets.esrutayerma.com/videos/segundo_lanzamiento/day/videos_segundo_lanzamiento_day_1.mp4",
-        night:
-          "https://assets.esrutayerma.com/videos/segundo_lanzamiento/night/Ed_ninios_frente.mp4",
-      },
-      curtains: {
-        day: "https://assets.esrutayerma.com/videos/segundo_lanzamiento/day/videos_segundo_lanzamiento_day_1.mp4",
-        night:
-          "https://assets.esrutayerma.com/videos/segundo_lanzamiento/night/Ed_ninios_lateral.mp4",
-      },
-    },
-    sharing: {
-      day: {
-        url: "https://esrutayerma.com/",
-        text: "Escucha 'Escombro'",
-        website: "https://esrutayerma.com",
+  //     projector: {
+  //       day: "https://assets.esrutayerma.com/videos/segundo_lanzamiento/day/videos_segundo_lanzamiento_day_1.mp4",
+  //       night:
+  //         "https://assets.esrutayerma.com/videos/segundo_lanzamiento/night/Ed_ninios_frente.mp4",
+  //     },
+  //     curtains: {
+  //       day: "https://assets.esrutayerma.com/videos/segundo_lanzamiento/day/videos_segundo_lanzamiento_day_1.mp4",
+  //       night:
+  //         "https://assets.esrutayerma.com/videos/segundo_lanzamiento/night/Ed_ninios_lateral.mp4",
+  //     },
+  //   },
+  //   sharing: {
+  //     day: {
+  //       url: "https://esrutayerma.com/",
+  //       text: "Escucha 'Escombro'",
+  //       website: "https://esrutayerma.com",
 
-        facebook: "https://facebook.com/track-dia",
-        instagram: "https://instagram.com/track-dia",
-        tiktok: "https://www.tiktok.com/music/-7686686963873056785",
-      },
+  //       facebook: "https://facebook.com/track-dia",
+  //       instagram: "https://instagram.com/track-dia",
+  //       tiktok: "https://www.tiktok.com/music/-7686686963873056785",
+  //     },
 
-      night: {
-        url: "https://esrutayerma.com/",
-        text: "Escucha 'No todo es parte de la vida'",
-        website: "https://esrutayerma.com",
+  //     night: {
+  //       url: "https://esrutayerma.com/",
+  //       text: "Escucha 'No todo es parte de la vida'",
+  //       website: "https://esrutayerma.com",
 
-        facebook: "https://facebook.com/track-noche",
-        instagram: "https://instagram.com/track-noche",
-        tiktok: "https://www.tiktok.com/music/-7664768065549518865",
-      },
-    },
-    camera: {
-      position: {
-        x: -1.9,
-        y: 1.3,
-        z: 0.9,
-      },
+  //       facebook: "https://facebook.com/track-noche",
+  //       instagram: "https://instagram.com/track-noche",
+  //       tiktok: "https://www.tiktok.com/music/-7664768065549518865",
+  //     },
+  //   },
+  //   camera: {
+  //     position: {
+  //       x: -1.9,
+  //       y: 1.3,
+  //       z: 0.9,
+  //     },
 
-      target: {
-        x: 0,
-        y: 1.3,
-        z: 0,
-      },
-    },
-    youtube: {
-      day: "https://www.tiktok.com/music/-7664768065549518865",
-      night: "https://youtu.be/1rssala9TT4",
-    },
-  },
+  //     target: {
+  //       x: 0,
+  //       y: 1.3,
+  //       z: 0,
+  //     },
+  //   },
+  //   youtube: {
+  //     day: "https://www.tiktok.com/music/-7664768065549518865",
+  //     night: "https://youtu.be/1rssala9TT4",
+  //   },
+  // },
 
   shop1: {
     type: "link",
