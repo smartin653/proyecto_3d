@@ -62,7 +62,7 @@ export default class ContentVersionManager {
 
   getSceneModel() {
   return this.resolve({
-    day: "https://assets.esrutayerma.com/models/segundo_lanzamiento/day2/ESCOMBRO_DIA2.glb",
+    day: "https://assets.esrutayerma.com/models/segundo_lanzamiento/day_3/ESCOMBRO_DIA%203.glb",
     night: "https://assets.esrutayerma.com/models/segundo_lanzamiento/day2/TENDRIAQUEHABLARDELUZ_DIA2.glb",
   });
 }
