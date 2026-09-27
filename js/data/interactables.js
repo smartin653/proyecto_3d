@@ -617,6 +617,16 @@ sl_dibujo: {
     url: "https://link.fans/edmaverick",
     animation: "cartaAction",
   },
+   sl_mochila: {
+    type: "info",
+    title: "Y en la mirada llega la suerte que pedí",
+    hover: {
+      outline: true,
+
+      emissive: 0.8,
+    },
+    
+  },
   
   REC: {
     type: "action",
