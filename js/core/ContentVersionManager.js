@@ -5,10 +5,10 @@ export default class ContentVersionManager {
     const hour = new Date().getHours();
 
     if (hour >= 6 && hour < 18) {
-      return "day";
+      return "night";
     }
 
-    return "night";
+    return "day";
   }
 
   getIdleVideo() {
@@ -63,7 +63,7 @@ export default class ContentVersionManager {
   getSceneModel() {
   return this.resolve({
     day: "https://assets.esrutayerma.com/models/segundo_lanzamiento/day_5/ESCOMBRO_DIA_5.glb",
-    night: "https://assets.esrutayerma.com/models/segundo_lanzamiento/day_4/TENDRIAQUEHABLARDELUZ_DIA_4.glb",
+    night: "https://assets.esrutayerma.com/models/segundo_lanzamiento/day_5/TENDRIAQUEHABLARDELUZ_DIA5.glb",
   });
 }
 }
