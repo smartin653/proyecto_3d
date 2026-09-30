@@ -88,6 +88,422 @@ export default {
       },
     },
   },
+  Slider_Pista02: {
+    type: "track",
+    hint: "music",
+    beacon: {
+      color: "#FFD600",
+
+      size: 0.1,
+
+      animation: "pulse",
+    },
+
+    hover: {
+      outline: true,
+
+      emissive: 0.8,
+    },
+    title: {
+      day: "Track 2: CUERDAS MAIN",
+      night: "Me inundo: Track 2 - guitarra eléctrica",
+    },
+    cover: {
+      day: "https://assets.esrutayerma.com/covers/segundo_lanzamiento/day/EdMaverick_Escombro_02.jpg",
+      night:
+        "https://assets.esrutayerma.com/covers/nigth/EdMaverick_MeInundo_2.jpg",
+    },
+    audio: {
+      day: "https://assets.esrutayerma.com/audios/segundo_lanzamiento/day/ESCOMBRO-_CUERDAS-MAIN_.mp3",
+      night:
+        "https://assets.esrutayerma.com/audios/nigth/2.-guitarra-el%C3%A9ctrica-_stem_-_1_.mp3",
+    },
+    visuals: {
+      monitor: {
+        day: "../assets/video/day/grabadora_saery.mp4",
+        night: "../assets/video/day/grabadora_saery.mp4",
+      },
+
+      projector: {
+        day: "https://assets.esrutayerma.com/videos/segundo_lanzamiento/day/videos_segundo_lanzamiento_day_1.mp4",
+        night:
+          "https://assets.esrutayerma.com/videos/segundo_lanzamiento/night/Ed_ninios_frente.mp4",
+      },
+      curtains: {
+        day: "https://assets.esrutayerma.com/videos/segundo_lanzamiento/day/videos_segundo_lanzamiento_day_1.mp4",
+        night:
+          "https://assets.esrutayerma.com/videos/segundo_lanzamiento/night/Ed_ninios_lateral.mp4",
+      },
+    },
+    sharing: {
+      day: {
+        url: "https://esrutayerma.com/",
+        text: "Escucha Escombro",
+        website: "https://esrutayerma.com",
+
+        facebook: "https://facebook.com/track-dia",
+        instagram: "https://instagram.com/track-dia",
+        tiktok: " https://www.tiktok.com/music/-7686682475310172177",
+      },
+
+      night: {
+        url: "https://esrutayerma.com/",
+        text: "Escucha 'No todo es parte de la vida'",
+        website: "https://esrutayerma.com",
+
+        facebook: "https://facebook.com/track-noche",
+        instagram: "https://instagram.com/track-noche",
+        tiktok: "https://www.tiktok.com/music/-7664768185333975056",
+      },
+    },
+    camera: {
+      position: {
+        x: -1.9,
+        y: 1.3,
+        z: 0.9,
+      },
+
+      target: {
+        x: 0,
+        y: 1.3,
+        z: 0,
+      },
+    },
+    youtube: {
+      day: "#",
+      night: "https://youtu.be/1rssala9TT4",
+    },
+  },
+  Slider_Pista03: {
+    type: "track",
+    hint: "music",
+    beacon: {
+      color: "#FFD600",
+
+      size: 0.1,
+
+      animation: "pulse",
+    },
+
+    hover: {
+      outline: true,
+
+      emissive: 0.8,
+    },
+    title: {
+      day: "Track 3: GUITARRA ACÚSTICA ",
+      night: "Me inundo: Track 2 - bajo",
+    },
+    cover: {
+      day: "https://assets.esrutayerma.com/covers/segundo_lanzamiento/day/EdMaverick_Escombro_03.jpg",
+      night:
+        "https://assets.esrutayerma.com/covers/nigth/EdMaverick_MeInundo_3.jpg",
+    },
+    audio: {
+      day: "https://assets.esrutayerma.com/audios/segundo_lanzamiento/day/ESCOMBRO-_GUITARRA-AC%C3%9ASTICA_.mp3",
+      night:
+        "https://assets.esrutayerma.com/audios/nigth/3.-bajo-_stem_-_1_.mp3",
+    },
+    visuals: {
+      monitor: {
+        day: "../assets/video/day/grabadora_saery.mp4",
+        night: "../assets/video/day/grabadora_saery.mp4",
+      },
+
+      projector: {
+        day: "https://assets.esrutayerma.com/videos/segundo_lanzamiento/day/videos_segundo_lanzamiento_day_1.mp4",
+        night:
+          "https://assets.esrutayerma.com/videos/segundo_lanzamiento/night/Ed_ninios_frente.mp4",
+      },
+      curtains: {
+        day: "https://assets.esrutayerma.com/videos/segundo_lanzamiento/day/videos_segundo_lanzamiento_day_1.mp4",
+        night:
+          "https://assets.esrutayerma.com/videos/segundo_lanzamiento/night/Ed_ninios_lateral.mp4",
+      },
+    },
+    sharing: {
+      day: {
+        url: "https://esrutayerma.com/",
+        text: "Escucha 'Escombro'",
+        website: "https://esrutayerma.com",
+
+        facebook: "https://facebook.com/track-dia",
+        instagram: "https://instagram.com/track-dia",
+        tiktok: "https://www.tiktok.com/music/-7686686963873056785",
+      },
+
+      night: {
+        url: "https://esrutayerma.com/",
+        text: "Escucha 'No todo es parte de la vida'",
+        website: "https://esrutayerma.com",
+
+        facebook: "https://facebook.com/track-noche",
+        instagram: "https://instagram.com/track-noche",
+        tiktok: "https://www.tiktok.com/music/-7664768065549518865",
+      },
+    },
+    camera: {
+      position: {
+        x: -1.9,
+        y: 1.3,
+        z: 0.9,
+      },
+
+      target: {
+        x: 0,
+        y: 1.3,
+        z: 0,
+      },
+    },
+    youtube: {
+      day: "#",
+      night: "https://youtu.be/1rssala9TT4",
+    },
+  },
+  Slider_Pista04: {
+    type: "track",
+    hint: "music",
+    beacon: {
+      color: "#FFD600",
+
+      size: 0.1,
+
+      animation: "pulse",
+    },
+
+    hover: {
+      outline: true,
+
+      emissive: 0.8,
+    },
+    title: {
+      day: "Track 4: CUERDAS LEAD",
+      night: "Me inundo: Track 2 - bajo",
+    },
+    cover: {
+      day: "https://assets.esrutayerma.com/covers/segundo_lanzamiento/day/EdMaverick_Escombro_04.jpg",
+      night:
+        "https://assets.esrutayerma.com/covers/nigth/EdMaverick_MeInundo_3.jpg",
+    },
+    audio: {
+      day: "https://assets.esrutayerma.com/audios/segundo_lanzamiento/day/ESCOMBRO-_CUERDAS-LEAD_.mp3",
+      night:
+        "https://assets.esrutayerma.com/audios/nigth/3.-bajo-_stem_-_1_.mp3",
+    },
+    visuals: {
+      monitor: {
+        day: "../assets/video/day/grabadora_saery.mp4",
+        night: "../assets/video/day/grabadora_saery.mp4",
+      },
+
+      projector: {
+        day: "https://assets.esrutayerma.com/videos/segundo_lanzamiento/day/videos_segundo_lanzamiento_day_1.mp4",
+        night:
+          "https://assets.esrutayerma.com/videos/segundo_lanzamiento/night/Ed_ninios_frente.mp4",
+      },
+      curtains: {
+        day: "https://assets.esrutayerma.com/videos/segundo_lanzamiento/day/videos_segundo_lanzamiento_day_1.mp4",
+        night:
+          "https://assets.esrutayerma.com/videos/segundo_lanzamiento/night/Ed_ninios_lateral.mp4",
+      },
+    },
+    sharing: {
+      day: {
+        url: "https://esrutayerma.com/",
+        text: "Escucha 'Escombro'",
+        website: "https://esrutayerma.com",
+
+        facebook: "https://facebook.com/track-dia",
+        instagram: "https://instagram.com/track-dia",
+        tiktok: "https://www.tiktok.com/music/-7686686894370228225",
+      },
+
+      night: {
+        url: "https://esrutayerma.com/",
+        text: "Escucha 'No todo es parte de la vida'",
+        website: "https://esrutayerma.com",
+
+        facebook: "https://facebook.com/track-noche",
+        instagram: "https://instagram.com/track-noche",
+        tiktok: "https://www.tiktok.com/music/-7664768065549518865",
+      },
+    },
+    camera: {
+      position: {
+        x: -1.9,
+        y: 1.3,
+        z: 0.9,
+      },
+
+      target: {
+        x: 0,
+        y: 1.3,
+        z: 0,
+      },
+    },
+    youtube: {
+      day: "https://www.tiktok.com/music/-7686686894370228225",
+      night: "https://youtu.be/1rssala9TT4",
+    },
+  },
+  Slider_Pista05: {
+    type: "track",
+    hint: "music",
+    beacon: {
+      color: "#FFD600",
+
+      size: 0.1,
+
+      animation: "pulse",
+    },
+
+    hover: {
+      outline: true,
+
+      emissive: 0.8,
+    },
+    title: {
+      day: "Track 6: SLIDE GUITAR",
+      night: "Me inundo: Track 2 - bajo",
+    },
+    cover: {
+      day: "https://assets.esrutayerma.com/covers/segundo_lanzamiento/day/EdMaverick_Escombro_05%20(1).jpg",
+      night:
+        "https://assets.esrutayerma.com/covers/nigth/EdMaverick_MeInundo_3.jpg",
+    },
+    audio: {
+      day: "https://assets.esrutayerma.com/audios/segundo_lanzamiento/day/ESCOMBRO-_BAJO_.mp3",
+      night:
+        "https://assets.esrutayerma.com/audios/nigth/3.-bajo-_stem_-_1_.mp3",
+    },
+    visuals: {
+      monitor: {
+        day: "../assets/video/day/grabadora_saery.mp4",
+        night: "../assets/video/day/grabadora_saery.mp4",
+      },
+
+      projector: {
+        day: "https://assets.esrutayerma.com/videos/segundo_lanzamiento/day/videos_segundo_lanzamiento_day_1.mp4",
+        night:
+          "https://assets.esrutayerma.com/videos/segundo_lanzamiento/night/Ed_ninios_frente.mp4",
+      },
+      curtains: {
+        day: "https://assets.esrutayerma.com/videos/segundo_lanzamiento/day/videos_segundo_lanzamiento_day_1.mp4",
+        night:
+          "https://assets.esrutayerma.com/videos/segundo_lanzamiento/night/Ed_ninios_lateral.mp4",
+      },
+    },
+    sharing: {
+      day: {
+        url: "https://esrutayerma.com/",
+        text: "Escucha 'Escombro'",
+        website: "https://esrutayerma.com",
+
+        facebook: "https://facebook.com/track-dia",
+        instagram: "https://instagram.com/track-dia",
+        tiktok: "https://www.tiktok.com/music/-7686682375603259409",
+      },
+
+      night: {
+        url: "https://esrutayerma.com/",
+        text: "Escucha 'No todo es parte de la vida'",
+        website: "https://esrutayerma.com",
+
+        facebook: "https://facebook.com/track-noche",
+        instagram: "https://instagram.com/track-noche",
+        tiktok: "https://www.tiktok.com/music/-7664768065549518865",
+      },
+    },
+    camera: {
+      position: {
+        x: -1.9,
+        y: 1.3,
+        z: 0.9,
+      },
+
+      target: {
+        x: 0,
+        y: 1.3,
+        z: 0,
+      },
+    },
+    youtube: {
+      day: "https://www.tiktok.com/music/-7686682375603259409",
+      night: "https://youtu.be/1rssala9TT4",
+    },
+  },
+  
+  Slider_Pista06: {
+    type: "track",
+    hint: "music",
+    title: {
+      day: "Track 6: SLIDE GUITAR",
+      night: "Me inundo: Track 2 - wurlitzer ",
+    },
+    cover: {
+      day: "https://assets.esrutayerma.com/covers/segundo_lanzamiento/day/EdMaverick_Escombro_06.jpg",
+      night: "https://assets.esrutayerma.com/covers/nigth/EdMaverick_MeInundo_6.jpg",
+    },
+    audio: {
+      day: "https://assets.esrutayerma.com/audios/segundo_lanzamiento/day/ESCOMBRO-_SLIDE_.mp3",
+      night: "https://assets.esrutayerma.com/audios/nigth/6.-wurlitzer-_stem_.mp3",
+    },
+   visuals: {
+      monitor: {
+        day: "../assets/video/day/grabadora_saery.mp4",
+        night: "../assets/video/day/grabadora_saery.mp4",
+      },
+
+      projector: {
+        day: "https://assets.esrutayerma.com/videos/segundo_lanzamiento/day/videos_segundo_lanzamiento_day_1.mp4",
+        night:
+          "https://assets.esrutayerma.com/videos/segundo_lanzamiento/night/Ed_ninios_frente.mp4",
+      },
+      curtains: {
+        day: "https://assets.esrutayerma.com/videos/segundo_lanzamiento/day/videos_segundo_lanzamiento_day_1.mp4",
+        night:
+          "https://assets.esrutayerma.com/videos/segundo_lanzamiento/night/Ed_ninios_lateral.mp4",
+      },
+    },
+    sharing: {
+      day: {
+        url: "https://esrutayerma.com/",
+        text: "Escucha 'Escombro'",
+        website: "https://esrutayerma.com",
+
+        facebook: "https://facebook.com/track-dia",
+        instagram: "https://instagram.com/track-dia",
+        tiktok: "https://www.tiktok.com/music/-7686686076463122433",
+      },
+
+      night: {
+        url: "https://esrutayerma.com/",
+        text: "Escucha 'No todo es parte de la vida'",
+        website: "https://esrutayerma.com",
+
+        facebook: "https://facebook.com/track-noche",
+        instagram: "https://instagram.com/track-noche",
+        tiktok: "https://www.tiktok.com/music/-7664792556329699345",
+      },
+    },
+    camera: {
+      position: {
+        x: -1.9,
+        y: 1.3,
+        z: 0.9,
+      },
+
+      target: {
+        x: 0,
+        y: 1.3,
+        z: 0,
+      },
+    },
+    youtube: {
+      day: "https://youtu.be/1rssala9TT4",
+      night: "https://youtu.be/1rssala9TT4",
+    },
+  },
   shop1: {
     type: "link",
     hint: "shop",
@@ -109,7 +525,27 @@ export default {
     url: "https://udiscover.mx/collections/ed-maverick/products/la-nube-en-el-jardin-en-vivo-desde-sala-nezahualcoyotl",
     animation: "venta",
   },
-  
+  shop1: {
+    type: "link",
+    hint: "shop",
+    beacon: {
+      color: "#FFD600",
+
+      size: 0.1,
+
+      animation: "pulse",
+    },
+
+    hover: {
+      outline: true,
+
+      emissive: 0.8,
+    },
+    title: "La Nube en vivo",
+    actionLabel: "visita tienda oficial",
+    url: "https://udiscover.mx/collections/ed-maverick/products/la-nube-en-el-jardin-en-vivo-desde-sala-nezahualcoyotl",
+    animation: "venta",
+  },
   shop2: {
     type: "link",
     hint: "shop",
@@ -386,6 +822,16 @@ export default {
       emissive: 0.8,
     },
     animation: "alas5"
+  },
+   sl_mosco6: {
+    type: "info",
+    title: "Tú y yo no somos iguales",
+    hover: {
+      outline: true,
+
+      emissive: 0.8,
+    },
+    animation: "alas6"
   },
   NotaNoche: {
     type: "info",
