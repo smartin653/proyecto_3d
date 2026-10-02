@@ -562,7 +562,10 @@ export default class Experience {
 
       // if (!data) return;
 
-      const result = InteractionResolver.resolve(child);
+      const result = InteractionResolver.resolve(
+        child,
+        this.contentVersionManager.getMode(),
+      );
 
       if (!result) return;
 

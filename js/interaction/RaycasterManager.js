@@ -123,7 +123,10 @@ export default class RaycasterManager {
   let result = null;
 
   const hit = intersects.find((item) => {
-    result = InteractionResolver.resolve(item.object);
+    result = InteractionResolver.resolve(
+      item.object,
+      this.contentVersionManager.getMode(),
+    );
 
     if (!result) {
       return false;
