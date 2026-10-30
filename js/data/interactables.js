@@ -23,12 +23,12 @@ export default {
     },
     cover: {
       day: "https://assets.esrutayerma.com/covers/tercer-lanzamiento/day/Ed01_1.jpg",
-      night: "https://assets.esrutayerma.com/covers/tercer-lanzamiento/day/Ed01_1.jpg",
+      night: "https://assets.esrutayerma.com/covers/tercer-lanzamiento/night/Ed01%20(1)_1.jpg",
     },
     audio: {
       day: "https://assets.esrutayerma.com/audios/tercer-lanzamiento/GUITARRA-AC%C3%9ASTICA.mp3",
       night:
-        "https://assets.esrutayerma.com/audios/tercer-lanzamiento/GUITARRA-AC%C3%9ASTICA.mp3",
+        "https://assets.esrutayerma.com/audios/tercer-lanzamiento/night/guitarra-ac%C3%BAstica.mp3",
     },
     sharing: {
       day: {
@@ -56,23 +56,23 @@ export default {
     visuals: {
       monitor: {
         day: "../assets/video/day/261029_SAERY_Vol1.mp4",
-        night: "../assets/video/day/261029_SAERY_Vol1.mp4",
+        night: "../assets/video/night/261029_SAERY_Vol2.mp4",
       },
 
       projector: {
         day: "https://assets.esrutayerma.com/videos/tercer-lanzamiento/day/SAHUARO_1_1.mp4",
         night:
-          "https://assets.esrutayerma.com/videos/tercer-lanzamiento/day/SAHUARO_1_1.mp4",
+          "https://assets.esrutayerma.com/videos/tercer-lanzamiento/night/En_las_buenas_y_en_las_malas_2_1.mp4",
       },
       curtains: {
         day: "https://assets.esrutayerma.com/videos/tercer-lanzamiento/day/SAHUARO_2_1.mp4",
         night:
-          "https://assets.esrutayerma.com/videos/tercer-lanzamiento/day/SAHUARO_2_1.mp4",
+          "https://assets.esrutayerma.com/videos/tercer-lanzamiento/night/En_las_buenas_y_en_las_malas_1_2.mp4",
       },
     },
     youtube: {
       day: "https://www.tiktok.com/music/-7699683402954164230",
-      night: "https://www.tiktok.com/music/-7699683402954164230",
+      night: "https://www.tiktok.com/music/-7699327356518860852",
     },
     camera: {
       position: {
@@ -208,6 +208,16 @@ export default {
     },
     animation: "Nota_Dia",
   },
+  NotaNoche: {
+    type: "info",
+    showCard: false,
+    hover: {
+      outline: true,
+
+      emissive: 0.8,
+    },
+    animation: "Nota_Noche",
+  },
   carta: {
     type: "link",
     showCard: true,
@@ -243,7 +253,17 @@ export default {
     
   },
  
-  // segundo lanzamiento 
+   texto_1: {
+    type: "info",
+    showCard: false,
+    hover: {
+      outline: true,
+
+      emissive: 0.8,
+    },
+    animation: "texto_1Action",
+  },
+
   
   REC: {
     type: "action",
