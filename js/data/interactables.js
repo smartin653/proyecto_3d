@@ -106,16 +106,16 @@ export default {
     },
     title: {
       day: "Track 2: MELLO VIBES",
-      night: "Track 1: GUITARRA ACÚSTICA",
+      night: "Track 2: cuerdas",
     },
     cover: {
       day: "https://assets.esrutayerma.com/covers/tercer-lanzamiento/day/Ed02_1.jpg",
-      night: "https://assets.esrutayerma.com/covers/tercer-lanzamiento/night/Ed01%20(1)_1.jpg",
+      night: "https://assets.esrutayerma.com/covers/tercer-lanzamiento/night/Ed02%20(1)_1.jpg",
     },
     audio: {
       day: "https://assets.esrutayerma.com/audios/tercer-lanzamiento/MELLO.mp3",
       night:
-        "https://assets.esrutayerma.com/audios/tercer-lanzamiento/night/guitarra-ac%C3%BAstica.mp3",
+        "https://assets.esrutayerma.com/audios/tercer-lanzamiento/night/cuerdas%20(1).mp3",
     },
     sharing: {
       day: {
@@ -159,7 +159,7 @@ export default {
     },
     youtube: {
       day: "https://www.tiktok.com/music/-7699671112900593670",
-      night: "https://www.tiktok.com/music/-7699327356518860852",
+      night: "https://www.tiktok.com/music/-7699321415121045556",
     },
     camera: {
       position: {
@@ -352,6 +352,17 @@ export default {
   },
  
    texto_1: {
+    type: "info",
+    showCard: false,
+    hover: {
+      outline: true,
+
+      emissive: 0.8,
+    },
+    animation: "texto_1Action",
+  },
+
+  texto_2: {
     type: "info",
     showCard: false,
     hover: {
