@@ -33,7 +33,7 @@ export default class EnvironmentManager {
       return "morning";
     }
 
-    if (hour >= 9 && hour < 19) {
+    if (hour >= 9 && hour < 18) {
       return "afternoon";
     }
 
