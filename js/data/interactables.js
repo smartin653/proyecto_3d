@@ -245,7 +245,7 @@ export default {
       },
     },
     youtube: {
-      day: "https://www.tiktok.com/music/-7699671112900593670",
+      day: "https://www.tiktok.com/music/-7699670371457386497",
       night: "https://www.tiktok.com/music/-7699321415121045556",
     },
     camera: {
