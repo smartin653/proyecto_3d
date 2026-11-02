@@ -62,7 +62,7 @@ export default class ContentVersionManager {
 
   getSceneModel() {
   return this.resolve({
-    day: "https://assets.esrutayerma.com/models/tercer-lanzamiento/day/SAHUARO_DIA3.glb",
+    day: "https://assets.esrutayerma.com/models/tercer-lanzamiento/day/SAHUARO_DIA4.glb",
     night: "https://assets.esrutayerma.com/models/tercer-lanzamiento/night/EnLasBuenasYEnLasMalas_Dia3.glb",
   });
 }
