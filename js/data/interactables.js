@@ -193,16 +193,16 @@ export default {
     },
     title: {
       day: "Track 3: CUERDAS",
-      night: "Track 2: cuerdas",
+      night: "Track 3: guitarra eléctrica",
     },
     cover: {
       day: "https://assets.esrutayerma.com/covers/tercer-lanzamiento/day/Ed02_1.jpg",
-      night: "https://assets.esrutayerma.com/covers/tercer-lanzamiento/night/Ed02%20(1)_1.jpg",
+      night: "https://assets.esrutayerma.com/covers/tercer-lanzamiento/night/Ed03%20(1)_1.jpg",
     },
     audio: {
       day: "https://assets.esrutayerma.com/audios/tercer-lanzamiento/CUERDAS.mp3",
       night:
-        "https://assets.esrutayerma.com/audios/tercer-lanzamiento/night/cuerdas%20(1).mp3",
+        "https://assets.esrutayerma.com/audios/tercer-lanzamiento/night/guitarra-el%C3%A9ctrica.mp3",
     },
     sharing: {
       day: {
@@ -246,7 +246,7 @@ export default {
     },
     youtube: {
       day: "https://www.tiktok.com/music/-7699670371457386497",
-      night: "https://www.tiktok.com/music/-7699321415121045556",
+      night: "https://www.tiktok.com/music/-7699318503766427649",
     },
     camera: {
       position: {
