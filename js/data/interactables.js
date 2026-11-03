@@ -349,6 +349,93 @@ export default {
       },
     },
   },
+   Slider_Pista05: {
+    type: "track",
+    hint: "music",
+    beacon: {
+      color: "#FFD600",
+
+      size: 0.1,
+
+      animation: "pulse",
+    },
+
+    hover: {
+      outline: true,
+
+      emissive: 0.8,
+    },
+    title: {
+      day: "Track 5: BAJO",
+      night: "Track 4: drums",
+    },
+    cover: {
+      day: "https://assets.esrutayerma.com/covers/tercer-lanzamiento/day/Ed054545_1.jpg",
+      night: "https://assets.esrutayerma.com/covers/tercer-lanzamiento/night/Ed04%20(1)_1.jpg",
+    },
+    audio: {
+      day: "https://assets.esrutayerma.com/audios/tercer-lanzamiento/BAJO.mp3",
+      night:
+        "https://assets.esrutayerma.com/audios/tercer-lanzamiento/night/drums%20(1).mp3",
+    },
+    sharing: {
+      day: {
+        url: "https://esrutayerma.com/",
+        text: "Escucha 'Escombro'",
+        website: "https://esrutayerma.com",
+
+        facebook: "",
+        instagram: "",
+        tiktok: "",
+      },
+
+      night: {
+        url: "https://esrutayerma.com/",
+        text: "Escucha ",
+        website: "https://esrutayerma.com",
+
+        facebook: "",
+        instagram: "",
+        tiktok: "",
+      },
+    },
+
+    download: "https://assets.esrutayerma.com/audios/segundo_lanzamiento/day/ESCOMBRO-_GUITARRA-EL%C3%89CTRICA_.mp3",
+    visuals: {
+      monitor: {
+        day: "../assets/video/day/261029_SAERY_Vol1.mp4",
+        night: "../assets/video/night/261029_SAERY_Vol2.mp4",
+      },
+
+      projector: {
+        day: "https://assets.esrutayerma.com/videos/tercer-lanzamiento/day/SAHUARO_1_1.mp4",
+        night:
+          "https://assets.esrutayerma.com/videos/tercer-lanzamiento/night/En_las_buenas_y_en_las_malas_2_1.mp4",
+      },
+      curtains: {
+        day: "https://assets.esrutayerma.com/videos/tercer-lanzamiento/day/SAHUARO_2_1.mp4",
+        night:
+          "https://assets.esrutayerma.com/videos/tercer-lanzamiento/night/En_las_buenas_y_en_las_malas_1_2.mp4",
+      },
+    },
+    youtube: {
+      day: "https://www.tiktok.com/music/-7699670371457337345",
+      night: "https://www.tiktok.com/music/-7699318503766427649",
+    },
+    camera: {
+      position: {
+        x: -1.9,
+        y: 1.3,
+        z: 0.9,
+      },
+
+      target: {
+        x: 0,
+        y: 1.3,
+        z: 0,
+      },
+    },
+  },
   
   shop1: {
     type: "link",
@@ -538,6 +625,18 @@ export default {
   sahauro_4: {
     type: "info",
     title: "Derrite mis botas de piel. El sol brillando. Todo lo que quiero hacer, lo voy a hacer.",
+    showCard: true,
+    hover: {
+      outline: true,
+
+      emissive: 0.8,
+    },
+    
+  },
+
+   sahauro_5: {
+    type: "info",
+    title: "Da igual ni pienso en el ayer. No estoy tripeando. La magia está en ir y volver.",
     showCard: true,
     hover: {
       outline: true,
