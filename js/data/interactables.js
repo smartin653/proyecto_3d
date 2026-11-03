@@ -367,16 +367,16 @@ export default {
     },
     title: {
       day: "Track 5: BAJO",
-      night: "Track 4: drums",
+      night: "Track 5: bajo",
     },
     cover: {
       day: "https://assets.esrutayerma.com/covers/tercer-lanzamiento/day/Ed054545_1.jpg",
-      night: "https://assets.esrutayerma.com/covers/tercer-lanzamiento/night/Ed04%20(1)_1.jpg",
+      night: "https://assets.esrutayerma.com/covers/tercer-lanzamiento/night/Ed0543%20(1)_1.jpg",
     },
     audio: {
       day: "https://assets.esrutayerma.com/audios/tercer-lanzamiento/BAJO.mp3",
       night:
-        "https://assets.esrutayerma.com/audios/tercer-lanzamiento/night/drums%20(1).mp3",
+        "https://assets.esrutayerma.com/audios/tercer-lanzamiento/night/bajo%20(1).mp3",
     },
     sharing: {
       day: {
