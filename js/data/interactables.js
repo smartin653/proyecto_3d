@@ -280,16 +280,16 @@ export default {
     },
     title: {
       day: "Track 4: DRUMS",
-      night: "Track 3: guitarra eléctrica",
+      night: "Track 4: drums",
     },
     cover: {
       day: "https://assets.esrutayerma.com/covers/tercer-lanzamiento/day/Ed04545_1.jpg",
-      night: "https://assets.esrutayerma.com/covers/tercer-lanzamiento/night/Ed03%20(1)_1.jpg",
+      night: "https://assets.esrutayerma.com/covers/tercer-lanzamiento/night/Ed04%20(1)_1.jpg",
     },
     audio: {
       day: "https://assets.esrutayerma.com/audios/tercer-lanzamiento/DRUMS.mp3",
       night:
-        "https://assets.esrutayerma.com/audios/tercer-lanzamiento/night/guitarra-el%C3%A9ctrica.mp3",
+        "https://assets.esrutayerma.com/audios/tercer-lanzamiento/night/drums%20(1).mp3",
     },
     sharing: {
       day: {
