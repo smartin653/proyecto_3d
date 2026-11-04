@@ -457,11 +457,11 @@ export default {
       night: "Track 5: bajo",
     },
     cover: {
-      day: "https://assets.esrutayerma.com/covers/tercer-lanzamiento/day/Ed06545_1.jpg",
+      day: "https://sitio-ed.s3.us-east-1.amazonaws.com/portada/Ed06434+(1)_1.jpg",
       night: "https://assets.esrutayerma.com/covers/tercer-lanzamiento/night/Ed0543%20(1)_1.jpg",
     },
     audio: {
-      day: "https://assets.esrutayerma.com/audios/tercer-lanzamiento/BAJO.mp3",
+      day: "https://sitio-ed.s3.us-east-1.amazonaws.com/PANDERO.mp3",
       night:
         "https://assets.esrutayerma.com/audios/tercer-lanzamiento/PANDERO.mp3",
     },
@@ -495,12 +495,12 @@ export default {
       },
 
       projector: {
-        day: "https://assets.esrutayerma.com/videos/tercer-lanzamiento/day/SAHUARO_1_1.mp4",
+        day: "https://sitio-ed.s3.us-east-1.amazonaws.com/videos/SAHUARO+1_2.mp4",
         night:
           "https://assets.esrutayerma.com/videos/tercer-lanzamiento/night/En_las_buenas_y_en_las_malas_2_1.mp4",
       },
       curtains: {
-        day: "https://assets.esrutayerma.com/videos/tercer-lanzamiento/day/SAHUARO_2_1.mp4",
+        day: "https://sitio-ed.s3.us-east-1.amazonaws.com/videos/SAHUARO+2_1.mp4",
         night:
           "https://assets.esrutayerma.com/videos/tercer-lanzamiento/night/En_las_buenas_y_en_las_malas_1_2.mp4",
       },
