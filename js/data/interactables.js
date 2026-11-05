@@ -454,16 +454,16 @@ export default {
     },
     title: {
       day: "Track 6: PANDERO",
-      night: "Track 5: bajo",
+      night: "Track 6: órgano",
     },
     cover: {
       day: "https://assets.esrutayerma.com/covers/tercer-lanzamiento/day/Ed06545_1.jpg",
-      night: "https://assets.esrutayerma.com/covers/tercer-lanzamiento/night/Ed0543%20(1)_1.jpg",
+      night: "https://assets.esrutayerma.com/covers/tercer-lanzamiento/night/Ed06434%20(1)_1.jpg",
     },
     audio: {
       day: "https://sitio-ed.s3.us-east-1.amazonaws.com/PANDERO.mp3",
       night:
-        "https://assets.esrutayerma.com/audios/tercer-lanzamiento/PANDERO.mp3",
+        "https://assets.esrutayerma.com/audios/tercer-lanzamiento/night/%C3%B3rgano.mp3",
     },
     sharing: {
       day: {
@@ -507,7 +507,7 @@ export default {
     },
     youtube: {
       day: "https://www.tiktok.com/music/-7699675893615200308",
-      night: "https://www.tiktok.com/music/-7699318503766427649",
+      night: "https://www.tiktok.com/music/-7699317967339374598",
     },
     camera: {
       position: {
