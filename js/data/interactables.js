@@ -561,6 +561,7 @@ export default {
         facebook: "",
         instagram: "",
         tiktok: "",
+        music:"https://edmaverick.lnk.to/SAHUARO"
       },
 
       night: {
@@ -577,7 +578,7 @@ export default {
     download: "https://assets.esrutayerma.com/audios/segundo_lanzamiento/day/ESCOMBRO-_GUITARRA-EL%C3%89CTRICA_.mp3",
     visuals: {
       monitor: {
-        day: "../assets/video/day/261029_SAERY_Vol1.mp4",
+        day: "https://assets.esrutayerma.com/videos/tercer-lanzamiento/day/SAHUAROCOLOR2300HB.mp4",
         night: "../assets/video/night/261029_SAERY_Vol2.mp4",
       },
 
@@ -593,7 +594,7 @@ export default {
       },
     },
     youtube: {
-      day: "https://edmaverick.lnk.to/SAHUARO",
+      day: "https://youtu.be/nPJoCU1GgB0?si=fFaCSKDGW2WqGnGO",
       night: "https://www.tiktok.com/music/-7699317967339374598",
     },
     camera: {
@@ -865,7 +866,7 @@ export default {
     description:
       "Se abrirá el video oficial de la canción que se está reproduciendo en una nueva pestaña.",
 
-    actionLabel: "Escuchar ahora",
+    actionLabel: "Ver en Youtube",
 
     hover: {
       outline: true,
