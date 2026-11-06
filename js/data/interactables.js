@@ -545,12 +545,12 @@ export default {
     },
     cover: {
       day: "https://assets.esrutayerma.com/covers/day/SAHUARO001RGB%20(1).jpg",
-      night: "https://assets.esrutayerma.com/covers/tercer-lanzamiento/night/Ed06434%20(1)_1.jpg",
+      night: "https://assets.esrutayerma.com/covers/tercer-lanzamiento/night/ELBYELM001RGB%20(1)%20(1).jpg",
     },
     audio: {
       day: "https://assets.esrutayerma.com/audios/tercer-lanzamiento/sahuaro-jj-mix-6-without-limiter-mastered-dk_Ob0usrkk.mp3",
       night:
-        "https://assets.esrutayerma.com/audios/tercer-lanzamiento/night/%C3%B3rgano.mp3",
+        "https://assets.esrutayerma.com/audios/tercer-lanzamiento/night/ELBYELM_QT_1_AUDIO.mp3",
     },
     sharing: {
       day: {
@@ -568,6 +568,7 @@ export default {
         url: "https://esrutayerma.com/",
         text: "Escucha ",
         website: "https://esrutayerma.com",
+        music: "https://edmaverick.lnk.to/enlasbuenas",
 
         facebook: "",
         instagram: "",
@@ -579,7 +580,7 @@ export default {
     visuals: {
       monitor: {
         day: "https://assets.esrutayerma.com/videos/tercer-lanzamiento/day/SAHUAROCOLOR2300HB.mp4",
-        night: "../assets/video/night/261029_SAERY_Vol2.mp4",
+        night: "https://assets.esrutayerma.com/videos/tercer-lanzamiento/night/ELBYELM_QT.mp4",
       },
 
       projector: {
