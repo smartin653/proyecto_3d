@@ -568,7 +568,7 @@ export default {
         url: "https://esrutayerma.com/",
         text: "Escucha ",
         website: "https://esrutayerma.com",
-        music: "https://edmaverick.lnk.to/enlasbuenas",
+        music: "https://edmaverick.lnk.to/elbyelm",
 
         facebook: "",
         instagram: "",
