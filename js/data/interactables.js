@@ -596,7 +596,7 @@ export default {
     },
     youtube: {
       day: "https://youtu.be/nPJoCU1GgB0?si=fFaCSKDGW2WqGnGO",
-      night: "https://www.tiktok.com/music/-7699317967339374598",
+      night: "https://youtu.be/LqUiJM1oTco?si=EcZOSVZ5hURJib3M",
     },
     camera: {
       position: {
