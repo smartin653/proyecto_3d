@@ -1,0 +1,146 @@
+
+{
+  "shop1": {
+    "type": "link",
+    "hint": "shop",
+    "beacon": {
+      "color": "#FFD600",
+      "size": 0.1,
+      "animation": "pulse"
+    },
+    "hover": {
+      "outline": true,
+      "emissive": 0.8
+    },
+    "title": "La Nube en vivo",
+    "actionLabel": "visita tienda oficial",
+    "url": "https://udiscover.mx/collections/ed-maverick/products/la-nube-en-el-jardin-en-vivo-desde-sala-nezahualcoyotl",
+    "animation": "venta"
+  },
+  "shop2": {
+    "type": "link",
+    "hint": "shop",
+    "beacon": {
+      "color": "#FFD600",
+      "size": 0.1,
+      "animation": "pulse",
+      "actionLabel": "visita tienda oficial",
+      "url": "https://udiscover.mx/collections/ed-maverick/products/la-nube-en-el-jardin-vinilo-doble-color-black"
+    },
+    "hover": {
+      "outline": true,
+      "emissive": 0.8
+    },
+    "title": "La nube",
+    "actionLabel": "visita tienda oficial",
+    "url": "https://udiscover.mx/products/la-nube-en-el-jardin-vinilo-doble-color-black",
+    "animation": "venta.001"
+  },
+  "shop3": {
+    "type": "link",
+    "hint": "shop",
+    "beacon": {
+      "color": "#FFD600",
+      "size": 0.1,
+      "animation": "pulse"
+    },
+    "hover": {
+      "outline": true,
+      "emissive": 0.8
+    },
+    "title": "Eduardo",
+    "actionLabel": "visita tienda oficial",
+    "url": "https://udiscover.mx/collections/ed-maverick/products/eduardo-2lp",
+    "animation": "venta.002"
+  },
+  "shop4": {
+    "type": "link",
+    "hint": "shop",
+    "beacon": {
+      "color": "#FFD600",
+      "size": 0.1,
+      "animation": "pulse"
+    },
+    "hover": {
+      "outline": true,
+      "emissive": 0.8
+    },
+    "title": "La Nube libro",
+    "actionLabel": "visita tienda oficial",
+    "url": "https://udiscover.mx/collections/ed-maverick/products/ed-maverick-la-nube-en-el-jardin-en-vivo",
+    "animation": "venta.003"
+  },
+  "porter": {
+    "type": "link",
+    "hint": "shop",
+    "beacon": {
+      "color": "#FFD600",
+      "size": 0.1,
+      "animation": "pulse"
+    },
+    "hover": {
+      "outline": true,
+      "emissive": 0.8
+    },
+    "title": "SAERY tour",
+    "actionLabel": "Boletos",
+    "url": "https://esrutayerma.com/tour",
+    "animation": "poster_move"
+  },
+  "carta": {
+    "type": "link",
+    "showCard": true,
+    "hover": {
+      "outline": true,
+      "emissive": 0.8
+    },
+    "title": "Newsletter",
+    "actionLabel": "Suscribirse",
+    "url": "https://link.fans/edmaverick",
+    "animation": "cartaAction"
+  },
+  "lista": {
+    "type": "info",
+    "showCard": false,
+    "hover": {
+      "outline": true,
+      "emissive": 0.8
+    },
+    "animation": "listaAction"
+  },
+
+  
+  "REC": {
+    "type": "action",
+    "action": "openOfficialVideo",
+    "hint": "youtube",
+    "title": "",
+    "description": "Se abrirá el video oficial de la canción que se está reproduciendo en una nueva pestaña.",
+    "actionLabel": "Ver en Youtube",
+    "hover": {
+      "outline": true,
+      "emissive": 0.8
+    },
+    "requiresTrack": true
+  },
+  "EFECTO": {
+    "type": "trigger",
+    "showCard": false,
+    "action": "toggleMood",
+    "mood": "cinematic",
+    "hint": "youtube",
+    "description": "Activa una experiencia visual.",
+    "actionLabel": "Haz clic para activar el modo cinematográfico.",
+    "hover": {
+      "outline": true,
+      "emissive": 0.8
+    }
+  },
+ 
+  "Activador_persiana": {
+    "showCard": false,
+    "animation": "ventana.001",
+    "animationTrigger": "click",
+    "animationMode": "toggle"
+  }
+}
