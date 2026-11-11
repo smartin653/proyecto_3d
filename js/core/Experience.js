@@ -37,6 +37,7 @@ import InteractionCard from "../ui/InteractionCard.js";
 import EffectsManager from "./EffectsManager.js";
 import InteractionManager from "../interaction/InteractionManager.js";
 import ReleaseManager from "./ReleaseManager.js";
+import SunLight from "../environment/SunLight.js";
 
 export default class Experience {
   constructor() {
@@ -395,6 +396,75 @@ export default class Experience {
         light.color.set(settings.color);
       }
     });
+
+    this.applyAtmosphere(preset);
+  }
+
+  // Relleno ambiental (HemisphereLight) y sol con gobo (SunLight). Solo
+  // existen en los presets que los declaran; en el resto se ocultan.
+  applyAtmosphere(preset) {
+    if (preset.hemisphere) {
+      if (!this.hemisphereLight) {
+        this.hemisphereLight = new THREE.HemisphereLight();
+        this.hemisphereLight.name = "AmbientFill";
+        this.scene.add(this.hemisphereLight);
+      }
+
+      this.hemisphereLight.color.set(preset.hemisphere.sky);
+      this.hemisphereLight.groundColor.set(preset.hemisphere.ground);
+      this.hemisphereLight.intensity = preset.hemisphere.intensity;
+      this.hemisphereLight.visible = true;
+    } else if (this.hemisphereLight) {
+      this.hemisphereLight.visible = false;
+    }
+
+    if (preset.sun) {
+      if (!this.sunLight) {
+        this.sunLight = new SunLight(this.scene);
+      }
+
+      this.sunLight.apply(preset.sun);
+    } else if (this.sunLight) {
+      this.sunLight.hide();
+    }
+
+    this.applyFills(preset.fills ?? []);
+  }
+
+  // Luces de relleno/rebote sin sombras. Se reutilizan entre modos: las que
+  // sobran se ocultan en lugar de destruirse.
+  applyFills(fills) {
+    if (!this.fillLights) this.fillLights = [];
+
+    fills.forEach((settings, i) => {
+      if (!this.fillLights[i]) {
+        const light = new THREE.SpotLight();
+
+        light.name = `FillLight${i}`;
+        light.decay = 2;
+        light.distance = 0;
+
+        this.scene.add(light);
+        this.scene.add(light.target);
+
+        this.fillLights[i] = light;
+      }
+
+      const light = this.fillLights[i];
+
+      light.visible = true;
+      light.color.set(settings.color);
+      light.intensity = settings.intensity;
+      light.angle = settings.angle ?? 1.0;
+      light.penumbra = settings.penumbra ?? 0.8;
+      light.position.set(...settings.position);
+      light.target.position.set(...settings.target);
+      light.target.updateMatrixWorld();
+    });
+
+    for (let i = fills.length; i < this.fillLights.length; i++) {
+      this.fillLights[i].visible = false;
+    }
   }
 
   setTrackInteractablesVisible(visible) {

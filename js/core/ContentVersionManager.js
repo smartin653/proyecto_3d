@@ -5,10 +5,10 @@ export default class ContentVersionManager {
     const hour = new Date().getHours();
 
     if (hour >= 6 && hour < 18) {
-      return "night";
+      return "day";
     }
 
-    return "day";
+    return "night";
   }
 
   getIdleVideo() {
