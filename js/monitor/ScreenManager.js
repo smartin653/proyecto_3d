@@ -2,6 +2,7 @@ export default class ScreenManager {
   constructor() {
     this.screens = {};
     this.currentPreset = null;
+    this.idleFrames = {}; // nombre de pantalla -> video del fotograma de reposo
   }
 
   add(name, screen) {
@@ -99,9 +100,36 @@ export default class ScreenManager {
 
 
 
+  // Pantalla clicable: muestra un fotograma en pausa y recuerda su video
+  // para volver a ese estado cuando termina un track.
+  setIdle(name, videoPath) {
+    const screen = this.screens[name];
+
+    if (!screen || !videoPath) return;
+
+    this.idleFrames[name] = videoPath;
+    screen.showFrame(videoPath);
+  }
+
+  toggle(name, videoPath) {
+    const screen = this.screens[name];
+
+    if (!screen) {
+      console.warn(`Pantalla ${name} no encontrada`);
+      return;
+    }
+
+    screen.toggle(videoPath);
+  }
+
   stopAll() {
-    Object.values(this.screens).forEach((screen) => {
+    Object.entries(this.screens).forEach(([name, screen]) => {
       screen.setInactive();
+
+      // Las pantallas clicables vuelven a su fotograma de reposo.
+      if (this.idleFrames[name]) {
+        screen.showFrame(this.idleFrames[name]);
+      }
     });
   }
 

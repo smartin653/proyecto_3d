@@ -245,6 +245,7 @@ export default class Experience {
       this.cinematicManager.test();
       this.setupScene(gltf.scene);
       this.setupInteractables(gltf.scene);
+      this.setupClickableScreens();
 
       this.gardens = {
         morning: gltf.scene.getObjectByName("Jardin_amanecer"),
@@ -490,6 +491,19 @@ export default class Experience {
     };
   }
 
+  // Pantallas clicables (interactables type "screen"): arrancan con un
+  // fotograma en pausa; el clic las reproduce o pausa (ver handleInteraction).
+  setupClickableScreens() {
+    Object.values(interactables).forEach((data) => {
+      if (data.type !== "screen") return;
+
+      this.screenManager.setIdle(
+        data.screen,
+        this.contentVersionManager.resolve(data.video),
+      );
+    });
+  }
+
   playIdleMonitor() {
     this.screenManager.play({
       monitor: this.contentVersionManager.getIdleVideo(),
@@ -584,6 +598,8 @@ export default class Experience {
       InteractionHelper.forEachMesh(object, (mesh) => {
         mesh.material = mesh.material.clone();
 
+        if (!mesh.material.emissive) return; // p. ej. MeshBasicMaterial de video
+
         mesh.material.emissive.set(0xffffff);
 
         mesh.material.emissiveIntensity = 0.15;
@@ -619,6 +635,8 @@ export default class Experience {
     // });
     this.interactables.forEach((item) => {
       InteractionHelper.forEachMesh(item, (mesh) => {
+        if (!mesh.material.emissive) return; // pantalla mostrando video
+
         mesh.material.emissiveIntensity = 0.15 + pulse * 0.25;
       });
     });
@@ -693,6 +711,14 @@ export default class Experience {
         this.spotifyPlayer.show(content);
 
         this.screenManager.play(content.visuals);
+
+        break;
+
+      case "screen":
+        this.screenManager.toggle(
+          interactable.screen,
+          this.contentVersionManager.resolve(interactable.video),
+        );
 
         break;
 

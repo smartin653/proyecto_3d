@@ -90,9 +90,7 @@ export default class RaycasterManager {
     this.interactionCard.scheduleHide();
 
     if (this.hoveredObject) {
-      this.hoveredObject.material.emissive.set(0x000000);
-
-      this.hoveredObject.material.emissiveIntensity = 0;
+      this.clearEmissive(this.hoveredObject);
 
       if (this.hoveredInteractable?.animationOptions?.stopOnLeave !== false) {
         this.animationManager.stop();
@@ -169,21 +167,31 @@ export default class RaycasterManager {
 
     if (this.hoveredObject !== hit.object) {
       if (this.hoveredObject) {
-        this.hoveredObject.material.emissive.set(0x000000);
-
-        this.hoveredObject.material.emissiveIntensity = 0;
+        this.clearEmissive(this.hoveredObject);
       }
 
       this.hoveredObject = hit.object;
       this.hoveredInteractable = interactable;
-      this.hoveredObject.material.emissive.set(0xffffff);
 
-      this.hoveredObject.material.emissiveIntensity = 1;
+      // Una pantalla mostrando video usa MeshBasicMaterial (sin emissive).
+      if (this.hoveredObject.material.emissive) {
+        this.hoveredObject.material.emissive.set(0xffffff);
+
+        this.hoveredObject.material.emissiveIntensity = 1;
+      }
 
       if (interactable.animationTrigger !== "click") {
         this.animationManager.play(interactable);
       }
     }
+  }
+
+  clearEmissive(object) {
+    if (!object.material?.emissive) return;
+
+    object.material.emissive.set(0x000000);
+
+    object.material.emissiveIntensity = 0;
   }
 
   onPointerDown(event) {

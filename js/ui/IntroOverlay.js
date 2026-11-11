@@ -18,8 +18,7 @@ export default class IntroOverlay {
         </h1>
 
         <p class="intro-description">
-          Cosas pasan cuando hay sol, cosas pasan cuando sale la luna y así todos los días. Las 6 en el reloj marcan el cambio. <br>  <br>
-          Ocupa los audios disponibles día tras día y comparte tu música. No olvides registrar tus creaciones con #SAERY.
+          Las 6 en el reloj revelan la ruta. Regresa al estudio HEUBD todos los días.
         </p>
 
         <button id="enter-btn" disabled>CARGANDO...</button>
@@ -38,7 +37,7 @@ export default class IntroOverlay {
   enable() {
     this.button.disabled = false;
 
-    this.button.textContent = "Entrar al HEUBD estudio";
+    this.button.textContent = "Entra al estudio";
   }
 
   onEnter(callback) {

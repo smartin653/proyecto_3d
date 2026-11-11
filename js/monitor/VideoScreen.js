@@ -12,6 +12,10 @@ export default class MonitorScreen {
     this.isActive = false;
     this.logged = false;
 
+    // Video para el que hay un "fotograma en pausa" pendiente de cargar.
+    // Si otra cosa toma el control antes (track, clic), se descarta.
+    this.pendingFrame = null;
+
     //----------------------------------
     // Video
     //----------------------------------
@@ -139,6 +143,7 @@ export default class MonitorScreen {
 
  setActive(videoPath) {
   this.isActive = true;
+  this.pendingFrame = null;
 
   const sameVideo = this.video.src.includes(videoPath);
 
@@ -172,8 +177,62 @@ export default class MonitorScreen {
   );
 }
 
+  //----------------------------------
+  // Fotograma en pausa (estado de reposo de una pantalla clicable)
+  //----------------------------------
+
+  showFrame(videoPath) {
+    if (!videoPath) return;
+
+    this.isActive = true; // update() mantiene viva la textura
+    this.pendingFrame = videoPath;
+
+    this.screen.material = this.videoMaterial;
+    this.screen.material.needsUpdate = true;
+
+    const apply = () => {
+      // Si mientras cargaba tomo el control un track o un clic, no pausar.
+      if (this.pendingFrame !== videoPath) return;
+
+      this.pendingFrame = null;
+      this.video.currentTime = 0;
+      this.video.pause();
+      this.videoTexture.needsUpdate = true;
+    };
+
+    if (this.video.src.includes(videoPath) && this.video.readyState >= 2) {
+      apply();
+      return;
+    }
+
+    this.setVideo(videoPath);
+    this.video.addEventListener("loadeddata", apply, { once: true });
+  }
+
+  // Clic en la pantalla: primer clic o video distinto => reproduce (en bucle);
+  // despues alterna pausa y reproduccion sin reiniciar el video.
+  toggle(videoPath) {
+    if (!videoPath) return;
+
+    const sameVideo = this.video.src.includes(videoPath);
+
+    this.pendingFrame = null;
+
+    if (!this.isActive || !sameVideo) {
+      this.setActive(videoPath);
+      return;
+    }
+
+    if (this.video.paused) {
+      this.video.play().catch(console.error);
+    } else {
+      this.video.pause();
+    }
+  }
+
   setInactive() {
     this.isActive = false;
+    this.pendingFrame = null;
 
     this.stopVideo();
 

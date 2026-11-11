@@ -1,617 +1,108 @@
 // js/data/interactables.js
 
 export default {
-  Slider_Pista01: {
-    type: "track",
-    hint: "music",
-    beacon: {
-      color: "#FFD600",
-
-      size: 0.1,
-
-      animation: "pulse",
-    },
-
-    hover: {
-      outline: true,
-
-      emissive: 0.8,
-    },
-    title: {
-      day: "Track 1: GUITARRA ACÚSTICA",
-      night: "Track 1: GUITARRA ACÚSTICA",
-    },
-    cover: {
-      day: "https://assets.esrutayerma.com/covers/tercer-lanzamiento/day/Ed01_1.jpg",
-      night: "https://assets.esrutayerma.com/covers/tercer-lanzamiento/night/Ed01%20(1)_1.jpg",
-    },
-    audio: {
-      day: "https://assets.esrutayerma.com/audios/tercer-lanzamiento/GUITARRA-AC%C3%9ASTICA.mp3",
-      night:
-        "https://assets.esrutayerma.com/audios/tercer-lanzamiento/night/guitarra-ac%C3%BAstica.mp3",
-    },
-    sharing: {
-      day: {
-        url: "https://esrutayerma.com/",
-        text: "Escucha 'Escombro'",
-        website: "https://esrutayerma.com",
-
-        facebook: "",
-        instagram: "",
-        tiktok: "",
-      },
-
-      night: {
-        url: "https://esrutayerma.com/",
-        text: "Escucha ",
-        website: "https://esrutayerma.com",
-
-        facebook: "",
-        instagram: "",
-        tiktok: "",
-      },
-    },
-
-    download: "https://assets.esrutayerma.com/audios/segundo_lanzamiento/day/ESCOMBRO-_GUITARRA-EL%C3%89CTRICA_.mp3",
-    visuals: {
-      monitor: {
-        day: "../assets/video/day/261029_SAERY_Vol1.mp4",
-        night: "../assets/video/night/261029_SAERY_Vol2.mp4",
-      },
-
-      projector: {
-        day: "https://assets.esrutayerma.com/videos/tercer-lanzamiento/day/SAHUARO_1_1.mp4",
-        night:
-          "https://assets.esrutayerma.com/videos/tercer-lanzamiento/night/En_las_buenas_y_en_las_malas_2_1.mp4",
-      },
-      curtains: {
-        day: "https://assets.esrutayerma.com/videos/tercer-lanzamiento/day/SAHUARO_2_1.mp4",
-        night:
-          "https://assets.esrutayerma.com/videos/tercer-lanzamiento/night/En_las_buenas_y_en_las_malas_1_2.mp4",
-      },
-    },
-    youtube: {
-      day: "https://www.tiktok.com/music/-7699683402954164230",
-      night: "https://www.tiktok.com/music/-7699327356518860852",
-    },
-    camera: {
-      position: {
-        x: -1.9,
-        y: 1.3,
-        z: 0.9,
-      },
-
-      target: {
-        x: 0,
-        y: 1.3,
-        z: 0,
-      },
-    },
-  },
-  Slider_Pista02: {
-    type: "track",
-    hint: "music",
-    beacon: {
-      color: "#FFD600",
-
-      size: 0.1,
-
-      animation: "pulse",
-    },
-
-    hover: {
-      outline: true,
-
-      emissive: 0.8,
-    },
-    title: {
-      day: "Track 2: MELLO VIBES",
-      night: "Track 2: cuerdas",
-    },
-    cover: {
-      day: "https://assets.esrutayerma.com/covers/tercer-lanzamiento/day/Ed02_1.jpg",
-      night: "https://assets.esrutayerma.com/covers/tercer-lanzamiento/night/Ed02%20(1)_1.jpg",
-    },
-    audio: {
-      day: "https://assets.esrutayerma.com/audios/tercer-lanzamiento/MELLO.mp3",
-      night:
-        "https://assets.esrutayerma.com/audios/tercer-lanzamiento/night/cuerdas%20(1).mp3",
-    },
-    sharing: {
-      day: {
-        url: "https://esrutayerma.com/",
-        text: "Escucha 'Escombro'",
-        website: "https://esrutayerma.com",
-
-        facebook: "",
-        instagram: "",
-        tiktok: "",
-      },
-
-      night: {
-        url: "https://esrutayerma.com/",
-        text: "Escucha ",
-        website: "https://esrutayerma.com",
-
-        facebook: "",
-        instagram: "",
-        tiktok: "",
-      },
-    },
-
-    download: "https://assets.esrutayerma.com/audios/segundo_lanzamiento/day/ESCOMBRO-_GUITARRA-EL%C3%89CTRICA_.mp3",
-    visuals: {
-      monitor: {
-        day: "../assets/video/day/261029_SAERY_Vol1.mp4",
-        night: "../assets/video/night/261029_SAERY_Vol2.mp4",
-      },
-
-      projector: {
-        day: "https://assets.esrutayerma.com/videos/tercer-lanzamiento/day/SAHUARO_1_1.mp4",
-        night:
-          "https://assets.esrutayerma.com/videos/tercer-lanzamiento/night/En_las_buenas_y_en_las_malas_2_1.mp4",
-      },
-      curtains: {
-        day: "https://assets.esrutayerma.com/videos/tercer-lanzamiento/day/SAHUARO_2_1.mp4",
-        night:
-          "https://assets.esrutayerma.com/videos/tercer-lanzamiento/night/En_las_buenas_y_en_las_malas_1_2.mp4",
-      },
-    },
-    youtube: {
-      day: "https://www.tiktok.com/music/-7699671112900593670",
-      night: "https://www.tiktok.com/music/-7699321415121045556",
-    },
-    camera: {
-      position: {
-        x: -1.9,
-        y: 1.3,
-        z: 0.9,
-      },
-
-      target: {
-        x: 0,
-        y: 1.3,
-        z: 0,
-      },
-    },
-  },
-   Slider_Pista03: {
-    type: "track",
-    hint: "music",
-    beacon: {
-      color: "#FFD600",
-
-      size: 0.1,
-
-      animation: "pulse",
-    },
-
-    hover: {
-      outline: true,
-
-      emissive: 0.8,
-    },
-    title: {
-      day: "Track 3: CUERDAS",
-      night: "Track 3: guitarra eléctrica",
-    },
-    cover: {
-      day: "https://assets.esrutayerma.com/covers/tercer-lanzamiento/day/Ed02_1.jpg",
-      night: "https://assets.esrutayerma.com/covers/tercer-lanzamiento/night/Ed03%20(1)_1.jpg",
-    },
-    audio: {
-      day: "https://assets.esrutayerma.com/audios/tercer-lanzamiento/CUERDAS.mp3",
-      night:
-        "https://assets.esrutayerma.com/audios/tercer-lanzamiento/night/guitarra-el%C3%A9ctrica.mp3",
-    },
-    sharing: {
-      day: {
-        url: "https://esrutayerma.com/",
-        text: "Escucha 'Escombro'",
-        website: "https://esrutayerma.com",
-
-        facebook: "",
-        instagram: "",
-        tiktok: "",
-      },
-
-      night: {
-        url: "https://esrutayerma.com/",
-        text: "Escucha ",
-        website: "https://esrutayerma.com",
-
-        facebook: "",
-        instagram: "",
-        tiktok: "",
-      },
-    },
-
-    download: "https://assets.esrutayerma.com/audios/segundo_lanzamiento/day/ESCOMBRO-_GUITARRA-EL%C3%89CTRICA_.mp3",
-    visuals: {
-      monitor: {
-        day: "../assets/video/day/261029_SAERY_Vol1.mp4",
-        night: "../assets/video/night/261029_SAERY_Vol2.mp4",
-      },
-
-      projector: {
-        day: "https://assets.esrutayerma.com/videos/tercer-lanzamiento/day/SAHUARO_1_1.mp4",
-        night:
-          "https://assets.esrutayerma.com/videos/tercer-lanzamiento/night/En_las_buenas_y_en_las_malas_2_1.mp4",
-      },
-      curtains: {
-        day: "https://assets.esrutayerma.com/videos/tercer-lanzamiento/day/SAHUARO_2_1.mp4",
-        night:
-          "https://assets.esrutayerma.com/videos/tercer-lanzamiento/night/En_las_buenas_y_en_las_malas_1_2.mp4",
-      },
-    },
-    youtube: {
-      day: "https://www.tiktok.com/music/-7699670371457386497",
-      night: "https://www.tiktok.com/music/-7699318503766427649",
-    },
-    camera: {
-      position: {
-        x: -1.9,
-        y: 1.3,
-        z: 0.9,
-      },
-
-      target: {
-        x: 0,
-        y: 1.3,
-        z: 0,
-      },
-    },
-  },
-  Slider_Pista04: {
-    type: "track",
-    hint: "music",
-    beacon: {
-      color: "#FFD600",
-
-      size: 0.1,
-
-      animation: "pulse",
-    },
-
-    hover: {
-      outline: true,
-
-      emissive: 0.8,
-    },
-    title: {
-      day: "Track 4: DRUMS",
-      night: "Track 4: drums",
-    },
-    cover: {
-      day: "https://assets.esrutayerma.com/covers/tercer-lanzamiento/day/Ed04545_1.jpg",
-      night: "https://assets.esrutayerma.com/covers/tercer-lanzamiento/night/Ed04%20(1)_1.jpg",
-    },
-    audio: {
-      day: "https://assets.esrutayerma.com/audios/tercer-lanzamiento/DRUMS.mp3",
-      night:
-        "https://assets.esrutayerma.com/audios/tercer-lanzamiento/night/drums%20(1).mp3",
-    },
-    sharing: {
-      day: {
-        url: "https://esrutayerma.com/",
-        text: "Escucha 'Escombro'",
-        website: "https://esrutayerma.com",
-
-        facebook: "",
-        instagram: "",
-        tiktok: "",
-      },
-
-      night: {
-        url: "https://esrutayerma.com/",
-        text: "Escucha ",
-        website: "https://esrutayerma.com",
-
-        facebook: "",
-        instagram: "",
-        tiktok: "",
-      },
-    },
-
-    download: "https://assets.esrutayerma.com/audios/segundo_lanzamiento/day/ESCOMBRO-_GUITARRA-EL%C3%89CTRICA_.mp3",
-    visuals: {
-      monitor: {
-        day: "../assets/video/day/261029_SAERY_Vol1.mp4",
-        night: "../assets/video/night/261029_SAERY_Vol2.mp4",
-      },
-
-      projector: {
-        day: "https://assets.esrutayerma.com/videos/tercer-lanzamiento/day/SAHUARO_1_1.mp4",
-        night:
-          "https://assets.esrutayerma.com/videos/tercer-lanzamiento/night/En_las_buenas_y_en_las_malas_2_1.mp4",
-      },
-      curtains: {
-        day: "https://assets.esrutayerma.com/videos/tercer-lanzamiento/day/SAHUARO_2_1.mp4",
-        night:
-          "https://assets.esrutayerma.com/videos/tercer-lanzamiento/night/En_las_buenas_y_en_las_malas_1_2.mp4",
-      },
-    },
-    youtube: {
-      day: "https://www.tiktok.com/music/-7699683402954180614",
-      night: "https://www.tiktok.com/music/-7699318503766427649",
-    },
-    camera: {
-      position: {
-        x: -1.9,
-        y: 1.3,
-        z: 0.9,
-      },
-
-      target: {
-        x: 0,
-        y: 1.3,
-        z: 0,
-      },
-    },
-  },
-   Slider_Pista05: {
-    type: "track",
-    hint: "music",
-    beacon: {
-      color: "#FFD600",
-
-      size: 0.1,
-
-      animation: "pulse",
-    },
-
-    hover: {
-      outline: true,
-
-      emissive: 0.8,
-    },
-    title: {
-      day: "Track 5: BAJO",
-      night: "Track 5: bajo",
-    },
-    cover: {
-      day: "https://assets.esrutayerma.com/covers/tercer-lanzamiento/day/Ed054545_1.jpg",
-      night: "https://assets.esrutayerma.com/covers/tercer-lanzamiento/night/Ed0543%20(1)_1.jpg",
-    },
-    audio: {
-      day: "https://assets.esrutayerma.com/audios/tercer-lanzamiento/BAJO.mp3",
-      night:
-        "https://assets.esrutayerma.com/audios/tercer-lanzamiento/night/bajo%20(1).mp3",
-    },
-    sharing: {
-      day: {
-        url: "https://esrutayerma.com/",
-        text: "Escucha 'Escombro'",
-        website: "https://esrutayerma.com",
-
-        facebook: "",
-        instagram: "",
-        tiktok: "",
-      },
-
-      night: {
-        url: "https://esrutayerma.com/",
-        text: "Escucha ",
-        website: "https://esrutayerma.com",
-
-        facebook: "",
-        instagram: "",
-        tiktok: "",
-      },
-    },
-
-    download: "https://assets.esrutayerma.com/audios/segundo_lanzamiento/day/ESCOMBRO-_GUITARRA-EL%C3%89CTRICA_.mp3",
-    visuals: {
-      monitor: {
-        day: "../assets/video/day/261029_SAERY_Vol1.mp4",
-        night: "../assets/video/night/261029_SAERY_Vol2.mp4",
-      },
-
-      projector: {
-        day: "https://assets.esrutayerma.com/videos/tercer-lanzamiento/day/SAHUARO_1_1.mp4",
-        night:
-          "https://assets.esrutayerma.com/videos/tercer-lanzamiento/night/En_las_buenas_y_en_las_malas_2_1.mp4",
-      },
-      curtains: {
-        day: "https://assets.esrutayerma.com/videos/tercer-lanzamiento/day/SAHUARO_2_1.mp4",
-        night:
-          "https://assets.esrutayerma.com/videos/tercer-lanzamiento/night/En_las_buenas_y_en_las_malas_1_2.mp4",
-      },
-    },
-    youtube: {
-      day: "https://www.tiktok.com/music/-7699670371457337345",
-      night: "https://www.tiktok.com/music/-7699318503766427649",
-    },
-    camera: {
-      position: {
-        x: -1.9,
-        y: 1.3,
-        z: 0.9,
-      },
-
-      target: {
-        x: 0,
-        y: 1.3,
-        z: 0,
-      },
-    },
-  },
-  Slider_Pista06: {
-    type: "track",
-    hint: "music",
-    beacon: {
-      color: "#FFD600",
-
-      size: 0.1,
-
-      animation: "pulse",
-    },
-
-    hover: {
-      outline: true,
-
-      emissive: 0.8,
-    },
-    title: {
-      day: "Track 6: PANDERO",
-      night: "Track 6: órgano",
-    },
-    cover: {
-      day: "https://assets.esrutayerma.com/covers/tercer-lanzamiento/day/Ed06545_1.jpg",
-      night: "https://assets.esrutayerma.com/covers/tercer-lanzamiento/night/Ed06434%20(1)_1.jpg",
-    },
-    audio: {
-      day: "https://sitio-ed.s3.us-east-1.amazonaws.com/PANDERO.mp3",
-      night:
-        "https://assets.esrutayerma.com/audios/tercer-lanzamiento/night/%C3%B3rgano.mp3",
-    },
-    sharing: {
-      day: {
-        url: "https://esrutayerma.com/",
-        text: "Escucha 'Escombro'",
-        website: "https://esrutayerma.com",
-
-        facebook: "",
-        instagram: "",
-        tiktok: "",
-      },
-
-      night: {
-        url: "https://esrutayerma.com/",
-        text: "Escucha ",
-        website: "https://esrutayerma.com",
-
-        facebook: "",
-        instagram: "",
-        tiktok: "",
-      },
-    },
-
-    download: "https://assets.esrutayerma.com/audios/segundo_lanzamiento/day/ESCOMBRO-_GUITARRA-EL%C3%89CTRICA_.mp3",
-    visuals: {
-      monitor: {
-        day: "../assets/video/day/261029_SAERY_Vol1.mp4",
-        night: "../assets/video/night/261029_SAERY_Vol2.mp4",
-      },
-
-      projector: {
-        day: "https://assets.esrutayerma.com/videos/tercer-lanzamiento/day/SAHUARO_1_1.mp4",
-        night:
-          "https://assets.esrutayerma.com/videos/tercer-lanzamiento/night/En_las_buenas_y_en_las_malas_2_1.mp4",
-      },
-      curtains: {
-        day: "https://assets.esrutayerma.com/videos/tercer-lanzamiento/day/SAHUARO_2_1.mp4",
-        night:
-          "https://assets.esrutayerma.com/videos/tercer-lanzamiento/night/En_las_buenas_y_en_las_malas_1_2.mp4",
-      },
-    },
-    youtube: {
-      day: "https://www.tiktok.com/music/-7699675893615200308",
-      night: "https://www.tiktok.com/music/-7699317967339374598",
-    },
-    camera: {
-      position: {
-        x: -1.9,
-        y: 1.3,
-        z: 0.9,
-      },
-
-      target: {
-        x: 0,
-        y: 1.3,
-        z: 0,
-      },
-    },
-  },
-  Slider_Pista07: {
-    type: "track",
-    hint: "music",
-    beacon: {
-      color: "#FFD600",
-
-      size: 0.1,
-
-      animation: "pulse",
-    },
-
-    hover: {
-      outline: true,
-
-      emissive: 0.8,
-    },
-    title: {
-      day: "Escuchar ahora",
-      night: "Track 6: órgano",
-    },
-    cover: {
-      day: "https://assets.esrutayerma.com/covers/day/SAHUARO001RGB%20(1).jpg",
-      night: "https://assets.esrutayerma.com/covers/tercer-lanzamiento/night/ELBYELM001RGB%20(1)%20(1).jpg",
-    },
-    audio: {
-      day: "https://assets.esrutayerma.com/audios/tercer-lanzamiento/sahuaro-jj-mix-6-without-limiter-mastered-dk_Ob0usrkk.mp3",
-      night:
-        "https://assets.esrutayerma.com/audios/tercer-lanzamiento/night/ELBYELM_QT_1_AUDIO.mp3",
-    },
-    sharing: {
-      day: {
-        url: "https://esrutayerma.com/",
-        text: "Escucha 'Escombro'",
-        website: "https://esrutayerma.com",
-
-        facebook: "",
-        instagram: "",
-        tiktok: "",
-        music:"https://edmaverick.lnk.to/SAHUARO"
-      },
-
-      night: {
-        url: "https://esrutayerma.com/",
-        text: "Escucha ",
-        website: "https://esrutayerma.com",
-        music: "https://edmaverick.lnk.to/elbyelm",
-
-        facebook: "",
-        instagram: "",
-        tiktok: "",
-      },
-    },
-
-    download: "https://assets.esrutayerma.com/audios/segundo_lanzamiento/day/ESCOMBRO-_GUITARRA-EL%C3%89CTRICA_.mp3",
-    visuals: {
-      monitor: {
-        day: "https://assets.esrutayerma.com/videos/tercer-lanzamiento/day/SAHUAROCOLOR2300HB.mp4",
-        night: "https://assets.esrutayerma.com/videos/tercer-lanzamiento/night/ELBYELM_QT.mp4",
-      },
-
-      projector: {
-        day: "https://assets.esrutayerma.com/videos/tercer-lanzamiento/day/SAHUARO_1_1.mp4",
-        night:
-          "https://assets.esrutayerma.com/videos/tercer-lanzamiento/night/En_las_buenas_y_en_las_malas_2_1.mp4",
-      },
-      curtains: {
-        day: "https://assets.esrutayerma.com/videos/tercer-lanzamiento/day/SAHUARO_2_1.mp4",
-        night:
-          "https://assets.esrutayerma.com/videos/tercer-lanzamiento/night/En_las_buenas_y_en_las_malas_1_2.mp4",
-      },
-    },
-    youtube: {
-      day: "https://youtu.be/nPJoCU1GgB0?si=fFaCSKDGW2WqGnGO",
-      night: "https://youtu.be/LqUiJM1oTco?si=EcZOSVZ5hURJib3M",
-    },
-    camera: {
-      position: {
-        x: -1.9,
-        y: 1.3,
-        z: 0.9,
-      },
-
-      target: {
-        x: 0,
-        y: 1.3,
-        z: 0,
-      },
-    },
-  },
+  // Slider_Pista01: {
+  //   type: "track",
+  //   hint: "music",
+  //   beacon: {
+  //     color: "#FFD600",
+
+  //     size: 0.1,
+
+  //     animation: "pulse",
+  //   },
+
+  //   hover: {
+  //     outline: true,
+
+  //     emissive: 0.8,
+  //   },
+  //   title: {
+  //     day: "Track 1: GUITARRA ACÚSTICA",
+  //     night: "Track 1: GUITARRA ACÚSTICA",
+  //   },
+  //   cover: {
+  //     day: "https://assets.esrutayerma.com/covers/tercer-lanzamiento/day/Ed01_1.jpg",
+  //     night: "https://assets.esrutayerma.com/covers/tercer-lanzamiento/night/Ed01%20(1)_1.jpg",
+  //   },
+  //   audio: {
+  //     day: "https://assets.esrutayerma.com/audios/tercer-lanzamiento/GUITARRA-AC%C3%9ASTICA.mp3",
+  //     night:
+  //       "https://assets.esrutayerma.com/audios/tercer-lanzamiento/night/guitarra-ac%C3%BAstica.mp3",
+  //   },
+  //   sharing: {
+  //     day: {
+  //       url: "https://esrutayerma.com/",
+  //       text: "Escucha 'Escombro'",
+  //       website: "https://esrutayerma.com",
+
+  //       facebook: "",
+  //       instagram: "",
+  //       tiktok: "",
+  //     },
+
+  //     night: {
+  //       url: "https://esrutayerma.com/",
+  //       text: "Escucha ",
+  //       website: "https://esrutayerma.com",
+
+  //       facebook: "",
+  //       instagram: "",
+  //       tiktok: "",
+  //     },
+  //   },
+
+  //   download: "https://assets.esrutayerma.com/audios/segundo_lanzamiento/day/ESCOMBRO-_GUITARRA-EL%C3%89CTRICA_.mp3",
+  //   visuals: {
+  //     monitor: {
+  //       day: "../assets/video/day/261029_SAERY_Vol1.mp4",
+  //       night: "../assets/video/night/261029_SAERY_Vol2.mp4",
+  //     },
+
+  //     projector: {
+  //       day: "https://assets.esrutayerma.com/videos/tercer-lanzamiento/day/SAHUARO_1_1.mp4",
+  //       night:
+  //         "https://assets.esrutayerma.com/videos/tercer-lanzamiento/night/En_las_buenas_y_en_las_malas_2_1.mp4",
+  //     },
+  //     curtains: {
+  //       day: "https://assets.esrutayerma.com/videos/tercer-lanzamiento/day/SAHUARO_2_1.mp4",
+  //       night:
+  //         "https://assets.esrutayerma.com/videos/tercer-lanzamiento/night/En_las_buenas_y_en_las_malas_1_2.mp4",
+  //     },
+  //   },
+  //   youtube: {
+  //     day: "https://www.tiktok.com/music/-7699683402954164230",
+  //     night: "https://www.tiktok.com/music/-7699327356518860852",
+  //   },
+  //   camera: {
+  //     position: {
+  //       x: -1.9,
+  //       y: 1.3,
+  //       z: 0.9,
+  //     },
+
+  //     target: {
+  //       x: 0,
+  //       y: 1.3,
+  //       z: 0,
+  //     },
+  //   },
+  // },
+  
+  // PlanosTele: {
+  //   type: "screen",
+  //   screen: "monitor", // clave de la pantalla en ScreenManager
+  //   showCard: false,
+  //   video: {
+  //     day: "",
+  //     night:
+  //       "",
+  //   },
+  //   hover: {
+  //     outline: true,
+  //     emissive: 0.8,
+  //   },
+  // },
   shop1: {
     type: "link",
     hint: "shop",
@@ -764,74 +255,59 @@ export default {
     },
     animation: "Nota Noche",
   },
-  sahauro_1: {
+  
+ lista: {
     type: "info",
-    title: "Siempre fuiste igual, un alma traviesa. No es queja.",
+    showCard: false,
+    hover: {
+      outline: true,
+
+      emissive: 0.8,
+    },
+    animation: "listaAction",
+  },
+
+  PortadaDia: {
+    type: "link",
     showCard: true,
     hover: {
       outline: true,
 
       emissive: 0.8,
     },
+    title: "Sahuaro",
+    actionLabel: "Escuchar ahora",
+    url: "https://edmaverick.lnk.to/SAHUARO",
     
   },
-  sahauro_2: {
-    type: "info",
-    title: "Ya no hay un jardín pero el desierto tiene su onda.",
+
+  PortadaNoche: {
+    type: "link",
     showCard: true,
     hover: {
       outline: true,
 
       emissive: 0.8,
     },
-    
+    animation: "PortadaNocheAction",
+    title: "En las buenas y en las malas",
+    actionLabel: "Escuchar ahora",
+    url: "https://edmaverick.lnk.to/elbyelm",
   },
-  sahauro_3: {
-    type: "info",
-    title: "Ya no quiero hablar de lo que hicimos mal. Aquí nadie se juzga.",
+  reveal_noche: {
+    type: "link",
     showCard: true,
     hover: {
       outline: true,
 
       emissive: 0.8,
     },
-    
-  },
-  sahauro_4: {
-    type: "info",
-    title: "Derrite mis botas de piel. El sol brillando. Todo lo que quiero hacer, lo voy a hacer.",
-    showCard: true,
-    hover: {
-      outline: true,
-
-      emissive: 0.8,
-    },
-    
+    animation: "PortadaNocheAction",
+    title: "amor",
+    actionLabel: "Escuchar ahora",
+    url: "https://music.apple.com/mx/album/amor/1757129675",
   },
 
-   sahauro_5: {
-    type: "info",
-    title: "Da igual ni pienso en el ayer. No estoy tripeando. La magia está en ir y volver.",
-    showCard: true,
-    hover: {
-      outline: true,
-
-      emissive: 0.8,
-    },
-    
-  },
-  sahauro_6: {
-    type: "info",
-    title: "Da igual ni pienso en el ayer. No estoy tripeando. La magia está en ir y volver.",
-    showCard: true,
-    hover: {
-      outline: true,
-
-      emissive: 0.8,
-    },
-    
-  },
- 
    texto_1: {
     type: "info",
     showCard: false,
