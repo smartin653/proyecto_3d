@@ -22,7 +22,10 @@ export default class InteractionCard {
 
       switch (this.currentInteractable.type) {
         case "link":
-          window.open(this.currentInteractable.url, "_blank");
+        case "screen": // pantallas con botón: abren su url
+          if (this.currentInteractable.url) {
+            window.open(this.currentInteractable.url, "_blank");
+          }
 
           break;
 
@@ -67,7 +70,16 @@ export default class InteractionCard {
 
    
 
-    if (interactable.type === "link" || interactable.type === "action") {
+    const hasLinkButton =
+      interactable.type === "screen" &&
+      interactable.url &&
+      interactable.actionLabel;
+
+    if (
+      interactable.type === "link" ||
+      interactable.type === "action" ||
+      hasLinkButton
+    ) {
       this.button.style.display = "block";
 
       this.button.textContent = interactable.actionLabel;

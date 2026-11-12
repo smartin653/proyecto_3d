@@ -1,7 +1,25 @@
 // js/data/interactables.js
 
 export default {
-  
+  // Pantalla del monitor: arranca con un fotograma en pausa; el clic reproduce/pausa.
+  PlanosTele: {
+    type: "screen",
+    screen: "monitor", // clave de la pantalla en ScreenManager
+    autoplay: true, // se reproduce solo al entrar al estudio (en silencio)
+    showCard: true,
+    video: {
+      day: "https://assets.esrutayerma.com/videos/WhatsApp%20Video%202026-11-12%20at%205.12.59%20PM.mp4",
+      night: "https://assets.esrutayerma.com/videos/WhatsApp%20Video%202026-11-12%20at%205.12.59%20PM.mp4",
+    },
+    hover: {
+      outline: true,
+      emissive: 0.8,
+    },
+    title: "Ver video",
+    actionLabel: "Ver video",
+    url: "https://www.youtube.com/watch?v=7ykCeB8nsBI"
+  },
+
   shop1: {
     type: "link",
     hint: "shop",
@@ -174,9 +192,9 @@ export default {
       emissive: 0.8,
     },
     animation: "PortadaNocheAction",
-    title: "amor",
+    title: "haciendo tanto",
     actionLabel: "Escuchar ahora",
-    url: "https://music.apple.com/mx/album/amor/1757129675",
+    url: "https://music.apple.com/mx/album/catarsis/1773878715",
   },
 
    texto_1: {

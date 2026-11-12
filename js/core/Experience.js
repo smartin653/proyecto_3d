@@ -555,6 +555,7 @@ export default class Experience {
 
     this.audioManager.onEnded = () => {
       this.screenManager.stopAll();
+      this.startAutoplayScreens();
       // this.playIdleMonitor();
       this.setTrackInteractablesVisible(false);
       this.spotifyPlayer.hide();
@@ -569,6 +570,18 @@ export default class Experience {
 
       this.screenManager.setIdle(
         data.screen,
+        this.contentVersionManager.resolve(data.video),
+      );
+    });
+  }
+
+  // Pantallas con `autoplay: true` en interactables.js: reproducen solas
+  // (en silencio) al entrar y cuando una pista termina o se cierra.
+  startAutoplayScreens() {
+    Object.values(interactables).forEach((data) => {
+      if (data.type !== "screen" || !data.autoplay) return;
+
+      this.screenManager.screens[data.screen]?.setActive(
         this.contentVersionManager.resolve(data.video),
       );
     });
@@ -761,6 +774,7 @@ export default class Experience {
   }
 
   handleEnter() {
+    this.startAutoplayScreens();
     this.introOverlay.hide();
     this.orientationOverlay.show();
   }
@@ -817,6 +831,7 @@ export default class Experience {
     this.audioManager.audio.currentTime = 0;
 
     this.screenManager.stopAll();
+    this.startAutoplayScreens();
     // this.playIdleMonitor();
 
     this.spotifyPlayer.hide();
