@@ -62,7 +62,7 @@ export default class ContentVersionManager {
 
   getSceneModel() {
   return this.resolve({
-    day: "https://assets.esrutayerma.com/models/reveal/day/reveal%20dia%205.glb",
+    day: "https://assets.esrutayerma.com/models/reveal/day/reveal%20dia%206.glb",
     night: "https://assets.esrutayerma.com/models/reveal/night/reveal%20noche%205.glb",
   });
 }
